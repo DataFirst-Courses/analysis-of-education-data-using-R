@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Intro to ggplot | Introduction to R</title>
+  <meta name="description" content="Chapter 4 Intro to ggplot | Introduction to R" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Intro to ggplot | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Intro to ggplot | Introduction to R" />
+  
+  
+  
+
+<meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
+
+
+<meta name="date" content="2026-04-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-basics.html"/>
+<link rel="next" href="intro-to-data-wrangling-with-tidyverse.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intro to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#rstudio-interface"><i class="fa fa-check"></i><b>2.1</b> RStudio interface</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#source-editor"><i class="fa fa-check"></i><b>2.1.1</b> Source/ Editor</a></li>
+<li class="chapter" data-level="2.1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#example-running-a-line-of-code-in-the-editor"><i class="fa fa-check"></i><b>2.1.2</b> Example: Running a line of code in the Editor</a></li>
+<li class="chapter" data-level="2.1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#console"><i class="fa fa-check"></i><b>2.1.3</b> Console</a></li>
+<li class="chapter" data-level="2.1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#environment-tab"><i class="fa fa-check"></i><b>2.1.4</b> Environment Tab</a></li>
+<li class="chapter" data-level="2.1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#history-tab"><i class="fa fa-check"></i><b>2.1.5</b> History Tab</a></li>
+<li class="chapter" data-level="2.1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#files-tab"><i class="fa fa-check"></i><b>2.1.6</b> Files Tab</a></li>
+<li class="chapter" data-level="2.1.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#plots-tab"><i class="fa fa-check"></i><b>2.1.7</b> Plots Tab</a></li>
+<li class="chapter" data-level="2.1.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#packages-tab"><i class="fa fa-check"></i><b>2.1.8</b> Packages Tab</a></li>
+<li class="chapter" data-level="2.1.9" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#help-tab"><i class="fa fa-check"></i><b>2.1.9</b> Help Tab</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#organize-your-r-session"><i class="fa fa-check"></i><b>2.2</b> Organize your R session</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#working-directory-where-r-looks-for-your-files"><i class="fa fa-check"></i><b>2.2.1</b> Working Directory: Where R Looks for Your Files</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-and-loading-packages-libraries"><i class="fa fa-check"></i><b>2.2.2</b> Installing and Loading Packages (Libraries)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#comments-in-r"><i class="fa fa-check"></i><b>2.2.3</b> Comments in R</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#common-mistakes-and-quick-fixes"><i class="fa fa-check"></i><b>2.2.4</b> Common mistakes and quick fixes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#getting-help"><i class="fa fa-check"></i><b>2.3</b> Getting help</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#operators-in-r"><i class="fa fa-check"></i><b>2.4</b> Operators in R</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#basic-arithmetic-operators"><i class="fa fa-check"></i><b>2.4.1</b> Basic arithmetic operators</a></li>
+<li class="chapter" data-level="2.4.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#assignment-operator"><i class="fa fa-check"></i><b>2.4.2</b> Assignment operator</a></li>
+<li class="chapter" data-level="2.4.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#sequence-operator"><i class="fa fa-check"></i><b>2.4.3</b> Sequence operator</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.5</b> Objects in R</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#managing-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Managing the workspace</a></li>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#some-language-features"><i class="fa fa-check"></i><b>2.7</b> Some language features</a></li>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#test-your-knowledge"><i class="fa fa-check"></i><b>2.8</b> Test your knowledge</a></li>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#session-information"><i class="fa fa-check"></i><b>2.9</b> Session information</a></li>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#acknowledgements"><i class="fa fa-check"></i><b>2.10</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#scalar-arithmetic"><i class="fa fa-check"></i><b>3.1</b> Scalar Arithmetic</a></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#vector-arithmetic"><i class="fa fa-check"></i><b>3.2</b> Vector Arithmetic</a></li>
+<li class="chapter" data-level="3.3" data-path="r-basics.html"><a href="r-basics.html#matrices-and-matrix-functions"><i class="fa fa-check"></i><b>3.3</b> Matrices and Matrix Functions</a></li>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#data-frame"><i class="fa fa-check"></i><b>3.4</b> Data Frame</a></li>
+<li class="chapter" data-level="3.5" data-path="r-basics.html"><a href="r-basics.html#missing-values"><i class="fa fa-check"></i><b>3.5</b> Missing Values</a></li>
+<li class="chapter" data-level="3.6" data-path="r-basics.html"><a href="r-basics.html#control-flow"><i class="fa fa-check"></i><b>3.6</b> Control Flow</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="r-basics.html"><a href="r-basics.html#logical-operators"><i class="fa fa-check"></i><b>3.6.1</b> Logical Operators</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-basics.html"><a href="r-basics.html#if-statement"><i class="fa fa-check"></i><b>3.6.2</b> <code>if</code> statement</a></li>
+<li class="chapter" data-level="3.6.3" data-path="r-basics.html"><a href="r-basics.html#for-loop"><i class="fa fa-check"></i><b>3.6.3</b> <code>for</code> loop</a></li>
+<li class="chapter" data-level="3.6.4" data-path="r-basics.html"><a href="r-basics.html#for-loop-with-an-if-statement"><i class="fa fa-check"></i><b>3.6.4</b> <code>for</code> loop with an <code>if</code> statement</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>4</b> Intro to ggplot</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#what-is-ggplot2"><i class="fa fa-check"></i><b>4.1</b> What is ggplot2?</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#optional-grammar-of-graphics-background"><i class="fa fa-check"></i><b>4.1.1</b> Optional: Grammar of Graphics (background)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-main-pieces-of-ggplot2"><i class="fa fa-check"></i><b>4.2</b> The main pieces of ggplot2</a></li>
+<li class="chapter" data-level="4.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#building-your-first-plot-data-aes-geom"><i class="fa fa-check"></i><b>4.3</b> Building your first plot: data → aes → geom</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-1-choose-the-data"><i class="fa fa-check"></i><b>4.3.1</b> Step 1: Choose the data</a></li>
+<li class="chapter" data-level="4.3.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-2-map-variables-with-aes"><i class="fa fa-check"></i><b>4.3.2</b> Step 2: Map variables with <code>aes()</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-3-add-a-geometry-with-geom_point"><i class="fa fa-check"></i><b>4.3.3</b> Step 3: Add a geometry with <code>geom_point()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#aesthetics-colour-shape-size"><i class="fa fa-check"></i><b>4.4</b> Aesthetics: colour, shape, size</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-shape-to-a-variable"><i class="fa fa-check"></i><b>4.4.1</b> Mapping shape to a variable</a></li>
+<li class="chapter" data-level="4.4.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-colour-to-a-variable"><i class="fa fa-check"></i><b>4.4.2</b> Mapping colour to a variable</a></li>
+<li class="chapter" data-level="4.4.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-size-to-a-variable-e.g.-age"><i class="fa fa-check"></i><b>4.4.3</b> Mapping size to a variable (e.g., age)</a></li>
+<li class="chapter" data-level="4.4.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#using-a-categorical-variable"><i class="fa fa-check"></i><b>4.4.4</b> Using a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#aesthetic-mapping-vs-fixed-settings-some-nuance"><i class="fa fa-check"></i><b>4.5</b> Aesthetic mapping vs fixed settings (some nuance)</a></li>
+<li class="chapter" data-level="4.6" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#small-polish-labels-and-a-simple-theme"><i class="fa fa-check"></i><b>4.6</b> Small polish: labels and a simple theme</a></li>
+<li class="chapter" data-level="4.7" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#practice-test-your-knowledge-with-mpg"><i class="fa fa-check"></i><b>4.7</b> Practice: Test your knowledge with <code>mpg</code></a></li>
+<li class="chapter" data-level="4.8" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#saving-plots-to-files-with-ggsave"><i class="fa fa-check"></i><b>4.8</b> Saving plots to files with <code>ggsave()</code></a></li>
+<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> 10. Useful resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html"><i class="fa fa-check"></i><b>5</b> Intro to data wrangling with tidyverse</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#what-makes-the-tidyverse-special"><i class="fa fa-check"></i><b>5.1</b> What makes the tidyverse special?</a></li>
+<li class="chapter" data-level="5.2" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#why-learn-dplyr-first"><i class="fa fa-check"></i><b>5.2</b> Why learn dplyr first?</a></li>
+<li class="chapter" data-level="5.3" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i><b>5.3</b> Data wrangling with dplyr</a></li>
+<li class="chapter" data-level="5.4" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#import-data"><i class="fa fa-check"></i><b>5.4</b> Import Data</a></li>
+<li class="chapter" data-level="5.5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#working-with-tibbles"><i class="fa fa-check"></i><b>5.5</b> Working with Tibbles</a></li>
+<li class="chapter" data-level="5.6" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#the-five-key-dplyr-verbs"><i class="fa fa-check"></i><b>5.6</b> The Five Key dplyr Verbs</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#filtering-rows-with-filter"><i class="fa fa-check"></i><b>5.6.1</b> Filtering rows with <code>filter()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#introducing-the-pipe"><i class="fa fa-check"></i><b>5.6.2</b> Introducing the pipe</a></li>
+<li class="chapter" data-level="5.6.3" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#arranging-rows-with-arrange"><i class="fa fa-check"></i><b>5.6.3</b> Arranging rows with <code>arrange()</code></a></li>
+<li class="chapter" data-level="5.6.4" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#selecting-columns-with-select"><i class="fa fa-check"></i><b>5.6.4</b> Selecting columns with <code>select()</code></a></li>
+<li class="chapter" data-level="5.6.5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#adding-new-variables-with-mutate"><i class="fa fa-check"></i><b>5.6.5</b> Adding new variables with <code>mutate()</code></a></li>
+<li class="chapter" data-level="5.6.6" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#aggregating-over-rows-with-summarise"><i class="fa fa-check"></i><b>5.6.6</b> Aggregating over rows with <code>summarise()</code></a></li>
+<li class="chapter" data-level="5.6.7" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#sources-and-references"><i class="fa fa-check"></i><b>5.6.7</b> Sources and references</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html"><i class="fa fa-check"></i><b>6</b> Survey Design, Sampling, and Weighting</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html#survey-sampling-and-design"><i class="fa fa-check"></i><b>6.1</b> Survey sampling and design</a></li>
+<li class="chapter" data-level="6.2" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html#survey-weights-and-design-based-inference"><i class="fa fa-check"></i><b>6.2</b> Survey weights and design-based inference</a></li>
+<li class="chapter" data-level="6.3" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html#practice-exercises"><i class="fa fa-check"></i><b>6.3</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="understanding-distributions.html"><a href="understanding-distributions.html"><i class="fa fa-check"></i><b>7</b> Understanding distributions</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#getting-oriented-to-the-data"><i class="fa fa-check"></i><b>7.1</b> Getting oriented to the data</a></li>
+<li class="chapter" data-level="7.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#levels-of-measurement"><i class="fa fa-check"></i><b>7.2</b> Levels of measurement</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#continuous-level"><i class="fa fa-check"></i><b>7.2.1</b> Continuous level</a></li>
+<li class="chapter" data-level="7.2.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#ordinal-level"><i class="fa fa-check"></i><b>7.2.2</b> Ordinal level</a></li>
+<li class="chapter" data-level="7.2.3" data-path="understanding-distributions.html"><a href="understanding-distributions.html#categorical-level"><i class="fa fa-check"></i><b>7.2.3</b> Categorical level</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-summaries-using-the-survey-design"><i class="fa fa-check"></i><b>7.3</b> Weighted summaries using the survey design</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-proportions-and-means"><i class="fa fa-check"></i><b>7.3.1</b> Weighted proportions and means</a></li>
+<li class="chapter" data-level="7.3.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-frequency-tables"><i class="fa fa-check"></i><b>7.3.2</b> Weighted frequency tables</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="understanding-distributions.html"><a href="understanding-distributions.html#household-level-variables-in-a-child-level-file"><i class="fa fa-check"></i><b>7.4</b> Household-level variables in a child-level file</a></li>
+<li class="chapter" data-level="7.5" data-path="understanding-distributions.html"><a href="understanding-distributions.html#missing-data-and-skip-patterns"><i class="fa fa-check"></i><b>7.5</b> Missing data and skip patterns</a></li>
+<li class="chapter" data-level="7.6" data-path="understanding-distributions.html"><a href="understanding-distributions.html#practice-exercise"><i class="fa fa-check"></i><b>7.6</b> Practice Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html"><i class="fa fa-check"></i><b>8</b> Central Tendency and Dispersion</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#central-tendency"><i class="fa fa-check"></i><b>8.1</b> Central tendency</a></li>
+<li class="chapter" data-level="8.2" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#dispersion"><i class="fa fa-check"></i><b>8.2</b> Dispersion</a></li>
+<li class="chapter" data-level="8.3" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#weighted-design-correct-summaries"><i class="fa fa-check"></i><b>8.3</b> Weighted, design-correct summaries</a></li>
+<li class="chapter" data-level="8.4" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#outliers-and-the-unit-of-analysis"><i class="fa fa-check"></i><b>8.4</b> Outliers and the unit of analysis</a></li>
+<li class="chapter" data-level="8.5" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#practice-exercises-1"><i class="fa fa-check"></i><b>8.5</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html"><i class="fa fa-check"></i><b>9</b> Bivariate Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#choosing-the-right-bivariate-tool"><i class="fa fa-check"></i><b>9.1</b> Choosing the right bivariate tool</a></li>
+<li class="chapter" data-level="9.2" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#categorical-categorical-cross-tabulations"><i class="fa fa-check"></i><b>9.2</b> Categorical × categorical: cross-tabulations</a></li>
+<li class="chapter" data-level="9.3" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#continuous-categorical-comparing-group-means"><i class="fa fa-check"></i><b>9.3</b> Continuous × categorical: comparing group means</a></li>
+<li class="chapter" data-level="9.4" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#continuous-continuous-scatterplots-and-trends"><i class="fa fa-check"></i><b>9.4</b> Continuous × continuous: scatterplots and trends</a></li>
+<li class="chapter" data-level="9.5" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#testing-association-with-chi-squared-tests"><i class="fa fa-check"></i><b>9.5</b> Testing association with chi-squared tests</a></li>
+<li class="chapter" data-level="9.6" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#practice-exercises-2"><i class="fa fa-check"></i><b>9.6</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#preparing-variables-for-analysis"><i class="fa fa-check"></i><b>10.1</b> Preparing variables for analysis</a></li>
+<li class="chapter" data-level="10.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#correlation-and-simple-regression"><i class="fa fa-check"></i><b>10.2</b> Correlation and simple regression</a></li>
+<li class="chapter" data-level="10.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#survey-weighted-regression-for-population-inference"><i class="fa fa-check"></i><b>10.3</b> Survey-weighted regression for population inference</a></li>
+<li class="chapter" data-level="10.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#practice-exercises-3"><i class="fa fa-check"></i><b>10.4</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#the-multiple-regression-model-and-its-interpretation"><i class="fa fa-check"></i><b>11.1</b> The multiple regression model and its interpretation</a></li>
+<li class="chapter" data-level="11.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#data-and-analysis-sample"><i class="fa fa-check"></i><b>11.2</b> Data and analysis sample</a></li>
+<li class="chapter" data-level="11.3" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#building-a-multiple-regression-model"><i class="fa fa-check"></i><b>11.3</b> Building a multiple regression model</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#comparing-coefficients-across-models"><i class="fa fa-check"></i><b>11.3.1</b> Comparing coefficients across models</a></li>
+<li class="chapter" data-level="11.3.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#interpreting-categorical-predictors"><i class="fa fa-check"></i><b>11.3.2</b> Interpreting categorical predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#extensions-interactions-and-non-linear-effects"><i class="fa fa-check"></i><b>11.4</b> Extensions: interactions and non-linear effects</a></li>
+<li class="chapter" data-level="11.5" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#reporting-results"><i class="fa fa-check"></i><b>11.5</b> Reporting results</a></li>
+<li class="chapter" data-level="11.6" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#practice-exercises-4"><i class="fa fa-check"></i><b>11.6</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>12</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="logistic-regression.html"><a href="logistic-regression.html#what-logistic-regression-models"><i class="fa fa-check"></i><b>12.1</b> What logistic regression models</a></li>
+<li class="chapter" data-level="12.2" data-path="logistic-regression.html"><a href="logistic-regression.html#simple-versus-multiple-logistic-regression"><i class="fa fa-check"></i><b>12.2</b> Simple versus multiple logistic regression</a></li>
+<li class="chapter" data-level="12.3" data-path="logistic-regression.html"><a href="logistic-regression.html#data"><i class="fa fa-check"></i><b>12.3</b> Data</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="logistic-regression.html"><a href="logistic-regression.html#import-subset-and-keep-only-needed-variables"><i class="fa fa-check"></i><b>12.3.1</b> Import, subset, and keep only needed variables</a></li>
+<li class="chapter" data-level="12.3.2" data-path="logistic-regression.html"><a href="logistic-regression.html#recode-variables-labels-reference-levels"><i class="fa fa-check"></i><b>12.3.2</b> Recode variables (labels + reference levels)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="logistic-regression.html"><a href="logistic-regression.html#why-we-need-survey-design-information"><i class="fa fa-check"></i><b>12.3.3</b> Why we need survey design information</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="logistic-regression.html"><a href="logistic-regression.html#simple-logistic-regression"><i class="fa fa-check"></i><b>12.4</b> Simple Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="logistic-regression.html"><a href="logistic-regression.html#continuous-predictor-childs-age"><i class="fa fa-check"></i><b>12.4.1</b> Continuous predictor: child’s age</a></li>
+<li class="chapter" data-level="12.4.2" data-path="logistic-regression.html"><a href="logistic-regression.html#categorical-predictor-example-books"><i class="fa fa-check"></i><b>12.4.2</b> Categorical predictor example: Books</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="logistic-regression.html"><a href="logistic-regression.html#multiple-binary-logistic-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple binary logistic regression</a></li>
+<li class="chapter" data-level="12.6" data-path="logistic-regression.html"><a href="logistic-regression.html#interaction"><i class="fa fa-check"></i><b>12.6</b> Interaction</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="logistic-regression.html"><a href="logistic-regression.html#interpretation-of-age-sex-and-the-agesex-interaction"><i class="fa fa-check"></i><b>12.6.1</b> Interpretation of age, sex, and the age*sex interaction</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="logistic-regression.html"><a href="logistic-regression.html#reporting-results-1"><i class="fa fa-check"></i><b>12.7</b> Reporting Results</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro-to-ggplot" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Intro to ggplot<a href="intro-to-ggplot.html#intro-to-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We’ll use the <strong>ICAN-ICAR 2025</strong> survey data with variables such as:</p>
+<ul>
+<li><code>ReadingIRTScore</code>: Child’s reading latent ability score</li>
+<li><code>MathIRTScore</code>: Child’s maths latent ability score</li>
+<li><code>ch02</code>: Child’s age</li>
+<li><code>ch03</code>: Child’s gender</li>
+<li><code>EnrolmentStatus</code>: child’s school enrollment status</li>
+<li><code>ch04a</code>: whether the child has eye difficulties</li>
+</ul>
+<p>Load the packages and load and prepare the data:</p>
+<p>You don’t need to understand all the details of <code>ican-icar-2025-v1</code> yet.<br />
+For now, just remember:</p>
+<ul>
+<li>We’ll be using a data frame called <strong><code>dat</code></strong>.</li>
+<li>Each <strong>row</strong> is a child.</li>
+</ul>
+<hr />
+<div id="what-is-ggplot2" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> What is ggplot2?<a href="intro-to-ggplot.html#what-is-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>ggplot2</code> is the R package we’ll use to make graphs.</p>
+<ul>
+<li>It’s part of the <strong>tidyverse</strong> (a family of R packages for data analysis).</li>
+<li>It’s based on the <strong>Grammar of Graphics</strong> idea.</li>
+<li>Instead of giving you a few pre-made plots, it lets you build plots from <strong>simple pieces</strong> (layers).</li>
+<li>You can use it effectively <strong>without</strong> fully understanding the underlying theory (we’ll learn by doing).</li>
+</ul>
+<p>In practice, we’ll keep this simple mental model:</p>
+<blockquote>
+<p><strong>To make a plot in ggplot2 we always say:</strong><br />
+“Use this <strong>data</strong>, map these <strong>variables</strong> to the axes/colour/etc.,<br />
+and draw them with this <strong>geom</strong> (points, bars, lines, …).”</p>
+</blockquote>
+<div id="optional-grammar-of-graphics-background" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Optional: Grammar of Graphics (background)<a href="intro-to-ggplot.html#optional-grammar-of-graphics-background" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you’re curious about the theory:</p>
+<ul>
+<li><strong>Graphics = distinct layers</strong> (data, aesthetic mappings, geoms, …).</li>
+<li><strong>Aesthetic mapping</strong>: connect variables in the data (numbers, labels) to what we see (position, colour, size, shape).</li>
+</ul>
+<p>Don’t worry if this feels abstract right now; the examples will make it concrete.</p>
+<hr />
+</div>
+</div>
+<div id="the-main-pieces-of-ggplot2" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> The main pieces of ggplot2<a href="intro-to-ggplot.html#the-main-pieces-of-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A <strong>ggplot2</strong> plot is built from several elements.</p>
+<p>For our intro, we only need these three:</p>
+<ol style="list-style-type: decimal">
+<li><strong>data</strong> – the data frame we’re plotting (here: <code>dat</code>).</li>
+<li><strong>aes(…)</strong> – <em>aesthetic mappings</em>: how variables map to what we see (x-axis, y-axis, colour, size, shape).</li>
+<li><strong>geom_…()</strong> – the <em>geometric object</em> that draws the data (points, lines, bars, etc.).</li>
+</ol>
+<p>Later (optional), we can also use:</p>
+<ul>
+<li><strong>stats</strong> – automatic summaries (e.g. means, counts, smooth lines).</li>
+<li><strong>scales</strong> – axis ranges and colour scales.</li>
+<li><strong>coordinate systems</strong> – how axes are drawn.</li>
+<li><strong>facets</strong> – small multiples of the same plot.</li>
+<li><strong>themes</strong> – fonts, grid lines, background (“non-data ink”).</li>
+</ul>
+<hr />
+</div>
+<div id="building-your-first-plot-data-aes-geom" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Building your first plot: data → aes → geom<a href="intro-to-ggplot.html#building-your-first-plot-data-aes-geom" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We’ll start by plotting <strong>household expenditure</strong> against <strong>household income</strong>.</p>
+<div id="step-1-choose-the-data" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Step 1: Choose the data<a href="intro-to-ggplot.html#step-1-choose-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First we tell ggplot2 <em>which data frame to use</em>:</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="intro-to-ggplot.html#cb262-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat)</span></code></pre></div>
+<p><img src="figs/unnamed-chunk-150-1.png" width="672" /></p>
+<p>This creates a <strong>blank plotting area</strong> (a coordinate system), but we haven’t told it <em>what</em> to draw yet, so you’ll likely see an empty plot.</p>
+</div>
+<div id="step-2-map-variables-with-aes" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Step 2: Map variables with <code>aes()</code><a href="intro-to-ggplot.html#step-2-map-variables-with-aes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Next, we say which variables go to which axis using <code>aes()</code>:</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="intro-to-ggplot.html#cb263-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb263-2"><a href="intro-to-ggplot.html#cb263-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore, <span class="at">y =</span> MathIRTScore))</span></code></pre></div>
+<p><img src="figs/unnamed-chunk-151-1.png" width="672" /></p>
+<p>Read this as:</p>
+<ul>
+<li>Put <code>ReadingIRTScore</code> on the <strong>x-axis</strong> (horizontal).</li>
+<li>Put <code>ch02</code> on the <strong>y-axis</strong> (vertical).</li>
+</ul>
+<p>This still doesn’t draw points — it only defines the <strong>mapping</strong>.</p>
+</div>
+<div id="step-3-add-a-geometry-with-geom_point" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Step 3: Add a geometry with <code>geom_point()</code><a href="intro-to-ggplot.html#step-3-add-a-geometry-with-geom_point" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now we add a <strong>geometry</strong> to actually draw the data. For a scatterplot, we use <code>geom_point()</code>:</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="intro-to-ggplot.html#cb264-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb264-2"><a href="intro-to-ggplot.html#cb264-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore, <span class="at">y =</span> MathIRTScore)) <span class="sc">+</span></span>
+<span id="cb264-3"><a href="intro-to-ggplot.html#cb264-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
+<p><img src="figs/unnamed-chunk-152-1.png" width="672" /></p>
+<p>Think of this as:</p>
+<blockquote>
+<p>“Using data <code>dat</code>,<br />
+put reading score on x, maths score on y,<br />
+and draw one <strong>point per child</strong>.”</p>
+</blockquote>
+<p>This <strong>data + aes + geom</strong> pattern is the core template you’ll reuse for almost every plot in ggplot2. You can find other geometries that might interest you, i.e., a bar graph is <code>geom_bar()</code>, a line graph is <code>geom_line()</code>, etc. Here, we keep it simple by honing a scatter plot to show many design controls you could attain from <strong>ggplot</strong>.</p>
+<hr />
+</div>
+</div>
+<div id="aesthetics-colour-shape-size" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Aesthetics: colour, shape, size<a href="intro-to-ggplot.html#aesthetics-colour-shape-size" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>aes()</code> can also control things like <strong>colour</strong>, <strong>shape</strong>, and <strong>size</strong>.</p>
+<p>Big idea:</p>
+<blockquote>
+<p>Whatever you put <em>inside</em> <code>aes(...)</code> is controlled by the <strong>data</strong>.<br />
+For example, <code>aes(colour = ch03)</code> means “use the variable <code>ch03</code> to decide the colour of each point”.</p>
+</blockquote>
+<p>We’ll reuse our scatterplot and experiment.</p>
+<div id="mapping-shape-to-a-variable" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Mapping shape to a variable<a href="intro-to-ggplot.html#mapping-shape-to-a-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="intro-to-ggplot.html#cb266-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb266-2"><a href="intro-to-ggplot.html#cb266-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore, </span>
+<span id="cb266-3"><a href="intro-to-ggplot.html#cb266-3" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore, </span>
+<span id="cb266-4"><a href="intro-to-ggplot.html#cb266-4" tabindex="-1"></a>                     <span class="at">shape =</span> ch03)) <span class="sc">+</span></span>
+<span id="cb266-5"><a href="intro-to-ggplot.html#cb266-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
+<p><img src="figs/unnamed-chunk-153-1.png" width="672" /></p>
+<ul>
+<li>Different gender groups (<code>ch03</code>) get different <strong>shapes</strong>.</li>
+</ul>
+</div>
+<div id="mapping-colour-to-a-variable" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Mapping colour to a variable<a href="intro-to-ggplot.html#mapping-colour-to-a-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="intro-to-ggplot.html#cb268-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb268-2"><a href="intro-to-ggplot.html#cb268-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore, </span>
+<span id="cb268-3"><a href="intro-to-ggplot.html#cb268-3" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore, </span>
+<span id="cb268-4"><a href="intro-to-ggplot.html#cb268-4" tabindex="-1"></a>                     <span class="at">color =</span> ch03)) <span class="sc">+</span></span>
+<span id="cb268-5"><a href="intro-to-ggplot.html#cb268-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
+<p><img src="figs/unnamed-chunk-154-1.png" width="672" /></p>
+<ul>
+<li>Different groups get different <strong>colours</strong>.</li>
+<li>A <strong>legend</strong> is added automatically.</li>
+</ul>
+</div>
+<div id="mapping-size-to-a-variable-e.g.-age" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Mapping size to a variable (e.g., age)<a href="intro-to-ggplot.html#mapping-size-to-a-variable-e.g.-age" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="intro-to-ggplot.html#cb270-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb270-2"><a href="intro-to-ggplot.html#cb270-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore, </span>
+<span id="cb270-3"><a href="intro-to-ggplot.html#cb270-3" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore, </span>
+<span id="cb270-4"><a href="intro-to-ggplot.html#cb270-4" tabindex="-1"></a>                     <span class="at">size =</span> ch02)) <span class="sc">+</span></span>
+<span id="cb270-5"><a href="intro-to-ggplot.html#cb270-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
+<p><img src="figs/unnamed-chunk-155-1.png" width="672" /></p>
+<ul>
+<li>Children with higher <code>ch02</code> get <strong>larger points</strong>.</li>
+<li><code>alpha = 0.1</code> makes points more transparent, so dense regions are easier to see.</li>
+</ul>
+</div>
+<div id="using-a-categorical-variable" class="section level3 hasAnchor" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> Using a categorical variable<a href="intro-to-ggplot.html#using-a-categorical-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you have categories like <code>EnrolmentStatus</code>, you can map those to colour or fill:</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="intro-to-ggplot.html#cb272-1" tabindex="-1"></a>dat <span class="ot">=</span> dat <span class="sc">|&gt;</span></span>
+<span id="cb272-2"><a href="intro-to-ggplot.html#cb272-2" tabindex="-1"></a>       <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ReadingIRTScore), <span class="sc">!</span><span class="fu">is.na</span>(MathIRTScore))</span>
+<span id="cb272-3"><a href="intro-to-ggplot.html#cb272-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb272-4"><a href="intro-to-ggplot.html#cb272-4" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore,</span>
+<span id="cb272-5"><a href="intro-to-ggplot.html#cb272-5" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore,</span>
+<span id="cb272-6"><a href="intro-to-ggplot.html#cb272-6" tabindex="-1"></a>                     <span class="at">colour =</span> EnrolmentStatus)) <span class="sc">+</span></span>
+<span id="cb272-7"><a href="intro-to-ggplot.html#cb272-7" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.25</span>)</span></code></pre></div>
+<p><img src="figs/unnamed-chunk-156-1.png" width="672" /></p>
+<ul>
+<li>Each BMI category gets a different <strong>colour</strong>.</li>
+<li>Missing categories are filtered out with <code>filter(!is.na(bmi.bins))</code>.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="aesthetic-mapping-vs-fixed-settings-some-nuance" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Aesthetic mapping vs fixed settings (some nuance)<a href="intro-to-ggplot.html#aesthetic-mapping-vs-fixed-settings-some-nuance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sometimes you want a fixed colour for all points (not data-driven).</p>
+<ul>
+<li><strong>Inside <code>aes()</code></strong> → the value comes from the data.</li>
+<li><strong>Outside <code>aes()</code></strong> → you set a fixed value.</li>
+</ul>
+<p>For example:</p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="intro-to-ggplot.html#cb273-1" tabindex="-1"></a><span class="co"># Colour determined by data (race)</span></span>
+<span id="cb273-2"><a href="intro-to-ggplot.html#cb273-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb273-3"><a href="intro-to-ggplot.html#cb273-3" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore,</span>
+<span id="cb273-4"><a href="intro-to-ggplot.html#cb273-4" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore,</span>
+<span id="cb273-5"><a href="intro-to-ggplot.html#cb273-5" tabindex="-1"></a>                     <span class="at">colour =</span> EnrolmentStatus)) <span class="sc">+</span></span>
+<span id="cb273-6"><a href="intro-to-ggplot.html#cb273-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.25</span>)</span></code></pre></div>
+<p><img src="figs/unnamed-chunk-157-1.png" width="672" /></p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="intro-to-ggplot.html#cb274-1" tabindex="-1"></a><span class="co"># Fixed colour (all points blue)</span></span>
+<span id="cb274-2"><a href="intro-to-ggplot.html#cb274-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb274-3"><a href="intro-to-ggplot.html#cb274-3" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore,</span>
+<span id="cb274-4"><a href="intro-to-ggplot.html#cb274-4" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore,</span>
+<span id="cb274-5"><a href="intro-to-ggplot.html#cb274-5" tabindex="-1"></a>                     <span class="at">colour =</span> EnrolmentStatus)) <span class="sc">+</span></span>
+<span id="cb274-6"><a href="intro-to-ggplot.html#cb274-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">colour =</span> <span class="st">&quot;steelblue&quot;</span>)</span></code></pre></div>
+<p><img src="figs/unnamed-chunk-157-2.png" width="672" /></p>
+<p>This distinction becomes important when you combine multiple layers or want to control colours manually, but for now just note the pattern.</p>
+<hr />
+</div>
+<div id="small-polish-labels-and-a-simple-theme" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Small polish: labels and a simple theme<a href="intro-to-ggplot.html#small-polish-labels-and-a-simple-theme" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s tidy up our core scatterplot a little bit:</p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="intro-to-ggplot.html#cb275-1" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb275-2"><a href="intro-to-ggplot.html#cb275-2" tabindex="-1"></a></span>
+<span id="cb275-3"><a href="intro-to-ggplot.html#cb275-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb275-4"><a href="intro-to-ggplot.html#cb275-4" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore,</span>
+<span id="cb275-5"><a href="intro-to-ggplot.html#cb275-5" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore,</span>
+<span id="cb275-6"><a href="intro-to-ggplot.html#cb275-6" tabindex="-1"></a>                     <span class="at">colour =</span> EnrolmentStatus)) <span class="sc">+</span></span>
+<span id="cb275-7"><a href="intro-to-ggplot.html#cb275-7" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb275-8"><a href="intro-to-ggplot.html#cb275-8" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb275-9"><a href="intro-to-ggplot.html#cb275-9" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Reading latent ability score&quot;</span>,</span>
+<span id="cb275-10"><a href="intro-to-ggplot.html#cb275-10" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Maths latent ability score&quot;</span>,</span>
+<span id="cb275-11"><a href="intro-to-ggplot.html#cb275-11" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;School enrollment status&quot;</span>,</span>
+<span id="cb275-12"><a href="intro-to-ggplot.html#cb275-12" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Foundational Skills in Senegal&quot;</span>,</span>
+<span id="cb275-13"><a href="intro-to-ggplot.html#cb275-13" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;ICAN-ICAR 2025 Survey&quot;</span></span>
+<span id="cb275-14"><a href="intro-to-ggplot.html#cb275-14" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb275-15"><a href="intro-to-ggplot.html#cb275-15" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb275-16"><a href="intro-to-ggplot.html#cb275-16" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb275-17"><a href="intro-to-ggplot.html#cb275-17" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="figs/unnamed-chunk-158-1.png" width="672" /></p>
+<p>Here we:</p>
+<ul>
+<li>Use <code>labs()</code> to set <strong>axis labels</strong>, <strong>legend title</strong>, and <strong>plot title/subtitle</strong>.</li>
+<li>Use <code>theme_minimal()</code> to clean up the background and gridlines.</li>
+<li>Just <em>tip</em>: by default, ggplot sometimes shows big numbers in scientific notation. We can tell ggplot to use “normal looking” numbers with commas by adding <strong>scale_x_continuous()</strong> etc.</li>
+</ul>
+<blockquote>
+<p>For a intro, this level of theme usage is enough.<br />
+</p>
+</blockquote>
+<hr />
+</div>
+<div id="practice-test-your-knowledge-with-mpg" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Practice: Test your knowledge with <code>mpg</code><a href="intro-to-ggplot.html#practice-test-your-knowledge-with-mpg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>ggplot2</code> package comes with a built-in dataset called <code>mpg</code>.</p>
+<p>Load it:</p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="intro-to-ggplot.html#cb276-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  <span class="co"># already loaded via tidyverse, but explicit is fine</span></span>
+<span id="cb276-2"><a href="intro-to-ggplot.html#cb276-2" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb276-3"><a href="intro-to-ggplot.html#cb276-3" tabindex="-1"></a></span>
+<span id="cb276-4"><a href="intro-to-ggplot.html#cb276-4" tabindex="-1"></a><span class="fu">data</span>(mpg)</span>
+<span id="cb276-5"><a href="intro-to-ggplot.html#cb276-5" tabindex="-1"></a></span>
+<span id="cb276-6"><a href="intro-to-ggplot.html#cb276-6" tabindex="-1"></a><span class="co"># Optional: look at its structure</span></span>
+<span id="cb276-7"><a href="intro-to-ggplot.html#cb276-7" tabindex="-1"></a><span class="fu">skim</span>(mpg)</span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-159">Table 4.1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">mpg</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">234</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">11</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">6</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<colgroup>
+<col width="19%" />
+<col width="13%" />
+<col width="19%" />
+<col width="5%" />
+<col width="5%" />
+<col width="8%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">manufacturer</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">15</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">model</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">38</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">trans</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">8</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">drv</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">fl</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">5</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">class</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">7</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="4%" />
+<col width="6%" />
+<col width="12%" />
+<col width="11%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="2%" />
+<col width="2%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">displ</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3.470000000000000195399</td>
+<td align="right">1.290000000000000035527</td>
+<td align="right">1.600000000000000088818</td>
+<td align="right">2.399999999999999911182</td>
+<td align="right">3.299999999999999822364</td>
+<td align="right">4.599999999999999644729</td>
+<td align="right">7</td>
+<td align="left">▇▆▆▃▁</td>
+</tr>
+<tr class="even">
+<td align="left">year</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2003.500000000000000000000</td>
+<td align="right">4.509999999999999786837</td>
+<td align="right">1999.000000000000000000000</td>
+<td align="right">1999.000000000000000000000</td>
+<td align="right">2003.500000000000000000000</td>
+<td align="right">2008.000000000000000000000</td>
+<td align="right">2008</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">cyl</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.889999999999999680256</td>
+<td align="right">1.610000000000000097700</td>
+<td align="right">4.000000000000000000000</td>
+<td align="right">4.000000000000000000000</td>
+<td align="right">6.000000000000000000000</td>
+<td align="right">8.000000000000000000000</td>
+<td align="right">8</td>
+<td align="left">▇▁▇▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">cty</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">16.859999999999999431566</td>
+<td align="right">4.259999999999999786837</td>
+<td align="right">9.000000000000000000000</td>
+<td align="right">14.000000000000000000000</td>
+<td align="right">17.000000000000000000000</td>
+<td align="right">19.000000000000000000000</td>
+<td align="right">35</td>
+<td align="left">▆▇▃▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">hwy</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">23.440000000000001278977</td>
+<td align="right">5.950000000000000177636</td>
+<td align="right">12.000000000000000000000</td>
+<td align="right">18.000000000000000000000</td>
+<td align="right">24.000000000000000000000</td>
+<td align="right">27.000000000000000000000</td>
+<td align="right">44</td>
+<td align="left">▅▅▇▁▁</td>
+</tr>
+</tbody>
+</table>
+<p>You can use <code>?mpg</code> or <code>help(mpg)</code> to see more information about the variables.</p>
+<p>Using the template:</p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="intro-to-ggplot.html#cb277-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>,</span>
+<span id="cb277-2"><a href="intro-to-ggplot.html#cb277-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>X<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>Y<span class="sc">&gt;</span>, ...)) <span class="sc">+</span></span>
+<span id="cb277-3"><a href="intro-to-ggplot.html#cb277-3" tabindex="-1"></a>  <span class="er">&lt;</span>GEOM_FUNCTION<span class="sc">&gt;</span>()</span></code></pre></div>
+<p>try these:</p>
+<ol style="list-style-type: decimal">
+<li>Use a <strong>scatterplot</strong> to show the relationship between <code>displ</code> (engine displacement, in litres) and <code>hwy</code> (highway miles per gallon)</li>
+<li>In the same plot, set the <strong>colour of the points</strong> to <code>class</code></li>
+<li>Graph a <strong>boxplot</strong> of <code>hwy</code> by <code>class</code>.</li>
+<li>Graph a <strong>bar plot</strong> of <code>class</code>.</li>
+</ol>
+<hr />
+</div>
+<div id="saving-plots-to-files-with-ggsave" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Saving plots to files with <code>ggsave()</code><a href="intro-to-ggplot.html#saving-plots-to-files-with-ggsave" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can save the last plot as a PDF:</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="intro-to-ggplot.html#cb278-1" tabindex="-1"></a><span class="co"># Save last displayed plot as PDF</span></span>
+<span id="cb278-2"><a href="intro-to-ggplot.html#cb278-2" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;figs/myggplot.pdf&quot;</span>)</span></code></pre></div>
+<p>Or save a named plot object:</p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="intro-to-ggplot.html#cb279-1" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb279-2"><a href="intro-to-ggplot.html#cb279-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore,</span>
+<span id="cb279-3"><a href="intro-to-ggplot.html#cb279-3" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore,</span>
+<span id="cb279-4"><a href="intro-to-ggplot.html#cb279-4" tabindex="-1"></a>                     <span class="at">colour =</span> EnrolmentStatus)) <span class="sc">+</span></span>
+<span id="cb279-5"><a href="intro-to-ggplot.html#cb279-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb279-6"><a href="intro-to-ggplot.html#cb279-6" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb279-7"><a href="intro-to-ggplot.html#cb279-7" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Reading latent ability score&quot;</span>,</span>
+<span id="cb279-8"><a href="intro-to-ggplot.html#cb279-8" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Maths latent ability score&quot;</span>,</span>
+<span id="cb279-9"><a href="intro-to-ggplot.html#cb279-9" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;School enrollment status&quot;</span>,</span>
+<span id="cb279-10"><a href="intro-to-ggplot.html#cb279-10" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Foundational Skills in Senegal&quot;</span>,</span>
+<span id="cb279-11"><a href="intro-to-ggplot.html#cb279-11" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;ICAN-ICAR 2025 Survey&quot;</span></span>
+<span id="cb279-12"><a href="intro-to-ggplot.html#cb279-12" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb279-13"><a href="intro-to-ggplot.html#cb279-13" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb279-14"><a href="intro-to-ggplot.html#cb279-14" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb279-15"><a href="intro-to-ggplot.html#cb279-15" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb279-16"><a href="intro-to-ggplot.html#cb279-16" tabindex="-1"></a></span>
+<span id="cb279-17"><a href="intro-to-ggplot.html#cb279-17" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">&quot;figs/myggplot.png&quot;</span>,</span>
+<span id="cb279-18"><a href="intro-to-ggplot.html#cb279-18" tabindex="-1"></a>       <span class="at">plot   =</span> p,</span>
+<span id="cb279-19"><a href="intro-to-ggplot.html#cb279-19" tabindex="-1"></a>       <span class="at">width  =</span> <span class="dv">10</span>,</span>
+<span id="cb279-20"><a href="intro-to-ggplot.html#cb279-20" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">10</span>,</span>
+<span id="cb279-21"><a href="intro-to-ggplot.html#cb279-21" tabindex="-1"></a>       <span class="at">units  =</span> <span class="st">&quot;in&quot;</span>)</span></code></pre></div>
+<ul>
+<li>The file type is guessed from the extension (<code>.pdf</code>, <code>.png</code>, etc.).</li>
+<li>You can control size with <code>width</code>, <code>height</code>, and <code>units</code>.</li>
+</ul>
+<hr />
+</div>
+<div id="useful-resources" class="section level2 hasAnchor" number="4.9">
+<h2><span class="header-section-number">4.9</span> 10. Useful resources<a href="intro-to-ggplot.html#useful-resources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Some excellent follow-up resources:</p>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/">ggplot2 documentation</a> (function reference is especially useful).<br />
+</li>
+<li><a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> – Data Visualization chapter.<br />
+</li>
+<li>RStudio’s <a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf">ggplot2 cheatsheet</a>.<br />
+</li>
+<li><a href="https://osctr.ouhsc.edu/sites/default/files/2020-02/rcourse/3/RGraphicsCookbook.pdf">R Graphics Cookbook</a> (for a recipe-style approach).</li>
+<li>Asano Masahiko has cool section on <a href="https://www.asanoucla.com/introduction-to-r/">Data Visualization</a> using ggplot.</li>
+</ul>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="intro-to-ggplot.html#cb280-1" tabindex="-1"></a><span class="co"># Friendly reminder: once you&#39;re comfortable with the basics,</span></span>
+<span id="cb280-2"><a href="intro-to-ggplot.html#cb280-2" tabindex="-1"></a><span class="co"># pick one plot you make often and try to recreate it using ggplot2.It can be a bar graph, histogram, or a box plot</span></span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intro-to-data-wrangling-with-tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/edit/main/03-intro-to-ggplot.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/blob/main/03-intro-to-ggplot.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

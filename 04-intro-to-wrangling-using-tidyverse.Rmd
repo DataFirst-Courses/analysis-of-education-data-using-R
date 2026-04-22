@@ -1,0 +1,425 @@
+# Intro to data wrangling with tidyverse
+
+The [tidyverse](https://tidyverse.org/packages/) is a modern collection of R packages designed to make working with data easier and more consistent. Now, before we begin data wrangling with [`dplyr`](https://dplyr.tidyverse.org/), let's take a closer look at how the tidyverse works and why it has become so central to modern R practice.
+
+## What makes the tidyverse special?
+
+The tidyverse is not just a group of packages - it represents a philosophy of data analysis. Its design emphasizes clarity, consistency, and reproducibility. When you learn one tidyverse package, many of the same ideas and syntax patterns carry over to others.
+
+At its heart are three key ideas:
+
+1.  Tidy data principles
+2.  Every tidyverse package expects data to be in tidy format, where:
+    -   each variable forms a column;
+    -   each observation forms a row, and
+    -   each value has its own cell.
+3.  A consistent syntax and grammar .
+
+Most tidyverse functions are **verb-based** and take a data frame as their first argument. In this context, a verb simply means a function that performs one clear action on your data - such as *filtering*, *sorting*, or *summarising*. Because each function both takes in and returns a data frame, you can easily chain them together in a logical sequence. This leads us to the next key feature.
+
+## Why learn dplyr first?
+
+Among all tidyverse packages, `dplyr` is often the best starting point because it provides a simple, intuitive grammar for data manipulation. It introduces five core verbs - `filter()`, `arrange()`, `mutate()`, `summarise()`, and `group_by()` - that cover most day-to-day data wrangling tasks.
+
+Once you understand how these verbs interact with each other (and with the pipe), you will find it much easier to explore, clean, and prepare real data for analysis or visualization.
+
+In the next section, we will use `dplyr` verbs to clean and transform data, and combine operations into pipelines for more readable code. By the end, you will not only know how to use `dplyr`, but also start thinking the tidyverse way-using clear, expressive code that mirrors the logic of your analysis.
+
+## Data wrangling with dplyr
+
+So far, we have been using `base R`to learn the fundamentals - how to navigate RStudio, create and work with different data types, and produce simple descriptive summaries. When we learned to import data, we also took a brief, first look at the tidyverse, a collection of modern R packages that make working with data easier and more consistent.
+
+Now, we are going to explore one of the most widely used tidyverse packages, `dplyr` , which provides a simple and intuitive way to manipulate data. With `dplyr`, you can `filter`, `arrange`, `transform`, and `summarise` data using functions that read almost like plain English. These functions (called verbs) work seamlessly together, and when combined with the pipe operator (`%>%`), they allow you to build clear, step-by-step workflows that are both efficient and easy to follow.
+
+By the end of this lesson you should be able to:
+
+-   Save data efficiently by converting a .dta file into an .RData object.
+
+-   Apply data transformation techniques using the five key **dplyr** verbs:
+
+    -   filter()
+
+    -   arrange()
+
+    -   mutate()
+
+    -   summarise()
+
+    -   group_by()
+
+-   Use the pipe operator (`%>%`) to write cleaner and more readable R code.
+
+-   Combine multiple dplyr verbs to perform complex data manipulations (e.g., grouped filtering or mutating).
+
+-   Perform various join operations to merge and relate data across multiple tables.
+
+## Import Data
+
+[ICAN-ICAR 2025](https://palnetwork.org/ican-icar/) is a nationally representative, household-based survey of $89,185$ children in $56,913$ households. The survey assesses children aged 5-16 on foundational numeracy and reading skills.
+
+Download the file "ican-icar-2025-v1.dta" from [DataFirst](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/1132/study-description) and save it to the *data* directory in your main project folder (make a folder called *data* if you haven't already). Note that the metadata for this data is found on the site. 
+
+
+```{r}
+# load the data
+
+dat = read_csv("data/ican-icar-2025-v1.csv")
+```
+
+Load the **tidyverse** collection of packages, which loads the following packages: **ggplot2**, **tibble**, **tidyr**, **readr**, **purrr**, and **dplyr**.
+
+-   ggplot2: For data visualization (this will be revisited in detail later)
+-   tibble: For creating and working with tidy data frames
+-   tidyr: For tidying messy data
+-   readr:For importing rectangular data (like CSV files) quickly and efficiently
+-   purrr:For functional programming
+-   **dplyr**: For data manipulation using verbs like filter(), mutate(), summarise(), and arrange().
+
+Load the **tidyverse** by running the command below:
+
+```{r}
+library(tidyverse)
+```
+
+
+## Working with Tibbles
+
+Tibbles are data frames (under the hood) that work very well with **tidyverse** packages.  They are easier to read and manipulate than traditional data frames, especially when you have many rows or columns. In addition, each column reports its data type, a nice feature borrowed from `str()`. If your data is currently a standard data frame, convert it to a tibble using `as_tibble()`. 
+
+Tibbles are designed so that you do not accidently overwhelm your console when you print large data frames. 
+
+Here's an example.
+
+```{r}
+# convert ratings to a "tibble"
+dat = as_tibble(dat)
+```
+
+A nice feature of tibbles is that if you display them in the console (by typing `dat`, for example) only the first 10 rows and all columns are shown.
+
+```{r}
+dat
+```
+
+
+
+To understand your data at a high-level, you can use `skim()` from [skimr](https://docs.ropensci.org/skimr/) package :
+
+```{r}
+skim(dat)
+```
+
+
+## The Five Key dplyr Verbs
+
+### Filtering rows with `filter()`
+
+The `filter()` function from **dplyr** is used to extract rows from the data that meet certain conditions.
+
+Here we illustrate the use of `filter()` by extracting all children from Mozambique.
+
+```{r}
+dat_moz = filter(dat, CountryName == "Mozambique")
+dat_moz
+```
+
+Next we extract the children from Mozambique that received an Reading IRT Score greater than $1.5$. Multiple filter conditions are created with `&` (and) and `|` (or).
+
+```{r}
+filter(dat, CountryName == "Mozambique" & ReadingIRTScore > 1.5)
+```
+
+Here's another way of writing the same condition as above:
+
+```{r}
+filter(dat, CountryName == "Mozambique", ReadingIRTScore > 1.5)
+```
+
+The `%in%` command is often useful when using dplyr verbs:
+
+```{r}
+# Extract children from Mozambique who are ages 5, 9, and 13 years old and have an Reading IRT Score greater than 1.5
+filter(dat, CountryName == "Mozambique", ch02 %in% c(5, 9, 13), ReadingIRTScore > 1.5)
+```
+
+
+Let’s practice filtering data in R:
+
+```{r, echo=TRUE, eval=FALSE}
+
+# Extract children from Kenya and Mali living in urban areas and are males
+
+filter(dat, CountryName %in% c("Kenya", "Mali"), Location == "Urban", ch03 == 2)
+
+# Extract children that live in a household with 5 to 10 individuals inclusive and were assessed in French
+
+filter(dat, hh06a >= 5 & hh06a <= 10, AssessmentLanguage == "French")
+
+```
+
+
+Try the following exercises on your own:
+
+1.  Extract all children who were assessed in English and met the minimum proficiency level for reading.
+
+2.  How many children from the previous question are from Tanzania.
+
+3.  Use `%in%` to filter children from question 1 that live in  2, 9, or 20 indivdual household and receive help with homework.
+
+4.  How many children from the previous question are assisted by their mother with homework?
+
+
+
+### Introducing the pipe
+
+The pipe operator `%>%` is a very useful way of chaining together multiple operations. A typical format is something like:
+
+*data* `%>%` *operation 1* `%>%` *operation 2*
+
+You read the code from left to right: Start with *data*, apply some operation (operation 1) to it, get a result, and then apply another operation (operation 2) to that result, to generate another result (the final result, in this example). A useful way to think of the pipe is as similar to "then".
+
+The main goal of the pipe is to make code easier, by focusing on the transformations rather than on what is being transformed. Usually this is the case, but it's also possible to get carried away and end up with a huge whack of piped statements. Deciding when to break a block up is an art best learned by experience.
+
+**Example**
+
+```{r}
+# filtering with the pipe
+dat %>% 
+  filter(CountryName == "Mozambique")
+```
+
+The main usefulness of the pipe is when combining multiple operations:
+
+**Guided practice**
+
+```{r, results='hide'}
+# first filter on country then on IRT Score
+dat_moz = dat %>% filter(CountryName == "Mozambique") %>% filter(ReadingIRTScore > 1.5)
+dat_moz
+```
+
+```{r, eval=FALSE}
+# another way of doing the same thing
+dat %>% filter(CountryName == "Mozambique" & ReadingIRTScore > 1.5) 
+```
+
+### Arranging rows with `arrange()`
+
+The `arrange()` function from **dplyr** lets you order rows in your data based on one or more columns.
+
+**Example**
+
+Ordering children from Mozambique in a descending order of age (note the use of `desc`):
+
+```{r}
+arrange(dat_moz, desc(ch02))
+```
+
+Subsequent arguments to `arrange()` can be used to arrange by multiple columns. Here we first children from Mozambique by age (in descending order) and then by household size (in ascending order)
+
+**Guided practice**
+
+```{r, eval=FALSE}
+arrange(dat_moz, desc(ch02), hh06a)
+```
+
+We can also use the pipe to do the same thing:
+
+**Example**
+
+```{r}
+dat_moz %>% arrange(desc(ch02))
+```
+
+Finally, here's an example of combining filter and arrange operations with the pipe:
+
+```{r}
+dat %>% 
+  filter(CountryName == "Mozambique" & ReadingIRTScore > 1.5) %>% 
+  arrange(desc(ch02))
+```
+
+**Guided practice**
+
+Let's attempt these exercises:
+
+1.  Arrange children from urban Mali who receive help with homework in descending order using their total assessment time for math
+
+```{r, eval=FALSE}
+dat %>%
+  filter(CountryName == "Mali" & ch10a == 1) %>%
+  arrange(desc(IcanAssessTime))
+```
+
+
+```{r, eval=FALSE}
+#Tip: Use desc() to sort a column in descending order. Without desc(), arrange() sorts in ascending order by default.
+```
+
+**Independent Practice**
+
+1.  Filter children who are 5 years old who have a lot of difficulty in seeing and attained an Math IRT score greater than 2 arrange them by descending ICAN assessment time. Combine `filter()`, `arrange()`, and `%>%` into a single pipeline.
+
+2. Sort `dat` to find the most slowest child in reading assessment time. Did they meet minimum proficiency level for reading? 
+
+3. How could you use arrange() to sort all missing values to the start? (Hint: use is.na()).
+
+
+### Selecting columns with `select()`
+
+The ICAN-ICAR 2025 survey data has $146$ columns. This is not unusual if one works with big data. It is highly likely that there is few columns (or variables) that you would be interested in. In that case, `select()` allows you to rapidly zoom in on a useful subset using operations based on the names of the variables. 
+
+`select()` is a quite similar to `filter()` for columns. The syntax is straightforward, the first argument gives the data, and then you list the variables you want to select!
+
+**Example**
+
+```{r}
+# Select columns by name: 
+
+dat_new = select(dat, ChildID, Location, ch02, MPLBoth)
+dat_new
+```
+
+To exclude variables just put a minus sign in front of them:
+
+**Example**
+
+```{r}
+select(dat_new, -Location)
+```
+
+You can also use `select()` to reorder variables. A useful function here is `everything()`. This is useful if you have a handful of variables you’d like to move to the start of the data frame.
+
+
+```{r, eval=FALSE}
+
+# reorder so MPLBoth is first 
+select(dat_new, MPLBoth, everything())
+```
+There are other helper functions that you can use within `select()`:
+- `starts_with("abc")` matches column names that begin with "abc". 
+- `ends_with("xyz") matches column names that end with "xyz".
+- `contains("ijk") matches column names that contain "ijk". 
+- `num_range("x", 1:3) matches `x1`, `x2`, and `x3`. 
+
+```{r}
+# match columns that begin with "l1" but exclude location variable
+dat %>%
+  select(ChildID, starts_with("l1"))
+
+# match column names that contain "hh" (these are household-related variables)
+dat %>%
+  select(ChildID, contains("hh"), -HHWeightProvided)
+
+# match column names with l2.1, l2.2, l2.3
+dat %>%
+  select(ChildID, num_range("l2_",1:3))
+```
+
+See `?select()` for more details
+
+
+**Independent Practice**
+
+
+1.  Select only the child-relatd columns. 
+
+2.  Exclude the numeracy-related items.
+
+### Adding new variables with `mutate()`
+
+Mutating operations add a new column to a dataframe using existing columns. Here's a trivial example to get started:
+
+```{r}
+mutate(dat, this_is = "stupid")  
+```
+Now we have $147$ columns, including `this_is`. 
+
+A more useful use of mutate is to construct a new variable based on existing variables. This is the way that `mutate` is almost always used.
+
+**Example**
+
+```{r}
+# create "math_savvy" column using MathIRTScore if the child has a score above 2
+dat_new = dat %>%
+mutate(math_savvy = if_else(MathIRTScore > 2, "Yes", "No"))
+
+  
+```
+
+
+
+Hopefully, you're getting used to the pipe by now, so let's embed a mutating operation within a larger pipe than we've used before.
+
+```{r}
+# count using count() how many children are math-savvy  across countries
+# first exclude all NAs from math_savvy column
+
+dat %>%
+  mutate(math_savvy = if_else(MathIRTScore > 2, "Yes", "No")) %>%
+  filter(!is.na(math_savvy)) %>%
+  count(CountryName, math_savvy)
+
+```
+
+They are all from Pakistan!
+
+
+**Independent Practice**
+
+1.  Convert both the ICAN and ICAR assessment time for each assessed child from seconds to hours. Extract all assessed children that took more than hour for both ICAN and ICAR assessments. 
+
+
+### Aggregating over rows with `summarise()`
+
+The `summarise()` verb (or `summarize()` will also work) summarises the rows in a data frame in some way. When applied to the whole data frame, it will collapse it to a single row. For example, here we calculate the average age and the median Reading IRT Score for children in Uganda living in rural areas:
+
+```{r}
+dat %>% 
+  filter(CountryName == "Uganda") %>%
+  summarise(mean_age = mean(ch02),
+            median_irt_score = median(ReadingIRTScore, na.rm = TRUE))
+```
+
+You need to watch out for NAs when using `summarise()`. If one exists, operations like `mean()` will return NA. You can exclude NAs from calculations using `na.rm = TRUE`. 
+
+`summarise()` is most useful when combined with `group_by()`, which imposes a grouping structure on a data frame. After applying `group_by()`, subsequent dplyr verbs will be applied to individual groups, basically repeating the code for each group. That means that `summarise()` will calculate a summary for each group:
+
+```{r}
+# tell dplyr to group the data by Country
+dat_new = dat %>% 
+            group_by(CountryName)
+
+# apply summarize() to see how many children in each country surveyed
+dat_new  %>% 
+  summarize(count = n())
+```
+
+
+```{r}
+# get sorted counts (and present differently)
+dat %>% 
+group_by(CountryName) %>% 
+summarize(count = n()) %>% 
+arrange(desc(count)) %>% 
+head(10)    # take first ten rows
+```
+
+You can also pass your own summary functions to the pipe:
+
+```{r}
+# my own function, computes the 60% quantile of the Reading IRT Score for each country
+
+compute_60q = function(x){quantile(x, probs = 0.60, na.rm = TRUE)}
+
+# use it in a grouped summary
+dat %>%
+  group_by(CountryName) %>%
+  summarize(count = n(), q60 = compute_60q(ReadingIRTScore)) %>% 
+  head(10)
+```
+
+### Sources and references
+
+-   <http://r4ds.had.co.nz/transform.html>
+-   <http://r4ds.had.co.nz/relational-data.html>

@@ -1,0 +1,3021 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Intro to data wrangling with tidyverse | Introduction to R</title>
+  <meta name="description" content="Chapter 5 Intro to data wrangling with tidyverse | Introduction to R" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Intro to data wrangling with tidyverse | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Intro to data wrangling with tidyverse | Introduction to R" />
+  
+  
+  
+
+<meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
+
+
+<meta name="date" content="2026-04-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro-to-ggplot.html"/>
+<link rel="next" href="survey-design-sampling-and-weighting.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intro to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#rstudio-interface"><i class="fa fa-check"></i><b>2.1</b> RStudio interface</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#source-editor"><i class="fa fa-check"></i><b>2.1.1</b> Source/ Editor</a></li>
+<li class="chapter" data-level="2.1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#example-running-a-line-of-code-in-the-editor"><i class="fa fa-check"></i><b>2.1.2</b> Example: Running a line of code in the Editor</a></li>
+<li class="chapter" data-level="2.1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#console"><i class="fa fa-check"></i><b>2.1.3</b> Console</a></li>
+<li class="chapter" data-level="2.1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#environment-tab"><i class="fa fa-check"></i><b>2.1.4</b> Environment Tab</a></li>
+<li class="chapter" data-level="2.1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#history-tab"><i class="fa fa-check"></i><b>2.1.5</b> History Tab</a></li>
+<li class="chapter" data-level="2.1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#files-tab"><i class="fa fa-check"></i><b>2.1.6</b> Files Tab</a></li>
+<li class="chapter" data-level="2.1.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#plots-tab"><i class="fa fa-check"></i><b>2.1.7</b> Plots Tab</a></li>
+<li class="chapter" data-level="2.1.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#packages-tab"><i class="fa fa-check"></i><b>2.1.8</b> Packages Tab</a></li>
+<li class="chapter" data-level="2.1.9" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#help-tab"><i class="fa fa-check"></i><b>2.1.9</b> Help Tab</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#organize-your-r-session"><i class="fa fa-check"></i><b>2.2</b> Organize your R session</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#working-directory-where-r-looks-for-your-files"><i class="fa fa-check"></i><b>2.2.1</b> Working Directory: Where R Looks for Your Files</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-and-loading-packages-libraries"><i class="fa fa-check"></i><b>2.2.2</b> Installing and Loading Packages (Libraries)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#comments-in-r"><i class="fa fa-check"></i><b>2.2.3</b> Comments in R</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#common-mistakes-and-quick-fixes"><i class="fa fa-check"></i><b>2.2.4</b> Common mistakes and quick fixes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#getting-help"><i class="fa fa-check"></i><b>2.3</b> Getting help</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#operators-in-r"><i class="fa fa-check"></i><b>2.4</b> Operators in R</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#basic-arithmetic-operators"><i class="fa fa-check"></i><b>2.4.1</b> Basic arithmetic operators</a></li>
+<li class="chapter" data-level="2.4.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#assignment-operator"><i class="fa fa-check"></i><b>2.4.2</b> Assignment operator</a></li>
+<li class="chapter" data-level="2.4.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#sequence-operator"><i class="fa fa-check"></i><b>2.4.3</b> Sequence operator</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.5</b> Objects in R</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#managing-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Managing the workspace</a></li>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#some-language-features"><i class="fa fa-check"></i><b>2.7</b> Some language features</a></li>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#test-your-knowledge"><i class="fa fa-check"></i><b>2.8</b> Test your knowledge</a></li>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#session-information"><i class="fa fa-check"></i><b>2.9</b> Session information</a></li>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#acknowledgements"><i class="fa fa-check"></i><b>2.10</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#scalar-arithmetic"><i class="fa fa-check"></i><b>3.1</b> Scalar Arithmetic</a></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#vector-arithmetic"><i class="fa fa-check"></i><b>3.2</b> Vector Arithmetic</a></li>
+<li class="chapter" data-level="3.3" data-path="r-basics.html"><a href="r-basics.html#matrices-and-matrix-functions"><i class="fa fa-check"></i><b>3.3</b> Matrices and Matrix Functions</a></li>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#data-frame"><i class="fa fa-check"></i><b>3.4</b> Data Frame</a></li>
+<li class="chapter" data-level="3.5" data-path="r-basics.html"><a href="r-basics.html#missing-values"><i class="fa fa-check"></i><b>3.5</b> Missing Values</a></li>
+<li class="chapter" data-level="3.6" data-path="r-basics.html"><a href="r-basics.html#control-flow"><i class="fa fa-check"></i><b>3.6</b> Control Flow</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="r-basics.html"><a href="r-basics.html#logical-operators"><i class="fa fa-check"></i><b>3.6.1</b> Logical Operators</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-basics.html"><a href="r-basics.html#if-statement"><i class="fa fa-check"></i><b>3.6.2</b> <code>if</code> statement</a></li>
+<li class="chapter" data-level="3.6.3" data-path="r-basics.html"><a href="r-basics.html#for-loop"><i class="fa fa-check"></i><b>3.6.3</b> <code>for</code> loop</a></li>
+<li class="chapter" data-level="3.6.4" data-path="r-basics.html"><a href="r-basics.html#for-loop-with-an-if-statement"><i class="fa fa-check"></i><b>3.6.4</b> <code>for</code> loop with an <code>if</code> statement</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>4</b> Intro to ggplot</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#what-is-ggplot2"><i class="fa fa-check"></i><b>4.1</b> What is ggplot2?</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#optional-grammar-of-graphics-background"><i class="fa fa-check"></i><b>4.1.1</b> Optional: Grammar of Graphics (background)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-main-pieces-of-ggplot2"><i class="fa fa-check"></i><b>4.2</b> The main pieces of ggplot2</a></li>
+<li class="chapter" data-level="4.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#building-your-first-plot-data-aes-geom"><i class="fa fa-check"></i><b>4.3</b> Building your first plot: data → aes → geom</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-1-choose-the-data"><i class="fa fa-check"></i><b>4.3.1</b> Step 1: Choose the data</a></li>
+<li class="chapter" data-level="4.3.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-2-map-variables-with-aes"><i class="fa fa-check"></i><b>4.3.2</b> Step 2: Map variables with <code>aes()</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-3-add-a-geometry-with-geom_point"><i class="fa fa-check"></i><b>4.3.3</b> Step 3: Add a geometry with <code>geom_point()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#aesthetics-colour-shape-size"><i class="fa fa-check"></i><b>4.4</b> Aesthetics: colour, shape, size</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-shape-to-a-variable"><i class="fa fa-check"></i><b>4.4.1</b> Mapping shape to a variable</a></li>
+<li class="chapter" data-level="4.4.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-colour-to-a-variable"><i class="fa fa-check"></i><b>4.4.2</b> Mapping colour to a variable</a></li>
+<li class="chapter" data-level="4.4.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-size-to-a-variable-e.g.-age"><i class="fa fa-check"></i><b>4.4.3</b> Mapping size to a variable (e.g., age)</a></li>
+<li class="chapter" data-level="4.4.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#using-a-categorical-variable"><i class="fa fa-check"></i><b>4.4.4</b> Using a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#aesthetic-mapping-vs-fixed-settings-some-nuance"><i class="fa fa-check"></i><b>4.5</b> Aesthetic mapping vs fixed settings (some nuance)</a></li>
+<li class="chapter" data-level="4.6" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#small-polish-labels-and-a-simple-theme"><i class="fa fa-check"></i><b>4.6</b> Small polish: labels and a simple theme</a></li>
+<li class="chapter" data-level="4.7" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#practice-test-your-knowledge-with-mpg"><i class="fa fa-check"></i><b>4.7</b> Practice: Test your knowledge with <code>mpg</code></a></li>
+<li class="chapter" data-level="4.8" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#saving-plots-to-files-with-ggsave"><i class="fa fa-check"></i><b>4.8</b> Saving plots to files with <code>ggsave()</code></a></li>
+<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> 10. Useful resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html"><i class="fa fa-check"></i><b>5</b> Intro to data wrangling with tidyverse</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#what-makes-the-tidyverse-special"><i class="fa fa-check"></i><b>5.1</b> What makes the tidyverse special?</a></li>
+<li class="chapter" data-level="5.2" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#why-learn-dplyr-first"><i class="fa fa-check"></i><b>5.2</b> Why learn dplyr first?</a></li>
+<li class="chapter" data-level="5.3" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i><b>5.3</b> Data wrangling with dplyr</a></li>
+<li class="chapter" data-level="5.4" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#import-data"><i class="fa fa-check"></i><b>5.4</b> Import Data</a></li>
+<li class="chapter" data-level="5.5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#working-with-tibbles"><i class="fa fa-check"></i><b>5.5</b> Working with Tibbles</a></li>
+<li class="chapter" data-level="5.6" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#the-five-key-dplyr-verbs"><i class="fa fa-check"></i><b>5.6</b> The Five Key dplyr Verbs</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#filtering-rows-with-filter"><i class="fa fa-check"></i><b>5.6.1</b> Filtering rows with <code>filter()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#introducing-the-pipe"><i class="fa fa-check"></i><b>5.6.2</b> Introducing the pipe</a></li>
+<li class="chapter" data-level="5.6.3" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#arranging-rows-with-arrange"><i class="fa fa-check"></i><b>5.6.3</b> Arranging rows with <code>arrange()</code></a></li>
+<li class="chapter" data-level="5.6.4" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#selecting-columns-with-select"><i class="fa fa-check"></i><b>5.6.4</b> Selecting columns with <code>select()</code></a></li>
+<li class="chapter" data-level="5.6.5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#adding-new-variables-with-mutate"><i class="fa fa-check"></i><b>5.6.5</b> Adding new variables with <code>mutate()</code></a></li>
+<li class="chapter" data-level="5.6.6" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#aggregating-over-rows-with-summarise"><i class="fa fa-check"></i><b>5.6.6</b> Aggregating over rows with <code>summarise()</code></a></li>
+<li class="chapter" data-level="5.6.7" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#sources-and-references"><i class="fa fa-check"></i><b>5.6.7</b> Sources and references</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html"><i class="fa fa-check"></i><b>6</b> Survey Design, Sampling, and Weighting</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html#survey-sampling-and-design"><i class="fa fa-check"></i><b>6.1</b> Survey sampling and design</a></li>
+<li class="chapter" data-level="6.2" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html#survey-weights-and-design-based-inference"><i class="fa fa-check"></i><b>6.2</b> Survey weights and design-based inference</a></li>
+<li class="chapter" data-level="6.3" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html#practice-exercises"><i class="fa fa-check"></i><b>6.3</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="understanding-distributions.html"><a href="understanding-distributions.html"><i class="fa fa-check"></i><b>7</b> Understanding distributions</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#getting-oriented-to-the-data"><i class="fa fa-check"></i><b>7.1</b> Getting oriented to the data</a></li>
+<li class="chapter" data-level="7.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#levels-of-measurement"><i class="fa fa-check"></i><b>7.2</b> Levels of measurement</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#continuous-level"><i class="fa fa-check"></i><b>7.2.1</b> Continuous level</a></li>
+<li class="chapter" data-level="7.2.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#ordinal-level"><i class="fa fa-check"></i><b>7.2.2</b> Ordinal level</a></li>
+<li class="chapter" data-level="7.2.3" data-path="understanding-distributions.html"><a href="understanding-distributions.html#categorical-level"><i class="fa fa-check"></i><b>7.2.3</b> Categorical level</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-summaries-using-the-survey-design"><i class="fa fa-check"></i><b>7.3</b> Weighted summaries using the survey design</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-proportions-and-means"><i class="fa fa-check"></i><b>7.3.1</b> Weighted proportions and means</a></li>
+<li class="chapter" data-level="7.3.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-frequency-tables"><i class="fa fa-check"></i><b>7.3.2</b> Weighted frequency tables</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="understanding-distributions.html"><a href="understanding-distributions.html#household-level-variables-in-a-child-level-file"><i class="fa fa-check"></i><b>7.4</b> Household-level variables in a child-level file</a></li>
+<li class="chapter" data-level="7.5" data-path="understanding-distributions.html"><a href="understanding-distributions.html#missing-data-and-skip-patterns"><i class="fa fa-check"></i><b>7.5</b> Missing data and skip patterns</a></li>
+<li class="chapter" data-level="7.6" data-path="understanding-distributions.html"><a href="understanding-distributions.html#practice-exercise"><i class="fa fa-check"></i><b>7.6</b> Practice Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html"><i class="fa fa-check"></i><b>8</b> Central Tendency and Dispersion</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#central-tendency"><i class="fa fa-check"></i><b>8.1</b> Central tendency</a></li>
+<li class="chapter" data-level="8.2" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#dispersion"><i class="fa fa-check"></i><b>8.2</b> Dispersion</a></li>
+<li class="chapter" data-level="8.3" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#weighted-design-correct-summaries"><i class="fa fa-check"></i><b>8.3</b> Weighted, design-correct summaries</a></li>
+<li class="chapter" data-level="8.4" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#outliers-and-the-unit-of-analysis"><i class="fa fa-check"></i><b>8.4</b> Outliers and the unit of analysis</a></li>
+<li class="chapter" data-level="8.5" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#practice-exercises-1"><i class="fa fa-check"></i><b>8.5</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html"><i class="fa fa-check"></i><b>9</b> Bivariate Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#choosing-the-right-bivariate-tool"><i class="fa fa-check"></i><b>9.1</b> Choosing the right bivariate tool</a></li>
+<li class="chapter" data-level="9.2" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#categorical-categorical-cross-tabulations"><i class="fa fa-check"></i><b>9.2</b> Categorical × categorical: cross-tabulations</a></li>
+<li class="chapter" data-level="9.3" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#continuous-categorical-comparing-group-means"><i class="fa fa-check"></i><b>9.3</b> Continuous × categorical: comparing group means</a></li>
+<li class="chapter" data-level="9.4" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#continuous-continuous-scatterplots-and-trends"><i class="fa fa-check"></i><b>9.4</b> Continuous × continuous: scatterplots and trends</a></li>
+<li class="chapter" data-level="9.5" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#testing-association-with-chi-squared-tests"><i class="fa fa-check"></i><b>9.5</b> Testing association with chi-squared tests</a></li>
+<li class="chapter" data-level="9.6" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#practice-exercises-2"><i class="fa fa-check"></i><b>9.6</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#preparing-variables-for-analysis"><i class="fa fa-check"></i><b>10.1</b> Preparing variables for analysis</a></li>
+<li class="chapter" data-level="10.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#correlation-and-simple-regression"><i class="fa fa-check"></i><b>10.2</b> Correlation and simple regression</a></li>
+<li class="chapter" data-level="10.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#survey-weighted-regression-for-population-inference"><i class="fa fa-check"></i><b>10.3</b> Survey-weighted regression for population inference</a></li>
+<li class="chapter" data-level="10.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#practice-exercises-3"><i class="fa fa-check"></i><b>10.4</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#the-multiple-regression-model-and-its-interpretation"><i class="fa fa-check"></i><b>11.1</b> The multiple regression model and its interpretation</a></li>
+<li class="chapter" data-level="11.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#data-and-analysis-sample"><i class="fa fa-check"></i><b>11.2</b> Data and analysis sample</a></li>
+<li class="chapter" data-level="11.3" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#building-a-multiple-regression-model"><i class="fa fa-check"></i><b>11.3</b> Building a multiple regression model</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#comparing-coefficients-across-models"><i class="fa fa-check"></i><b>11.3.1</b> Comparing coefficients across models</a></li>
+<li class="chapter" data-level="11.3.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#interpreting-categorical-predictors"><i class="fa fa-check"></i><b>11.3.2</b> Interpreting categorical predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#extensions-interactions-and-non-linear-effects"><i class="fa fa-check"></i><b>11.4</b> Extensions: interactions and non-linear effects</a></li>
+<li class="chapter" data-level="11.5" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#reporting-results"><i class="fa fa-check"></i><b>11.5</b> Reporting results</a></li>
+<li class="chapter" data-level="11.6" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#practice-exercises-4"><i class="fa fa-check"></i><b>11.6</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>12</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="logistic-regression.html"><a href="logistic-regression.html#what-logistic-regression-models"><i class="fa fa-check"></i><b>12.1</b> What logistic regression models</a></li>
+<li class="chapter" data-level="12.2" data-path="logistic-regression.html"><a href="logistic-regression.html#simple-versus-multiple-logistic-regression"><i class="fa fa-check"></i><b>12.2</b> Simple versus multiple logistic regression</a></li>
+<li class="chapter" data-level="12.3" data-path="logistic-regression.html"><a href="logistic-regression.html#data"><i class="fa fa-check"></i><b>12.3</b> Data</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="logistic-regression.html"><a href="logistic-regression.html#import-subset-and-keep-only-needed-variables"><i class="fa fa-check"></i><b>12.3.1</b> Import, subset, and keep only needed variables</a></li>
+<li class="chapter" data-level="12.3.2" data-path="logistic-regression.html"><a href="logistic-regression.html#recode-variables-labels-reference-levels"><i class="fa fa-check"></i><b>12.3.2</b> Recode variables (labels + reference levels)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="logistic-regression.html"><a href="logistic-regression.html#why-we-need-survey-design-information"><i class="fa fa-check"></i><b>12.3.3</b> Why we need survey design information</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="logistic-regression.html"><a href="logistic-regression.html#simple-logistic-regression"><i class="fa fa-check"></i><b>12.4</b> Simple Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="logistic-regression.html"><a href="logistic-regression.html#continuous-predictor-childs-age"><i class="fa fa-check"></i><b>12.4.1</b> Continuous predictor: child’s age</a></li>
+<li class="chapter" data-level="12.4.2" data-path="logistic-regression.html"><a href="logistic-regression.html#categorical-predictor-example-books"><i class="fa fa-check"></i><b>12.4.2</b> Categorical predictor example: Books</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="logistic-regression.html"><a href="logistic-regression.html#multiple-binary-logistic-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple binary logistic regression</a></li>
+<li class="chapter" data-level="12.6" data-path="logistic-regression.html"><a href="logistic-regression.html#interaction"><i class="fa fa-check"></i><b>12.6</b> Interaction</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="logistic-regression.html"><a href="logistic-regression.html#interpretation-of-age-sex-and-the-agesex-interaction"><i class="fa fa-check"></i><b>12.6.1</b> Interpretation of age, sex, and the age*sex interaction</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="logistic-regression.html"><a href="logistic-regression.html#reporting-results-1"><i class="fa fa-check"></i><b>12.7</b> Reporting Results</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro-to-data-wrangling-with-tidyverse" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Intro to data wrangling with tidyverse<a href="intro-to-data-wrangling-with-tidyverse.html#intro-to-data-wrangling-with-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The <a href="https://tidyverse.org/packages/">tidyverse</a> is a modern collection of R packages designed to make working with data easier and more consistent. Now, before we begin data wrangling with <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a>, let’s take a closer look at how the tidyverse works and why it has become so central to modern R practice.</p>
+<div id="what-makes-the-tidyverse-special" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> What makes the tidyverse special?<a href="intro-to-data-wrangling-with-tidyverse.html#what-makes-the-tidyverse-special" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The tidyverse is not just a group of packages - it represents a philosophy of data analysis. Its design emphasizes clarity, consistency, and reproducibility. When you learn one tidyverse package, many of the same ideas and syntax patterns carry over to others.</p>
+<p>At its heart are three key ideas:</p>
+<ol style="list-style-type: decimal">
+<li>Tidy data principles</li>
+<li>Every tidyverse package expects data to be in tidy format, where:
+<ul>
+<li>each variable forms a column;</li>
+<li>each observation forms a row, and</li>
+<li>each value has its own cell.</li>
+</ul></li>
+<li>A consistent syntax and grammar .</li>
+</ol>
+<p>Most tidyverse functions are <strong>verb-based</strong> and take a data frame as their first argument. In this context, a verb simply means a function that performs one clear action on your data - such as <em>filtering</em>, <em>sorting</em>, or <em>summarising</em>. Because each function both takes in and returns a data frame, you can easily chain them together in a logical sequence. This leads us to the next key feature.</p>
+</div>
+<div id="why-learn-dplyr-first" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Why learn dplyr first?<a href="intro-to-data-wrangling-with-tidyverse.html#why-learn-dplyr-first" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Among all tidyverse packages, <code>dplyr</code> is often the best starting point because it provides a simple, intuitive grammar for data manipulation. It introduces five core verbs - <code>filter()</code>, <code>arrange()</code>, <code>mutate()</code>, <code>summarise()</code>, and <code>group_by()</code> - that cover most day-to-day data wrangling tasks.</p>
+<p>Once you understand how these verbs interact with each other (and with the pipe), you will find it much easier to explore, clean, and prepare real data for analysis or visualization.</p>
+<p>In the next section, we will use <code>dplyr</code> verbs to clean and transform data, and combine operations into pipelines for more readable code. By the end, you will not only know how to use <code>dplyr</code>, but also start thinking the tidyverse way-using clear, expressive code that mirrors the logic of your analysis.</p>
+</div>
+<div id="data-wrangling-with-dplyr" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Data wrangling with dplyr<a href="intro-to-data-wrangling-with-tidyverse.html#data-wrangling-with-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So far, we have been using <code>base R</code>to learn the fundamentals - how to navigate RStudio, create and work with different data types, and produce simple descriptive summaries. When we learned to import data, we also took a brief, first look at the tidyverse, a collection of modern R packages that make working with data easier and more consistent.</p>
+<p>Now, we are going to explore one of the most widely used tidyverse packages, <code>dplyr</code> , which provides a simple and intuitive way to manipulate data. With <code>dplyr</code>, you can <code>filter</code>, <code>arrange</code>, <code>transform</code>, and <code>summarise</code> data using functions that read almost like plain English. These functions (called verbs) work seamlessly together, and when combined with the pipe operator (<code>%&gt;%</code>), they allow you to build clear, step-by-step workflows that are both efficient and easy to follow.</p>
+<p>By the end of this lesson you should be able to:</p>
+<ul>
+<li><p>Save data efficiently by converting a .dta file into an .RData object.</p></li>
+<li><p>Apply data transformation techniques using the five key <strong>dplyr</strong> verbs:</p>
+<ul>
+<li><p>filter()</p></li>
+<li><p>arrange()</p></li>
+<li><p>mutate()</p></li>
+<li><p>summarise()</p></li>
+<li><p>group_by()</p></li>
+</ul></li>
+<li><p>Use the pipe operator (<code>%&gt;%</code>) to write cleaner and more readable R code.</p></li>
+<li><p>Combine multiple dplyr verbs to perform complex data manipulations (e.g., grouped filtering or mutating).</p></li>
+<li><p>Perform various join operations to merge and relate data across multiple tables.</p></li>
+</ul>
+</div>
+<div id="import-data" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Import Data<a href="intro-to-data-wrangling-with-tidyverse.html#import-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://palnetwork.org/ican-icar/">ICAN-ICAR 2025</a> is a nationally representative, household-based survey of <span class="math inline">\(89,185\)</span> children in <span class="math inline">\(56,913\)</span> households. The survey assesses children aged 5-16 on foundational numeracy and reading skills.</p>
+<p>Download the file “ican-icar-2025-v1.dta” from <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/1132/study-description">DataFirst</a> and save it to the <em>data</em> directory in your main project folder (make a folder called <em>data</em> if you haven’t already). Note that the metadata for this data is found on the site.</p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb281-1" tabindex="-1"></a><span class="co"># load the data</span></span>
+<span id="cb281-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb281-2" tabindex="-1"></a></span>
+<span id="cb281-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb281-3" tabindex="-1"></a>dat <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/ican-icar-2025-v1.csv&quot;</span>)</span></code></pre></div>
+<p>Load the <strong>tidyverse</strong> collection of packages, which loads the following packages: <strong>ggplot2</strong>, <strong>tibble</strong>, <strong>tidyr</strong>, <strong>readr</strong>, <strong>purrr</strong>, and <strong>dplyr</strong>.</p>
+<ul>
+<li>ggplot2: For data visualization (this will be revisited in detail later)</li>
+<li>tibble: For creating and working with tidy data frames</li>
+<li>tidyr: For tidying messy data</li>
+<li>readr:For importing rectangular data (like CSV files) quickly and efficiently</li>
+<li>purrr:For functional programming</li>
+<li><strong>dplyr</strong>: For data manipulation using verbs like filter(), mutate(), summarise(), and arrange().</li>
+</ul>
+<p>Load the <strong>tidyverse</strong> by running the command below:</p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb282-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<div id="working-with-tibbles" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Working with Tibbles<a href="intro-to-data-wrangling-with-tidyverse.html#working-with-tibbles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Tibbles are data frames (under the hood) that work very well with <strong>tidyverse</strong> packages. They are easier to read and manipulate than traditional data frames, especially when you have many rows or columns. In addition, each column reports its data type, a nice feature borrowed from <code>str()</code>. If your data is currently a standard data frame, convert it to a tibble using <code>as_tibble()</code>.</p>
+<p>Tibbles are designed so that you do not accidently overwhelm your console when you print large data frames.</p>
+<p>Here’s an example.</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb283-1" tabindex="-1"></a><span class="co"># convert ratings to a &quot;tibble&quot;</span></span>
+<span id="cb283-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb283-2" tabindex="-1"></a>dat <span class="ot">=</span> <span class="fu">as_tibble</span>(dat)</span></code></pre></div>
+<p>A nice feature of tibbles is that if you display them in the console (by typing <code>dat</code>, for example) only the first 10 rows and all columns are shown.</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb284-1" tabindex="-1"></a>dat</span></code></pre></div>
+<pre><code>## # A tibble: 96,452 × 147
+##     ...1 CountryName TierOneUnit VillageID Location HHID       SubmissionDate duration hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;date&gt;            &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1 Mozambique  c101        c101      Urban    uuid:f580… 2025-09-23          979     4      1     NA     1     1     2     2     1
+##  2     2 Mozambique  c101        c101      Urban    uuid:b98e… 2025-09-23          986     7      1     NA     1     1     2     2     1
+##  3     3 Mozambique  c101        c101      Urban    uuid:2611… 2025-09-23         2167     6      1     NA     1     1     2     2     1
+##  4     4 Mozambique  c101        c101      Urban    uuid:d46b… 2025-09-23         2078     6      1     NA     1     1     1     1     1
+##  5     5 Mozambique  c101        c101      Urban    uuid:df92… 2025-09-23         1251     5      1     NA     1     1     2     2     1
+##  6     6 Mozambique  c101        c101      Urban    uuid:ade5… 2025-09-23         2199     5      1     NA     1     1     2     2     1
+##  7     7 Mozambique  c101        c101      Urban    uuid:3f84… 2025-09-23         2889     5      1     NA     1     1     2     2     1
+##  8     8 Mozambique  c101        c101      Urban    uuid:ff7b… 2025-09-23         1588     4      1     NA     1     0     2     2     1
+##  9     9 Mozambique  c101        c101      Urban    uuid:7730… 2025-09-23         2203     4      1     NA     1     1     2     2     1
+## 10    10 Mozambique  c101        c101      Urban    uuid:e210… 2025-09-24         4647     5      1     NA     2     1     2     2     1
+## # ℹ 96,442 more rows
+## # ℹ 131 more variables: hh07d &lt;dbl&gt;, hh07e &lt;dbl&gt;, hh07f &lt;dbl&gt;, hh07g &lt;dbl&gt;, hh07h &lt;dbl&gt;, hh07i &lt;dbl&gt;, hh07j &lt;dbl&gt;, hh07k &lt;dbl&gt;,
+## #   hh07l &lt;dbl&gt;, hh07m &lt;dbl&gt;, hh07n &lt;dbl&gt;, hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;, ChildID &lt;chr&gt;, ch02 &lt;dbl&gt;, ch03 &lt;dbl&gt;,
+## #   ch04a &lt;dbl&gt;, ch04b &lt;dbl&gt;, ch04c &lt;dbl&gt;, ch04d &lt;dbl&gt;, ch04e &lt;dbl&gt;, ch04f &lt;dbl&gt;, ch05 &lt;dbl&gt;, ch06a &lt;dbl&gt;, ch06b &lt;dbl&gt;, ch06c &lt;dbl&gt;,
+## #   ch06d &lt;dbl&gt;, ch06e &lt;dbl&gt;, ch07a &lt;dbl&gt;, ch07b &lt;dbl&gt;, ch07c &lt;dbl&gt;, ch07d &lt;dbl&gt;, ch08 &lt;dbl&gt;, ch09 &lt;dbl&gt;, ch10a &lt;dbl&gt;, ch10b &lt;dbl&gt;,
+## #   ch10c &lt;dbl&gt;, pt00 &lt;dbl&gt;, pt01b &lt;dbl&gt;, pt01c &lt;dbl&gt;, pt01d &lt;dbl&gt;, pt01e &lt;dbl&gt;, pt01f &lt;dbl&gt;, pt02b &lt;dbl&gt;, pt02c &lt;dbl&gt;, pt02d &lt;dbl&gt;,
+## #   pt02e &lt;dbl&gt;, pt02f &lt;dbl&gt;, assessment &lt;dbl&gt;, sample &lt;dbl&gt;, l1_1 &lt;dbl&gt;, l1_2 &lt;dbl&gt;, l1_3 &lt;dbl&gt;, l1_4 &lt;dbl&gt;, l2_1 &lt;dbl&gt;, l2_2 &lt;dbl&gt;, …</code></pre>
+<p>To understand your data at a high-level, you can use <code>skim()</code> from <a href="https://docs.ropensci.org/skimr/">skimr</a> package :</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb286-1" tabindex="-1"></a><span class="fu">skim</span>(dat)</span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-167">Table 5.1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">dat</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">96452</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">147</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">8</td>
+</tr>
+<tr class="odd">
+<td align="left">Date</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">138</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<colgroup>
+<col width="21%" />
+<col width="11%" />
+<col width="28%" />
+<col width="4%" />
+<col width="4%" />
+<col width="6%" />
+<col width="10%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CountryName</td>
+<td align="right">0</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">4</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">11</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">TierOneUnit</td>
+<td align="right">0</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">121</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">VillageID</td>
+<td align="right">0</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">627</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Location</td>
+<td align="right">0</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">HHID</td>
+<td align="right">0</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">41</td>
+<td align="right">41</td>
+<td align="right">0</td>
+<td align="right">56880</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ChildID</td>
+<td align="right">0</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">48</td>
+<td align="right">66</td>
+<td align="right">0</td>
+<td align="right">96452</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">AssessmentLanguage</td>
+<td align="right">7153</td>
+<td align="right">0.9300000000000000488498</td>
+<td align="right">4</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">16</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">EnrolmentStatus</td>
+<td align="right">0</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">13</td>
+<td align="right">18</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: Date</strong></p>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="12%" />
+<col width="17%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">min</th>
+<th align="left">max</th>
+<th align="left">median</th>
+<th align="right">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">SubmissionDate</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">2025-07-27</td>
+<td align="left">2025-11-11</td>
+<td align="left">2025-09-02</td>
+<td align="right">102</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="3%" />
+<col width="9%" />
+<col width="11%" />
+<col width="10%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="10%" />
+<col width="10%" />
+<col width="2%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">…1</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">4.822650000000000000168e+04</td>
+<td align="right">2.784343999999999868990e+04</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">24113.7500000000000000000000</td>
+<td align="right">4.822650000000000000168e+04</td>
+<td align="right">7.233925000000000000121e+04</td>
+<td align="right">9.645200000000000000074e+04</td>
+<td align="left">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">duration</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">2.142300000000000181769e+03</td>
+<td align="right">1.711170000000000072709e+03</td>
+<td align="right">-3.813000000000000000010e+04</td>
+<td align="right">986.0000000000000000000000</td>
+<td align="right">1.658999999999999999927e+03</td>
+<td align="right">2.785999999999999999882e+03</td>
+<td align="right">2.014199999999999999949e+04</td>
+<td align="left">▁▁▁▇▁</td>
+</tr>
+<tr class="odd">
+<td align="left">hh06a</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">7.629999999999999893419e+00</td>
+<td align="right">6.219999999999999751310e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">4.0000000000000000000000</td>
+<td align="right">6.000000000000000000000e+00</td>
+<td align="right">8.000000000000000000000e+00</td>
+<td align="right">8.000000000000000000000e+01</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">hh06b1</td>
+<td align="right">19208</td>
+<td align="right">0.80000000000000004440892</td>
+<td align="right">6.700000000000000399680e-01</td>
+<td align="right">4.699999999999999733546e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▃▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">hh06b2</td>
+<td align="right">77244</td>
+<td align="right">0.20000000000000001110223</td>
+<td align="right">2.879999999999999893419e+00</td>
+<td align="right">1.320000000000000062172e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="right">8.000000000000000000000e+00</td>
+<td align="left">▇▅▂▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">hh06c</td>
+<td align="right">44238</td>
+<td align="right">0.54000000000000003552714</td>
+<td align="right">1.270000000000000017764e+00</td>
+<td align="right">4.400000000000000022204e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▃</td>
+</tr>
+<tr class="odd">
+<td align="left">hh06d</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">5.200000000000000177636e-01</td>
+<td align="right">5.000000000000000000000e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">hh07a</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">2.180000000000000159872e+00</td>
+<td align="right">4.600000000000000199840e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="left">▁▁▇▁▂</td>
+</tr>
+<tr class="odd">
+<td align="left">hh07b</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">2.149999999999999911182e+00</td>
+<td align="right">5.300000000000000266454e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="left">▁▁▇▁▂</td>
+</tr>
+<tr class="even">
+<td align="left">hh07c</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.500000000000000000000e+00</td>
+<td align="right">8.000000000000000444089e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▇▃▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">hh07d</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">2.410000000000000142109e+00</td>
+<td align="right">1.580000000000000071054e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="right">7.000000000000000000000e+00</td>
+<td align="left">▇▂▂▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">hh07e</td>
+<td align="right">34735</td>
+<td align="right">0.64000000000000001332268</td>
+<td align="right">9.899999999999999911182e-01</td>
+<td align="right">1.199999999999999955591e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">hh07f</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">9.300000000000000488498e-01</td>
+<td align="right">2.500000000000000000000e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">hh07g</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">4.299999999999999933387e-01</td>
+<td align="right">5.000000000000000000000e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▆</td>
+</tr>
+<tr class="odd">
+<td align="left">hh07h</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">3.499999999999999777955e-01</td>
+<td align="right">4.799999999999999822364e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▅</td>
+</tr>
+<tr class="even">
+<td align="left">hh07i</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">5.100000000000000088818e-01</td>
+<td align="right">5.000000000000000000000e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">hh07j</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">2.200000000000000011102e-01</td>
+<td align="right">4.099999999999999755751e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▂</td>
+</tr>
+<tr class="even">
+<td align="left">hh07k</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">5.699999999999999511502e-01</td>
+<td align="right">4.899999999999999911182e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▆▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">hh07l</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">4.899999999999999911182e-01</td>
+<td align="right">5.000000000000000000000e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">hh07m</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">8.900000000000000133227e-01</td>
+<td align="right">3.099999999999999977796e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">hh07n</td>
+<td align="right">10304</td>
+<td align="right">0.89000000000000001332268</td>
+<td align="right">7.099999999999999644729e-01</td>
+<td align="right">4.500000000000000111022e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▃▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">hh07o</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.400000000000000133227e-01</td>
+<td align="right">3.499999999999999777955e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">hh07p</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">3.499999999999999777955e-01</td>
+<td align="right">4.799999999999999822364e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▅</td>
+</tr>
+<tr class="even">
+<td align="left">hh07p_3</td>
+<td align="right">82754</td>
+<td align="right">0.14000000000000001332268</td>
+<td align="right">5.000000000000000277556e-02</td>
+<td align="right">2.099999999999999922284e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">hh07q</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">4.099999999999999755751e-01</td>
+<td align="right">4.899999999999999911182e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▆</td>
+</tr>
+<tr class="even">
+<td align="left">ch02</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.000000000000000000000e+01</td>
+<td align="right">3.250000000000000000000e+00</td>
+<td align="right">5.000000000000000000000e+00</td>
+<td align="right">7.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+01</td>
+<td align="right">1.300000000000000000065e+01</td>
+<td align="right">1.600000000000000000000e+01</td>
+<td align="left">▇▆▆▅▅</td>
+</tr>
+<tr class="odd">
+<td align="left">ch03</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.500000000000000000000e+00</td>
+<td align="right">5.000000000000000000000e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="left">▇▁▇▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">ch04a</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.040000000000000035527e+00</td>
+<td align="right">2.300000000000000099920e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">ch04b</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.020000000000000017764e+00</td>
+<td align="right">2.000000000000000111022e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">ch04c</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.020000000000000017764e+00</td>
+<td align="right">1.900000000000000022204e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">ch04d</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.030000000000000026645e+00</td>
+<td align="right">2.300000000000000099920e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">ch04e</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.030000000000000026645e+00</td>
+<td align="right">2.300000000000000099920e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">ch04f</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.070000000000000062172e+00</td>
+<td align="right">3.099999999999999977796e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">ch05</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">8.699999999999999955591e-01</td>
+<td align="right">3.300000000000000155431e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">ch06a</td>
+<td align="right">12227</td>
+<td align="right">0.86999999999999999555911</td>
+<td align="right">4.070000000000000284217e+00</td>
+<td align="right">2.870000000000000106581e+00</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="right">6.000000000000000000000e+00</td>
+<td align="right">1.200000000000000000043e+01</td>
+<td align="left">▇▅▆▂▁</td>
+</tr>
+<tr class="even">
+<td align="left">ch06b</td>
+<td align="right">12227</td>
+<td align="right">0.86999999999999999555911</td>
+<td align="right">1.290000000000000035527e+00</td>
+<td align="right">5.200000000000000177636e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="left">▇▁▂▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">ch06c</td>
+<td align="right">12227</td>
+<td align="right">0.86999999999999999555911</td>
+<td align="right">8.299999999999999600320e-01</td>
+<td align="right">3.800000000000000044409e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▂▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">ch06d</td>
+<td align="right">12227</td>
+<td align="right">0.86999999999999999555911</td>
+<td align="right">6.199999999999999955591e-01</td>
+<td align="right">4.899999999999999911182e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▅▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">ch06e</td>
+<td align="right">20279</td>
+<td align="right">0.79000000000000003552714</td>
+<td align="right">2.000000000000000111022e-01</td>
+<td align="right">4.000000000000000222045e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▂</td>
+</tr>
+<tr class="even">
+<td align="left">ch07a</td>
+<td align="right">84225</td>
+<td align="right">0.13000000000000000444089</td>
+<td align="right">2.300000000000000099920e-01</td>
+<td align="right">4.199999999999999844569e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▂</td>
+</tr>
+<tr class="odd">
+<td align="left">ch07b</td>
+<td align="right">93741</td>
+<td align="right">0.02999999999999999888978</td>
+<td align="right">2.022710000000000036364e+03</td>
+<td align="right">2.430000000000000159872e+00</td>
+<td align="right">2.014999999999999999879e+03</td>
+<td align="right">2022.0000000000000000000000</td>
+<td align="right">2.023999999999999999849e+03</td>
+<td align="right">2.023999999999999999849e+03</td>
+<td align="right">2.024999999999999999870e+03</td>
+<td align="left">▁▁▂▅▇</td>
+</tr>
+<tr class="even">
+<td align="left">ch07c</td>
+<td align="right">93741</td>
+<td align="right">0.02999999999999999888978</td>
+<td align="right">3.740000000000000213163e+00</td>
+<td align="right">2.540000000000000035527e+00</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="right">6.000000000000000000000e+00</td>
+<td align="right">1.200000000000000000043e+01</td>
+<td align="left">▇▆▆▂▁</td>
+</tr>
+<tr class="odd">
+<td align="left">ch07d</td>
+<td align="right">93741</td>
+<td align="right">0.02999999999999999888978</td>
+<td align="right">4.629999999999999893419e+00</td>
+<td align="right">1.840000000000000079936e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">3.0000000000000000000000</td>
+<td align="right">5.000000000000000000000e+00</td>
+<td align="right">6.000000000000000000000e+00</td>
+<td align="right">7.000000000000000000000e+00</td>
+<td align="left">▃▂▁▆▇</td>
+</tr>
+<tr class="even">
+<td align="left">ch08</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.900000000000000022204e-01</td>
+<td align="right">4.000000000000000222045e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▂</td>
+</tr>
+<tr class="odd">
+<td align="left">ch09</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">1.600000000000000033307e-01</td>
+<td align="right">3.699999999999999955591e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▂</td>
+</tr>
+<tr class="even">
+<td align="left">ch10a</td>
+<td align="right">12227</td>
+<td align="right">0.86999999999999999555911</td>
+<td align="right">4.899999999999999911182e-01</td>
+<td align="right">5.000000000000000000000e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">ch10b</td>
+<td align="right">54923</td>
+<td align="right">0.42999999999999999333866</td>
+<td align="right">2.720000000000000195399e+00</td>
+<td align="right">1.590000000000000079936e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="right">7.000000000000000000000e+00</td>
+<td align="left">▇▃▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">ch10c</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">5.300000000000000266454e-01</td>
+<td align="right">9.100000000000000310862e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">pt00</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">2.189999999999999946709e+00</td>
+<td align="right">1.110000000000000097700e+00</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="left">▂▃▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">pt01b</td>
+<td align="right">14342</td>
+<td align="right">0.84999999999999997779554</td>
+<td align="right">3.604999999999999715740e+01</td>
+<td align="right">7.940000000000000390799e+00</td>
+<td align="right">1.800000000000000000087e+01</td>
+<td align="right">30.0000000000000000000000</td>
+<td align="right">3.500000000000000000000e+01</td>
+<td align="right">4.000000000000000000000e+01</td>
+<td align="right">8.000000000000000000000e+01</td>
+<td align="left">▅▇▂▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">pt01c</td>
+<td align="right">14342</td>
+<td align="right">0.84999999999999997779554</td>
+<td align="right">6.899999999999999467093e-01</td>
+<td align="right">4.600000000000000199840e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▃▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">pt01d</td>
+<td align="right">40204</td>
+<td align="right">0.57999999999999996003197</td>
+<td align="right">1.530000000000000026645e+00</td>
+<td align="right">8.900000000000000133227e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▂▇▆▃▁</td>
+</tr>
+<tr class="odd">
+<td align="left">pt01e</td>
+<td align="right">14342</td>
+<td align="right">0.84999999999999997779554</td>
+<td align="right">5.000000000000000000000e-01</td>
+<td align="right">5.000000000000000000000e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">pt01f</td>
+<td align="right">55814</td>
+<td align="right">0.41999999999999998445688</td>
+<td align="right">2.100000000000000088818e+00</td>
+<td align="right">1.199999999999999955591e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">3.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▇▁▁▅▃</td>
+</tr>
+<tr class="odd">
+<td align="left">pt02b</td>
+<td align="right">31684</td>
+<td align="right">0.67000000000000003996803</td>
+<td align="right">4.299000000000000199212e+01</td>
+<td align="right">9.539999999999999147349e+00</td>
+<td align="right">1.800000000000000000087e+01</td>
+<td align="right">36.0000000000000000000000</td>
+<td align="right">4.200000000000000000260e+01</td>
+<td align="right">4.900000000000000000087e+01</td>
+<td align="right">8.000000000000000000000e+01</td>
+<td align="left">▂▇▆▂▁</td>
+</tr>
+<tr class="even">
+<td align="left">pt02c</td>
+<td align="right">31684</td>
+<td align="right">0.67000000000000003996803</td>
+<td align="right">7.299999999999999822364e-01</td>
+<td align="right">4.400000000000000022204e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▃▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">pt02d</td>
+<td align="right">49106</td>
+<td align="right">0.48999999999999999111822</td>
+<td align="right">1.600000000000000088818e+00</td>
+<td align="right">9.200000000000000399680e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▂▇▆▃▁</td>
+</tr>
+<tr class="even">
+<td align="left">pt02e</td>
+<td align="right">31684</td>
+<td align="right">0.67000000000000003996803</td>
+<td align="right">8.699999999999999955591e-01</td>
+<td align="right">3.400000000000000244249e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">pt02f</td>
+<td align="right">40199</td>
+<td align="right">0.57999999999999996003197</td>
+<td align="right">2.339999999999999857891e+00</td>
+<td align="right">1.250000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="right">4.000000000000000000000e+00</td>
+<td align="left">▇▂▁▅▅</td>
+</tr>
+<tr class="even">
+<td align="left">assessment</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">9.300000000000000488498e-01</td>
+<td align="right">2.600000000000000088818e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">sample</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.449999999999999955591e+00</td>
+<td align="right">5.000000000000000000000e-01</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▆</td>
+</tr>
+<tr class="even">
+<td align="left">l1_1</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.169999999999999928946e+00</td>
+<td align="right">9.100000000000000310862e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▆▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l1_2</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.189999999999999946709e+00</td>
+<td align="right">8.699999999999999955591e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▅▁▃▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l1_3</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.120000000000000106581e+00</td>
+<td align="right">8.800000000000000044409e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▆▁▃▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l1_4</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.030000000000000026645e+00</td>
+<td align="right">8.800000000000000044409e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▇▁▅▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l2_1</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.560000000000000053291e+00</td>
+<td align="right">7.399999999999999911182e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l2_2</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.580000000000000071054e+00</td>
+<td align="right">7.299999999999999822364e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l2_3</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.540000000000000035527e+00</td>
+<td align="right">7.500000000000000000000e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l2_4</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.520000000000000017764e+00</td>
+<td align="right">7.600000000000000088818e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l2_5</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.469999999999999973355e+00</td>
+<td align="right">7.900000000000000355271e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l3_1</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.689999999999999946709e+00</td>
+<td align="right">6.500000000000000222045e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l3_2</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.739999999999999991118e+00</td>
+<td align="right">5.999999999999999777955e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l3_3</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.709999999999999964473e+00</td>
+<td align="right">6.300000000000000044409e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l3_4</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.689999999999999946709e+00</td>
+<td align="right">6.400000000000000133227e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l3_5</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.659999999999999920064e+00</td>
+<td align="right">6.700000000000000399680e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l4_1</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.750000000000000000000e+00</td>
+<td align="right">5.999999999999999777955e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l4_2</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.699999999999999955591e+00</td>
+<td align="right">6.300000000000000044409e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l4_3</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.739999999999999991118e+00</td>
+<td align="right">5.999999999999999777955e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l4_4</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.659999999999999920064e+00</td>
+<td align="right">6.600000000000000310862e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l4_5</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.639999999999999902300e+00</td>
+<td align="right">6.800000000000000488498e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l4_6</td>
+<td align="right">33971</td>
+<td align="right">0.65000000000000002220446</td>
+<td align="right">1.629999999999999893419e+00</td>
+<td align="right">6.800000000000000488498e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l5_1</td>
+<td align="right">45843</td>
+<td align="right">0.52000000000000001776357</td>
+<td align="right">1.679999999999999937828e+00</td>
+<td align="right">6.700000000000000399680e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l5_2</td>
+<td align="right">45843</td>
+<td align="right">0.52000000000000001776357</td>
+<td align="right">1.639999999999999902300e+00</td>
+<td align="right">6.899999999999999467093e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l5_3</td>
+<td align="right">45843</td>
+<td align="right">0.52000000000000001776357</td>
+<td align="right">1.620000000000000106581e+00</td>
+<td align="right">6.999999999999999555911e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l5_4</td>
+<td align="right">45843</td>
+<td align="right">0.52000000000000001776357</td>
+<td align="right">1.510000000000000008882e+00</td>
+<td align="right">7.600000000000000088818e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l5_5</td>
+<td align="right">45843</td>
+<td align="right">0.52000000000000001776357</td>
+<td align="right">1.250000000000000000000e+00</td>
+<td align="right">8.599999999999999866773e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▅▁▃▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l6_1</td>
+<td align="right">52471</td>
+<td align="right">0.46000000000000001998401</td>
+<td align="right">1.780000000000000026645e+00</td>
+<td align="right">5.500000000000000444089e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l6_2</td>
+<td align="right">52471</td>
+<td align="right">0.46000000000000001998401</td>
+<td align="right">1.739999999999999991118e+00</td>
+<td align="right">5.699999999999999511502e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l6_3</td>
+<td align="right">52471</td>
+<td align="right">0.46000000000000001998401</td>
+<td align="right">1.699999999999999955591e+00</td>
+<td align="right">5.999999999999999777955e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">l6_4</td>
+<td align="right">52471</td>
+<td align="right">0.46000000000000001998401</td>
+<td align="right">1.610000000000000097700e+00</td>
+<td align="right">6.700000000000000399680e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">l6_5</td>
+<td align="right">52471</td>
+<td align="right">0.46000000000000001998401</td>
+<td align="right">1.449999999999999955591e+00</td>
+<td align="right">7.700000000000000177636e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▃▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n1</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.780000000000000026645e+00</td>
+<td align="right">5.500000000000000444089e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n2</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.709999999999999964473e+00</td>
+<td align="right">5.799999999999999600320e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n3</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.750000000000000000000e+00</td>
+<td align="right">5.799999999999999600320e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n4</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.300000000000000044409e+00</td>
+<td align="right">6.800000000000000488498e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▇▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n5</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.560000000000000053291e+00</td>
+<td align="right">6.899999999999999467093e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n6</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.280000000000000026645e+00</td>
+<td align="right">7.299999999999999822364e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▃▁▇▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n7</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.070000000000000062172e+00</td>
+<td align="right">7.500000000000000000000e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▅▁▇▁▆</td>
+</tr>
+<tr class="odd">
+<td align="left">n8</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">7.399999999999999911182e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▅▁▇▁▅</td>
+</tr>
+<tr class="even">
+<td align="left">n9</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.159999999999999920064e+00</td>
+<td align="right">8.399999999999999689138e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▅▁▅▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n10</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.050000000000000044409e+00</td>
+<td align="right">8.199999999999999511502e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▇▁▇▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n11</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.669999999999999928946e+00</td>
+<td align="right">6.400000000000000133227e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n12</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.590000000000000079936e+00</td>
+<td align="right">6.800000000000000488498e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n13</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.610000000000000097700e+00</td>
+<td align="right">6.700000000000000399680e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n14</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.530000000000000026645e+00</td>
+<td align="right">7.099999999999999644729e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n15</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.250000000000000000000e+00</td>
+<td align="right">6.999999999999999555911e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▃▁▇▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n16</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.639999999999999902300e+00</td>
+<td align="right">6.800000000000000488498e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n17</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.659999999999999920064e+00</td>
+<td align="right">6.800000000000000488498e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n18</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.639999999999999902300e+00</td>
+<td align="right">6.899999999999999467093e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n19</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.629999999999999893419e+00</td>
+<td align="right">6.899999999999999467093e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">2.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n20</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.620000000000000106581e+00</td>
+<td align="right">6.999999999999999555911e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n21</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.479999999999999982236e+00</td>
+<td align="right">7.800000000000000266454e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n22</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.469999999999999973355e+00</td>
+<td align="right">7.800000000000000266454e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n23</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.439999999999999946709e+00</td>
+<td align="right">7.900000000000000355271e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n24</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.419999999999999928946e+00</td>
+<td align="right">8.000000000000000444089e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n25</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.439999999999999946709e+00</td>
+<td align="right">7.900000000000000355271e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n26</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.449999999999999955591e+00</td>
+<td align="right">7.800000000000000266454e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▂▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n27</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.310000000000000053291e+00</td>
+<td align="right">8.299999999999999600320e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▃▁▃▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n28</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.209999999999999964473e+00</td>
+<td align="right">8.299999999999999600320e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▅▁▅▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n29</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.070000000000000062172e+00</td>
+<td align="right">8.199999999999999511502e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▆▁▇▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n30</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">1.080000000000000071054e+00</td>
+<td align="right">8.499999999999999777955e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▆▁▅▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n31</td>
+<td align="right">47996</td>
+<td align="right">0.50000000000000000000000</td>
+<td align="right">1.590000000000000079936e+00</td>
+<td align="right">6.300000000000000044409e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▃▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n32</td>
+<td align="right">54717</td>
+<td align="right">0.42999999999999999333866</td>
+<td align="right">1.520000000000000017764e+00</td>
+<td align="right">6.400000000000000133227e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▅▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n33</td>
+<td align="right">63307</td>
+<td align="right">0.34000000000000002442491</td>
+<td align="right">1.560000000000000053291e+00</td>
+<td align="right">6.500000000000000222045e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▁▁▃▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n34</td>
+<td align="right">60377</td>
+<td align="right">0.36999999999999999555911</td>
+<td align="right">1.270000000000000017764e+00</td>
+<td align="right">7.800000000000000266454e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▃▁▅▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">n35</td>
+<td align="right">54717</td>
+<td align="right">0.42999999999999999333866</td>
+<td align="right">1.370000000000000106581e+00</td>
+<td align="right">7.299999999999999822364e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▅▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">n36</td>
+<td align="right">60377</td>
+<td align="right">0.36999999999999999555911</td>
+<td align="right">1.379999999999999893419e+00</td>
+<td align="right">7.299999999999999822364e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.0000000000000000000000</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="right">2.000000000000000000000e+00</td>
+<td align="left">▂▁▅▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">IcarAssessTime</td>
+<td align="right">23441</td>
+<td align="right">0.76000000000000000888178</td>
+<td align="right">6.509999999999999786837e+00</td>
+<td align="right">1.623000000000000042676e+01</td>
+<td align="right">1.020000000000000017764e+00</td>
+<td align="right">2.7000000000000001776357</td>
+<td align="right">4.900000000000000355271e+00</td>
+<td align="right">7.620000000000000106581e+00</td>
+<td align="right">7.097200000000000272727e+02</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">IcanAssessTime</td>
+<td align="right">18215</td>
+<td align="right">0.81000000000000005329071</td>
+<td align="right">8.759999999999999786837e+00</td>
+<td align="right">2.378999999999999914865e+01</td>
+<td align="right">1.020000000000000017764e+00</td>
+<td align="right">3.6299999999999998934186</td>
+<td align="right">6.370000000000000106581e+00</td>
+<td align="right">9.949999999999999289457e+00</td>
+<td align="right">7.129800000000000181725e+02</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">AssHomeLang</td>
+<td align="right">7153</td>
+<td align="right">0.93000000000000004884981</td>
+<td align="right">6.500000000000000222045e-01</td>
+<td align="right">4.799999999999999822364e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▅▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">HHWeightProvided</td>
+<td align="right">0</td>
+<td align="right">1.00000000000000000000000</td>
+<td align="right">3.105789999999999963492e+03</td>
+<td align="right">3.794869999999999890658e+03</td>
+<td align="right">4.199999999999999844569e-01</td>
+<td align="right">584.4099999999999681676854</td>
+<td align="right">2.112119999999999890757e+03</td>
+<td align="right">3.926999999999999999781e+03</td>
+<td align="right">5.715222000000000116340e+04</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">MPLMath</td>
+<td align="right">7314</td>
+<td align="right">0.92000000000000003996803</td>
+<td align="right">4.500000000000000111022e-01</td>
+<td align="right">5.000000000000000000000e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▆</td>
+</tr>
+<tr class="odd">
+<td align="left">MPLReading</td>
+<td align="right">7314</td>
+<td align="right">0.92000000000000003996803</td>
+<td align="right">3.099999999999999977796e-01</td>
+<td align="right">4.600000000000000199840e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▃</td>
+</tr>
+<tr class="even">
+<td align="left">MPLBoth</td>
+<td align="right">7314</td>
+<td align="right">0.92000000000000003996803</td>
+<td align="right">2.899999999999999800160e-01</td>
+<td align="right">4.500000000000000111022e-01</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">0.0000000000000000000000</td>
+<td align="right">0.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="right">1.000000000000000000000e+00</td>
+<td align="left">▇▁▁▁▃</td>
+</tr>
+<tr class="odd">
+<td align="left">MathIRTScore</td>
+<td align="right">7314</td>
+<td align="right">0.92000000000000003996803</td>
+<td align="right">-4.199999999999999844569e-01</td>
+<td align="right">1.050000000000000044409e+00</td>
+<td align="right">-3.069999999999999840128e+00</td>
+<td align="right">-1.0700000000000000621725</td>
+<td align="right">-3.499999999999999777955e-01</td>
+<td align="right">2.000000000000000111022e-01</td>
+<td align="right">2.140000000000000124345e+00</td>
+<td align="left">▂▃▇▅▂</td>
+</tr>
+<tr class="even">
+<td align="left">StandardErrorMath</td>
+<td align="right">7314</td>
+<td align="right">0.92000000000000003996803</td>
+<td align="right">2.300000000000000099920e-01</td>
+<td align="right">1.700000000000000122125e-01</td>
+<td align="right">1.199999999999999955591e-01</td>
+<td align="right">0.1499999999999999944489</td>
+<td align="right">1.600000000000000033307e-01</td>
+<td align="right">2.500000000000000000000e-01</td>
+<td align="right">9.499999999999999555911e-01</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">ReadingIRTScore</td>
+<td align="right">7314</td>
+<td align="right">0.92000000000000003996803</td>
+<td align="right">-3.800000000000000044409e-01</td>
+<td align="right">1.310000000000000053291e+00</td>
+<td align="right">-3.270000000000000017764e+00</td>
+<td align="right">-1.3200000000000000621725</td>
+<td align="right">-7.000000000000000666134e-02</td>
+<td align="right">5.100000000000000088818e-01</td>
+<td align="right">1.899999999999999911182e+00</td>
+<td align="left">▂▃▅▇▃</td>
+</tr>
+<tr class="even">
+<td align="left">StandardErrorReading</td>
+<td align="right">7314</td>
+<td align="right">0.92000000000000003996803</td>
+<td align="right">3.499999999999999777955e-01</td>
+<td align="right">2.800000000000000266454e-01</td>
+<td align="right">8.000000000000000166533e-02</td>
+<td align="right">0.1100000000000000005551</td>
+<td align="right">2.399999999999999911182e-01</td>
+<td align="right">5.300000000000000266454e-01</td>
+<td align="right">1.080000000000000071054e+00</td>
+<td align="left">▇▂▂▁▂</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="the-five-key-dplyr-verbs" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> The Five Key dplyr Verbs<a href="intro-to-data-wrangling-with-tidyverse.html#the-five-key-dplyr-verbs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="filtering-rows-with-filter" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Filtering rows with <code>filter()</code><a href="intro-to-data-wrangling-with-tidyverse.html#filtering-rows-with-filter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>filter()</code> function from <strong>dplyr</strong> is used to extract rows from the data that meet certain conditions.</p>
+<p>Here we illustrate the use of <code>filter()</code> by extracting all children from Mozambique.</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb287-1" tabindex="-1"></a>dat_moz <span class="ot">=</span> <span class="fu">filter</span>(dat, CountryName <span class="sc">==</span> <span class="st">&quot;Mozambique&quot;</span>)</span>
+<span id="cb287-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb287-2" tabindex="-1"></a>dat_moz</span></code></pre></div>
+<pre><code>## # A tibble: 8,255 × 147
+##     ...1 CountryName TierOneUnit VillageID Location HHID       SubmissionDate duration hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;date&gt;            &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1 Mozambique  c101        c101      Urban    uuid:f580… 2025-09-23          979     4      1     NA     1     1     2     2     1
+##  2     2 Mozambique  c101        c101      Urban    uuid:b98e… 2025-09-23          986     7      1     NA     1     1     2     2     1
+##  3     3 Mozambique  c101        c101      Urban    uuid:2611… 2025-09-23         2167     6      1     NA     1     1     2     2     1
+##  4     4 Mozambique  c101        c101      Urban    uuid:d46b… 2025-09-23         2078     6      1     NA     1     1     1     1     1
+##  5     5 Mozambique  c101        c101      Urban    uuid:df92… 2025-09-23         1251     5      1     NA     1     1     2     2     1
+##  6     6 Mozambique  c101        c101      Urban    uuid:ade5… 2025-09-23         2199     5      1     NA     1     1     2     2     1
+##  7     7 Mozambique  c101        c101      Urban    uuid:3f84… 2025-09-23         2889     5      1     NA     1     1     2     2     1
+##  8     8 Mozambique  c101        c101      Urban    uuid:ff7b… 2025-09-23         1588     4      1     NA     1     0     2     2     1
+##  9     9 Mozambique  c101        c101      Urban    uuid:7730… 2025-09-23         2203     4      1     NA     1     1     2     2     1
+## 10    10 Mozambique  c101        c101      Urban    uuid:e210… 2025-09-24         4647     5      1     NA     2     1     2     2     1
+## # ℹ 8,245 more rows
+## # ℹ 131 more variables: hh07d &lt;dbl&gt;, hh07e &lt;dbl&gt;, hh07f &lt;dbl&gt;, hh07g &lt;dbl&gt;, hh07h &lt;dbl&gt;, hh07i &lt;dbl&gt;, hh07j &lt;dbl&gt;, hh07k &lt;dbl&gt;,
+## #   hh07l &lt;dbl&gt;, hh07m &lt;dbl&gt;, hh07n &lt;dbl&gt;, hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;, ChildID &lt;chr&gt;, ch02 &lt;dbl&gt;, ch03 &lt;dbl&gt;,
+## #   ch04a &lt;dbl&gt;, ch04b &lt;dbl&gt;, ch04c &lt;dbl&gt;, ch04d &lt;dbl&gt;, ch04e &lt;dbl&gt;, ch04f &lt;dbl&gt;, ch05 &lt;dbl&gt;, ch06a &lt;dbl&gt;, ch06b &lt;dbl&gt;, ch06c &lt;dbl&gt;,
+## #   ch06d &lt;dbl&gt;, ch06e &lt;dbl&gt;, ch07a &lt;dbl&gt;, ch07b &lt;dbl&gt;, ch07c &lt;dbl&gt;, ch07d &lt;dbl&gt;, ch08 &lt;dbl&gt;, ch09 &lt;dbl&gt;, ch10a &lt;dbl&gt;, ch10b &lt;dbl&gt;,
+## #   ch10c &lt;dbl&gt;, pt00 &lt;dbl&gt;, pt01b &lt;dbl&gt;, pt01c &lt;dbl&gt;, pt01d &lt;dbl&gt;, pt01e &lt;dbl&gt;, pt01f &lt;dbl&gt;, pt02b &lt;dbl&gt;, pt02c &lt;dbl&gt;, pt02d &lt;dbl&gt;,
+## #   pt02e &lt;dbl&gt;, pt02f &lt;dbl&gt;, assessment &lt;dbl&gt;, sample &lt;dbl&gt;, l1_1 &lt;dbl&gt;, l1_2 &lt;dbl&gt;, l1_3 &lt;dbl&gt;, l1_4 &lt;dbl&gt;, l2_1 &lt;dbl&gt;, l2_2 &lt;dbl&gt;, …</code></pre>
+<p>Next we extract the children from Mozambique that received an Reading IRT Score greater than <span class="math inline">\(1.5\)</span>. Multiple filter conditions are created with <code>&amp;</code> (and) and <code>|</code> (or).</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb289-1" tabindex="-1"></a><span class="fu">filter</span>(dat, CountryName <span class="sc">==</span> <span class="st">&quot;Mozambique&quot;</span> <span class="sc">&amp;</span> ReadingIRTScore <span class="sc">&gt;</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 390 × 147
+##     ...1 CountryName TierOneUnit VillageID Location HHID       SubmissionDate duration hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;date&gt;            &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1    18 Mozambique  c101        c101      Urban    uuid:789a… 2025-09-25         2511     7      1     NA     1     1     2     2     1
+##  2    35 Mozambique  c101        c101      Urban    uuid:9a7b… 2025-09-25         2868     8      1     NA     1     1     2     2     1
+##  3   204 Mozambique  c101        c107      Urban    uuid:00db… 2025-09-22          898     6      1     NA     2     1     2     2     1
+##  4   221 Mozambique  c101        c108      Rural    uuid:a3f7… 2025-09-27         1643    12      1     NA     2     1     2     2     1
+##  5   252 Mozambique  c101        c108      Rural    uuid:4b57… 2025-10-24          965     6      1     NA     2     1     2     2     1
+##  6   421 Mozambique  c101        c114      Rural    uuid:b166… 2025-09-22         3217     4      1     NA     1     0     3     3     1
+##  7   603 Mozambique  c101        c120      Rural    uuid:fff9… 2025-09-21         2585     6      1     NA     1     1     2     2     1
+##  8   677 Mozambique  c101        c122      Rural    uuid:6354… 2025-09-27         1443    10      0     NA    NA     1     2     2     1
+##  9   730 Mozambique  c102        c124      Rural    uuid:06e4… 2025-10-24          630     4      0     NA    NA     1     3     3     2
+## 10   731 Mozambique  c102        c124      Rural    uuid:d48d… 2025-10-24         1187     3      0     NA    NA     1     3     3     2
+## # ℹ 380 more rows
+## # ℹ 131 more variables: hh07d &lt;dbl&gt;, hh07e &lt;dbl&gt;, hh07f &lt;dbl&gt;, hh07g &lt;dbl&gt;, hh07h &lt;dbl&gt;, hh07i &lt;dbl&gt;, hh07j &lt;dbl&gt;, hh07k &lt;dbl&gt;,
+## #   hh07l &lt;dbl&gt;, hh07m &lt;dbl&gt;, hh07n &lt;dbl&gt;, hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;, ChildID &lt;chr&gt;, ch02 &lt;dbl&gt;, ch03 &lt;dbl&gt;,
+## #   ch04a &lt;dbl&gt;, ch04b &lt;dbl&gt;, ch04c &lt;dbl&gt;, ch04d &lt;dbl&gt;, ch04e &lt;dbl&gt;, ch04f &lt;dbl&gt;, ch05 &lt;dbl&gt;, ch06a &lt;dbl&gt;, ch06b &lt;dbl&gt;, ch06c &lt;dbl&gt;,
+## #   ch06d &lt;dbl&gt;, ch06e &lt;dbl&gt;, ch07a &lt;dbl&gt;, ch07b &lt;dbl&gt;, ch07c &lt;dbl&gt;, ch07d &lt;dbl&gt;, ch08 &lt;dbl&gt;, ch09 &lt;dbl&gt;, ch10a &lt;dbl&gt;, ch10b &lt;dbl&gt;,
+## #   ch10c &lt;dbl&gt;, pt00 &lt;dbl&gt;, pt01b &lt;dbl&gt;, pt01c &lt;dbl&gt;, pt01d &lt;dbl&gt;, pt01e &lt;dbl&gt;, pt01f &lt;dbl&gt;, pt02b &lt;dbl&gt;, pt02c &lt;dbl&gt;, pt02d &lt;dbl&gt;,
+## #   pt02e &lt;dbl&gt;, pt02f &lt;dbl&gt;, assessment &lt;dbl&gt;, sample &lt;dbl&gt;, l1_1 &lt;dbl&gt;, l1_2 &lt;dbl&gt;, l1_3 &lt;dbl&gt;, l1_4 &lt;dbl&gt;, l2_1 &lt;dbl&gt;, l2_2 &lt;dbl&gt;, …</code></pre>
+<p>Here’s another way of writing the same condition as above:</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb291-1" tabindex="-1"></a><span class="fu">filter</span>(dat, CountryName <span class="sc">==</span> <span class="st">&quot;Mozambique&quot;</span>, ReadingIRTScore <span class="sc">&gt;</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 390 × 147
+##     ...1 CountryName TierOneUnit VillageID Location HHID       SubmissionDate duration hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;date&gt;            &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1    18 Mozambique  c101        c101      Urban    uuid:789a… 2025-09-25         2511     7      1     NA     1     1     2     2     1
+##  2    35 Mozambique  c101        c101      Urban    uuid:9a7b… 2025-09-25         2868     8      1     NA     1     1     2     2     1
+##  3   204 Mozambique  c101        c107      Urban    uuid:00db… 2025-09-22          898     6      1     NA     2     1     2     2     1
+##  4   221 Mozambique  c101        c108      Rural    uuid:a3f7… 2025-09-27         1643    12      1     NA     2     1     2     2     1
+##  5   252 Mozambique  c101        c108      Rural    uuid:4b57… 2025-10-24          965     6      1     NA     2     1     2     2     1
+##  6   421 Mozambique  c101        c114      Rural    uuid:b166… 2025-09-22         3217     4      1     NA     1     0     3     3     1
+##  7   603 Mozambique  c101        c120      Rural    uuid:fff9… 2025-09-21         2585     6      1     NA     1     1     2     2     1
+##  8   677 Mozambique  c101        c122      Rural    uuid:6354… 2025-09-27         1443    10      0     NA    NA     1     2     2     1
+##  9   730 Mozambique  c102        c124      Rural    uuid:06e4… 2025-10-24          630     4      0     NA    NA     1     3     3     2
+## 10   731 Mozambique  c102        c124      Rural    uuid:d48d… 2025-10-24         1187     3      0     NA    NA     1     3     3     2
+## # ℹ 380 more rows
+## # ℹ 131 more variables: hh07d &lt;dbl&gt;, hh07e &lt;dbl&gt;, hh07f &lt;dbl&gt;, hh07g &lt;dbl&gt;, hh07h &lt;dbl&gt;, hh07i &lt;dbl&gt;, hh07j &lt;dbl&gt;, hh07k &lt;dbl&gt;,
+## #   hh07l &lt;dbl&gt;, hh07m &lt;dbl&gt;, hh07n &lt;dbl&gt;, hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;, ChildID &lt;chr&gt;, ch02 &lt;dbl&gt;, ch03 &lt;dbl&gt;,
+## #   ch04a &lt;dbl&gt;, ch04b &lt;dbl&gt;, ch04c &lt;dbl&gt;, ch04d &lt;dbl&gt;, ch04e &lt;dbl&gt;, ch04f &lt;dbl&gt;, ch05 &lt;dbl&gt;, ch06a &lt;dbl&gt;, ch06b &lt;dbl&gt;, ch06c &lt;dbl&gt;,
+## #   ch06d &lt;dbl&gt;, ch06e &lt;dbl&gt;, ch07a &lt;dbl&gt;, ch07b &lt;dbl&gt;, ch07c &lt;dbl&gt;, ch07d &lt;dbl&gt;, ch08 &lt;dbl&gt;, ch09 &lt;dbl&gt;, ch10a &lt;dbl&gt;, ch10b &lt;dbl&gt;,
+## #   ch10c &lt;dbl&gt;, pt00 &lt;dbl&gt;, pt01b &lt;dbl&gt;, pt01c &lt;dbl&gt;, pt01d &lt;dbl&gt;, pt01e &lt;dbl&gt;, pt01f &lt;dbl&gt;, pt02b &lt;dbl&gt;, pt02c &lt;dbl&gt;, pt02d &lt;dbl&gt;,
+## #   pt02e &lt;dbl&gt;, pt02f &lt;dbl&gt;, assessment &lt;dbl&gt;, sample &lt;dbl&gt;, l1_1 &lt;dbl&gt;, l1_2 &lt;dbl&gt;, l1_3 &lt;dbl&gt;, l1_4 &lt;dbl&gt;, l2_1 &lt;dbl&gt;, l2_2 &lt;dbl&gt;, …</code></pre>
+<p>The <code>%in%</code> command is often useful when using dplyr verbs:</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb293-1" tabindex="-1"></a><span class="co"># Extract children from Mozambique who are ages 5, 9, and 13 years old and have an Reading IRT Score greater than 1.5</span></span>
+<span id="cb293-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb293-2" tabindex="-1"></a><span class="fu">filter</span>(dat, CountryName <span class="sc">==</span> <span class="st">&quot;Mozambique&quot;</span>, ch02 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">13</span>), ReadingIRTScore <span class="sc">&gt;</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 74 × 147
+##     ...1 CountryName TierOneUnit VillageID Location HHID       SubmissionDate duration hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;date&gt;            &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1    18 Mozambique  c101        c101      Urban    uuid:789a… 2025-09-25         2511     7      1     NA     1     1     2     2     1
+##  2   252 Mozambique  c101        c108      Rural    uuid:4b57… 2025-10-24          965     6      1     NA     2     1     2     2     1
+##  3  1083 Mozambique  c102        c138      Urban    uuid:d763… 2025-10-02          720     3      1     NA     1     1     3     3     1
+##  4  1199 Mozambique  c102        c141      Rural    uuid:5603… 2025-10-09          581     4      1     NA     2     1     3     3     1
+##  5  2165 Mozambique  c103        c173      Urban    uuid:a7af… 2025-08-11         2111     6      0     NA    NA     0     3     3     4
+##  6  2265 Mozambique  c104        c176      Urban    uuid:7fcf… 2025-09-22         2155     7      1     NA     1     1     2     2     1
+##  7  2291 Mozambique  c104        c177      Urban    uuid:7363… 2025-09-18          991     3      1     NA     1     0     3     3     1
+##  8  2343 Mozambique  c104        c178      Urban    uuid:63b9… 2025-09-22         2007     6      1     NA     1     1     2     2     1
+##  9  2737 Mozambique  c104        c187      Rural    uuid:c37b… 2025-10-24          504     5      1     NA     2     1     3     3     4
+## 10  3305 Mozambique  c104        c205      Rural    uuid:70cf… 2025-09-19         8859     2      1     NA     2     1     3     3     2
+## # ℹ 64 more rows
+## # ℹ 131 more variables: hh07d &lt;dbl&gt;, hh07e &lt;dbl&gt;, hh07f &lt;dbl&gt;, hh07g &lt;dbl&gt;, hh07h &lt;dbl&gt;, hh07i &lt;dbl&gt;, hh07j &lt;dbl&gt;, hh07k &lt;dbl&gt;,
+## #   hh07l &lt;dbl&gt;, hh07m &lt;dbl&gt;, hh07n &lt;dbl&gt;, hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;, ChildID &lt;chr&gt;, ch02 &lt;dbl&gt;, ch03 &lt;dbl&gt;,
+## #   ch04a &lt;dbl&gt;, ch04b &lt;dbl&gt;, ch04c &lt;dbl&gt;, ch04d &lt;dbl&gt;, ch04e &lt;dbl&gt;, ch04f &lt;dbl&gt;, ch05 &lt;dbl&gt;, ch06a &lt;dbl&gt;, ch06b &lt;dbl&gt;, ch06c &lt;dbl&gt;,
+## #   ch06d &lt;dbl&gt;, ch06e &lt;dbl&gt;, ch07a &lt;dbl&gt;, ch07b &lt;dbl&gt;, ch07c &lt;dbl&gt;, ch07d &lt;dbl&gt;, ch08 &lt;dbl&gt;, ch09 &lt;dbl&gt;, ch10a &lt;dbl&gt;, ch10b &lt;dbl&gt;,
+## #   ch10c &lt;dbl&gt;, pt00 &lt;dbl&gt;, pt01b &lt;dbl&gt;, pt01c &lt;dbl&gt;, pt01d &lt;dbl&gt;, pt01e &lt;dbl&gt;, pt01f &lt;dbl&gt;, pt02b &lt;dbl&gt;, pt02c &lt;dbl&gt;, pt02d &lt;dbl&gt;,
+## #   pt02e &lt;dbl&gt;, pt02f &lt;dbl&gt;, assessment &lt;dbl&gt;, sample &lt;dbl&gt;, l1_1 &lt;dbl&gt;, l1_2 &lt;dbl&gt;, l1_3 &lt;dbl&gt;, l1_4 &lt;dbl&gt;, l2_1 &lt;dbl&gt;, l2_2 &lt;dbl&gt;, …</code></pre>
+<p>Let’s practice filtering data in R:</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb295-1" tabindex="-1"></a><span class="co"># Extract children from Kenya and Mali living in urban areas and are males</span></span>
+<span id="cb295-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb295-2" tabindex="-1"></a></span>
+<span id="cb295-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb295-3" tabindex="-1"></a><span class="fu">filter</span>(dat, CountryName <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Kenya&quot;</span>, <span class="st">&quot;Mali&quot;</span>), Location <span class="sc">==</span> <span class="st">&quot;Urban&quot;</span>, ch03 <span class="sc">==</span> <span class="dv">2</span>)</span>
+<span id="cb295-4"><a href="intro-to-data-wrangling-with-tidyverse.html#cb295-4" tabindex="-1"></a></span>
+<span id="cb295-5"><a href="intro-to-data-wrangling-with-tidyverse.html#cb295-5" tabindex="-1"></a><span class="co"># Extract children that live in a household with 5 to 10 individuals inclusive and were assessed in French</span></span>
+<span id="cb295-6"><a href="intro-to-data-wrangling-with-tidyverse.html#cb295-6" tabindex="-1"></a></span>
+<span id="cb295-7"><a href="intro-to-data-wrangling-with-tidyverse.html#cb295-7" tabindex="-1"></a><span class="fu">filter</span>(dat, hh06a <span class="sc">&gt;=</span> <span class="dv">5</span> <span class="sc">&amp;</span> hh06a <span class="sc">&lt;=</span> <span class="dv">10</span>, AssessmentLanguage <span class="sc">==</span> <span class="st">&quot;French&quot;</span>)</span></code></pre></div>
+<p>Try the following exercises on your own:</p>
+<ol style="list-style-type: decimal">
+<li><p>Extract all children who were assessed in English and met the minimum proficiency level for reading.</p></li>
+<li><p>How many children from the previous question are from Tanzania.</p></li>
+<li><p>Use <code>%in%</code> to filter children from question 1 that live in 2, 9, or 20 indivdual household and receive help with homework.</p></li>
+<li><p>How many children from the previous question are assisted by their mother with homework?</p></li>
+</ol>
+</div>
+<div id="introducing-the-pipe" class="section level3 hasAnchor" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Introducing the pipe<a href="intro-to-data-wrangling-with-tidyverse.html#introducing-the-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The pipe operator <code>%&gt;%</code> is a very useful way of chaining together multiple operations. A typical format is something like:</p>
+<p><em>data</em> <code>%&gt;%</code> <em>operation 1</em> <code>%&gt;%</code> <em>operation 2</em></p>
+<p>You read the code from left to right: Start with <em>data</em>, apply some operation (operation 1) to it, get a result, and then apply another operation (operation 2) to that result, to generate another result (the final result, in this example). A useful way to think of the pipe is as similar to “then”.</p>
+<p>The main goal of the pipe is to make code easier, by focusing on the transformations rather than on what is being transformed. Usually this is the case, but it’s also possible to get carried away and end up with a huge whack of piped statements. Deciding when to break a block up is an art best learned by experience.</p>
+<p><strong>Example</strong></p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb296-1" tabindex="-1"></a><span class="co"># filtering with the pipe</span></span>
+<span id="cb296-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb296-2" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> </span>
+<span id="cb296-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb296-3" tabindex="-1"></a>  <span class="fu">filter</span>(CountryName <span class="sc">==</span> <span class="st">&quot;Mozambique&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 8,255 × 147
+##     ...1 CountryName TierOneUnit VillageID Location HHID       SubmissionDate duration hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;date&gt;            &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1 Mozambique  c101        c101      Urban    uuid:f580… 2025-09-23          979     4      1     NA     1     1     2     2     1
+##  2     2 Mozambique  c101        c101      Urban    uuid:b98e… 2025-09-23          986     7      1     NA     1     1     2     2     1
+##  3     3 Mozambique  c101        c101      Urban    uuid:2611… 2025-09-23         2167     6      1     NA     1     1     2     2     1
+##  4     4 Mozambique  c101        c101      Urban    uuid:d46b… 2025-09-23         2078     6      1     NA     1     1     1     1     1
+##  5     5 Mozambique  c101        c101      Urban    uuid:df92… 2025-09-23         1251     5      1     NA     1     1     2     2     1
+##  6     6 Mozambique  c101        c101      Urban    uuid:ade5… 2025-09-23         2199     5      1     NA     1     1     2     2     1
+##  7     7 Mozambique  c101        c101      Urban    uuid:3f84… 2025-09-23         2889     5      1     NA     1     1     2     2     1
+##  8     8 Mozambique  c101        c101      Urban    uuid:ff7b… 2025-09-23         1588     4      1     NA     1     0     2     2     1
+##  9     9 Mozambique  c101        c101      Urban    uuid:7730… 2025-09-23         2203     4      1     NA     1     1     2     2     1
+## 10    10 Mozambique  c101        c101      Urban    uuid:e210… 2025-09-24         4647     5      1     NA     2     1     2     2     1
+## # ℹ 8,245 more rows
+## # ℹ 131 more variables: hh07d &lt;dbl&gt;, hh07e &lt;dbl&gt;, hh07f &lt;dbl&gt;, hh07g &lt;dbl&gt;, hh07h &lt;dbl&gt;, hh07i &lt;dbl&gt;, hh07j &lt;dbl&gt;, hh07k &lt;dbl&gt;,
+## #   hh07l &lt;dbl&gt;, hh07m &lt;dbl&gt;, hh07n &lt;dbl&gt;, hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;, ChildID &lt;chr&gt;, ch02 &lt;dbl&gt;, ch03 &lt;dbl&gt;,
+## #   ch04a &lt;dbl&gt;, ch04b &lt;dbl&gt;, ch04c &lt;dbl&gt;, ch04d &lt;dbl&gt;, ch04e &lt;dbl&gt;, ch04f &lt;dbl&gt;, ch05 &lt;dbl&gt;, ch06a &lt;dbl&gt;, ch06b &lt;dbl&gt;, ch06c &lt;dbl&gt;,
+## #   ch06d &lt;dbl&gt;, ch06e &lt;dbl&gt;, ch07a &lt;dbl&gt;, ch07b &lt;dbl&gt;, ch07c &lt;dbl&gt;, ch07d &lt;dbl&gt;, ch08 &lt;dbl&gt;, ch09 &lt;dbl&gt;, ch10a &lt;dbl&gt;, ch10b &lt;dbl&gt;,
+## #   ch10c &lt;dbl&gt;, pt00 &lt;dbl&gt;, pt01b &lt;dbl&gt;, pt01c &lt;dbl&gt;, pt01d &lt;dbl&gt;, pt01e &lt;dbl&gt;, pt01f &lt;dbl&gt;, pt02b &lt;dbl&gt;, pt02c &lt;dbl&gt;, pt02d &lt;dbl&gt;,
+## #   pt02e &lt;dbl&gt;, pt02f &lt;dbl&gt;, assessment &lt;dbl&gt;, sample &lt;dbl&gt;, l1_1 &lt;dbl&gt;, l1_2 &lt;dbl&gt;, l1_3 &lt;dbl&gt;, l1_4 &lt;dbl&gt;, l2_1 &lt;dbl&gt;, l2_2 &lt;dbl&gt;, …</code></pre>
+<p>The main usefulness of the pipe is when combining multiple operations:</p>
+<p><strong>Guided practice</strong></p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb298-1" tabindex="-1"></a><span class="co"># first filter on country then on IRT Score</span></span>
+<span id="cb298-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb298-2" tabindex="-1"></a>dat_moz <span class="ot">=</span> dat <span class="sc">%&gt;%</span> <span class="fu">filter</span>(CountryName <span class="sc">==</span> <span class="st">&quot;Mozambique&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ReadingIRTScore <span class="sc">&gt;</span> <span class="fl">1.5</span>)</span>
+<span id="cb298-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb298-3" tabindex="-1"></a>dat_moz</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb299-1" tabindex="-1"></a><span class="co"># another way of doing the same thing</span></span>
+<span id="cb299-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb299-2" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> <span class="fu">filter</span>(CountryName <span class="sc">==</span> <span class="st">&quot;Mozambique&quot;</span> <span class="sc">&amp;</span> ReadingIRTScore <span class="sc">&gt;</span> <span class="fl">1.5</span>) </span></code></pre></div>
+</div>
+<div id="arranging-rows-with-arrange" class="section level3 hasAnchor" number="5.6.3">
+<h3><span class="header-section-number">5.6.3</span> Arranging rows with <code>arrange()</code><a href="intro-to-data-wrangling-with-tidyverse.html#arranging-rows-with-arrange" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>arrange()</code> function from <strong>dplyr</strong> lets you order rows in your data based on one or more columns.</p>
+<p><strong>Example</strong></p>
+<p>Ordering children from Mozambique in a descending order of age (note the use of <code>desc</code>):</p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb300-1" tabindex="-1"></a><span class="fu">arrange</span>(dat_moz, <span class="fu">desc</span>(ch02))</span></code></pre></div>
+<pre><code>## # A tibble: 390 × 147
+##     ...1 CountryName TierOneUnit VillageID Location HHID       SubmissionDate duration hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;date&gt;            &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1    35 Mozambique  c101        c101      Urban    uuid:9a7b… 2025-09-25         2868     8      1     NA     1     1     2     2     1
+##  2   677 Mozambique  c101        c122      Rural    uuid:6354… 2025-09-27         1443    10      0     NA    NA     1     2     2     1
+##  3   794 Mozambique  c102        c127      Urban    uuid:4c66… 2025-09-25          404     4      0     NA    NA     1     3     3     2
+##  4  1898 Mozambique  c103        c165      Rural    uuid:45c8… 2025-08-09          437     3      1     NA     2     1     2     2     1
+##  5  2281 Mozambique  c104        c176      Urban    uuid:04e1… 2025-09-22         3718     9      1     NA     1     1     2     2     1
+##  6  2310 Mozambique  c104        c177      Urban    uuid:b01c… 2025-09-18         2063     7      1     NA     1     1     2     2     1
+##  7  2321 Mozambique  c104        c177      Urban    uuid:0f3a… 2025-09-18         4206     9      1     NA     1     1     3     3     1
+##  8  3251 Mozambique  c104        c203      Rural    uuid:3877… 2025-09-21          643     3      0     NA    NA     0     3     3     4
+##  9  3355 Mozambique  c105        c206      Urban    uuid:0f4a… 2025-09-22         2927     7      1     NA     1     0     2     2     1
+## 10  3378 Mozambique  c105        c207      Urban    uuid:7ecd… 2025-09-26         1052     5      1     NA     1     1     2     2     1
+## # ℹ 380 more rows
+## # ℹ 131 more variables: hh07d &lt;dbl&gt;, hh07e &lt;dbl&gt;, hh07f &lt;dbl&gt;, hh07g &lt;dbl&gt;, hh07h &lt;dbl&gt;, hh07i &lt;dbl&gt;, hh07j &lt;dbl&gt;, hh07k &lt;dbl&gt;,
+## #   hh07l &lt;dbl&gt;, hh07m &lt;dbl&gt;, hh07n &lt;dbl&gt;, hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;, ChildID &lt;chr&gt;, ch02 &lt;dbl&gt;, ch03 &lt;dbl&gt;,
+## #   ch04a &lt;dbl&gt;, ch04b &lt;dbl&gt;, ch04c &lt;dbl&gt;, ch04d &lt;dbl&gt;, ch04e &lt;dbl&gt;, ch04f &lt;dbl&gt;, ch05 &lt;dbl&gt;, ch06a &lt;dbl&gt;, ch06b &lt;dbl&gt;, ch06c &lt;dbl&gt;,
+## #   ch06d &lt;dbl&gt;, ch06e &lt;dbl&gt;, ch07a &lt;dbl&gt;, ch07b &lt;dbl&gt;, ch07c &lt;dbl&gt;, ch07d &lt;dbl&gt;, ch08 &lt;dbl&gt;, ch09 &lt;dbl&gt;, ch10a &lt;dbl&gt;, ch10b &lt;dbl&gt;,
+## #   ch10c &lt;dbl&gt;, pt00 &lt;dbl&gt;, pt01b &lt;dbl&gt;, pt01c &lt;dbl&gt;, pt01d &lt;dbl&gt;, pt01e &lt;dbl&gt;, pt01f &lt;dbl&gt;, pt02b &lt;dbl&gt;, pt02c &lt;dbl&gt;, pt02d &lt;dbl&gt;,
+## #   pt02e &lt;dbl&gt;, pt02f &lt;dbl&gt;, assessment &lt;dbl&gt;, sample &lt;dbl&gt;, l1_1 &lt;dbl&gt;, l1_2 &lt;dbl&gt;, l1_3 &lt;dbl&gt;, l1_4 &lt;dbl&gt;, l2_1 &lt;dbl&gt;, l2_2 &lt;dbl&gt;, …</code></pre>
+<p>Subsequent arguments to <code>arrange()</code> can be used to arrange by multiple columns. Here we first children from Mozambique by age (in descending order) and then by household size (in ascending order)</p>
+<p><strong>Guided practice</strong></p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb302-1" tabindex="-1"></a><span class="fu">arrange</span>(dat_moz, <span class="fu">desc</span>(ch02), hh06a)</span></code></pre></div>
+<p>We can also use the pipe to do the same thing:</p>
+<p><strong>Example</strong></p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb303-1" tabindex="-1"></a>dat_moz <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(ch02))</span></code></pre></div>
+<pre><code>## # A tibble: 390 × 147
+##     ...1 CountryName TierOneUnit VillageID Location HHID       SubmissionDate duration hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;date&gt;            &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1    35 Mozambique  c101        c101      Urban    uuid:9a7b… 2025-09-25         2868     8      1     NA     1     1     2     2     1
+##  2   677 Mozambique  c101        c122      Rural    uuid:6354… 2025-09-27         1443    10      0     NA    NA     1     2     2     1
+##  3   794 Mozambique  c102        c127      Urban    uuid:4c66… 2025-09-25          404     4      0     NA    NA     1     3     3     2
+##  4  1898 Mozambique  c103        c165      Rural    uuid:45c8… 2025-08-09          437     3      1     NA     2     1     2     2     1
+##  5  2281 Mozambique  c104        c176      Urban    uuid:04e1… 2025-09-22         3718     9      1     NA     1     1     2     2     1
+##  6  2310 Mozambique  c104        c177      Urban    uuid:b01c… 2025-09-18         2063     7      1     NA     1     1     2     2     1
+##  7  2321 Mozambique  c104        c177      Urban    uuid:0f3a… 2025-09-18         4206     9      1     NA     1     1     3     3     1
+##  8  3251 Mozambique  c104        c203      Rural    uuid:3877… 2025-09-21          643     3      0     NA    NA     0     3     3     4
+##  9  3355 Mozambique  c105        c206      Urban    uuid:0f4a… 2025-09-22         2927     7      1     NA     1     0     2     2     1
+## 10  3378 Mozambique  c105        c207      Urban    uuid:7ecd… 2025-09-26         1052     5      1     NA     1     1     2     2     1
+## # ℹ 380 more rows
+## # ℹ 131 more variables: hh07d &lt;dbl&gt;, hh07e &lt;dbl&gt;, hh07f &lt;dbl&gt;, hh07g &lt;dbl&gt;, hh07h &lt;dbl&gt;, hh07i &lt;dbl&gt;, hh07j &lt;dbl&gt;, hh07k &lt;dbl&gt;,
+## #   hh07l &lt;dbl&gt;, hh07m &lt;dbl&gt;, hh07n &lt;dbl&gt;, hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;, ChildID &lt;chr&gt;, ch02 &lt;dbl&gt;, ch03 &lt;dbl&gt;,
+## #   ch04a &lt;dbl&gt;, ch04b &lt;dbl&gt;, ch04c &lt;dbl&gt;, ch04d &lt;dbl&gt;, ch04e &lt;dbl&gt;, ch04f &lt;dbl&gt;, ch05 &lt;dbl&gt;, ch06a &lt;dbl&gt;, ch06b &lt;dbl&gt;, ch06c &lt;dbl&gt;,
+## #   ch06d &lt;dbl&gt;, ch06e &lt;dbl&gt;, ch07a &lt;dbl&gt;, ch07b &lt;dbl&gt;, ch07c &lt;dbl&gt;, ch07d &lt;dbl&gt;, ch08 &lt;dbl&gt;, ch09 &lt;dbl&gt;, ch10a &lt;dbl&gt;, ch10b &lt;dbl&gt;,
+## #   ch10c &lt;dbl&gt;, pt00 &lt;dbl&gt;, pt01b &lt;dbl&gt;, pt01c &lt;dbl&gt;, pt01d &lt;dbl&gt;, pt01e &lt;dbl&gt;, pt01f &lt;dbl&gt;, pt02b &lt;dbl&gt;, pt02c &lt;dbl&gt;, pt02d &lt;dbl&gt;,
+## #   pt02e &lt;dbl&gt;, pt02f &lt;dbl&gt;, assessment &lt;dbl&gt;, sample &lt;dbl&gt;, l1_1 &lt;dbl&gt;, l1_2 &lt;dbl&gt;, l1_3 &lt;dbl&gt;, l1_4 &lt;dbl&gt;, l2_1 &lt;dbl&gt;, l2_2 &lt;dbl&gt;, …</code></pre>
+<p>Finally, here’s an example of combining filter and arrange operations with the pipe:</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb305-1" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> </span>
+<span id="cb305-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb305-2" tabindex="-1"></a>  <span class="fu">filter</span>(CountryName <span class="sc">==</span> <span class="st">&quot;Mozambique&quot;</span> <span class="sc">&amp;</span> ReadingIRTScore <span class="sc">&gt;</span> <span class="fl">1.5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb305-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb305-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(ch02))</span></code></pre></div>
+<pre><code>## # A tibble: 390 × 147
+##     ...1 CountryName TierOneUnit VillageID Location HHID       SubmissionDate duration hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;date&gt;            &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1    35 Mozambique  c101        c101      Urban    uuid:9a7b… 2025-09-25         2868     8      1     NA     1     1     2     2     1
+##  2   677 Mozambique  c101        c122      Rural    uuid:6354… 2025-09-27         1443    10      0     NA    NA     1     2     2     1
+##  3   794 Mozambique  c102        c127      Urban    uuid:4c66… 2025-09-25          404     4      0     NA    NA     1     3     3     2
+##  4  1898 Mozambique  c103        c165      Rural    uuid:45c8… 2025-08-09          437     3      1     NA     2     1     2     2     1
+##  5  2281 Mozambique  c104        c176      Urban    uuid:04e1… 2025-09-22         3718     9      1     NA     1     1     2     2     1
+##  6  2310 Mozambique  c104        c177      Urban    uuid:b01c… 2025-09-18         2063     7      1     NA     1     1     2     2     1
+##  7  2321 Mozambique  c104        c177      Urban    uuid:0f3a… 2025-09-18         4206     9      1     NA     1     1     3     3     1
+##  8  3251 Mozambique  c104        c203      Rural    uuid:3877… 2025-09-21          643     3      0     NA    NA     0     3     3     4
+##  9  3355 Mozambique  c105        c206      Urban    uuid:0f4a… 2025-09-22         2927     7      1     NA     1     0     2     2     1
+## 10  3378 Mozambique  c105        c207      Urban    uuid:7ecd… 2025-09-26         1052     5      1     NA     1     1     2     2     1
+## # ℹ 380 more rows
+## # ℹ 131 more variables: hh07d &lt;dbl&gt;, hh07e &lt;dbl&gt;, hh07f &lt;dbl&gt;, hh07g &lt;dbl&gt;, hh07h &lt;dbl&gt;, hh07i &lt;dbl&gt;, hh07j &lt;dbl&gt;, hh07k &lt;dbl&gt;,
+## #   hh07l &lt;dbl&gt;, hh07m &lt;dbl&gt;, hh07n &lt;dbl&gt;, hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;, ChildID &lt;chr&gt;, ch02 &lt;dbl&gt;, ch03 &lt;dbl&gt;,
+## #   ch04a &lt;dbl&gt;, ch04b &lt;dbl&gt;, ch04c &lt;dbl&gt;, ch04d &lt;dbl&gt;, ch04e &lt;dbl&gt;, ch04f &lt;dbl&gt;, ch05 &lt;dbl&gt;, ch06a &lt;dbl&gt;, ch06b &lt;dbl&gt;, ch06c &lt;dbl&gt;,
+## #   ch06d &lt;dbl&gt;, ch06e &lt;dbl&gt;, ch07a &lt;dbl&gt;, ch07b &lt;dbl&gt;, ch07c &lt;dbl&gt;, ch07d &lt;dbl&gt;, ch08 &lt;dbl&gt;, ch09 &lt;dbl&gt;, ch10a &lt;dbl&gt;, ch10b &lt;dbl&gt;,
+## #   ch10c &lt;dbl&gt;, pt00 &lt;dbl&gt;, pt01b &lt;dbl&gt;, pt01c &lt;dbl&gt;, pt01d &lt;dbl&gt;, pt01e &lt;dbl&gt;, pt01f &lt;dbl&gt;, pt02b &lt;dbl&gt;, pt02c &lt;dbl&gt;, pt02d &lt;dbl&gt;,
+## #   pt02e &lt;dbl&gt;, pt02f &lt;dbl&gt;, assessment &lt;dbl&gt;, sample &lt;dbl&gt;, l1_1 &lt;dbl&gt;, l1_2 &lt;dbl&gt;, l1_3 &lt;dbl&gt;, l1_4 &lt;dbl&gt;, l2_1 &lt;dbl&gt;, l2_2 &lt;dbl&gt;, …</code></pre>
+<p><strong>Guided practice</strong></p>
+<p>Let’s attempt these exercises:</p>
+<ol style="list-style-type: decimal">
+<li>Arrange children from urban Mali who receive help with homework in descending order using their total assessment time for math</li>
+</ol>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb307-1" tabindex="-1"></a>dat <span class="sc">%&gt;%</span></span>
+<span id="cb307-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb307-2" tabindex="-1"></a>  <span class="fu">filter</span>(CountryName <span class="sc">==</span> <span class="st">&quot;Mali&quot;</span> <span class="sc">&amp;</span> ch10a <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb307-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb307-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(IcanAssessTime))</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb308-1" tabindex="-1"></a><span class="co">#Tip: Use desc() to sort a column in descending order. Without desc(), arrange() sorts in ascending order by default.</span></span></code></pre></div>
+<p><strong>Independent Practice</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Filter children who are 5 years old who have a lot of difficulty in seeing and attained an Math IRT score greater than 2 arrange them by descending ICAN assessment time. Combine <code>filter()</code>, <code>arrange()</code>, and <code>%&gt;%</code> into a single pipeline.</p></li>
+<li><p>Sort <code>dat</code> to find the most slowest child in reading assessment time. Did they meet minimum proficiency level for reading?</p></li>
+<li><p>How could you use arrange() to sort all missing values to the start? (Hint: use is.na()).</p></li>
+</ol>
+</div>
+<div id="selecting-columns-with-select" class="section level3 hasAnchor" number="5.6.4">
+<h3><span class="header-section-number">5.6.4</span> Selecting columns with <code>select()</code><a href="intro-to-data-wrangling-with-tidyverse.html#selecting-columns-with-select" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The ICAN-ICAR 2025 survey data has <span class="math inline">\(146\)</span> columns. This is not unusual if one works with big data. It is highly likely that there is few columns (or variables) that you would be interested in. In that case, <code>select()</code> allows you to rapidly zoom in on a useful subset using operations based on the names of the variables.</p>
+<p><code>select()</code> is a quite similar to <code>filter()</code> for columns. The syntax is straightforward, the first argument gives the data, and then you list the variables you want to select!</p>
+<p><strong>Example</strong></p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb309-1" tabindex="-1"></a><span class="co"># Select columns by name: </span></span>
+<span id="cb309-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb309-2" tabindex="-1"></a></span>
+<span id="cb309-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb309-3" tabindex="-1"></a>dat_new <span class="ot">=</span> <span class="fu">select</span>(dat, ChildID, Location, ch02, MPLBoth)</span>
+<span id="cb309-4"><a href="intro-to-data-wrangling-with-tidyverse.html#cb309-4" tabindex="-1"></a>dat_new</span></code></pre></div>
+<pre><code>## # A tibble: 96,452 × 4
+##    ChildID                                          Location  ch02 MPLBoth
+##    &lt;chr&gt;                                            &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+##  1 uuid:f5808f62-6a22-4247-ae68-9eb891657449_child1 Urban        8       0
+##  2 uuid:b98e2157-5941-457c-8249-cea77f3c4b47_child1 Urban       12       0
+##  3 uuid:26117653-2d45-474f-a7ea-6fa591e1bfe7_child1 Urban        8       0
+##  4 uuid:d46bcfd9-f3e5-44ff-825e-6371ee6a1b9c_child1 Urban        9       0
+##  5 uuid:df927f9a-f03b-480b-ada3-ddfde15b8ae8_child1 Urban       10       0
+##  6 uuid:ade5f0d8-768a-479c-956b-976e569ff49d_child1 Urban       13       0
+##  7 uuid:3f84d69b-e298-43d8-8c77-0ae0e5ad4ad8_child1 Urban        8       0
+##  8 uuid:ff7b1d96-0e69-400c-955e-22097e185a4b_child1 Urban        8       1
+##  9 uuid:7730b493-addc-4c60-8a8e-9d31376770c2_child1 Urban       16       0
+## 10 uuid:e2108c51-8a38-452a-94f5-dd128cf38990_child1 Urban        8       0
+## # ℹ 96,442 more rows</code></pre>
+<p>To exclude variables just put a minus sign in front of them:</p>
+<p><strong>Example</strong></p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb311-1" tabindex="-1"></a><span class="fu">select</span>(dat_new, <span class="sc">-</span>Location)</span></code></pre></div>
+<pre><code>## # A tibble: 96,452 × 3
+##    ChildID                                           ch02 MPLBoth
+##    &lt;chr&gt;                                            &lt;dbl&gt;   &lt;dbl&gt;
+##  1 uuid:f5808f62-6a22-4247-ae68-9eb891657449_child1     8       0
+##  2 uuid:b98e2157-5941-457c-8249-cea77f3c4b47_child1    12       0
+##  3 uuid:26117653-2d45-474f-a7ea-6fa591e1bfe7_child1     8       0
+##  4 uuid:d46bcfd9-f3e5-44ff-825e-6371ee6a1b9c_child1     9       0
+##  5 uuid:df927f9a-f03b-480b-ada3-ddfde15b8ae8_child1    10       0
+##  6 uuid:ade5f0d8-768a-479c-956b-976e569ff49d_child1    13       0
+##  7 uuid:3f84d69b-e298-43d8-8c77-0ae0e5ad4ad8_child1     8       0
+##  8 uuid:ff7b1d96-0e69-400c-955e-22097e185a4b_child1     8       1
+##  9 uuid:7730b493-addc-4c60-8a8e-9d31376770c2_child1    16       0
+## 10 uuid:e2108c51-8a38-452a-94f5-dd128cf38990_child1     8       0
+## # ℹ 96,442 more rows</code></pre>
+<p>You can also use <code>select()</code> to reorder variables. A useful function here is <code>everything()</code>. This is useful if you have a handful of variables you’d like to move to the start of the data frame.</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb313-1" tabindex="-1"></a><span class="co"># reorder so MPLBoth is first </span></span>
+<span id="cb313-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb313-2" tabindex="-1"></a><span class="fu">select</span>(dat_new, MPLBoth, <span class="fu">everything</span>())</span></code></pre></div>
+<p>There are other helper functions that you can use within <code>select()</code>:
+- <code>starts_with("abc")</code> matches column names that begin with “abc”.
+- <code>ends_with("xyz") matches column names that end with "xyz". -</code>contains(“ijk”) matches column names that contain “ijk”.
+- <code>num_range("x", 1:3) matches</code>x1<code>,</code>x2<code>, and</code>x3`.</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb314-1" tabindex="-1"></a><span class="co"># match columns that begin with &quot;l1&quot; but exclude location variable</span></span>
+<span id="cb314-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb314-2" tabindex="-1"></a>dat <span class="sc">%&gt;%</span></span>
+<span id="cb314-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb314-3" tabindex="-1"></a>  <span class="fu">select</span>(ChildID, <span class="fu">starts_with</span>(<span class="st">&quot;l1&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 96,452 × 5
+##    ChildID                                           l1_1  l1_2  l1_3  l1_4
+##    &lt;chr&gt;                                            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 uuid:f5808f62-6a22-4247-ae68-9eb891657449_child1     1     1     1     1
+##  2 uuid:b98e2157-5941-457c-8249-cea77f3c4b47_child1     2     2     1     2
+##  3 uuid:26117653-2d45-474f-a7ea-6fa591e1bfe7_child1     0     0     0     0
+##  4 uuid:d46bcfd9-f3e5-44ff-825e-6371ee6a1b9c_child1     2     1     2     2
+##  5 uuid:df927f9a-f03b-480b-ada3-ddfde15b8ae8_child1     1     1     1     1
+##  6 uuid:ade5f0d8-768a-479c-956b-976e569ff49d_child1     1     1     1     1
+##  7 uuid:3f84d69b-e298-43d8-8c77-0ae0e5ad4ad8_child1     1     2     2     2
+##  8 uuid:ff7b1d96-0e69-400c-955e-22097e185a4b_child1     2     2     2     2
+##  9 uuid:7730b493-addc-4c60-8a8e-9d31376770c2_child1     2     1     2     1
+## 10 uuid:e2108c51-8a38-452a-94f5-dd128cf38990_child1     2     1     0     1
+## # ℹ 96,442 more rows</code></pre>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb316-1" tabindex="-1"></a><span class="co"># match column names that contain &quot;hh&quot; (these are household-related variables)</span></span>
+<span id="cb316-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb316-2" tabindex="-1"></a>dat <span class="sc">%&gt;%</span></span>
+<span id="cb316-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb316-3" tabindex="-1"></a>  <span class="fu">select</span>(ChildID, <span class="fu">contains</span>(<span class="st">&quot;hh&quot;</span>), <span class="sc">-</span>HHWeightProvided)</span></code></pre></div>
+<pre><code>## # A tibble: 96,452 × 25
+##    ChildID     HHID  hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c hh07d hh07e hh07f hh07g hh07h hh07i hh07j hh07k hh07l hh07m hh07n
+##    &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 uuid:f5808… uuid…     4      1     NA     1     1     2     2     1     1     1     1     1     1     1     0     1     0     1     0
+##  2 uuid:b98e2… uuid…     7      1     NA     1     1     2     2     1     1     1     1     1     1     1     1     1     1     1     0
+##  3 uuid:26117… uuid…     6      1     NA     1     1     2     2     1     1     1     1     1     1     1     0     1     1     1     1
+##  4 uuid:d46bc… uuid…     6      1     NA     1     1     1     1     1     4     1     1     1     1     1     0     1     1     1     0
+##  5 uuid:df927… uuid…     5      1     NA     1     1     2     2     1     4     1     1     1     0     0     0     1     0     0    NA
+##  6 uuid:ade5f… uuid…     5      1     NA     1     1     2     2     1     4     1     1     1     1     1     0     1     0     1     1
+##  7 uuid:3f84d… uuid…     5      1     NA     1     1     2     2     1     1     1     1     1     1     1     1     1     1     1     1
+##  8 uuid:ff7b1… uuid…     4      1     NA     1     0     2     2     1     1     1     1     1     1     0     1     1     0     1     1
+##  9 uuid:7730b… uuid…     4      1     NA     1     1     2     2     1     4     1     1     1     1     0     0     1     0     1     1
+## 10 uuid:e2108… uuid…     5      1     NA     2     1     2     2     1     4     1     1     0     0     0     0     0     1     1     1
+## # ℹ 96,442 more rows
+## # ℹ 4 more variables: hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb318-1" tabindex="-1"></a><span class="co"># match column names with l2.1, l2.2, l2.3</span></span>
+<span id="cb318-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb318-2" tabindex="-1"></a>dat <span class="sc">%&gt;%</span></span>
+<span id="cb318-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb318-3" tabindex="-1"></a>  <span class="fu">select</span>(ChildID, <span class="fu">num_range</span>(<span class="st">&quot;l2_&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 96,452 × 4
+##    ChildID                                           l2_1  l2_2  l2_3
+##    &lt;chr&gt;                                            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 uuid:f5808f62-6a22-4247-ae68-9eb891657449_child1     0     0     0
+##  2 uuid:b98e2157-5941-457c-8249-cea77f3c4b47_child1     2     1     2
+##  3 uuid:26117653-2d45-474f-a7ea-6fa591e1bfe7_child1     0     0     0
+##  4 uuid:d46bcfd9-f3e5-44ff-825e-6371ee6a1b9c_child1     2     2     2
+##  5 uuid:df927f9a-f03b-480b-ada3-ddfde15b8ae8_child1     1     1     1
+##  6 uuid:ade5f0d8-768a-479c-956b-976e569ff49d_child1     2     2     2
+##  7 uuid:3f84d69b-e298-43d8-8c77-0ae0e5ad4ad8_child1     0     2     2
+##  8 uuid:ff7b1d96-0e69-400c-955e-22097e185a4b_child1     2     2     2
+##  9 uuid:7730b493-addc-4c60-8a8e-9d31376770c2_child1     2     2     2
+## 10 uuid:e2108c51-8a38-452a-94f5-dd128cf38990_child1     1     1     1
+## # ℹ 96,442 more rows</code></pre>
+<p>See <code>?select()</code> for more details</p>
+<p><strong>Independent Practice</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Select only the child-relatd columns.</p></li>
+<li><p>Exclude the numeracy-related items.</p></li>
+</ol>
+</div>
+<div id="adding-new-variables-with-mutate" class="section level3 hasAnchor" number="5.6.5">
+<h3><span class="header-section-number">5.6.5</span> Adding new variables with <code>mutate()</code><a href="intro-to-data-wrangling-with-tidyverse.html#adding-new-variables-with-mutate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mutating operations add a new column to a dataframe using existing columns. Here’s a trivial example to get started:</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb320-1" tabindex="-1"></a><span class="fu">mutate</span>(dat, <span class="at">this_is =</span> <span class="st">&quot;stupid&quot;</span>)  </span></code></pre></div>
+<pre><code>## # A tibble: 96,452 × 148
+##     ...1 CountryName TierOneUnit VillageID Location HHID       SubmissionDate duration hh06a hh06b1 hh06b2 hh06c hh06d hh07a hh07b hh07c
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;      &lt;date&gt;            &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1 Mozambique  c101        c101      Urban    uuid:f580… 2025-09-23          979     4      1     NA     1     1     2     2     1
+##  2     2 Mozambique  c101        c101      Urban    uuid:b98e… 2025-09-23          986     7      1     NA     1     1     2     2     1
+##  3     3 Mozambique  c101        c101      Urban    uuid:2611… 2025-09-23         2167     6      1     NA     1     1     2     2     1
+##  4     4 Mozambique  c101        c101      Urban    uuid:d46b… 2025-09-23         2078     6      1     NA     1     1     1     1     1
+##  5     5 Mozambique  c101        c101      Urban    uuid:df92… 2025-09-23         1251     5      1     NA     1     1     2     2     1
+##  6     6 Mozambique  c101        c101      Urban    uuid:ade5… 2025-09-23         2199     5      1     NA     1     1     2     2     1
+##  7     7 Mozambique  c101        c101      Urban    uuid:3f84… 2025-09-23         2889     5      1     NA     1     1     2     2     1
+##  8     8 Mozambique  c101        c101      Urban    uuid:ff7b… 2025-09-23         1588     4      1     NA     1     0     2     2     1
+##  9     9 Mozambique  c101        c101      Urban    uuid:7730… 2025-09-23         2203     4      1     NA     1     1     2     2     1
+## 10    10 Mozambique  c101        c101      Urban    uuid:e210… 2025-09-24         4647     5      1     NA     2     1     2     2     1
+## # ℹ 96,442 more rows
+## # ℹ 132 more variables: hh07d &lt;dbl&gt;, hh07e &lt;dbl&gt;, hh07f &lt;dbl&gt;, hh07g &lt;dbl&gt;, hh07h &lt;dbl&gt;, hh07i &lt;dbl&gt;, hh07j &lt;dbl&gt;, hh07k &lt;dbl&gt;,
+## #   hh07l &lt;dbl&gt;, hh07m &lt;dbl&gt;, hh07n &lt;dbl&gt;, hh07o &lt;dbl&gt;, hh07p &lt;dbl&gt;, hh07p_3 &lt;dbl&gt;, hh07q &lt;dbl&gt;, ChildID &lt;chr&gt;, ch02 &lt;dbl&gt;, ch03 &lt;dbl&gt;,
+## #   ch04a &lt;dbl&gt;, ch04b &lt;dbl&gt;, ch04c &lt;dbl&gt;, ch04d &lt;dbl&gt;, ch04e &lt;dbl&gt;, ch04f &lt;dbl&gt;, ch05 &lt;dbl&gt;, ch06a &lt;dbl&gt;, ch06b &lt;dbl&gt;, ch06c &lt;dbl&gt;,
+## #   ch06d &lt;dbl&gt;, ch06e &lt;dbl&gt;, ch07a &lt;dbl&gt;, ch07b &lt;dbl&gt;, ch07c &lt;dbl&gt;, ch07d &lt;dbl&gt;, ch08 &lt;dbl&gt;, ch09 &lt;dbl&gt;, ch10a &lt;dbl&gt;, ch10b &lt;dbl&gt;,
+## #   ch10c &lt;dbl&gt;, pt00 &lt;dbl&gt;, pt01b &lt;dbl&gt;, pt01c &lt;dbl&gt;, pt01d &lt;dbl&gt;, pt01e &lt;dbl&gt;, pt01f &lt;dbl&gt;, pt02b &lt;dbl&gt;, pt02c &lt;dbl&gt;, pt02d &lt;dbl&gt;,
+## #   pt02e &lt;dbl&gt;, pt02f &lt;dbl&gt;, assessment &lt;dbl&gt;, sample &lt;dbl&gt;, l1_1 &lt;dbl&gt;, l1_2 &lt;dbl&gt;, l1_3 &lt;dbl&gt;, l1_4 &lt;dbl&gt;, l2_1 &lt;dbl&gt;, l2_2 &lt;dbl&gt;, …</code></pre>
+<p>Now we have <span class="math inline">\(147\)</span> columns, including <code>this_is</code>.</p>
+<p>A more useful use of mutate is to construct a new variable based on existing variables. This is the way that <code>mutate</code> is almost always used.</p>
+<p><strong>Example</strong></p>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb322-1" tabindex="-1"></a><span class="co"># create &quot;math_savvy&quot; column using MathIRTScore if the child has a score above 2</span></span>
+<span id="cb322-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb322-2" tabindex="-1"></a>dat_new <span class="ot">=</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb322-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb322-3" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">math_savvy =</span> <span class="fu">if_else</span>(MathIRTScore <span class="sc">&gt;</span> <span class="dv">2</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>))</span></code></pre></div>
+<p>Hopefully, you’re getting used to the pipe by now, so let’s embed a mutating operation within a larger pipe than we’ve used before.</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb323-1" tabindex="-1"></a><span class="co"># count using count() how many children are math-savvy  across countries</span></span>
+<span id="cb323-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb323-2" tabindex="-1"></a><span class="co"># first exclude all NAs from math_savvy column</span></span>
+<span id="cb323-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb323-3" tabindex="-1"></a></span>
+<span id="cb323-4"><a href="intro-to-data-wrangling-with-tidyverse.html#cb323-4" tabindex="-1"></a>dat <span class="sc">%&gt;%</span></span>
+<span id="cb323-5"><a href="intro-to-data-wrangling-with-tidyverse.html#cb323-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">math_savvy =</span> <span class="fu">if_else</span>(MathIRTScore <span class="sc">&gt;</span> <span class="dv">2</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb323-6"><a href="intro-to-data-wrangling-with-tidyverse.html#cb323-6" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(math_savvy)) <span class="sc">%&gt;%</span></span>
+<span id="cb323-7"><a href="intro-to-data-wrangling-with-tidyverse.html#cb323-7" tabindex="-1"></a>  <span class="fu">count</span>(CountryName, math_savvy)</span></code></pre></div>
+<pre><code>## # A tibble: 12 × 3
+##    CountryName math_savvy     n
+##    &lt;chr&gt;       &lt;chr&gt;      &lt;int&gt;
+##  1 Bangladesh  No          6479
+##  2 Kenya       No          6669
+##  3 Mali        No          9588
+##  4 Mexico      No          8109
+##  5 Mozambique  No          8020
+##  6 Nepal       No          4694
+##  7 Nicaragua   No          6230
+##  8 Pakistan    No          7236
+##  9 Pakistan    Yes         1966
+## 10 Senegal     No          8098
+## 11 Tanzania    No         13166
+## 12 Uganda      No          8883</code></pre>
+<p>They are all from Pakistan!</p>
+<p><strong>Independent Practice</strong></p>
+<ol style="list-style-type: decimal">
+<li>Convert both the ICAN and ICAR assessment time for each assessed child from seconds to hours. Extract all assessed children that took more than hour for both ICAN and ICAR assessments.</li>
+</ol>
+</div>
+<div id="aggregating-over-rows-with-summarise" class="section level3 hasAnchor" number="5.6.6">
+<h3><span class="header-section-number">5.6.6</span> Aggregating over rows with <code>summarise()</code><a href="intro-to-data-wrangling-with-tidyverse.html#aggregating-over-rows-with-summarise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>summarise()</code> verb (or <code>summarize()</code> will also work) summarises the rows in a data frame in some way. When applied to the whole data frame, it will collapse it to a single row. For example, here we calculate the average age and the median Reading IRT Score for children in Uganda living in rural areas:</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb325-1" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> </span>
+<span id="cb325-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb325-2" tabindex="-1"></a>  <span class="fu">filter</span>(CountryName <span class="sc">==</span> <span class="st">&quot;Uganda&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb325-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb325-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(ch02),</span>
+<span id="cb325-4"><a href="intro-to-data-wrangling-with-tidyverse.html#cb325-4" tabindex="-1"></a>            <span class="at">median_irt_score =</span> <span class="fu">median</span>(ReadingIRTScore, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   mean_age median_irt_score
+##      &lt;dbl&gt;            &lt;dbl&gt;
+## 1     9.90           -0.538</code></pre>
+<p>You need to watch out for NAs when using <code>summarise()</code>. If one exists, operations like <code>mean()</code> will return NA. You can exclude NAs from calculations using <code>na.rm = TRUE</code>.</p>
+<p><code>summarise()</code> is most useful when combined with <code>group_by()</code>, which imposes a grouping structure on a data frame. After applying <code>group_by()</code>, subsequent dplyr verbs will be applied to individual groups, basically repeating the code for each group. That means that <code>summarise()</code> will calculate a summary for each group:</p>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb327-1" tabindex="-1"></a><span class="co"># tell dplyr to group the data by Country</span></span>
+<span id="cb327-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb327-2" tabindex="-1"></a>dat_new <span class="ot">=</span> dat <span class="sc">%&gt;%</span> </span>
+<span id="cb327-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb327-3" tabindex="-1"></a>            <span class="fu">group_by</span>(CountryName)</span>
+<span id="cb327-4"><a href="intro-to-data-wrangling-with-tidyverse.html#cb327-4" tabindex="-1"></a></span>
+<span id="cb327-5"><a href="intro-to-data-wrangling-with-tidyverse.html#cb327-5" tabindex="-1"></a><span class="co"># apply summarize() to see how many children in each country surveyed</span></span>
+<span id="cb327-6"><a href="intro-to-data-wrangling-with-tidyverse.html#cb327-6" tabindex="-1"></a>dat_new  <span class="sc">%&gt;%</span> </span>
+<span id="cb327-7"><a href="intro-to-data-wrangling-with-tidyverse.html#cb327-7" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 11 × 2
+##    CountryName count
+##    &lt;chr&gt;       &lt;int&gt;
+##  1 Bangladesh   6664
+##  2 Kenya        7076
+##  3 Mali        10091
+##  4 Mexico       8306
+##  5 Mozambique   8255
+##  6 Nepal        4801
+##  7 Nicaragua    7310
+##  8 Pakistan    10510
+##  9 Senegal      9117
+## 10 Tanzania    14795
+## 11 Uganda       9527</code></pre>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb329-1" tabindex="-1"></a><span class="co"># get sorted counts (and present differently)</span></span>
+<span id="cb329-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb329-2" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> </span>
+<span id="cb329-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb329-3" tabindex="-1"></a><span class="fu">group_by</span>(CountryName) <span class="sc">%&gt;%</span> </span>
+<span id="cb329-4"><a href="intro-to-data-wrangling-with-tidyverse.html#cb329-4" tabindex="-1"></a><span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb329-5"><a href="intro-to-data-wrangling-with-tidyverse.html#cb329-5" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(count)) <span class="sc">%&gt;%</span> </span>
+<span id="cb329-6"><a href="intro-to-data-wrangling-with-tidyverse.html#cb329-6" tabindex="-1"></a><span class="fu">head</span>(<span class="dv">10</span>)    <span class="co"># take first ten rows</span></span></code></pre></div>
+<pre><code>## # A tibble: 10 × 2
+##    CountryName count
+##    &lt;chr&gt;       &lt;int&gt;
+##  1 Tanzania    14795
+##  2 Pakistan    10510
+##  3 Mali        10091
+##  4 Uganda       9527
+##  5 Senegal      9117
+##  6 Mexico       8306
+##  7 Mozambique   8255
+##  8 Nicaragua    7310
+##  9 Kenya        7076
+## 10 Bangladesh   6664</code></pre>
+<p>You can also pass your own summary functions to the pipe:</p>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="intro-to-data-wrangling-with-tidyverse.html#cb331-1" tabindex="-1"></a><span class="co"># my own function, computes the 60% quantile of the Reading IRT Score for each country</span></span>
+<span id="cb331-2"><a href="intro-to-data-wrangling-with-tidyverse.html#cb331-2" tabindex="-1"></a></span>
+<span id="cb331-3"><a href="intro-to-data-wrangling-with-tidyverse.html#cb331-3" tabindex="-1"></a>compute_60q <span class="ot">=</span> <span class="cf">function</span>(x){<span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fl">0.60</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)}</span>
+<span id="cb331-4"><a href="intro-to-data-wrangling-with-tidyverse.html#cb331-4" tabindex="-1"></a></span>
+<span id="cb331-5"><a href="intro-to-data-wrangling-with-tidyverse.html#cb331-5" tabindex="-1"></a><span class="co"># use it in a grouped summary</span></span>
+<span id="cb331-6"><a href="intro-to-data-wrangling-with-tidyverse.html#cb331-6" tabindex="-1"></a>dat <span class="sc">%&gt;%</span></span>
+<span id="cb331-7"><a href="intro-to-data-wrangling-with-tidyverse.html#cb331-7" tabindex="-1"></a>  <span class="fu">group_by</span>(CountryName) <span class="sc">%&gt;%</span></span>
+<span id="cb331-8"><a href="intro-to-data-wrangling-with-tidyverse.html#cb331-8" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>(), <span class="at">q60 =</span> <span class="fu">compute_60q</span>(ReadingIRTScore)) <span class="sc">%&gt;%</span> </span>
+<span id="cb331-9"><a href="intro-to-data-wrangling-with-tidyverse.html#cb331-9" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 3
+##    CountryName count    q60
+##    &lt;chr&gt;       &lt;int&gt;  &lt;dbl&gt;
+##  1 Bangladesh   6664  0.356
+##  2 Kenya        7076  0.451
+##  3 Mali        10091 -1.74 
+##  4 Mexico       8306  0.629
+##  5 Mozambique   8255 -0.991
+##  6 Nepal        4801  0.392
+##  7 Nicaragua    7310  0.647
+##  8 Pakistan    10510  0.439
+##  9 Senegal      9117 -0.164
+## 10 Tanzania    14795  0.315</code></pre>
+</div>
+<div id="sources-and-references" class="section level3 hasAnchor" number="5.6.7">
+<h3><span class="header-section-number">5.6.7</span> Sources and references<a href="intro-to-data-wrangling-with-tidyverse.html#sources-and-references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><a href="http://r4ds.had.co.nz/transform.html" class="uri">http://r4ds.had.co.nz/transform.html</a></li>
+<li><a href="http://r4ds.had.co.nz/relational-data.html" class="uri">http://r4ds.had.co.nz/relational-data.html</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro-to-ggplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="survey-design-sampling-and-weighting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/edit/main/04-intro-to-wrangling-using-tidyverse.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/blob/main/04-intro-to-wrangling-using-tidyverse.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

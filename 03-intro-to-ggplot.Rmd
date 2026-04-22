@@ -1,0 +1,358 @@
+# Intro to ggplot
+
+We’ll use the **ICAN-ICAR 2025** survey data with variables such as:
+
+-   `ReadingIRTScore`: Child's reading latent ability score
+-   `MathIRTScore`: Child's maths latent ability score
+-   `ch02`: Child's age
+-   `ch03`: Child's gender
+-   `EnrolmentStatus`: child's school enrollment status
+-   `ch04a`: whether the child has eye difficulties
+
+Load the packages and load and prepare the data:
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+# Load packages
+library(tidyverse)
+library(survey)
+library(broom)
+library(knitr)
+
+
+# Load the data
+dat = read_csv("data/ican-icar-2025-v1.csv") |>
+      mutate(ch03 = factor(ch03, levels = c(1, 2), labels = c("Female", "Male"))) |>
+      filter(CountryName == "Senegal") |> 
+      select(ReadingIRTScore, MathIRTScore,ch03, ch02, ch04a, EnrolmentStatus) 
+
+```
+
+You don’t need to understand all the details of `ican-icar-2025-v1` yet.\
+For now, just remember:
+
+-   We’ll be using a data frame called **`dat`**.
+-   Each **row** is a child.
+
+------------------------------------------------------------------------
+
+## What is ggplot2?
+
+`ggplot2` is the R package we’ll use to make graphs.
+
+-   It’s part of the **tidyverse** (a family of R packages for data analysis).
+-   It’s based on the **Grammar of Graphics** idea.
+-   Instead of giving you a few pre-made plots, it lets you build plots from **simple pieces** (layers).
+-   You can use it effectively **without** fully understanding the underlying theory (we’ll learn by doing).
+
+In practice, we’ll keep this simple mental model:
+
+> **To make a plot in ggplot2 we always say:**\
+> “Use this **data**, map these **variables** to the axes/colour/etc.,\
+> and draw them with this **geom** (points, bars, lines, …).”
+
+### Optional: Grammar of Graphics (background)
+
+If you’re curious about the theory:
+
+-   **Graphics = distinct layers** (data, aesthetic mappings, geoms, …).
+-   **Aesthetic mapping**: connect variables in the data (numbers, labels) to what we see (position, colour, size, shape).
+
+Don’t worry if this feels abstract right now; the examples will make it concrete.
+
+------------------------------------------------------------------------
+
+## The main pieces of ggplot2
+
+A **ggplot2** plot is built from several elements.
+
+For our intro, we only need these three:
+
+1.  **data** – the data frame we’re plotting (here: `dat`).
+2.  **aes(...)** – *aesthetic mappings*: how variables map to what we see (x-axis, y-axis, colour, size, shape).
+3.  **geom\_…()** – the *geometric object* that draws the data (points, lines, bars, etc.).
+
+Later (optional), we can also use:
+
+-   **stats** – automatic summaries (e.g. means, counts, smooth lines).
+-   **scales** – axis ranges and colour scales.
+-   **coordinate systems** – how axes are drawn.
+-   **facets** – small multiples of the same plot.
+-   **themes** – fonts, grid lines, background (“non-data ink”).
+
+------------------------------------------------------------------------
+
+## Building your first plot: data → aes → geom
+
+We’ll start by plotting **household expenditure** against **household income**.
+
+### Step 1: Choose the data
+
+First we tell ggplot2 *which data frame to use*:
+
+```{r}
+ggplot(data = dat)
+```
+
+This creates a **blank plotting area** (a coordinate system), but we haven’t told it *what* to draw yet, so you’ll likely see an empty plot.
+
+### Step 2: Map variables with `aes()`
+
+Next, we say which variables go to which axis using `aes()`:
+
+```{r}
+ggplot(data = dat,
+       mapping = aes(x = ReadingIRTScore, y = MathIRTScore))
+```
+
+Read this as:
+
+-   Put `ReadingIRTScore` on the **x-axis** (horizontal).
+-   Put `ch02` on the **y-axis** (vertical).
+
+This still doesn’t draw points — it only defines the **mapping**.
+
+### Step 3: Add a geometry with `geom_point()`
+
+Now we add a **geometry** to actually draw the data. For a scatterplot, we use `geom_point()`:
+
+```{r}
+ggplot(data = dat,
+       mapping = aes(x = ReadingIRTScore, y = MathIRTScore)) +
+  geom_point()
+```
+
+Think of this as:
+
+> “Using data `dat`,\
+> put reading score on x, maths score on y,\
+> and draw one **point per child**.”
+
+This **data + aes + geom** pattern is the core template you’ll reuse for almost every plot in ggplot2. You can find other geometries that might interest you, i.e., a bar graph is `geom_bar()`, a line graph is `geom_line()`, etc. Here, we keep it simple by honing a scatter plot to show many design controls you could attain from **ggplot**.
+
+------------------------------------------------------------------------
+
+## Aesthetics: colour, shape, size
+
+`aes()` can also control things like **colour**, **shape**, and **size**.
+
+Big idea:
+
+> Whatever you put *inside* `aes(...)` is controlled by the **data**.\
+> For example, `aes(colour = ch03)` means “use the variable `ch03` to decide the colour of each point”.
+
+We’ll reuse our scatterplot and experiment.
+
+### Mapping shape to a variable
+
+```{r}
+ggplot(data = dat,
+       mapping = aes(x = ReadingIRTScore, 
+                     y = MathIRTScore, 
+                     shape = ch03)) +
+  geom_point()
+```
+
+-   Different gender groups (`ch03`) get different **shapes**.
+
+### Mapping colour to a variable
+
+```{r}
+ggplot(data = dat,
+       mapping = aes(x = ReadingIRTScore, 
+                     y = MathIRTScore, 
+                     color = ch03)) +
+  geom_point()
+```
+
+-   Different groups get different **colours**.
+-   A **legend** is added automatically.
+
+### Mapping size to a variable (e.g., age)
+
+```{r}
+ggplot(data = dat,
+       mapping = aes(x = ReadingIRTScore, 
+                     y = MathIRTScore, 
+                     size = ch02)) +
+  geom_point(alpha = 0.1)
+```
+
+-   Children with higher `ch02` get **larger points**.
+-   `alpha = 0.1` makes points more transparent, so dense regions are easier to see.
+
+### Using a categorical variable
+
+If you have categories like `EnrolmentStatus`, you can map those to colour or fill:
+
+```{r}
+dat = dat |>
+       filter(!is.na(ReadingIRTScore), !is.na(MathIRTScore))
+ggplot(data = dat,
+       mapping = aes(x = ReadingIRTScore,
+                     y = MathIRTScore,
+                     colour = EnrolmentStatus)) +
+  geom_point(alpha = 0.25)
+```
+
+-   Each BMI category gets a different **colour**.
+-   Missing categories are filtered out with `filter(!is.na(bmi.bins))`.
+
+------------------------------------------------------------------------
+
+## Aesthetic mapping vs fixed settings (some nuance)
+
+Sometimes you want a fixed colour for all points (not data-driven).
+
+-   **Inside `aes()`** → the value comes from the data.
+-   **Outside `aes()`** → you set a fixed value.
+
+For example:
+
+```{r}
+# Colour determined by data (race)
+ggplot(data = dat,
+       mapping = aes(x = ReadingIRTScore,
+                     y = MathIRTScore,
+                     colour = EnrolmentStatus)) +
+  geom_point(alpha = 0.25)
+
+# Fixed colour (all points blue)
+ggplot(data = dat,
+       mapping = aes(x = ReadingIRTScore,
+                     y = MathIRTScore,
+                     colour = EnrolmentStatus)) +
+  geom_point(alpha = 0.25, colour = "steelblue")
+```
+
+This distinction becomes important when you combine multiple layers or want to control colours manually, but for now just note the pattern.
+
+------------------------------------------------------------------------
+
+## Small polish: labels and a simple theme
+
+Let’s tidy up our core scatterplot a little bit:
+
+```{r}
+library(scales)
+
+ggplot(data = dat,
+       mapping = aes(x = ReadingIRTScore,
+                     y = MathIRTScore,
+                     colour = EnrolmentStatus)) +
+  geom_point(alpha = 0.25) +
+  labs(
+    x = "Reading latent ability score",
+    y = "Maths latent ability score",
+    colour = "School enrollment status",
+    title = "Foundational Skills in Senegal",
+    subtitle = "ICAN-ICAR 2025 Survey"
+  ) +
+  scale_x_continuous(labels = label_comma()) +
+  scale_y_continuous(labels = label_comma()) +
+  theme_classic()
+```
+
+Here we:
+
+-   Use `labs()` to set **axis labels**, **legend title**, and **plot title/subtitle**.
+-   Use `theme_minimal()` to clean up the background and gridlines.
+-   Just *tip*: by default, ggplot sometimes shows big numbers in scientific notation. We can tell ggplot to use "normal looking" numbers with commas by adding **scale_x_continuous()** etc.
+
+> For a intro, this level of theme usage is enough.\
+
+------------------------------------------------------------------------
+
+## Practice: Test your knowledge with `mpg`
+
+The `ggplot2` package comes with a built-in dataset called `mpg`.
+
+Load it:
+
+```{r}
+library(ggplot2)  # already loaded via tidyverse, but explicit is fine
+library(skimr)
+
+data(mpg)
+
+# Optional: look at its structure
+skim(mpg)
+```
+
+You can use `?mpg` or `help(mpg)` to see more information about the variables.
+
+Using the template:
+
+``` r
+ggplot(data = <DATA>,
+       mapping = aes(x = <X>, y = <Y>, ...)) +
+  <GEOM_FUNCTION>()
+```
+
+try these:
+
+1.  Use a **scatterplot** to show the relationship between `displ` (engine displacement, in litres) and `hwy` (highway miles per gallon)
+2.  In the same plot, set the **colour of the points** to `class`
+3.  Graph a **boxplot** of `hwy` by `class`.
+4.  Graph a **bar plot** of `class`.
+
+------------------------------------------------------------------------
+
+## Saving plots to files with `ggsave()`
+
+You can save the last plot as a PDF:
+
+```{r}
+# Save last displayed plot as PDF
+ggsave("figs/myggplot.pdf")
+```
+
+Or save a named plot object:
+
+```{r}
+p = ggplot(data = dat,
+       mapping = aes(x = ReadingIRTScore,
+                     y = MathIRTScore,
+                     colour = EnrolmentStatus)) +
+  geom_point(alpha = 0.25) +
+  labs(
+    x = "Reading latent ability score",
+    y = "Maths latent ability score",
+    colour = "School enrollment status",
+    title = "Foundational Skills in Senegal",
+    subtitle = "ICAN-ICAR 2025 Survey"
+  ) +
+  scale_x_continuous(labels = label_comma()) +
+  scale_y_continuous(labels = label_comma()) +
+  theme_classic()
+
+ggsave(filename = "figs/myggplot.png",
+       plot   = p,
+       width  = 10,
+       height = 10,
+       units  = "in")
+```
+
+-   The file type is guessed from the extension (`.pdf`, `.png`, etc.).
+-   You can control size with `width`, `height`, and `units`.
+
+------------------------------------------------------------------------
+
+## 10. Useful resources
+
+Some excellent follow-up resources:
+
+-   [ggplot2 documentation](https://ggplot2.tidyverse.org/) (function reference is especially useful).\
+-   [*R for Data Science*](https://r4ds.hadley.nz/) – Data Visualization chapter.\
+-   RStudio’s [ggplot2 cheatsheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf).\
+-   [R Graphics Cookbook](https://osctr.ouhsc.edu/sites/default/files/2020-02/rcourse/3/RGraphicsCookbook.pdf) (for a recipe-style approach).
+-   Asano Masahiko has cool section on [Data Visualization](https://www.asanoucla.com/introduction-to-r/) using ggplot.
+
+```{r}
+# Friendly reminder: once you're comfortable with the basics,
+# pick one plot you make often and try to recreate it using ggplot2.It can be a bar graph, histogram, or a box plot
+
+```

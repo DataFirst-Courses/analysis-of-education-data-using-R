@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Getting Started with R | Introduction to R</title>
+  <meta name="description" content="Chapter 2 Getting Started with R | Introduction to R" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Getting Started with R | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Getting Started with R | Introduction to R" />
+  
+  
+  
+
+<meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
+
+
+<meta name="date" content="2026-04-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="r-basics.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intro to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#rstudio-interface"><i class="fa fa-check"></i><b>2.1</b> RStudio interface</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#source-editor"><i class="fa fa-check"></i><b>2.1.1</b> Source/ Editor</a></li>
+<li class="chapter" data-level="2.1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#example-running-a-line-of-code-in-the-editor"><i class="fa fa-check"></i><b>2.1.2</b> Example: Running a line of code in the Editor</a></li>
+<li class="chapter" data-level="2.1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#console"><i class="fa fa-check"></i><b>2.1.3</b> Console</a></li>
+<li class="chapter" data-level="2.1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#environment-tab"><i class="fa fa-check"></i><b>2.1.4</b> Environment Tab</a></li>
+<li class="chapter" data-level="2.1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#history-tab"><i class="fa fa-check"></i><b>2.1.5</b> History Tab</a></li>
+<li class="chapter" data-level="2.1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#files-tab"><i class="fa fa-check"></i><b>2.1.6</b> Files Tab</a></li>
+<li class="chapter" data-level="2.1.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#plots-tab"><i class="fa fa-check"></i><b>2.1.7</b> Plots Tab</a></li>
+<li class="chapter" data-level="2.1.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#packages-tab"><i class="fa fa-check"></i><b>2.1.8</b> Packages Tab</a></li>
+<li class="chapter" data-level="2.1.9" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#help-tab"><i class="fa fa-check"></i><b>2.1.9</b> Help Tab</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#organize-your-r-session"><i class="fa fa-check"></i><b>2.2</b> Organize your R session</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#working-directory-where-r-looks-for-your-files"><i class="fa fa-check"></i><b>2.2.1</b> Working Directory: Where R Looks for Your Files</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-and-loading-packages-libraries"><i class="fa fa-check"></i><b>2.2.2</b> Installing and Loading Packages (Libraries)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#comments-in-r"><i class="fa fa-check"></i><b>2.2.3</b> Comments in R</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#common-mistakes-and-quick-fixes"><i class="fa fa-check"></i><b>2.2.4</b> Common mistakes and quick fixes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#getting-help"><i class="fa fa-check"></i><b>2.3</b> Getting help</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#operators-in-r"><i class="fa fa-check"></i><b>2.4</b> Operators in R</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#basic-arithmetic-operators"><i class="fa fa-check"></i><b>2.4.1</b> Basic arithmetic operators</a></li>
+<li class="chapter" data-level="2.4.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#assignment-operator"><i class="fa fa-check"></i><b>2.4.2</b> Assignment operator</a></li>
+<li class="chapter" data-level="2.4.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#sequence-operator"><i class="fa fa-check"></i><b>2.4.3</b> Sequence operator</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.5</b> Objects in R</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#managing-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Managing the workspace</a></li>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#some-language-features"><i class="fa fa-check"></i><b>2.7</b> Some language features</a></li>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#test-your-knowledge"><i class="fa fa-check"></i><b>2.8</b> Test your knowledge</a></li>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#session-information"><i class="fa fa-check"></i><b>2.9</b> Session information</a></li>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#acknowledgements"><i class="fa fa-check"></i><b>2.10</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#scalar-arithmetic"><i class="fa fa-check"></i><b>3.1</b> Scalar Arithmetic</a></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#vector-arithmetic"><i class="fa fa-check"></i><b>3.2</b> Vector Arithmetic</a></li>
+<li class="chapter" data-level="3.3" data-path="r-basics.html"><a href="r-basics.html#matrices-and-matrix-functions"><i class="fa fa-check"></i><b>3.3</b> Matrices and Matrix Functions</a></li>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#data-frame"><i class="fa fa-check"></i><b>3.4</b> Data Frame</a></li>
+<li class="chapter" data-level="3.5" data-path="r-basics.html"><a href="r-basics.html#missing-values"><i class="fa fa-check"></i><b>3.5</b> Missing Values</a></li>
+<li class="chapter" data-level="3.6" data-path="r-basics.html"><a href="r-basics.html#control-flow"><i class="fa fa-check"></i><b>3.6</b> Control Flow</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="r-basics.html"><a href="r-basics.html#logical-operators"><i class="fa fa-check"></i><b>3.6.1</b> Logical Operators</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-basics.html"><a href="r-basics.html#if-statement"><i class="fa fa-check"></i><b>3.6.2</b> <code>if</code> statement</a></li>
+<li class="chapter" data-level="3.6.3" data-path="r-basics.html"><a href="r-basics.html#for-loop"><i class="fa fa-check"></i><b>3.6.3</b> <code>for</code> loop</a></li>
+<li class="chapter" data-level="3.6.4" data-path="r-basics.html"><a href="r-basics.html#for-loop-with-an-if-statement"><i class="fa fa-check"></i><b>3.6.4</b> <code>for</code> loop with an <code>if</code> statement</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>4</b> Intro to ggplot</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#what-is-ggplot2"><i class="fa fa-check"></i><b>4.1</b> What is ggplot2?</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#optional-grammar-of-graphics-background"><i class="fa fa-check"></i><b>4.1.1</b> Optional: Grammar of Graphics (background)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-main-pieces-of-ggplot2"><i class="fa fa-check"></i><b>4.2</b> The main pieces of ggplot2</a></li>
+<li class="chapter" data-level="4.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#building-your-first-plot-data-aes-geom"><i class="fa fa-check"></i><b>4.3</b> Building your first plot: data → aes → geom</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-1-choose-the-data"><i class="fa fa-check"></i><b>4.3.1</b> Step 1: Choose the data</a></li>
+<li class="chapter" data-level="4.3.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-2-map-variables-with-aes"><i class="fa fa-check"></i><b>4.3.2</b> Step 2: Map variables with <code>aes()</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-3-add-a-geometry-with-geom_point"><i class="fa fa-check"></i><b>4.3.3</b> Step 3: Add a geometry with <code>geom_point()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#aesthetics-colour-shape-size"><i class="fa fa-check"></i><b>4.4</b> Aesthetics: colour, shape, size</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-shape-to-a-variable"><i class="fa fa-check"></i><b>4.4.1</b> Mapping shape to a variable</a></li>
+<li class="chapter" data-level="4.4.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-colour-to-a-variable"><i class="fa fa-check"></i><b>4.4.2</b> Mapping colour to a variable</a></li>
+<li class="chapter" data-level="4.4.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-size-to-a-variable-e.g.-age"><i class="fa fa-check"></i><b>4.4.3</b> Mapping size to a variable (e.g., age)</a></li>
+<li class="chapter" data-level="4.4.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#using-a-categorical-variable"><i class="fa fa-check"></i><b>4.4.4</b> Using a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#aesthetic-mapping-vs-fixed-settings-some-nuance"><i class="fa fa-check"></i><b>4.5</b> Aesthetic mapping vs fixed settings (some nuance)</a></li>
+<li class="chapter" data-level="4.6" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#small-polish-labels-and-a-simple-theme"><i class="fa fa-check"></i><b>4.6</b> Small polish: labels and a simple theme</a></li>
+<li class="chapter" data-level="4.7" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#practice-test-your-knowledge-with-mpg"><i class="fa fa-check"></i><b>4.7</b> Practice: Test your knowledge with <code>mpg</code></a></li>
+<li class="chapter" data-level="4.8" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#saving-plots-to-files-with-ggsave"><i class="fa fa-check"></i><b>4.8</b> Saving plots to files with <code>ggsave()</code></a></li>
+<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> 10. Useful resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html"><i class="fa fa-check"></i><b>5</b> Intro to data wrangling with tidyverse</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#what-makes-the-tidyverse-special"><i class="fa fa-check"></i><b>5.1</b> What makes the tidyverse special?</a></li>
+<li class="chapter" data-level="5.2" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#why-learn-dplyr-first"><i class="fa fa-check"></i><b>5.2</b> Why learn dplyr first?</a></li>
+<li class="chapter" data-level="5.3" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i><b>5.3</b> Data wrangling with dplyr</a></li>
+<li class="chapter" data-level="5.4" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#import-data"><i class="fa fa-check"></i><b>5.4</b> Import Data</a></li>
+<li class="chapter" data-level="5.5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#working-with-tibbles"><i class="fa fa-check"></i><b>5.5</b> Working with Tibbles</a></li>
+<li class="chapter" data-level="5.6" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#the-five-key-dplyr-verbs"><i class="fa fa-check"></i><b>5.6</b> The Five Key dplyr Verbs</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#filtering-rows-with-filter"><i class="fa fa-check"></i><b>5.6.1</b> Filtering rows with <code>filter()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#introducing-the-pipe"><i class="fa fa-check"></i><b>5.6.2</b> Introducing the pipe</a></li>
+<li class="chapter" data-level="5.6.3" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#arranging-rows-with-arrange"><i class="fa fa-check"></i><b>5.6.3</b> Arranging rows with <code>arrange()</code></a></li>
+<li class="chapter" data-level="5.6.4" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#selecting-columns-with-select"><i class="fa fa-check"></i><b>5.6.4</b> Selecting columns with <code>select()</code></a></li>
+<li class="chapter" data-level="5.6.5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#adding-new-variables-with-mutate"><i class="fa fa-check"></i><b>5.6.5</b> Adding new variables with <code>mutate()</code></a></li>
+<li class="chapter" data-level="5.6.6" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#aggregating-over-rows-with-summarise"><i class="fa fa-check"></i><b>5.6.6</b> Aggregating over rows with <code>summarise()</code></a></li>
+<li class="chapter" data-level="5.6.7" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#sources-and-references"><i class="fa fa-check"></i><b>5.6.7</b> Sources and references</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html"><i class="fa fa-check"></i><b>6</b> Survey Design, Sampling, and Weighting</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html#survey-sampling-and-design"><i class="fa fa-check"></i><b>6.1</b> Survey sampling and design</a></li>
+<li class="chapter" data-level="6.2" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html#survey-weights-and-design-based-inference"><i class="fa fa-check"></i><b>6.2</b> Survey weights and design-based inference</a></li>
+<li class="chapter" data-level="6.3" data-path="survey-design-sampling-and-weighting.html"><a href="survey-design-sampling-and-weighting.html#practice-exercises"><i class="fa fa-check"></i><b>6.3</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="understanding-distributions.html"><a href="understanding-distributions.html"><i class="fa fa-check"></i><b>7</b> Understanding distributions</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#getting-oriented-to-the-data"><i class="fa fa-check"></i><b>7.1</b> Getting oriented to the data</a></li>
+<li class="chapter" data-level="7.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#levels-of-measurement"><i class="fa fa-check"></i><b>7.2</b> Levels of measurement</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#continuous-level"><i class="fa fa-check"></i><b>7.2.1</b> Continuous level</a></li>
+<li class="chapter" data-level="7.2.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#ordinal-level"><i class="fa fa-check"></i><b>7.2.2</b> Ordinal level</a></li>
+<li class="chapter" data-level="7.2.3" data-path="understanding-distributions.html"><a href="understanding-distributions.html#categorical-level"><i class="fa fa-check"></i><b>7.2.3</b> Categorical level</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-summaries-using-the-survey-design"><i class="fa fa-check"></i><b>7.3</b> Weighted summaries using the survey design</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-proportions-and-means"><i class="fa fa-check"></i><b>7.3.1</b> Weighted proportions and means</a></li>
+<li class="chapter" data-level="7.3.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-frequency-tables"><i class="fa fa-check"></i><b>7.3.2</b> Weighted frequency tables</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="understanding-distributions.html"><a href="understanding-distributions.html#household-level-variables-in-a-child-level-file"><i class="fa fa-check"></i><b>7.4</b> Household-level variables in a child-level file</a></li>
+<li class="chapter" data-level="7.5" data-path="understanding-distributions.html"><a href="understanding-distributions.html#missing-data-and-skip-patterns"><i class="fa fa-check"></i><b>7.5</b> Missing data and skip patterns</a></li>
+<li class="chapter" data-level="7.6" data-path="understanding-distributions.html"><a href="understanding-distributions.html#practice-exercise"><i class="fa fa-check"></i><b>7.6</b> Practice Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html"><i class="fa fa-check"></i><b>8</b> Central Tendency and Dispersion</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#central-tendency"><i class="fa fa-check"></i><b>8.1</b> Central tendency</a></li>
+<li class="chapter" data-level="8.2" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#dispersion"><i class="fa fa-check"></i><b>8.2</b> Dispersion</a></li>
+<li class="chapter" data-level="8.3" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#weighted-design-correct-summaries"><i class="fa fa-check"></i><b>8.3</b> Weighted, design-correct summaries</a></li>
+<li class="chapter" data-level="8.4" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#outliers-and-the-unit-of-analysis"><i class="fa fa-check"></i><b>8.4</b> Outliers and the unit of analysis</a></li>
+<li class="chapter" data-level="8.5" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#practice-exercises-1"><i class="fa fa-check"></i><b>8.5</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html"><i class="fa fa-check"></i><b>9</b> Bivariate Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#choosing-the-right-bivariate-tool"><i class="fa fa-check"></i><b>9.1</b> Choosing the right bivariate tool</a></li>
+<li class="chapter" data-level="9.2" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#categorical-categorical-cross-tabulations"><i class="fa fa-check"></i><b>9.2</b> Categorical × categorical: cross-tabulations</a></li>
+<li class="chapter" data-level="9.3" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#continuous-categorical-comparing-group-means"><i class="fa fa-check"></i><b>9.3</b> Continuous × categorical: comparing group means</a></li>
+<li class="chapter" data-level="9.4" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#continuous-continuous-scatterplots-and-trends"><i class="fa fa-check"></i><b>9.4</b> Continuous × continuous: scatterplots and trends</a></li>
+<li class="chapter" data-level="9.5" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#testing-association-with-chi-squared-tests"><i class="fa fa-check"></i><b>9.5</b> Testing association with chi-squared tests</a></li>
+<li class="chapter" data-level="9.6" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#practice-exercises-2"><i class="fa fa-check"></i><b>9.6</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#preparing-variables-for-analysis"><i class="fa fa-check"></i><b>10.1</b> Preparing variables for analysis</a></li>
+<li class="chapter" data-level="10.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#correlation-and-simple-regression"><i class="fa fa-check"></i><b>10.2</b> Correlation and simple regression</a></li>
+<li class="chapter" data-level="10.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#survey-weighted-regression-for-population-inference"><i class="fa fa-check"></i><b>10.3</b> Survey-weighted regression for population inference</a></li>
+<li class="chapter" data-level="10.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#practice-exercises-3"><i class="fa fa-check"></i><b>10.4</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#the-multiple-regression-model-and-its-interpretation"><i class="fa fa-check"></i><b>11.1</b> The multiple regression model and its interpretation</a></li>
+<li class="chapter" data-level="11.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#data-and-analysis-sample"><i class="fa fa-check"></i><b>11.2</b> Data and analysis sample</a></li>
+<li class="chapter" data-level="11.3" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#building-a-multiple-regression-model"><i class="fa fa-check"></i><b>11.3</b> Building a multiple regression model</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#comparing-coefficients-across-models"><i class="fa fa-check"></i><b>11.3.1</b> Comparing coefficients across models</a></li>
+<li class="chapter" data-level="11.3.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#interpreting-categorical-predictors"><i class="fa fa-check"></i><b>11.3.2</b> Interpreting categorical predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#extensions-interactions-and-non-linear-effects"><i class="fa fa-check"></i><b>11.4</b> Extensions: interactions and non-linear effects</a></li>
+<li class="chapter" data-level="11.5" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#reporting-results"><i class="fa fa-check"></i><b>11.5</b> Reporting results</a></li>
+<li class="chapter" data-level="11.6" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#practice-exercises-4"><i class="fa fa-check"></i><b>11.6</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>12</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="logistic-regression.html"><a href="logistic-regression.html#what-logistic-regression-models"><i class="fa fa-check"></i><b>12.1</b> What logistic regression models</a></li>
+<li class="chapter" data-level="12.2" data-path="logistic-regression.html"><a href="logistic-regression.html#simple-versus-multiple-logistic-regression"><i class="fa fa-check"></i><b>12.2</b> Simple versus multiple logistic regression</a></li>
+<li class="chapter" data-level="12.3" data-path="logistic-regression.html"><a href="logistic-regression.html#data"><i class="fa fa-check"></i><b>12.3</b> Data</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="logistic-regression.html"><a href="logistic-regression.html#import-subset-and-keep-only-needed-variables"><i class="fa fa-check"></i><b>12.3.1</b> Import, subset, and keep only needed variables</a></li>
+<li class="chapter" data-level="12.3.2" data-path="logistic-regression.html"><a href="logistic-regression.html#recode-variables-labels-reference-levels"><i class="fa fa-check"></i><b>12.3.2</b> Recode variables (labels + reference levels)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="logistic-regression.html"><a href="logistic-regression.html#why-we-need-survey-design-information"><i class="fa fa-check"></i><b>12.3.3</b> Why we need survey design information</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="logistic-regression.html"><a href="logistic-regression.html#simple-logistic-regression"><i class="fa fa-check"></i><b>12.4</b> Simple Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="logistic-regression.html"><a href="logistic-regression.html#continuous-predictor-childs-age"><i class="fa fa-check"></i><b>12.4.1</b> Continuous predictor: child’s age</a></li>
+<li class="chapter" data-level="12.4.2" data-path="logistic-regression.html"><a href="logistic-regression.html#categorical-predictor-example-books"><i class="fa fa-check"></i><b>12.4.2</b> Categorical predictor example: Books</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="logistic-regression.html"><a href="logistic-regression.html#multiple-binary-logistic-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple binary logistic regression</a></li>
+<li class="chapter" data-level="12.6" data-path="logistic-regression.html"><a href="logistic-regression.html#interaction"><i class="fa fa-check"></i><b>12.6</b> Interaction</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="logistic-regression.html"><a href="logistic-regression.html#interpretation-of-age-sex-and-the-agesex-interaction"><i class="fa fa-check"></i><b>12.6.1</b> Interpretation of age, sex, and the age*sex interaction</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="logistic-regression.html"><a href="logistic-regression.html#reporting-results-1"><i class="fa fa-check"></i><b>12.7</b> Reporting Results</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="getting-started-with-r" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Getting Started with R<a href="getting-started-with-r.html#getting-started-with-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="rstudio-interface" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> RStudio interface<a href="getting-started-with-r.html#rstudio-interface" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>RStudio opens with four panes by default.
+If you only see three, create a new script to reveal the Source pane: File -&gt; New File -&gt; R Script (shortcut: <kbd>Control</kbd>+<kbd>Shift</kbd> + <kbd>N</kbd> on Windows/Linux, <kbd>Command</kbd>+<kbd>Shift</kbd> + <kbd>N</kbd> on Mac).</p>
+<div class="float">
+<img src="figs/RStudio.PNG" alt="RStudio interface showing the four panes" />
+<div class="figcaption">RStudio interface showing the four panes</div>
+</div>
+<p><br></p>
+<p>The diagram below summarises the different parts of RStudio.</p>
+<div class="float">
+<img src="figs/rstudio_parts.png" alt="Summary diagram of RStudio panes and tabs" />
+<div class="figcaption">Summary diagram of RStudio panes and tabs</div>
+</div>
+<p><br></p>
+<p><strong>Basic layout</strong></p>
+<ul>
+<li><p>Four panels and various tabs</p>
+<ul>
+<li><p><strong>Top-left</strong> - where you type source code, like the script editor in Stata.</p></li>
+<li><p><strong>Bottom-left</strong> - is the Console, where you see what R is doing.</p></li>
+<li><p><strong>Upper-right</strong> - where you see your list of R objects and things in your Workspace (explained in the sections to follow).
+There is also a history tab where you find the history of all your commands in that session.
+Recent versions of RStudio have another tab, <strong>Tutorial</strong>, for integrated tutorials powered by the <code>learnr</code> package.</p></li>
+<li><p><strong>Bottom-right</strong> is where you can see your file structure, graphical output, available packages, and help documents.</p></li>
+</ul></li>
+</ul>
+<p>We now consider these one by one.</p>
+<div id="source-editor" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Source/ Editor<a href="getting-started-with-r.html#source-editor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="figs/editor.png" alt="RStudio Source/ Editor pane" /> <br> You’ll do most of your coding here, so it’s helpful to give this pane more space in your layout.
+Type code in the editor, then run a line or selection with Ctrl+Enter (Windows/Linux) or Cmd+Enter (Mac); results show in the Console.</p>
+</div>
+<div id="example-running-a-line-of-code-in-the-editor" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Example: Running a line of code in the Editor<a href="getting-started-with-r.html#example-running-a-line-of-code-in-the-editor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Example: Running a line of code</strong></p>
+<p>Let’s begin by learning how to write and run code from the Source pane.</p>
+<ol style="list-style-type: decimal">
+<li><p>Open a new script:</p>
+<p>Go to <strong>File -&gt; New File -&gt; R Script</strong>.</p>
+<p>A new blank tab appears in the Source pane.
+<br><br />
+</p></li>
+<li><p>Type this line:</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="getting-started-with-r.html#cb1-1" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello world!&quot;</span>)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Run the line:</li>
+</ol>
+<ul>
+<li>On Windows - press <kbd>Control</kbd> + <kbd>Enter</kbd></li>
+<li>On macOS - press <kbd>Command</kbd> + <kbd>Enter</kbd></li>
+</ul>
+<p>RStudio sends the line to the Console (lower-left pane), runs it, and shows:</p>
+<pre><code>## [1] &quot;Hello world!&quot;</code></pre>
+<p><strong>Guided Practice — Running Multiple Lines of Code</strong></p>
+<p>Now you’ll extend that first example step by step.</p>
+<ol style="list-style-type: decimal">
+<li>Add another line so your script looks like this:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="getting-started-with-r.html#cb3-1" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello world!&quot;</span>)</span>
+<span id="cb3-2"><a href="getting-started-with-r.html#cb3-2" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;I am learning R!&quot;</span>)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Highlight both lines with your mouse or keyboard.</p></li>
+<li><p>Run them together: <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (Windows) or <kbd>Cmd</kbd> + <kbd>Enter</kbd> (Mac)</p></li>
+</ol>
+<p>Both lines should now appear in the console output</p>
+<p><strong>Independent Practice</strong></p>
+<p>Your turn!</p>
+<ol style="list-style-type: decimal">
+<li>Add a new line that prints your own message:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="getting-started-with-r.html#cb4-1" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Learning R feels great!&quot;</span>) <span class="co"># This is an example add you own message</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Run just that line and check the result.</p></li>
+<li><p>Select all your code (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>A</kbd>) and run the entire script (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd>).</p></li>
+</ol>
+<p>You should see three printed messages in the Console, one after another.</p>
+<p>Tip: There is also a <strong>Run</strong> button at the top-right of the Source pane <br></p>
+<p><img src="figs/run.png" alt="Run button" /> <br> It runs the current line or any highlighted lines.
+You can use it, but prefer the keyboard shortcut for speed: <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd>.</p>
+<p><strong>Saving your script</strong> To save the script, press</p>
+<p><kbd>Ctrl/Cmd</kbd> + <kbd>S</kbd></p>
+<p>Give the file a name such as r_introduction.R or your preferred name.
+Save it somewhere easy to find, like the Desktop.
+(Later, you’ll learn better ways to organize your scripts inside “projects”.)</p>
+</div>
+<div id="console" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Console<a href="getting-started-with-r.html#console" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Console (bottom-left pane in RStudio) is where R actually runs your code.
+When you send commands from the <strong>Source (Editor)</strong> pane or type directly into the Console, R executes them immediately and prints the output below the typed command.
+Think of it as your conversation window with R - you type a command, R responds.</p>
+<p><strong>Example: Running Code in the Console</strong></p>
+<p>Let’s see how the Console works.</p>
+<ol style="list-style-type: decimal">
+<li><p>Click inside the Console pane.</p></li>
+<li><p>Type a simple calculation:</p></li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="getting-started-with-r.html#cb5-1" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
+<p>Press <kbd>Enter</kbd></p>
+<p>You should see:</p>
+<pre><code>## [1] 8</code></pre>
+<p>The code was run instantly.
+Everything typed directly in the Console is not saved, so use it mainly for quick checks.</p>
+<p><strong>Guided Practice - Trying Different Commands</strong></p>
+<p>Now try a few more examples:</p>
+<ol style="list-style-type: decimal">
+<li>Type:</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="getting-started-with-r.html#cb7-1" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
+<p>Then press <kbd>Enter</kbd></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Next, type:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="getting-started-with-r.html#cb8-1" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">16</span>)</span></code></pre></div>
+<p>Then press <kbd>Enter</kbd></p>
+<p>You will see <strong>5</strong> and <strong>4</strong> as the results of each command</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Type</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="getting-started-with-r.html#cb9-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span>)</span></code></pre></div>
+<p>and run it.</p>
+<p>Each time you press <kbd>Enter</kbd>, R immediately performs the calculation and prints the output.</p>
+<p><strong>Tip</strong>: You can recall your last command by pressing the <strong>Up Arrow</strong> on the keyboard.
+Once you have recalled it, you can edit if needed and press <kbd>Enter</kbd> to run again.</p>
+<p><strong>Independent Practice</strong></p>
+<p>Now it’s your turn to explore.</p>
+<ol style="list-style-type: decimal">
+<li>Type a few calculations of your own, such as:</li>
+</ol>
+<ul>
+<li>12 - 5</li>
+<li>4 ^ 2</li>
+<li>log(100)</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Run each line by pressing Enter after typing.</p></li>
+<li><p>Notice how R prints the result directly below each command.</p></li>
+</ol>
+<p>When you type directly in the Console, R executes commands immediately but does not store them.
+For any code you want to save and reuse, make sure to write it in a <strong>script</strong> (in the <strong>Source pane</strong>) and run it from there.</p>
+</div>
+<div id="environment-tab" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Environment Tab<a href="getting-started-with-r.html#environment-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Environment tab, usually, the <strong>top-right pane</strong>, shows all the objects currently stored in R’s working memory, your workspace.
+Every time you create a new object (like a dataset, variable, or function), it appears in this list.</p>
+<p>You can think of the Environment as R’s memory view, it keeps track of everything you have created during your session.</p>
+<p><strong>Example: Watching the Environment Update</strong></p>
+<p>Let us see what happens in the Environment tab when you create something R wants to remember.</p>
+<ol style="list-style-type: decimal">
+<li>In your script (Source pane), type:</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="getting-started-with-r.html#cb10-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Run the line (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd>).</li>
+</ol>
+<p>Look at the <strong>Environment tab</strong> (top-right).
+You should now see an entry labelled x with a value of 8.</p>
+<p>Whenever R stores something, even a simple calculation like this, it keeps track of it in the Environment.
+Later, we will learn what these stored things (called objects) are and how to manage them.</p>
+<p><strong>Guided Practice - Exploring What the Environment Shows</strong></p>
+<p>Try a few more examples:</p>
+<ol style="list-style-type: decimal">
+<li>Add these lines to your script and run them one by one:</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="getting-started-with-r.html#cb11-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb11-2"><a href="getting-started-with-r.html#cb11-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Watch how new entries appear in the Environment tab each time you run a line.</p></li>
+<li><p>Click the small blue triangle next to any name to see a quick summary of what it contains.</p></li>
+</ol>
+<p>The Environment pane updates in real time as you work.
+It’s a visual way of seeing what R is keeping track of.</p>
+<p><strong>Independent Practice</strong></p>
+<p>Now try this small challenge:</p>
+<ol style="list-style-type: decimal">
+<li>Create and run one or two short calculations of your own, such as:</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="getting-started-with-r.html#cb12-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">6</span></span>
+<span id="cb12-2"><a href="getting-started-with-r.html#cb12-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Check that each new name appears in the Environment with its value beside it.</p></li>
+<li><p>Use the broom icon at the top of the Environment pane to clear everything.</p></li>
+<li><p>Run one line again - see how the Environment repopulates with just that result.</p></li>
+</ol>
+<p>Clearing the Environment does not affect your code.
+It only removes what R has stored in memory for now</p>
+</div>
+<div id="history-tab" class="section level3 hasAnchor" number="2.1.5">
+<h3><span class="header-section-number">2.1.5</span> History Tab<a href="getting-started-with-r.html#history-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>History</strong> tab (next to the <strong>Environment</strong> tab, top-right pane) keeps a running list of all the commands you have run during your R session - whether they were typed directly into the Console or sent from a script.</p>
+<p>Think of it as RStudio’s built-in “memory log” - a quick way to review what you have done or re-use code you ran earlier.</p>
+<p><strong>Example: Viewing Your Command History</strong></p>
+<p>Let us see what appears in the History tab.</p>
+<ol style="list-style-type: decimal">
+<li>In your script or Console, run a few simple commands:</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="getting-started-with-r.html#cb13-1" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb13-2"><a href="getting-started-with-r.html#cb13-2" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello R&quot;</span>)</span>
+<span id="cb13-3"><a href="getting-started-with-r.html#cb13-3" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Now look at the History tab (top-right, next to Environment). You’ll see each of these commands listed in order.</li>
+</ol>
+<p>Each time you run a line of code, RStudio automatically records it in the History tab.
+This makes it easy to revisit or reuse commands without retyping them.</p>
+<p><strong>Guided Practice: Sending Commands from History</strong></p>
+<p>You can reuse past commands directly from the History tab.</p>
+<ol style="list-style-type: decimal">
+<li><p>Click on one of your earlier commands in the History list (for example, 5 + 3).</p></li>
+<li><p>At the top of the History tab, click “To Console”, the command will appear in the Console, ready to run.</p></li>
+<li><p>Try “To Source” — this sends the same command to your script instead, where you can save it or edit it.</p></li>
+</ol>
+<p><strong>Tip</strong>: The commands recorded in the History tab help you to recover something youran earlier but did not save in a script - no need to retype!</p>
+<p><strong>Independent Practice</strong></p>
+<p>Now try this on your own:</p>
+<ol style="list-style-type: decimal">
+<li>Type and run a few new lines of code, such as:</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="getting-started-with-r.html#cb14-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">4</span></span>
+<span id="cb14-2"><a href="getting-started-with-r.html#cb14-2" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;R is fun!&quot;</span>)</span>
+<span id="cb14-3"><a href="getting-started-with-r.html#cb14-3" tabindex="-1"></a><span class="dv">7</span> <span class="sc">*</span> <span class="dv">9</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Open the History tab.</p>
+<ul>
+<li><p>Use the Shift-click method to select several lines at once (click the first line, hold Shift, then click the last).</p></li>
+<li><p>Send them all back to the Console or Source using the buttons at the top of the tab.</p></li>
+</ul></li>
+<li><p>Experiment with the Search bar (top-right of the History pane) — try typing part of a command like <strong>print or 7</strong> to find related lines quickly.</p></li>
+</ol>
+</div>
+<div id="files-tab" class="section level3 hasAnchor" number="2.1.6">
+<h3><span class="header-section-number">2.1.6</span> Files Tab<a href="getting-started-with-r.html#files-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Files tab (bottom-right pane in RStudio) shows the files and folders in the folder where RStudio is currently working — this is called your “working directory” Think of it as a small file explorer built right into RStudio - we will revisit this including how it is set up.
+From here, you can create, open, rename, and delete files and folders without leaving RStudio.</p>
+<p><strong>Example: Exploring the Files Tab</strong></p>
+<p>Let us take a quick look at what the Files tab can do.</p>
+<ol style="list-style-type: decimal">
+<li><p>Open RStudio and locate the Files tab in the bottom-right pane.</p></li>
+<li><p>Look at the list — these are the files and folders in your current workspace.</p></li>
+<li><p>Click the New Folder button at the top of the tab.</p>
+<ul>
+<li><p>Give your folder a name such as test_folder and click <kbd>OK</kbd>.</p></li>
+<li><p>The folder appears in the list.</p></li>
+</ul></li>
+</ol>
+<p>The Files tab lets you interact with your computer’s folders and files directly inside RStudio, keeping everything related to your R work in one place.</p>
+<p><strong>Guided Practice - Managing Files and Folders</strong></p>
+<p>Now, try a few more options in the toolbar.</p>
+<p>1.Click on the new folder to open it.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Inside, choose New File -&gt; R Script, name it practice_script.R, and click <kbd>OK</kbd>.</p></li>
+<li><p>Use the Rename button to rename it to first_script.R.</p></li>
+<li><p>Finally, try the Delete button to remove either the script or the folder (RStudio will ask for confirmation).</p></li>
+</ol>
+<p><strong>Independent Practice</strong> Take a few minutes to explore on your own:</p>
+<ol style="list-style-type: decimal">
+<li><p>Create another new folder and name it anything you like.</p></li>
+<li><p>Use the <strong>Up Directory (↑)</strong> button to move back to the parent folder.</p></li>
+<li><p>Try the Refresh button to update the view if something changes.</p></li>
+<li><p>Explore the More… menu to see extra options (for example, “Show Folder in New Window”).</p></li>
+</ol>
+</div>
+<div id="plots-tab" class="section level3 hasAnchor" number="2.1.7">
+<h3><span class="header-section-number">2.1.7</span> Plots Tab<a href="getting-started-with-r.html#plots-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>Plots</strong> tab (bottom-right pane in RStudio, next to the Files tab) is where any figures or graphs you create in R will appear.
+Whenever you run a plotting command, RStudio automatically displays the resulting figure here.</p>
+<p><strong>Example: Creating Your First Plot</strong></p>
+<p>Let us make a simple plot to see how this tab works.</p>
+<ol style="list-style-type: decimal">
+<li>In your script, type:</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="getting-started-with-r.html#cb15-1" tabindex="-1"></a><span class="fu">plot</span>(women)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Run the line (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd>).</li>
+</ol>
+<p>You should see a scatterplot appear in the Plots tab.</p>
+<p>The dataset women is built into R.
+It contains average heights and weights of American women aged 30 – 39.
+We are not analysing it yet, we are just using it to see where plots show up in RStudio.</p>
+<p><strong>Guided Practice — Exploring the Plot Tools</strong></p>
+<p>Now, take a moment to look at the toolbar at the top of the Plots tab:</p>
+<ol style="list-style-type: decimal">
+<li><p>Use the <strong>← / →</strong> arrows to move between plots if you create more than one.</p></li>
+<li><p>Click Zoom to open the plot in a larger window.</p></li>
+<li><p>Click Export <strong>→</strong> Save as Image or Save as PDF to save a copy of the plot to your computer.</p></li>
+<li><p>Click the broom (🧹) icon to clear all plots from the tab.</p></li>
+</ol>
+<p><strong>Independent practice</strong></p>
+<p>Try making a few variations:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="getting-started-with-r.html#cb16-1" tabindex="-1"></a><span class="fu">plot</span>(women<span class="sc">$</span>height, women<span class="sc">$</span>weight)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="getting-started-with-r.html#cb17-1" tabindex="-1"></a><span class="fu">plot</span>(women, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>)     <span class="co"># adds lines between the points</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="getting-started-with-r.html#cb18-1" tabindex="-1"></a><span class="fu">plot</span>(women, <span class="at">main =</span> <span class="st">&quot;Heights and Weights of Women&quot;</span>)</span></code></pre></div>
+<p>Each time you run a line, a new plot appears in the Plots tab.
+Use the navigation arrows to move between them and experiment with the Zoom and Export buttons.</p>
+</div>
+<div id="packages-tab" class="section level3 hasAnchor" number="2.1.8">
+<h3><span class="header-section-number">2.1.8</span> Packages Tab<a href="getting-started-with-r.html#packages-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>Packages</strong> tab (bottom-right pane, next to <strong>Plots</strong> and <strong>Help</strong>) shows all the packages currently installed on your computer.</p>
+<p>Packages are collections of R code that add new tools or features to R — such as new plotting styles, data import functions, or analysis methods.
+You will learn how to install and use them later in the course.</p>
+<p><strong>Example: Exploring the Packages Tab</strong></p>
+<p>Let us look at what is inside the Packages tab.</p>
+<ol style="list-style-type: decimal">
+<li><p>Click on the Packages tab (bottom-right pane).</p></li>
+<li><p>Scroll through the list — each item (in blue) is the name of an installed package.</p></li>
+<li><p>Packages with a checkmark (<strong>✔</strong>) are loaded, these are the ones currently active and ready to use.</p></li>
+</ol>
+<p>R always loads a few essential packages automatically when it starts (for example, “stats” and “graphics”).
+The rest are available but inactive until you load them.</p>
+<p><strong>Guided Practice — Finding and Installing Packages</strong></p>
+<p>Let us explore the buttons at the top of the tab.</p>
+<ol style="list-style-type: decimal">
+<li><p>Click the Install button — you’ll see a small window that asks for a package name.</p></li>
+<li><p>You don’t need to install anything now; just notice how it works.</p></li>
+<li><p>The Update button checks if newer versions of your installed packages are available.</p></li>
+</ol>
+<p>The Loaded Only checkbox filters the view so you see only packages currently in use.</p>
+<p>Tip: Although you can install packages from this tab, we’ll learn a more efficient and reproducible way - by using R code (<strong>install.packages()</strong> and <strong>library()</strong>) - in a later lesson.</p>
+<p><strong>Independent practice</strong></p>
+<p>Take a few minutes to explore:</p>
+<ol style="list-style-type: decimal">
+<li><p>Scroll through the list and see which packages have checkmarks.</p></li>
+<li><p>Use the Search bar (top-right of the tab) to find a package called graphics - this is one of R’s built-in packages that handles plotting.</p></li>
+<li><p>Click the Help button at the top to open documentation for a selected package.</p></li>
+</ol>
+<p><em>Try this</em>: Run a quick plot again to confirm that packages like graphics are already working for you:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="getting-started-with-r.html#cb19-1" tabindex="-1"></a><span class="fu">plot</span>(women)</span></code></pre></div>
+<p>The <strong>plot()</strong> function comes from the graphics package, which R loads automatically when it starts.</p>
+</div>
+<div id="help-tab" class="section level3 hasAnchor" number="2.1.9">
+<h3><span class="header-section-number">2.1.9</span> Help Tab<a href="getting-started-with-r.html#help-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>Help</strong> tab (bottom-right pane) shows documentation for R functions, datasets, and packages.
+Help pages can feel dense at first, but they become invaluable as you learn the layout.</p>
+<p>Typical sections you’ll see:</p>
+<ul>
+<li><p><strong>Description</strong> - what it does</p></li>
+<li><p><strong>Usage</strong> - how to call it</p></li>
+<li><p><strong>Arguments</strong> - what each input means</p></li>
+<li><p><strong>Value</strong> - what it returns</p></li>
+<li><p><strong>Examples</strong> - try-it code at the bottom</p></li>
+</ul>
+<p><strong>Example: Opening Help</strong></p>
+<p>Try these, one at a time (run each line):</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="getting-started-with-r.html#cb20-1" tabindex="-1"></a>?plot          <span class="co"># help for the plot() function</span></span>
+<span id="cb20-2"><a href="getting-started-with-r.html#cb20-2" tabindex="-1"></a>?women         <span class="co"># help for the built-in dataset &#39;women&#39;</span></span>
+<span id="cb20-3"><a href="getting-started-with-r.html#cb20-3" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;print&quot;</span>)  <span class="co"># another way to open help</span></span></code></pre></div>
+<p><strong>Tip</strong>: In RStudio, place your cursor on a function name (e.g., plot) and press F1 to open its Help page.</p>
+<p><strong>Guided Practice — Searching Help</strong></p>
+<p>Explore a few ways to find help:</p>
+<ol style="list-style-type: decimal">
+<li><p>In the Help tab’s search box (top), type plot and hit Enter.</p></li>
+<li><p>In the Console, try a topic search (broader than ?):</p></li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="getting-started-with-r.html#cb21-1" tabindex="-1"></a>??histogram     <span class="co"># search help topics containing &quot;histogram&quot;</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Scroll to the <strong>Examples</strong> section of a help page and click Run examples (or copy an example into your script and run it).</li>
+</ol>
+<p><strong>Independent Practice</strong></p>
+<p>Try these quick tasks:</p>
+<ol style="list-style-type: decimal">
+<li>Open help for View:</li>
+</ol>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="getting-started-with-r.html#cb22-1" tabindex="-1"></a>?View</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Skim the Arguments section to see what View() accepts.</p></li>
+<li><p>Open help for the women dataset again:</p></li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="getting-started-with-r.html#cb23-1" tabindex="-1"></a>?women</span></code></pre></div>
+<ul>
+<li>Find the short description of what the dataset contains.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Use F1 on the word plot in your script to open its help directly.</li>
+</ol>
+<!-- ### Quick start: your first R session -->
+<!-- 1. Install R from [CRAN](https://cran.r-project.org/). -->
+<!-- 2. Install RStudio from [rstudio.com](https://www.rstudio.com/). -->
+<!-- 3. Open the project file `Intro to R Nov 2025.Rproj`. -->
+<!-- 4. Create a new R Script (`File -> New File -> R Script`). -->
+<!-- 5. Type `x <- 3` and run it: `Ctrl + Enter` (Windows) / `Cmd + Return` (Mac). -->
+<!-- 6. Confirm in the Environment pane that `x` appears, then try `x * 2`. -->
+<!-- ### Try it now (2 minutes) -->
+<!-- ```{r, eval=FALSE} -->
+<!-- # What R version am I running? -->
+<!-- R.version.string -->
+<!-- # Use help to see documentation and examples -->
+<!-- ?mean -->
+<!-- # Run a simple calculation -->
+<!-- mean(c(1, 2, 3)) -->
+<!-- # Explore a built-in dataset -->
+<!-- head(mtcars) -->
+<!-- summary(mtcars$mpg) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="organize-your-r-session" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Organize your R session<a href="getting-started-with-r.html#organize-your-r-session" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Commands</strong></p>
+<p>Now that you’ve explored the RStudio interface and know how to run code, let us look at the structure of R commands.</p>
+<p>R follows a simple pattern when you ask it to do something:</p>
+<p><code>&gt; command(argument1, argument2, ...,)</code></p>
+<p>For example:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="getting-started-with-r.html#cb24-1" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello, R!&quot;</span>)</span></code></pre></div>
+<p>Each command name is followed by parentheses () that contain the information (called arguments) R needs to perform the task.
+Even if no information is required, the parentheses are still needed to tell R to do something.</p>
+<p><strong>Guided practice</strong></p>
+<p>Let’s try a few examples together:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="getting-started-with-r.html#cb25-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb25-2"><a href="getting-started-with-r.html#cb25-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">10</span>, <span class="dv">25</span>)</span>
+<span id="cb25-3"><a href="getting-started-with-r.html#cb25-3" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">16</span>)</span></code></pre></div>
+<p>Each line is a different command that tells R to perform a task — adding, summing, or finding a square root.</p>
+<div id="working-directory-where-r-looks-for-your-files" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Working Directory: Where R Looks for Your Files<a href="getting-started-with-r.html#working-directory-where-r-looks-for-your-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Your working directory is the folder where R looks for files to read and where it saves anything you create.
+Think of it as R’s current workspace on your computer.</p></li>
+<li><p>You can check it in RStudio Console:</p></li>
+</ul>
+<p><code>getwd()</code> - This command shows the folder R is currently using.</p>
+<div id="set-working-directory" class="section level4 hasAnchor" number="2.2.1.1">
+<h4><span class="header-section-number">2.2.1.1</span> Set working directory<a href="getting-started-with-r.html#set-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>One can set or change the working directory in RStudio (Session) using the following command:</p>
+<p><code>setwd("path_to_directory")</code> - Set another working directory</p>
+<p>However, managing your working directories this way is not efficient.</p>
+<ul>
+<li><strong>Problem</strong>: If you rely on setwd(), your code may break/fail on another computer, since everyone has different file paths.</li>
+</ul>
+<p>It is good practice to keep all your data and other material related to a specific project in a single folder, the working directory.
+An example of this file hierarchy/folder structure is shown below:</p>
+<pre class="text"><code>└── my_project
+    ├── data
+    │   ├── raw
+    │   └── cleaned
+    ├── figures
+    ├── output
+    └── script
+        ├── 1_data_prep.R
+        └── 2_data_analysis.R</code></pre>
+<p><code>my_project</code>- your main folder containing the following sub-directories:</p>
+<p><code>data</code> folder with sub-directories, <code>raw</code> for the raw data and <code>cleaned</code> for the processed data.</p>
+<p><code>figures</code> folder for saving your plots.</p>
+<p><code>output</code> folder for storing other outputs that are not figures, e.g. aggregated tables.</p>
+<p><code>script</code> folder storing R scripts.</p>
+<p>You can then use <strong>RStudio projects</strong> to manage your working directory.
+RStudio projects enable you to use relative paths to files and folders inside your main project folder (as opposed to absolute paths, that is, the full path to a file or folder).
+RStudio projects remember the location of your main folder and allow you to easily navigate to sub-folders without the need to remember their full path.
+With RStudio projects, RStudio also remembers the files you had open the last time you closed a project.
+The next time you open your project, RStudio will open the same files and tabs.</p>
+</div>
+<div id="creating-a-rstudio-project" class="section level4 hasAnchor" number="2.2.1.2">
+<h4><span class="header-section-number">2.2.1.2</span> Creating a RStudio project<a href="getting-started-with-r.html#creating-a-rstudio-project" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>RStudio can create new projects using three different methods: <strong>New Directory</strong>, <strong>Existing Directory</strong>, or <strong>Version Control</strong>.
+Assuming we have an existing project folder, <code>my_project</code>, as above:</p>
+<ol style="list-style-type: decimal">
+<li><p>Start RStudio.</p></li>
+<li><p>Go to <code>File</code> then click on <code>New Project</code>.
+Choose <code>Existing Directory</code>, then New Project.</p></li>
+<li><p>Under the <code>project working directory:</code>, browse to the <code>my_project</code> folder.</p></li>
+<li><p>Click on <code>Create Project</code>.</p></li>
+</ol>
+<p>In your <code>my_project</code> folder, you will find a new <code>my_project.Rproj</code> file created as illustrated below.</p>
+<pre class="text"><code>└── my_project
+  ├── data
+  │   ├── raw
+  │   └── cleaned
+  ├── figures
+  ├── output
+  ├── script
+  │    ├── 1_data_prep.R
+  │    └── 2_data_analysis.R
+  └── my_project.Rproj
+  </code></pre>
+<p>The next time you want to open this project, you can just double click the <code>my_project.Rproj</code> or the file with file extension <code>.Rproj</code>.
+Note that the <code>my_project</code> can be any name for your project.
+You can now navigate to sub-folders in your main folder, e.g., <code>./data/raw</code> as opposed to say <code>C:/some_long_path_name/my_project/data/raw</code>.
+More on using relative path when we start importing data and saving files in sections to follow.
+For this course, the RStudio project file is <code>Intro to R Nov 2025.Rproj</code> in the folder.</p>
+</div>
+</div>
+<div id="installing-and-loading-packages-libraries" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Installing and Loading Packages (Libraries)<a href="getting-started-with-r.html#installing-and-loading-packages-libraries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-is-a-package" class="section level4 hasAnchor" number="2.2.2.1">
+<h4><span class="header-section-number">2.2.2.1</span> What is a package?<a href="getting-started-with-r.html#what-is-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p>Once again, a <strong>package</strong> (or library) is a collection of extra functions that extend what R can do.</p></li>
+<li><p>You could think of them as the apps you install on your phone ???
+they add new features.</p></li>
+</ul>
+<p>Often you will find that you may need to use functions from other user-written packages or libraries.
+Since these packages do not come installed in base R, you need to do the additional installation yourself.
+To install a package called <code>lattice</code>for instance, type the following in your R Console (and press <code>Enter</code>) or in a script (and press <code>Run</code>):</p>
+<p><code>install.packages("lattice")</code></p>
+<p>Developers of these packages usually update them after introducing new functions or changing names of certain functionality, so be aware that behavior can change across versions.</p>
+<p>You also need to load the package/library into the R workspace before you can use functions from that library as follows:</p>
+<p><code>library(lattice)</code></p>
+<p>You need to load the library each time you need to use it in a new R session.</p>
+</div>
+<div id="quick-tips-for-beginners" class="section level4 hasAnchor" number="2.2.2.2">
+<h4><span class="header-section-number">2.2.2.2</span> Quick Tips for Beginners:<a href="getting-started-with-r.html#quick-tips-for-beginners" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p>Install once - load every time you start R.</p></li>
+<li><p>If you forget to load, R will say: “could not find function .”</p></li>
+<li><p>Packages get updated, so sometimes behavior may change across versions.</p></li>
+</ul>
+</div>
+</div>
+<div id="comments-in-r" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Comments in R<a href="getting-started-with-r.html#comments-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>#</code> denotes a comment in R</p>
+<p>Anything after the <code>#</code> is not evaluated and is ignored in R</p>
+</div>
+<div id="common-mistakes-and-quick-fixes" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Common mistakes and quick fixes<a href="getting-started-with-r.html#common-mistakes-and-quick-fixes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Assignment: prefer <code>&lt;-</code> for assigning values (e.g., <code>x &lt;- 5</code>). Using <code>=</code> can work but is harder to read in function calls.</li>
+<li>Quotes: match your quotes exactly, e.g., “text” or ‘text’, not a mix.</li>
+<li>Commas: separate function arguments with commas, e.g., <code>mean(x, na.rm = TRUE)</code>.</li>
+<li>Pipes: the native pipe <code>|&gt;</code> passes the left-hand result into the next function, e.g., <code>mtcars |&gt; head()</code>.</li>
+<li>Reading errors: read the first line of the error; it usually tells you which function failed and why. Copy the minimal failing line and try it alone in the Console.</li>
+</ul>
+</div>
+</div>
+<div id="getting-help" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Getting help<a href="getting-started-with-r.html#getting-help" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><code>help(solve)</code> or <code>?solve</code> - to get help for command <code>solve</code>, type:</p>
+<ul>
+<li>this is useful only if you already know the name of the function that you wish to use.</li>
+</ul></li>
+<li><p><code>apropos()</code> - searches for objects, including functions, directly accessible in the current R session that have names that include a specified character string.</p></li>
+<li><p><code>help.search("solve")</code> and <code>??solve</code> - scans the documentation for packages installed in your library for commands which could be related to the string “solve”</p></li>
+<li><p><code>help.start()</code> - Start the hypertext (currently HTML) version of R’s online documentation.</p></li>
+<li><p><code>RSiteSearch()</code> - uses an internet search engine to search for information in function help pages.</p></li>
+<li><p><code>example(exp)</code> - examples for the usage of exp</p></li>
+<li><p><code>example("*")</code> - special characters have to be in quotation marks</p></li>
+<li><p>For tricky questions, error messages and other issues, use <a href="https://www.google.com/">Google</a> (include “in R” to the end of your query).</p></li>
+<li><p>We can also use <a href="https://rseek.org/">RSeek</a> - the search engine just for <code>R</code>.</p></li>
+<li><p><a href="https://stackoverflow.com/">StackOverflow</a> - great resource with many questions for many specific packages in R and a rating system for answers</p></li>
+</ul>
+</div>
+<div id="operators-in-r" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Operators in R<a href="getting-started-with-r.html#operators-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="basic-arithmetic-operators" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Basic arithmetic operators<a href="getting-started-with-r.html#basic-arithmetic-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You have already used R for basic calculations.
+Now let’s summarise the key arithmetic operators you’ll use often.</p>
+<p><strong>Examples of Common Operators</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="getting-started-with-r.html#cb28-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>     <span class="co"># Addition</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="getting-started-with-r.html#cb30-1" tabindex="-1"></a><span class="dv">7</span> <span class="sc">-</span> <span class="dv">4</span>     <span class="co"># Subtraction</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="getting-started-with-r.html#cb32-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">5</span>     <span class="co"># Multiplication</span></span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="getting-started-with-r.html#cb34-1" tabindex="-1"></a><span class="dv">7</span> <span class="sc">/</span> <span class="dv">3</span>     <span class="co"># Division</span></span></code></pre></div>
+<pre><code>## [1] 2.333333</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="getting-started-with-r.html#cb36-1" tabindex="-1"></a><span class="dv">5</span> <span class="sc">^</span> <span class="dv">2</span>     <span class="co"># Exponent (power)</span></span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<p>R follows the normal order of operations (brackets → exponents → multiplication/division → addition/subtraction).
+Use brackets () to control the order:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="getting-started-with-r.html#cb38-1" tabindex="-1"></a>(<span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<p><strong>Guided practice - New Operators to Explore</strong></p>
+<p>Let us try these together:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="getting-started-with-r.html#cb40-1" tabindex="-1"></a><span class="dv">150</span> <span class="sc">%/%</span> <span class="dv">60</span>   <span class="co"># integer division – whole hours in 150 minutes</span></span>
+<span id="cb40-2"><a href="getting-started-with-r.html#cb40-2" tabindex="-1"></a><span class="dv">150</span> <span class="sc">%%</span> <span class="dv">60</span>    <span class="co"># remainder – minutes left over</span></span></code></pre></div>
+<p>%/% gives the whole number part of a division, and %% gives the remainder.</p>
+<p><strong>Independent Practice</strong></p>
+<p>Use what you have learned:</p>
+<pre class="text"><code>(10 - 3) * 4
+9 ^ 0.5
+245 %/% 60
+245 %% 60</code></pre>
+<p>Then experiment with built-in math functions:</p>
+<pre class="text"><code>sqrt(25)
+log(10)
+exp(2)</code></pre>
+<p><strong>Reflection</strong>: You now know how R handles arithmetic, powers, remainders, and simple math functions—all tools you will use constantly as you analyse data.</p>
+</div>
+<div id="assignment-operator" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Assignment operator<a href="getting-started-with-r.html#assignment-operator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In R, we often want to store a value so we can use it later.
+To do this, we use the assignment operator <code>&lt;-</code>, which means “assign the value on the right to the name on the left.”</p>
+<p>Example</p>
+<p>Let’s create a simple value and look at it.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="getting-started-with-r.html#cb43-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb43-2"><a href="getting-started-with-r.html#cb43-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>Here, <code>x</code> is the name, and 3 is the value stored in it.
+When you type <code>x</code> and press Enter, R shows what is inside—3.</p>
+<p><strong>Tip</strong>: You can also use = for assignment, but in R we usually prefer <code>&lt;-</code> because it is easier to read in longer code.</p>
+<p><strong>Guided practice</strong></p>
+<p>Let us try a few examples:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="getting-started-with-r.html#cb45-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb45-2"><a href="getting-started-with-r.html#cb45-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb45-3"><a href="getting-started-with-r.html#cb45-3" tabindex="-1"></a>z</span></code></pre></div>
+<p><strong>Independent practice</strong></p>
+<p>Now it’s your turn.</p>
+<ol style="list-style-type: decimal">
+<li><p>Assign the value 8 to a name of your choice (for example, a).</p></li>
+<li><p>Create another value (for example, b &lt;- 2).</p></li>
+<li><p>Add them together to make a new name (for example, c &lt;- a + b).</p></li>
+<li><p>Type each name to see what’s stored inside.</p></li>
+</ol>
+<p>Example to guide you:</p>
+<pre class="text"><code>a &lt;- 8
+b &lt;- 2
+c &lt;- a + b
+c</code></pre>
+</div>
+<div id="sequence-operator" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Sequence operator<a href="getting-started-with-r.html#sequence-operator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>:</code> .
+To get the sequence of numbers/integers from 1 to 10, type the following: In R, the colon (<code>:</code>) is the sequence operator.
+It is used to create a quick sequence of numbers.
+It is a shortcut for making a list of numbers that increase (or decrease) by 1.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="getting-started-with-r.html#cb47-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="co"># it increments by one</span></span>
+<span id="cb47-2"><a href="getting-started-with-r.html#cb47-2" tabindex="-1"></a>a</span></code></pre></div>
+<p>R creates the numbers 1 through 10 and stores them in <code>a</code>.
+When you type <code>a</code>, R shows:</p>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p><strong>Tip</strong>: The colon operator works both ways - try 10:1 to count down!</p>
+<p><strong>Independent practice</strong></p>
+<ol style="list-style-type: decimal">
+<li>Create a sequence from 5 to 15 and store it in a name of your choice.</li>
+<li>Print it to see the result.</li>
+<li>Try counting backwards from 20 to 10.</li>
+</ol>
+<p>Example to guide you:</p>
+<pre class="text"><code>b &lt;- 5:15
+b
+
+c &lt;- 20:10
+c</code></pre>
+<p><strong>Reflection</strong>: The <code>:</code> operator is a quick way to make number sequences in R — no typing each number by hand!</p>
+</div>
+</div>
+<div id="objects-in-r" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Objects in R<a href="getting-started-with-r.html#objects-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When you run a command, R shows the result in the Console, but it is not saved for later.
+To keep a result, assign it to a name (an <strong>object</strong>) using the assignment operator <code>&lt;-</code>, which you can read as “gets”.</p>
+<p><strong>Note on <code>=</code></strong> You can assign with <code>=</code>, but most R code uses <code>&lt;-</code>.
+Follow the common convention and prefer <code>&lt;-</code>.</p>
+<p><strong>Example - Console result vs saved value</strong></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="getting-started-with-r.html#cb50-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span>        <span class="co"># R prints the result but does NOT save it</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Now save (assign) the result:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="getting-started-with-r.html#cb52-1" tabindex="-1"></a>my_obj <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span>   <span class="co"># &quot;my_obj gets 2 + 2&quot;</span></span>
+<span id="cb52-2"><a href="getting-started-with-r.html#cb52-2" tabindex="-1"></a>my_obj            <span class="co"># print what&#39;s stored</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<ul>
+<li><p>my_obj is the name.</p></li>
+<li><p>2 + 2 is the value R calculated before storing.</p></li>
+<li><p>You can now use my_obj anywhere.</p></li>
+<li><p>Look at the Environment tab: you’ll see my_obj listed there.</p></li>
+</ul>
+<p><strong>Guided Practice - Make and update objects</strong></p>
+<p>Create and view a few objects:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="getting-started-with-r.html#cb54-1" tabindex="-1"></a>first_name <span class="ot">&lt;-</span> <span class="st">&quot;Joanna&quot;</span></span>
+<span id="cb54-2"><a href="getting-started-with-r.html#cb54-2" tabindex="-1"></a>first_name</span>
+<span id="cb54-3"><a href="getting-started-with-r.html#cb54-3" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="getting-started-with-r.html#cb54-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb54-5"><a href="getting-started-with-r.html#cb54-5" tabindex="-1"></a>x</span></code></pre></div>
+<p>Update a value:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="getting-started-with-r.html#cb55-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">5</span>   <span class="co"># take the current x and add 5</span></span>
+<span id="cb55-2"><a href="getting-started-with-r.html#cb55-2" tabindex="-1"></a>x</span></code></pre></div>
+<p><strong>Tip</strong>: The Environment tab updates as you create/change objects.</p>
+<p><strong>Independent practice</strong></p>
+<ol style="list-style-type: decimal">
+<li>Store a number and reuse it</li>
+</ol>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="getting-started-with-r.html#cb56-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb56-2"><a href="getting-started-with-r.html#cb56-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(a)</span>
+<span id="cb56-3"><a href="getting-started-with-r.html#cb56-3" tabindex="-1"></a>b</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Create a greeting</li>
+</ol>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="getting-started-with-r.html#cb57-1" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">&quot;Chifundo&quot;</span></span>
+<span id="cb57-2"><a href="getting-started-with-r.html#cb57-2" tabindex="-1"></a>greeting <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;Hello,&quot;</span>, name)</span>
+<span id="cb57-3"><a href="getting-started-with-r.html#cb57-3" tabindex="-1"></a>greeting</span></code></pre></div>
+<ul>
+<li><p>An object is a named bucket that holds a value (number, text, data, …).</p></li>
+<li><p>Use &lt;- to assign: name &lt;- value.</p></li>
+<li><p>The Environment tab shows everything R currently remembers.</p></li>
+<li><p>R evaluates the expression on the right first, then stores the result on the left.</p></li>
+</ul>
+</div>
+<div id="managing-the-workspace" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Managing the workspace<a href="getting-started-with-r.html#managing-the-workspace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As we create more objects in the workspace, we also need to manage and manipulate the workspace.
+All the R objects that we have created are stored in the memory of the computer.
+Over time, unnecessary objects can clutter your workspace and slow things down, so it is good practice to keep it tidy.
+R makes organizing the workspace easy.
+Let’s create a few more objects and show how to remove some of these from memory:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="getting-started-with-r.html#cb58-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">3</span></span></code></pre></div>
+<p>We can list or ask R to display all the objects in memory using the <code>ls()</code> function:</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="getting-started-with-r.html#cb59-1" tabindex="-1"></a><span class="fu">ls</span>()  <span class="co">#list all variables</span></span></code></pre></div>
+<pre><code>## [1] &quot;a&quot;      &quot;b&quot;      &quot;my_obj&quot; &quot;x&quot;      &quot;y&quot;      &quot;z&quot;</code></pre>
+<p>We can also list and describe the variables using the <code>ls.str()</code> function:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="getting-started-with-r.html#cb61-1" tabindex="-1"></a><span class="fu">ls.str</span>()  <span class="co">#list and describe variables</span></span></code></pre></div>
+<pre><code>## a :  int [1:10] 1 2 3 4 5 6 7 8 9 10
+## b :  num 20
+## my_obj :  num 4
+## x :  num 3
+## y :  num 12
+## z :  num 3</code></pre>
+<p>Assuming we no longer need object <code>x</code> in the workspace, we can remove it from memory using the <code>rm()</code> function:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="getting-started-with-r.html#cb63-1" tabindex="-1"></a><span class="fu">rm</span>(x)  <span class="co"># delete a variable</span></span></code></pre></div>
+<p>We can list again all the objects in memory and confirm that <code>x</code> has been removed.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="getting-started-with-r.html#cb64-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot;      &quot;b&quot;      &quot;my_obj&quot; &quot;y&quot;      &quot;z&quot;</code></pre>
+<p>We are now left with objects <code>a</code> and <code>z</code>.</p>
+<ul>
+<li>To remove everything in the workspace</li>
+</ul>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="getting-started-with-r.html#cb66-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
+</div>
+<div id="some-language-features" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Some language features<a href="getting-started-with-r.html#some-language-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It might be helpful to be aware of the following (taken from <a href="https://www.jaredknowles.com/r-bootcamp/">Jared Knowles R Bootcamp</a>):</p>
+<ul>
+<li><p>R is inconsistent in its naming conventions</p>
+<ul>
+<li>Some functions are <code>camelCase</code>; others are <code>dot.separated</code>; others <code>use_underscores</code>.</li>
+</ul></li>
+<li><p>Function results are stored in a variety of ways across function implementations.</p></li>
+<li><p>R has multiple graphics packages that different functions use for default plot construction (base, grid, lattice, and ggplot2)</p></li>
+<li><p>R has multiple packages and functions to perform the same tasks.</p></li>
+<li><p>Be flexible and be aware of R’s flexibility</p></li>
+</ul>
+<p>The next notebook introduces some common types of objects.</p>
+<p>Glossary (quick definitions):</p>
+<ul>
+<li><p>object: a named thing stored in R (e.g., a number, vector, data frame)</p></li>
+<li><p>function: a reusable command that does work, written like <code>name()</code></p></li>
+<li><p>package: a collection of functions and help files you can install and load</p></li>
+</ul>
+</div>
+<div id="test-your-knowledge" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Test your knowledge<a href="getting-started-with-r.html#test-your-knowledge" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Assignment and operators</strong></p>
+<ol style="list-style-type: decimal">
+<li>Assign the variables, <code>height</code> to be 175cm and <code>weight</code> to be 80kg.</li>
+</ol>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="getting-started-with-r.html#cb67-1" tabindex="-1"></a>height <span class="ot">&lt;-</span> </span>
+<span id="cb67-2"><a href="getting-started-with-r.html#cb67-2" tabindex="-1"></a></span>
+<span id="cb67-3"><a href="getting-started-with-r.html#cb67-3" tabindex="-1"></a>weight <span class="ot">&lt;-</span> </span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Calculate BMI assuming the formula below and your variables:</li>
+</ol>
+<p><span class="math display">\[BMI = \frac{weight(kg)}{height(m)^2}\]</span></p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="getting-started-with-r.html#cb68-1" tabindex="-1"></a>bmi <span class="ot">&lt;-</span> </span></code></pre></div>
+</div>
+<div id="session-information" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Session information<a href="getting-started-with-r.html#session-information" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Below is the session information, which records the R version and packages used.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="getting-started-with-r.html#cb69-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sessionInfo</span>())</span></code></pre></div>
+<pre><code>## R version 4.5.3 (2026-03-11 ucrt)
+## Platform: x86_64-w64-mingw32/x64
+## Running under: Windows 11 x64 (build 22631)
+## 
+## Matrix products: default
+##   LAPACK version 3.12.1
+## 
+## locale:
+## [1] LC_COLLATE=English_South Africa.utf8  LC_CTYPE=English_South Africa.utf8    LC_MONETARY=English_South Africa.utf8
+## [4] LC_NUMERIC=C                          LC_TIME=English_South Africa.utf8    
+## 
+## time zone: Africa/Johannesburg
+## tzcode source: internal
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] cowplot_1.2.0 knitr_1.50   
+## 
+## loaded via a namespace (and not attached):
+##  [1] vctrs_0.6.5        cli_3.6.5          rlang_1.1.7        xfun_0.52          generics_0.1.3     jsonlite_2.0.0    
+##  [7] glue_1.8.0         htmltools_0.5.8.1  sass_0.4.10        scales_1.4.0       rmarkdown_2.29     grid_4.5.3        
+## [13] tibble_3.3.1       evaluate_1.0.5     jquerylib_0.1.4    fastmap_1.2.0      yaml_2.3.12        lifecycle_1.0.5   
+## [19] bookdown_0.46      compiler_4.5.3     dplyr_1.1.4        RColorBrewer_1.1-3 pkgconfig_2.0.3    rstudioapi_0.17.1 
+## [25] farver_2.1.2       digest_0.6.37      R6_2.6.1           tidyselect_1.2.1   dichromat_2.0-0.1  pillar_1.11.1     
+## [31] magrittr_2.0.4     bslib_0.9.0        tools_4.5.3        gtable_0.3.6       ggplot2_3.5.2      cachem_1.1.0</code></pre>
+</div>
+<div id="acknowledgements" class="section level2 hasAnchor" number="2.10">
+<h2><span class="header-section-number">2.10</span> Acknowledgements<a href="getting-started-with-r.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This material was largely adapted from the following sources:</p>
+<p>Jared Knowles <a href="https://www.jaredknowles.com/r-bootcamp/">R Bootcamp for Education</a> - under the <a href="https://creativecommons.org/publicdomain/mark/1.0/">Creative Commons Public Domain Mark</a></p>
+<p><a href="http://software-carpentry.org">Software Carpentry</a> , <a href="https://resbaz.github.io/2014-r-materials/lessons/index.html">Lesson Material</a>, <a href="http://resbaz.github.io/r-novice-gapminder/">R for reproducible scientific analysis</a> - under the <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution license</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/edit/main/01-getting-started.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/blob/main/01-getting-started.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

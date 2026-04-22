@@ -1,0 +1,1089 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+# Getting Started with R
+
+## RStudio interface
+
+RStudio opens with four panes by default.
+If you only see three, create a new script to reveal the Source pane: File -\> New File -\> R Script (shortcut: <kbd>Control</kbd>+<kbd>Shift</kbd> + <kbd>N</kbd> on Windows/Linux, <kbd>Command</kbd>+<kbd>Shift</kbd> + <kbd>N</kbd> on Mac).
+
+![RStudio interface showing the four panes](figs/RStudio.PNG)
+
+<br>
+
+The diagram below summarises the different parts of RStudio.
+
+![Summary diagram of RStudio panes and tabs](figs/rstudio_parts.png)
+
+<br>
+
+**Basic layout**
+
+-   Four panels and various tabs
+
+    -   **Top-left** - where you type source code, like the script editor in Stata.
+
+    -   **Bottom-left** - is the Console, where you see what R is doing.
+
+    -   **Upper-right** - where you see your list of R objects and things in your Workspace (explained in the sections to follow).
+        There is also a history tab where you find the history of all your commands in that session.
+        Recent versions of RStudio have another tab, **Tutorial**, for integrated tutorials powered by the `learnr` package.
+
+    -   **Bottom-right** is where you can see your file structure, graphical output, available packages, and help documents.
+
+We now consider these one by one.
+
+### Source/ Editor
+
+![RStudio Source/ Editor pane](figs/editor.png) <br> You'll do most of your coding here, so it's helpful to give this pane more space in your layout.
+Type code in the editor, then run a line or selection with Ctrl+Enter (Windows/Linux) or Cmd+Enter (Mac); results show in the Console.
+
+### Example: Running a line of code in the Editor
+
+**Example: Running a line of code**
+
+Let’s begin by learning how to write and run code from the Source pane.
+
+1.  Open a new script:
+
+    Go to **File -\> New File -\> R Script**.
+
+    A new blank tab appears in the Source pane.
+    <br>\
+
+2.  Type this line:
+
+```{r, echo=TRUE, results='hide'}
+print("Hello world!")
+```
+
+3.  Run the line:
+
+-   On Windows - press <kbd>Control</kbd> + <kbd>Enter</kbd>
+-   On macOS - press <kbd>Command</kbd> + <kbd>Enter</kbd>
+
+RStudio sends the line to the Console (lower-left pane), runs it, and shows:
+
+```{r, echo=FALSE}
+print("Hello world!")
+```
+
+**Guided Practice — Running Multiple Lines of Code**
+
+Now you’ll extend that first example step by step.
+
+1.  Add another line so your script looks like this:
+
+```{r, echo=TRUE, results='hide'}
+print("Hello world!")
+print("I am learning R!")
+```
+
+2.  Highlight both lines with your mouse or keyboard.
+
+3.  Run them together: <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (Windows) or <kbd>Cmd</kbd> + <kbd>Enter</kbd> (Mac)
+
+Both lines should now appear in the console output
+
+**Independent Practice**
+
+Your turn!
+
+1.  Add a new line that prints your own message:
+
+```{r, echo=TRUE, results='hide'}
+print("Learning R feels great!") # This is an example add you own message
+```
+
+2.  Run just that line and check the result.
+
+3.  Select all your code (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>A</kbd>) and run the entire script (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd>).
+
+You should see three printed messages in the Console, one after another.
+
+Tip: There is also a **Run** button at the top-right of the Source pane <br>
+
+![Run button](figs/run.png) <br> It runs the current line or any highlighted lines.
+You can use it, but prefer the keyboard shortcut for speed: <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd>.
+
+**Saving your script** To save the script, press
+
+<kbd>Ctrl/Cmd</kbd> + <kbd>S</kbd>
+
+Give the file a name such as r_introduction.R or your preferred name.
+Save it somewhere easy to find, like the Desktop.
+(Later, you’ll learn better ways to organize your scripts inside "projects".)
+
+### Console
+
+The Console (bottom-left pane in RStudio) is where R actually runs your code.
+When you send commands from the **Source (Editor)** pane or type directly into the Console, R executes them immediately and prints the output below the typed command.
+Think of it as your conversation window with R - you type a command, R responds.
+
+**Example: Running Code in the Console**
+
+Let’s see how the Console works.
+
+1.  Click inside the Console pane.
+
+2.  Type a simple calculation:
+
+```{r echo=TRUE, results='hide'}
+5 + 3
+```
+
+Press <kbd>Enter</kbd>
+
+You should see:
+
+```{r echo=FALSE}
+5 + 3
+```
+
+The code was run instantly.
+Everything typed directly in the Console is not saved, so use it mainly for quick checks.
+
+**Guided Practice - Trying Different Commands**
+
+Now try a few more examples:
+
+1.  Type:
+
+```{r echo=TRUE, results='hide'}
+10 / 2
+```
+
+Then press <kbd>Enter</kbd>
+
+2.  Next, type:
+
+```{r echo=TRUE, results='hide'}
+sqrt(16)
+```
+
+Then press <kbd>Enter</kbd>
+
+You will see **5** and **4** as the results of each command
+
+3.  Type
+
+```{r echo=TRUE, results='hide'}
+3 * (2 + 4)
+```
+
+and run it.
+
+Each time you press <kbd>Enter</kbd>, R immediately performs the calculation and prints the output.
+
+**Tip**: You can recall your last command by pressing the **Up Arrow** on the keyboard.
+Once you have recalled it, you can edit if needed and press <kbd>Enter</kbd> to run again.
+
+**Independent Practice**
+
+Now it’s your turn to explore.
+
+1.  Type a few calculations of your own, such as:
+
+-   12 - 5
+-   4 \^ 2
+-   log(100)
+
+2.  Run each line by pressing Enter after typing.
+
+3.  Notice how R prints the result directly below each command.
+
+When you type directly in the Console, R executes commands immediately but does not store them.
+For any code you want to save and reuse, make sure to write it in a **script** (in the **Source pane**) and run it from there.
+
+### Environment Tab
+
+The Environment tab, usually, the **top-right pane**, shows all the objects currently stored in R’s working memory, your workspace.
+Every time you create a new object (like a dataset, variable, or function), it appears in this list.
+
+You can think of the Environment as R’s memory view, it keeps track of everything you have created during your session.
+
+**Example: Watching the Environment Update**
+
+Let us see what happens in the Environment tab when you create something R wants to remember.
+
+1.  In your script (Source pane), type:
+
+```{r echo=TRUE, results='hide'}
+x <- 5 + 3
+```
+
+2.  Run the line (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd>).
+
+Look at the **Environment tab** (top-right).
+You should now see an entry labelled x with a value of 8.
+
+Whenever R stores something, even a simple calculation like this, it keeps track of it in the Environment.
+Later, we will learn what these stored things (called objects) are and how to manage them.
+
+**Guided Practice - Exploring What the Environment Shows**
+
+Try a few more examples:
+
+1.  Add these lines to your script and run them one by one:
+
+```{r echo=TRUE, results='hide'}
+y <- 12
+z <- x + y
+```
+
+2.  Watch how new entries appear in the Environment tab each time you run a line.
+
+3.  Click the small blue triangle next to any name to see a quick summary of what it contains.
+
+The Environment pane updates in real time as you work.
+It’s a visual way of seeing what R is keeping track of.
+
+**Independent Practice**
+
+Now try this small challenge:
+
+1.  Create and run one or two short calculations of your own, such as:
+
+```{r echo=TRUE, results='hide'}
+a <- 4 + 6
+b <- a * 2
+```
+
+2.  Check that each new name appears in the Environment with its value beside it.
+
+3.  Use the broom icon at the top of the Environment pane to clear everything.
+
+4.  Run one line again - see how the Environment repopulates with just that result.
+
+Clearing the Environment does not affect your code.
+It only removes what R has stored in memory for now
+
+### History Tab
+
+The **History** tab (next to the **Environment** tab, top-right pane) keeps a running list of all the commands you have run during your R session - whether they were typed directly into the Console or sent from a script.
+
+Think of it as RStudio’s built-in “memory log” - a quick way to review what you have done or re-use code you ran earlier.
+
+**Example: Viewing Your Command History**
+
+Let us see what appears in the History tab.
+
+1.  In your script or Console, run a few simple commands:
+
+```{r echo=TRUE, results='hide'}
+5 + 3
+print("Hello R")
+10 / 2
+```
+
+2.  Now look at the History tab (top-right, next to Environment). You’ll see each of these commands listed in order.
+
+Each time you run a line of code, RStudio automatically records it in the History tab.
+This makes it easy to revisit or reuse commands without retyping them.
+
+**Guided Practice: Sending Commands from History**
+
+You can reuse past commands directly from the History tab.
+
+1.  Click on one of your earlier commands in the History list (for example, 5 + 3).
+
+2.  At the top of the History tab, click “To Console”, the command will appear in the Console, ready to run.
+
+3.  Try “To Source” — this sends the same command to your script instead, where you can save it or edit it.
+
+**Tip**: The commands recorded in the History tab help you to recover something youran earlier but did not save in a script - no need to retype!
+
+**Independent Practice**
+
+Now try this on your own:
+
+1.  Type and run a few new lines of code, such as:
+
+```{r echo=TRUE, results='hide'}
+2^4
+print("R is fun!")
+7 * 9
+```
+
+2.  Open the History tab.
+
+    -   Use the Shift-click method to select several lines at once (click the first line, hold Shift, then click the last).
+
+    -   Send them all back to the Console or Source using the buttons at the top of the tab.
+
+3.  Experiment with the Search bar (top-right of the History pane) — try typing part of a command like **print or 7** to find related lines quickly.
+
+### Files Tab
+
+The Files tab (bottom-right pane in RStudio) shows the files and folders in the folder where RStudio is currently working — this is called your "working directory" Think of it as a small file explorer built right into RStudio - we will revisit this including how it is set up.
+From here, you can create, open, rename, and delete files and folders without leaving RStudio.
+
+**Example: Exploring the Files Tab**
+
+Let us take a quick look at what the Files tab can do.
+
+1.  Open RStudio and locate the Files tab in the bottom-right pane.
+
+2.  Look at the list — these are the files and folders in your current workspace.
+
+3.  Click the New Folder button at the top of the tab.
+
+    -   Give your folder a name such as test_folder and click <kbd>OK</kbd>.
+
+    -   The folder appears in the list.
+
+The Files tab lets you interact with your computer’s folders and files directly inside RStudio, keeping everything related to your R work in one place.
+
+**Guided Practice - Managing Files and Folders**
+
+Now, try a few more options in the toolbar.
+
+1.Click on the new folder to open it.
+
+2.  Inside, choose New File -\> R Script, name it practice_script.R, and click <kbd>OK</kbd>.
+
+3.  Use the Rename button to rename it to first_script.R.
+
+4.  Finally, try the Delete button to remove either the script or the folder (RStudio will ask for confirmation).
+
+**Independent Practice** Take a few minutes to explore on your own:
+
+1.  Create another new folder and name it anything you like.
+
+2.  Use the **Up Directory (↑)** button to move back to the parent folder.
+
+3.  Try the Refresh button to update the view if something changes.
+
+4.  Explore the More… menu to see extra options (for example, “Show Folder in New Window”).
+
+### Plots Tab
+
+The **Plots** tab (bottom-right pane in RStudio, next to the Files tab) is where any figures or graphs you create in R will appear.
+Whenever you run a plotting command, RStudio automatically displays the resulting figure here.
+
+**Example: Creating Your First Plot**
+
+Let us make a simple plot to see how this tab works.
+
+1.  In your script, type:
+
+```{r echo=TRUE, results='hide', fig.show='hide'}
+plot(women)
+```
+
+2.  Run the line (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd>).
+
+You should see a scatterplot appear in the Plots tab.
+
+The dataset women is built into R.
+It contains average heights and weights of American women aged 30 – 39.
+We are not analysing it yet, we are just using it to see where plots show up in RStudio.
+
+**Guided Practice — Exploring the Plot Tools**
+
+Now, take a moment to look at the toolbar at the top of the Plots tab:
+
+1.  Use the **← / →** arrows to move between plots if you create more than one.
+
+2.  Click Zoom to open the plot in a larger window.
+
+3.  Click Export **→** Save as Image or Save as PDF to save a copy of the plot to your computer.
+
+4.  Click the broom (🧹) icon to clear all plots from the tab.
+
+**Independent practice**
+
+Try making a few variations:
+
+```{r echo=TRUE, results='hide', fig.show='hide'}
+plot(women$height, women$weight)
+plot(women, type = "b")     # adds lines between the points
+plot(women, main = "Heights and Weights of Women")
+```
+
+Each time you run a line, a new plot appears in the Plots tab.
+Use the navigation arrows to move between them and experiment with the Zoom and Export buttons.
+
+### Packages Tab
+
+The **Packages** tab (bottom-right pane, next to **Plots** and **Help**) shows all the packages currently installed on your computer.
+
+Packages are collections of R code that add new tools or features to R — such as new plotting styles, data import functions, or analysis methods.
+You will learn how to install and use them later in the course.
+
+**Example: Exploring the Packages Tab**
+
+Let us look at what is inside the Packages tab.
+
+1.  Click on the Packages tab (bottom-right pane).
+
+2.  Scroll through the list — each item (in blue) is the name of an installed package.
+
+3.  Packages with a checkmark (**✔**) are loaded, these are the ones currently active and ready to use.
+
+R always loads a few essential packages automatically when it starts (for example, “stats” and “graphics”).
+The rest are available but inactive until you load them.
+
+**Guided Practice — Finding and Installing Packages**
+
+Let us explore the buttons at the top of the tab.
+
+1.  Click the Install button — you’ll see a small window that asks for a package name.
+
+2.  You don’t need to install anything now; just notice how it works.
+
+3.  The Update button checks if newer versions of your installed packages are available.
+
+The Loaded Only checkbox filters the view so you see only packages currently in use.
+
+Tip: Although you can install packages from this tab, we’ll learn a more efficient and reproducible way - by using R code (**install.packages()** and **library()**) - in a later lesson.
+
+**Independent practice**
+
+Take a few minutes to explore:
+
+1.  Scroll through the list and see which packages have checkmarks.
+
+2.  Use the Search bar (top-right of the tab) to find a package called graphics - this is one of R’s built-in packages that handles plotting.
+
+3.  Click the Help button at the top to open documentation for a selected package.
+
+*Try this*: Run a quick plot again to confirm that packages like graphics are already working for you:
+
+```{r echo=TRUE, results='hide', fig.show='hide'}
+plot(women)
+```
+
+The **plot()** function comes from the graphics package, which R loads automatically when it starts.
+
+### Help Tab
+
+The **Help** tab (bottom-right pane) shows documentation for R functions, datasets, and packages.
+Help pages can feel dense at first, but they become invaluable as you learn the layout.
+
+Typical sections you’ll see:
+
+-   **Description** - what it does
+
+-   **Usage** - how to call it
+
+-   **Arguments** - what each input means
+
+-   **Value** - what it returns
+
+-   **Examples** - try-it code at the bottom
+
+**Example: Opening Help**
+
+Try these, one at a time (run each line):
+
+```{r echo=TRUE, results='hide', eval=FALSE}
+?plot          # help for the plot() function
+?women         # help for the built-in dataset 'women'
+help("print")  # another way to open help
+```
+
+**Tip**: In RStudio, place your cursor on a function name (e.g., plot) and press F1 to open its Help page.
+
+**Guided Practice — Searching Help**
+
+Explore a few ways to find help:
+
+1.  In the Help tab’s search box (top), type plot and hit Enter.
+
+2.  In the Console, try a topic search (broader than ?):
+
+```{r echo=TRUE, results='hide', eval=FALSE}
+??histogram     # search help topics containing "histogram"
+```
+
+3.  Scroll to the **Examples** section of a help page and click Run examples (or copy an example into your script and run it).
+
+**Independent Practice**
+
+Try these quick tasks:
+
+1.  Open help for View:
+
+```{r echo=TRUE, results='hide', , eval=FALSE}
+?View
+```
+
+2.  Skim the Arguments section to see what View() accepts.
+
+3.  Open help for the women dataset again:
+
+```{r echo=TRUE, eval=FALSE}
+?women
+```
+
+-   Find the short description of what the dataset contains.
+
+4.  Use F1 on the word plot in your script to open its help directly.
+
+<!-- ### Quick start: your first R session -->
+
+<!-- 1. Install R from [CRAN](https://cran.r-project.org/). -->
+
+<!-- 2. Install RStudio from [rstudio.com](https://www.rstudio.com/). -->
+
+<!-- 3. Open the project file `Intro to R Nov 2025.Rproj`. -->
+
+<!-- 4. Create a new R Script (`File -> New File -> R Script`). -->
+
+<!-- 5. Type `x <- 3` and run it: `Ctrl + Enter` (Windows) / `Cmd + Return` (Mac). -->
+
+<!-- 6. Confirm in the Environment pane that `x` appears, then try `x * 2`. -->
+
+<!-- ### Try it now (2 minutes) -->
+
+<!-- ```{r, eval=FALSE} -->
+
+<!-- # What R version am I running? -->
+
+<!-- R.version.string -->
+
+<!-- # Use help to see documentation and examples -->
+
+<!-- ?mean -->
+
+<!-- # Run a simple calculation -->
+
+<!-- mean(c(1, 2, 3)) -->
+
+<!-- # Explore a built-in dataset -->
+
+<!-- head(mtcars) -->
+
+<!-- summary(mtcars$mpg) -->
+
+<!-- ``` -->
+
+## Organize your R session
+
+**Commands**
+
+Now that you’ve explored the RStudio interface and know how to run code, let us look at the structure of R commands.
+
+R follows a simple pattern when you ask it to do something:
+
+`> command(argument1, argument2, ...,)`
+
+For example:
+
+```{r echo=TRUE, results='hide', , eval=FALSE}
+print("Hello, R!")
+```
+
+Each command name is followed by parentheses () that contain the information (called arguments) R needs to perform the task.
+Even if no information is required, the parentheses are still needed to tell R to do something.
+
+**Guided practice**
+
+Let’s try a few examples together:
+
+```{r echo=TRUE, eval=FALSE}
+2 + 3
+sum(10, 25)
+sqrt(16)
+```
+
+Each line is a different command that tells R to perform a task — adding, summing, or finding a square root.
+
+### Working Directory: Where R Looks for Your Files
+
+-   Your working directory is the folder where R looks for files to read and where it saves anything you create.
+    Think of it as R’s current workspace on your computer.
+
+-   You can check it in RStudio Console:
+
+`getwd()` - This command shows the folder R is currently using.
+
+#### Set working directory
+
+One can set or change the working directory in RStudio (Session) using the following command:
+
+`setwd("path_to_directory")` - Set another working directory
+
+However, managing your working directories this way is not efficient.
+
+-   **Problem**: If you rely on setwd(), your code may break/fail on another computer, since everyone has different file paths.
+
+It is good practice to keep all your data and other material related to a specific project in a single folder, the working directory.
+An example of this file hierarchy/folder structure is shown below:
+
+``` text
+└── my_project
+    ├── data
+    │   ├── raw
+    │   └── cleaned
+    ├── figures
+    ├── output
+    └── script
+        ├── 1_data_prep.R
+        └── 2_data_analysis.R
+```
+
+`my_project`- your main folder containing the following sub-directories:
+
+`data` folder with sub-directories, `raw` for the raw data and `cleaned` for the processed data.
+
+`figures` folder for saving your plots.
+
+`output` folder for storing other outputs that are not figures, e.g. aggregated tables.
+
+`script` folder storing R scripts.
+
+You can then use **RStudio projects** to manage your working directory.
+RStudio projects enable you to use relative paths to files and folders inside your main project folder (as opposed to absolute paths, that is, the full path to a file or folder).
+RStudio projects remember the location of your main folder and allow you to easily navigate to sub-folders without the need to remember their full path.
+With RStudio projects, RStudio also remembers the files you had open the last time you closed a project.
+The next time you open your project, RStudio will open the same files and tabs.
+
+#### Creating a RStudio project
+
+RStudio can create new projects using three different methods: **New Directory**, **Existing Directory**, or **Version Control**.
+Assuming we have an existing project folder, `my_project`, as above:
+
+1.  Start RStudio.
+
+2.  Go to `File` then click on `New Project`.
+    Choose `Existing Directory`, then New Project.
+
+3.  Under the `project working directory:`, browse to the `my_project` folder.
+
+4.  Click on `Create Project`.
+
+In your `my_project` folder, you will find a new `my_project.Rproj` file created as illustrated below.
+
+``` text
+└── my_project
+  ├── data
+  │   ├── raw
+  │   └── cleaned
+  ├── figures
+  ├── output
+  ├── script
+  │    ├── 1_data_prep.R
+  │    └── 2_data_analysis.R
+  └── my_project.Rproj
+  
+```
+
+The next time you want to open this project, you can just double click the `my_project.Rproj` or the file with file extension `.Rproj`.
+Note that the `my_project` can be any name for your project.
+You can now navigate to sub-folders in your main folder, e.g., `./data/raw` as opposed to say `C:/some_long_path_name/my_project/data/raw`.
+More on using relative path when we start importing data and saving files in sections to follow.
+For this course, the RStudio project file is `Intro to R Nov 2025.Rproj` in the folder.
+
+### Installing and Loading Packages (Libraries)
+
+#### What is a package?
+
+-   Once again, a **package** (or library) is a collection of extra functions that extend what R can do.
+
+-   You could think of them as the apps you install on your phone ???
+    they add new features.
+
+Often you will find that you may need to use functions from other user-written packages or libraries.
+Since these packages do not come installed in base R, you need to do the additional installation yourself.
+To install a package called `lattice`for instance, type the following in your R Console (and press `Enter`) or in a script (and press `Run`):
+
+`install.packages("lattice")`
+
+Developers of these packages usually update them after introducing new functions or changing names of certain functionality, so be aware that behavior can change across versions.
+
+You also need to load the package/library into the R workspace before you can use functions from that library as follows:
+
+`library(lattice)`
+
+You need to load the library each time you need to use it in a new R session.
+
+#### Quick Tips for Beginners:
+
+-   Install once - load every time you start R.
+
+-   If you forget to load, R will say: "could not find function ."
+
+-   Packages get updated, so sometimes behavior may change across versions.
+
+### Comments in R
+
+`#` denotes a comment in R
+
+Anything after the `#` is not evaluated and is ignored in R
+
+### Common mistakes and quick fixes
+
+-   Assignment: prefer `<-` for assigning values (e.g., `x <- 5`). Using `=` can work but is harder to read in function calls.
+-   Quotes: match your quotes exactly, e.g., "text" or 'text', not a mix.
+-   Commas: separate function arguments with commas, e.g., `mean(x, na.rm = TRUE)`.
+-   Pipes: the native pipe `|>` passes the left-hand result into the next function, e.g., `mtcars |> head()`.
+-   Reading errors: read the first line of the error; it usually tells you which function failed and why. Copy the minimal failing line and try it alone in the Console.
+
+## Getting help
+
+-   `help(solve)` or `?solve` - to get help for command `solve`, type:
+
+    -   this is useful only if you already know the name of the function that you wish to use.
+
+-   `apropos()` - searches for objects, including functions, directly accessible in the current R session that have names that include a specified character string.
+
+-   `help.search("solve")` and `??solve` - scans the documentation for packages installed in your library for commands which could be related to the string "solve"
+
+-   `help.start()` - Start the hypertext (currently HTML) version of R's online documentation.
+
+-   `RSiteSearch()` - uses an internet search engine to search for information in function help pages.
+
+-   `example(exp)` - examples for the usage of exp
+
+-   `example("*")` - special characters have to be in quotation marks
+
+-   For tricky questions, error messages and other issues, use [Google](https://www.google.com/) (include "in R" to the end of your query).
+
+-   We can also use [RSeek](https://rseek.org/) - the search engine just for `R`.
+
+-   [StackOverflow](https://stackoverflow.com/) - great resource with many questions for many specific packages in R and a rating system for answers
+
+## Operators in R
+
+### Basic arithmetic operators
+
+You have already used R for basic calculations.
+Now let’s summarise the key arithmetic operators you’ll use often.
+
+**Examples of Common Operators**
+
+```{r echo=TRUE, echo=TRUE}
+2 + 3     # Addition
+7 - 4     # Subtraction
+3 * 5     # Multiplication
+7 / 3     # Division
+5 ^ 2     # Exponent (power)
+```
+
+R follows the normal order of operations (brackets → exponents → multiplication/division → addition/subtraction).
+Use brackets () to control the order:
+
+```{r echo=TRUE, echo=TRUE}
+(3 + 5) * 2
+```
+
+**Guided practice - New Operators to Explore**
+
+Let us try these together:
+
+```{r echo=TRUE, eval=FALSE}
+150 %/% 60   # integer division – whole hours in 150 minutes
+150 %% 60    # remainder – minutes left over
+```
+
+%/% gives the whole number part of a division, and %% gives the remainder.
+
+**Independent Practice**
+
+Use what you have learned:
+
+``` text
+(10 - 3) * 4
+9 ^ 0.5
+245 %/% 60
+245 %% 60
+```
+
+Then experiment with built-in math functions:
+
+``` text
+sqrt(25)
+log(10)
+exp(2)
+```
+
+**Reflection**: You now know how R handles arithmetic, powers, remainders, and simple math functions—all tools you will use constantly as you analyse data.
+
+### Assignment operator
+
+In R, we often want to store a value so we can use it later.
+To do this, we use the assignment operator `<-`, which means “assign the value on the right to the name on the left.”
+
+Example
+
+Let’s create a simple value and look at it.
+
+```{r, echo=T}
+x <- 3
+x
+```
+
+Here, `x` is the name, and 3 is the value stored in it.
+When you type `x` and press Enter, R shows what is inside—3.
+
+**Tip**: You can also use = for assignment, but in R we usually prefer `<-` because it is easier to read in longer code.
+
+**Guided practice**
+
+Let us try a few examples:
+
+```{r, eval=FALSE}
+y <- 10
+z <- x + y
+z
+```
+
+**Independent practice**
+
+Now it’s your turn.
+
+1.  Assign the value 8 to a name of your choice (for example, a).
+
+2.  Create another value (for example, b \<- 2).
+
+3.  Add them together to make a new name (for example, c \<- a + b).
+
+4.  Type each name to see what’s stored inside.
+
+Example to guide you:
+
+``` text
+a <- 8
+b <- 2
+c <- a + b
+c
+```
+
+### Sequence operator
+
+`:` .
+To get the sequence of numbers/integers from 1 to 10, type the following: In R, the colon (`:`) is the sequence operator.
+It is used to create a quick sequence of numbers.
+It is a shortcut for making a list of numbers that increase (or decrease) by 1.
+
+For example:
+
+```{r, eval=FALSE}
+a <- 1:10 # it increments by one
+a
+```
+
+R creates the numbers 1 through 10 and stores them in `a`.
+When you type `a`, R shows:
+
+```{r, echo=FALSE}
+a <- 1:10 # it increments by one
+a
+```
+
+**Tip**: The colon operator works both ways - try 10:1 to count down!
+
+**Independent practice**
+
+1.  Create a sequence from 5 to 15 and store it in a name of your choice.
+2.  Print it to see the result.
+3.  Try counting backwards from 20 to 10.
+
+Example to guide you:
+
+``` text
+b <- 5:15
+b
+
+c <- 20:10
+c
+```
+
+**Reflection**: The `:` operator is a quick way to make number sequences in R — no typing each number by hand!
+
+## Objects in R
+
+When you run a command, R shows the result in the Console, but it is not saved for later.
+To keep a result, assign it to a name (an **object**) using the assignment operator `<-`, which you can read as “gets”.
+
+**Note on `=`** You can assign with `=`, but most R code uses `<-`.
+Follow the common convention and prefer `<-`.
+
+**Example - Console result vs saved value**
+
+```{r, echo=TRUE}
+2 + 2        # R prints the result but does NOT save it
+
+```
+
+Now save (assign) the result:
+
+```{r, echo=TRUE}
+my_obj <- 2 + 2   # "my_obj gets 2 + 2"
+my_obj            # print what's stored
+
+```
+
+-   my_obj is the name.
+
+-   2 + 2 is the value R calculated before storing.
+
+-   You can now use my_obj anywhere.
+
+-   Look at the Environment tab: you’ll see my_obj listed there.
+
+**Guided Practice - Make and update objects**
+
+Create and view a few objects:
+
+```{r, eval=FALSE}
+first_name <- "Joanna"
+first_name
+
+x <- 20
+x
+```
+
+Update a value:
+
+```{r, eval=FALSE}
+x <- x + 5   # take the current x and add 5
+x
+```
+
+**Tip**: The Environment tab updates as you create/change objects.
+
+**Independent practice**
+
+1.  Store a number and reuse it
+
+```{r, eval=FALSE}
+a <- 100
+b <- sqrt(a)
+b
+```
+
+2.  Create a greeting
+
+```{r, eval=FALSE}
+name <- "Chifundo"
+greeting <- paste("Hello,", name)
+greeting
+```
+
+-   An object is a named bucket that holds a value (number, text, data, …).
+
+-   Use \<- to assign: name \<- value.
+
+-   The Environment tab shows everything R currently remembers.
+
+-   R evaluates the expression on the right first, then stores the result on the left.
+
+## Managing the workspace
+
+As we create more objects in the workspace, we also need to manage and manipulate the workspace.
+All the R objects that we have created are stored in the memory of the computer.
+Over time, unnecessary objects can clutter your workspace and slow things down, so it is good practice to keep it tidy.
+R makes organizing the workspace easy.
+Let's create a few more objects and show how to remove some of these from memory:
+
+```{r}
+z <- 3
+```
+
+We can list or ask R to display all the objects in memory using the `ls()` function:
+
+```{r}
+ls()  #list all variables
+```
+
+We can also list and describe the variables using the `ls.str()` function:
+
+```{r}
+ls.str()  #list and describe variables
+```
+
+Assuming we no longer need object `x` in the workspace, we can remove it from memory using the `rm()` function:
+
+```{r}
+rm(x)  # delete a variable
+```
+
+We can list again all the objects in memory and confirm that `x` has been removed.
+
+```{r}
+ls()
+```
+
+We are now left with objects `a` and `z`.
+
+-   To remove everything in the workspace
+
+```{r}
+rm(list = ls())
+```
+
+## Some language features
+
+It might be helpful to be aware of the following (taken from [Jared Knowles R Bootcamp](https://www.jaredknowles.com/r-bootcamp/)):
+
+-   R is inconsistent in its naming conventions
+
+    -   Some functions are `camelCase`; others are `dot.separated`; others `use_underscores`.
+
+-   Function results are stored in a variety of ways across function implementations.
+
+-   R has multiple graphics packages that different functions use for default plot construction (base, grid, lattice, and ggplot2)
+
+-   R has multiple packages and functions to perform the same tasks.
+
+-   Be flexible and be aware of R's flexibility
+
+The next notebook introduces some common types of objects.
+
+Glossary (quick definitions):
+
+-   object: a named thing stored in R (e.g., a number, vector, data frame)
+
+-   function: a reusable command that does work, written like `name()`
+
+-   package: a collection of functions and help files you can install and load
+
+## Test your knowledge
+
+**Assignment and operators**
+
+1.  Assign the variables, `height` to be 175cm and `weight` to be 80kg.
+
+```{r, eval = FALSE}
+height <- 
+
+weight <- 
+```
+
+2.  Calculate BMI assuming the formula below and your variables:
+
+$$BMI = \frac{weight(kg)}{height(m)^2}$$
+
+```{r, eval = FALSE}
+bmi <- 
+```
+
+```{r, echo=FALSE, eval=FALSE}
+# Hidden solution (uncomment and adapt units):
+# Convert height to meters if given in cm
+# height_m <- height / 100
+# bmi <- weight / (height_m ^ 2)
+```
+
+## Session information
+
+Below is the session information, which records the R version and packages used.
+
+```{r, echo=T}
+print(sessionInfo())
+```
+
+## Acknowledgements
+
+This material was largely adapted from the following sources:
+
+Jared Knowles [R Bootcamp for Education](https://www.jaredknowles.com/r-bootcamp/) - under the [Creative Commons Public Domain Mark](https://creativecommons.org/publicdomain/mark/1.0/)
+
+[Software Carpentry](http://software-carpentry.org) , [Lesson Material](https://resbaz.github.io/2014-r-materials/lessons/index.html), [R for reproducible scientific analysis](http://resbaz.github.io/r-novice-gapminder/) - under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/3.0/)
