@@ -1,9 +1,27 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
+title: "Introduction to R"
+author: "African Foundational Learning Data Hub at DataFirst"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Down the rabbit-hole
+
+```{r, setup1, include=FALSE}
+knitr::opts_chunk$set(
+  warnings = FALSE,
+  fig.path = 'figs/', 
+  message = F
+)
+
+library(knitr)
+library(cowplot) #Gives more control for figures
+```
+
+# Introduction
+
+```{js, echo = FALSE}
+title=document.getElementById('header');
+title.innerHTML = '<img src="files/20260205-df-header.png" alt="">' + title.innerHTML
+```
+
 
