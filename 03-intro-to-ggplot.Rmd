@@ -341,7 +341,7 @@ ggsave(filename = "figs/myggplot.png",
 
 ------------------------------------------------------------------------
 
-## 10. Useful resources
+##  Useful resources
 
 Some excellent follow-up resources:
 
