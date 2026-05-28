@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Getting Started with R | Introduction to R</title>
-  <meta name="description" content="Chapter 2 Getting Started with R | Introduction to R" />
+  <title>Chapter 2 Getting Started with R | Introduction to Survey Data Analysis using R</title>
+  <meta name="description" content="Chapter 2 Getting Started with R | Introduction to Survey Data Analysis using R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Getting Started with R | Introduction to R" />
+  <meta property="og:title" content="Chapter 2 Getting Started with R | Introduction to Survey Data Analysis using R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Getting Started with R | Introduction to R" />
+  <meta name="twitter:title" content="Chapter 2 Getting Started with R | Introduction to Survey Data Analysis using R" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
 
 
-<meta name="date" content="2026-04-22" />
+<meta name="date" content="2026-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,10 +140,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Intro to R</a></li>
+<li><a href="./">Introduction to Survey Data Analysis using R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#part-i---getting-started-in-r-chapters-2-3"><i class="fa fa-check"></i><b>1.1.1</b> Part I - Getting started in R (Chapters 2-3)</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#part-ii---exploring-and-preparing-data-chapters-4-6"><i class="fa fa-check"></i><b>1.1.2</b> Part II - Exploring and preparing data (Chapters 4-6)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#part-iii---describing-and-modelling-learning-outcomes-chapters-7---12"><i class="fa fa-check"></i><b>1.1.3</b> Part III - Describing and modelling learning outcomes (Chapters 7 - 12)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-you-need"><i class="fa fa-check"></i><b>1.2</b> What you need</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#rstudio-interface"><i class="fa fa-check"></i><b>2.1</b> RStudio interface</a>
@@ -218,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#small-polish-labels-and-a-simple-theme"><i class="fa fa-check"></i><b>4.6</b> Small polish: labels and a simple theme</a></li>
 <li class="chapter" data-level="4.7" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#practice-test-your-knowledge-with-mpg"><i class="fa fa-check"></i><b>4.7</b> Practice: Test your knowledge with <code>mpg</code></a></li>
 <li class="chapter" data-level="4.8" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#saving-plots-to-files-with-ggsave"><i class="fa fa-check"></i><b>4.8</b> Saving plots to files with <code>ggsave()</code></a></li>
-<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> 10. Useful resources</a></li>
+<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> Useful resources</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html"><i class="fa fa-check"></i><b>5</b> Intro to data wrangling with tidyverse</a>
 <ul>
@@ -332,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Survey Data Analysis using R</a>
           </h1>
         </div>
 
@@ -1039,20 +1048,536 @@ Let’s create a few more objects and show how to remove some of these from memo
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="getting-started-with-r.html#cb58-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">3</span></span></code></pre></div>
 <p>We can list or ask R to display all the objects in memory using the <code>ls()</code> function:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="getting-started-with-r.html#cb59-1" tabindex="-1"></a><span class="fu">ls</span>()  <span class="co">#list all variables</span></span></code></pre></div>
-<pre><code>## [1] &quot;a&quot;      &quot;b&quot;      &quot;my_obj&quot; &quot;x&quot;      &quot;y&quot;      &quot;z&quot;</code></pre>
+<pre><code>##  [1] &quot;a&quot;                &quot;A&quot;                &quot;b&quot;                &quot;compute_60q&quot;      &quot;cor_unweighted&quot;   &quot;cor_weighted&quot;     &quot;country_name&quot;    
+##  [8] &quot;country_w&quot;        &quot;country_w_tbl&quot;    &quot;d&quot;                &quot;dat&quot;              &quot;dat_hh&quot;           &quot;dat_moz&quot;          &quot;dat_new&quot;         
+## [15] &quot;des&quot;              &quot;des_child_all&quot;    &quot;des_country&quot;      &quot;des_one&quot;          &quot;df&quot;               &quot;e&quot;                &quot;fit&quot;             
+## [22] &quot;fit_age&quot;          &quot;grade_compare&quot;    &quot;i&quot;                &quot;literacy_items&quot;   &quot;m&quot;                &quot;m_lm&quot;             &quot;m_svy&quot;           
+## [29] &quot;m1&quot;               &quot;m2&quot;               &quot;m3&quot;               &quot;m4_inter&quot;         &quot;med&quot;              &quot;mpg&quot;              &quot;my_obj&quot;          
+## [36] &quot;my_skim&quot;          &quot;new&quot;              &quot;new_learner&quot;      &quot;newdat&quot;           &quot;newx&quot;             &quot;numeracy_items&quot;   &quot;one_country&quot;     
+## [43] &quot;p&quot;                &quot;pred&quot;             &quot;present_items&quot;    &quot;prop_unweighted&quot;  &quot;prop_weighted&quot;    &quot;q50&quot;              &quot;report_tbl&quot;      
+## [50] &quot;tab&quot;              &quot;tab_enroll_res&quot;   &quot;tab_enroll_sex&quot;   &quot;tab_enroll_sex_w&quot; &quot;table_data&quot;       &quot;table13&quot;          &quot;v&quot;               
+## [57] &quot;V&quot;                &quot;x&quot;                &quot;X&quot;                &quot;x1&quot;               &quot;x2&quot;               &quot;x3&quot;               &quot;y&quot;               
+## [64] &quot;Y&quot;                &quot;z&quot;</code></pre>
 <p>We can also list and describe the variables using the <code>ls.str()</code> function:</p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="getting-started-with-r.html#cb61-1" tabindex="-1"></a><span class="fu">ls.str</span>()  <span class="co">#list and describe variables</span></span></code></pre></div>
 <pre><code>## a :  int [1:10] 1 2 3 4 5 6 7 8 9 10
+## A :  int [1:10, 1:10] 1 11 21 31 41 51 61 71 81 91 ...
 ## b :  num 20
+## compute_60q : function (x)  
+## cor_unweighted :  num 0.566
+## cor_weighted :  num 0.543
+## country_name :  chr &quot;Kenya&quot;
+## country_w :  &#39;svytable&#39; num [1:11(1d)] 51039417 20563080 4180271 57337584 10575376 ...
+## country_w_tbl : tibble [11 × 3] (S3: tbl_df/tbl/data.frame)
+## d : tibble [3,368 × 149] (S3: tbl_df/tbl/data.frame)
+## dat : tibble [7,100 × 10] (S3: tbl_df/tbl/data.frame)
+## dat_hh : tibble [56,880 × 150] (S3: tbl_df/tbl/data.frame)
+## dat_moz : tibble [390 × 147] (S3: tbl_df/tbl/data.frame)
+## dat_new : gropd_df [96,452 × 147] (S3: grouped_df/tbl_df/tbl/data.frame)
+## des : List of 9
+##  $ cluster   :&#39;data.frame&#39;:  7100 obs. of  2 variables:
+##  $ strata    :&#39;data.frame&#39;:  7100 obs. of  2 variables:
+##  $ has.strata: logi TRUE
+##  $ prob      : Named num [1:7100] 0.0018 0.0018 0.0018 0.0018 0.0018 ...
+##  $ allprob   :&#39;data.frame&#39;:  7100 obs. of  1 variable:
+##  $ call      : language svydesign(ids = ~interaction(CountryName, VillageID) + HHID, strata = ~interaction(CountryName, TierOneUnit), wei| __truncated__
+##  $ variables :&#39;data.frame&#39;:  7100 obs. of  10 variables:
+##  $ fpc       :List of 2
+##  $ pps       : logi FALSE
+## des_child_all : List of 9
+##  $ cluster   :&#39;data.frame&#39;:  96452 obs. of  2 variables:
+##  $ strata    :&#39;data.frame&#39;:  96452 obs. of  2 variables:
+##  $ has.strata: logi TRUE
+##  $ prob      : Named num [1:96452] 0.00114 0.00114 0.00114 0.00114 0.00114 ...
+##  $ allprob   :&#39;data.frame&#39;:  96452 obs. of  1 variable:
+##  $ call      : language svydesign(ids = ~interaction(CountryName, VillageID) + HHID, strata = ~interaction(CountryName, TierOneUnit), wei| __truncated__
+##  $ variables :&#39;data.frame&#39;:  96452 obs. of  17 variables:
+##  $ fpc       :List of 2
+##  $ pps       : logi FALSE
+## des_country : List of 9
+##  $ cluster   :&#39;data.frame&#39;:  6130 obs. of  2 variables:
+##  $ strata    :&#39;data.frame&#39;:  6130 obs. of  2 variables:
+##  $ has.strata: logi TRUE
+##  $ prob      : Named num [1:6130] 0.000304 0.000304 0.000304 0.000304 0.000304 ...
+##  $ allprob   :&#39;data.frame&#39;:  6130 obs. of  1 variable:
+##  $ call      : language subset(des, CountryName == country_name &amp; !is.na(numeracy_score) &amp; !is.na(age) &amp; !is.na(grade) &amp; !is.na(gender) &amp;| __truncated__
+##  $ variables :&#39;data.frame&#39;:  6130 obs. of  152 variables:
+##  $ fpc       :List of 1
+##  $ pps       : logi FALSE
+## des_one : List of 9
+##  $ cluster   :&#39;data.frame&#39;:  6900 obs. of  2 variables:
+##  $ strata    :&#39;data.frame&#39;:  6900 obs. of  2 variables:
+##  $ has.strata: logi TRUE
+##  $ prob      : Named num [1:6900] 0.000304 0.000304 0.000304 0.000304 0.000304 ...
+##  $ allprob   :&#39;data.frame&#39;:  6900 obs. of  1 variable:
+##  $ call      : language svydesign(ids = ~interaction(CountryName, VillageID) + HHID, strata = ~interaction(CountryName, TierOneUnit), wei| __truncated__
+##  $ variables :&#39;data.frame&#39;:  6900 obs. of  147 variables:
+##  $ fpc       :List of 2
+##  $ pps       : logi FALSE
+## df : &#39;data.frame&#39;:   8 obs. of  2 variables:
+##  $ Logical.operator: chr  &quot;equal to&quot; &quot;not equal to&quot; &quot;greater than&quot; &quot;less than&quot; ...
+##  $ Example         : chr  &quot;x == 1&quot; &quot;x != 1&quot; &quot;x &gt; 7&quot; &quot;x &lt; 7&quot; ...
+## e :  num [1:3] 1 2 3
+## fit : List of 34
+##  $ coefficients     : Named num [1:2] -0.3505 0.0858
+##  $ residuals        : Named num [1:89138] -0.336 -0.68 -0.336 -0.422 -0.508 ...
+##  $ fitted.values    : Named num [1:89138] 0.336 0.68 0.336 0.422 0.508 ...
+##  $ effects          : Named num [1:89138] -152.021 -82.231 -0.179 -0.224 -0.269 ...
+##  $ R                : num [1:2, 1:2] -300 0 -2994 -958
+##  $ rank             : int 2
+##  $ qr               :List of 5
+##  $ family           :List of 12
+##  $ linear.predictors: Named num [1:89138] 0.336 0.68 0.336 0.422 0.508 ...
+##  $ deviance         : num 15677
+##  $ aic              : num 156217
+##  $ null.deviance    : num 22439
+##  $ iter             : int 2
+##  $ weights          : Named num [1:89138] 0.282 0.282 0.282 0.282 0.282 ...
+##  $ prior.weights    : Named num [1:89138] 0.282 0.282 0.282 0.282 0.282 ...
+##  $ df.residual      : num 2653
+##  $ df.null          : int 89137
+##  $ y                : Named num [1:89138] 0 0 0 0 0 0 0 1 1 0 ...
+##  $ converged        : logi TRUE
+##  $ boundary         : logi FALSE
+##  $ model            :&#39;data.frame&#39;:   89138 obs. of  3 variables:
+##  $ na.action        : &#39;omit&#39; Named int [1:7314] 1580 1581 47973 89142 89143 89144 89145 89146 89147 89148 ...
+##  $ call             : language svyglm(formula = MPLMath ~ ch02, design = des, family = gaussian())
+##  $ formula          :Class &#39;formula&#39;  language MPLMath ~ ch02
+##  $ terms            :Classes &#39;terms&#39;, &#39;formula&#39;  language MPLMath ~ ch02
+##  $ data             :&#39;data.frame&#39;:   96452 obs. of  148 variables:
+##  $ offset           : NULL
+##  $ control          :List of 3
+##  $ method           : chr &quot;glm.fit&quot;
+##  $ contrasts        : NULL
+##  $ xlevels          : Named list()
+##  $ naive.cov        : num [1:2, 1:2] 1.20e-04 -1.09e-05 -1.09e-05 1.09e-06
+##  $ cov.unscaled     : num [1:2, 1:2] 9.17e-05 -7.03e-06 -7.03e-06 6.93e-07
+##  $ survey.design    :List of 9
+## fit_age : List of 33
+##  $ coefficients     : Named num [1:2] 0.466 1.938
+##  $ residuals        : Named num [1:96452] 4.034 -1.716 0.034 5.096 -7.841 ...
+##  $ fitted.values    : Named num [1:96452] 16 23.7 16 17.9 19.8 ...
+##  $ effects          : Named num [1:96452] -6.14e+03 -1.94e+03 1.35e-02 2.70 -4.16 ...
+##  $ R                : num [1:2, 1:2] -311 0 -3095 -1001
+##  $ rank             : int 2
+##  $ qr               :List of 5
+##  $ family           :List of 12
+##  $ linear.predictors: Named num [1:96452] 16 23.7 16 17.9 19.8 ...
+##  $ deviance         : num 9281241
+##  $ aic              : num 779470
+##  $ null.deviance    : num 1.3e+07
+##  $ iter             : int 2
+##  $ weights          : Named num [1:96452] 0.282 0.282 0.282 0.282 0.282 ...
+##  $ prior.weights    : Named num [1:96452] 0.282 0.282 0.282 0.282 0.282 ...
+##  $ df.residual      : num 2653
+##  $ df.null          : int 96451
+##  $ y                : Named num [1:96452] 20 22 16 23 12 19 22 28 23 21 ...
+##  $ converged        : logi TRUE
+##  $ boundary         : logi FALSE
+##  $ model            :&#39;data.frame&#39;:   96452 obs. of  3 variables:
+##  $ call             : language svyglm(formula = numeracy_score ~ age, design = subset(des, !is.na(age) &amp; !is.na(numeracy_score)))
+##  $ formula          :Class &#39;formula&#39;  language numeracy_score ~ age
+##  $ terms            :Classes &#39;terms&#39;, &#39;formula&#39;  language numeracy_score ~ age
+##  $ data             :&#39;data.frame&#39;:   96452 obs. of  156 variables:
+##  $ offset           : NULL
+##  $ control          :List of 3
+##  $ method           : chr &quot;glm.fit&quot;
+##  $ contrasts        : NULL
+##  $ xlevels          : Named list()
+##  $ naive.cov        : num [1:2, 1:2] 1.09e-04 -9.95e-06 -9.95e-06 9.98e-07
+##  $ cov.unscaled     : num [1:2, 1:2] 0.088448 -0.007067 -0.007067 0.000684
+##  $ survey.design    :List of 9
+## grade_compare : tibble [3 × 5] (S3: tbl_df/tbl/data.frame)
+## i :  int 10
+## literacy_items :  chr [1:30] &quot;l1_1&quot; &quot;l1_2&quot; &quot;l1_3&quot; &quot;l1_4&quot; &quot;l2_1&quot; &quot;l2_2&quot; &quot;l2_3&quot; &quot;l2_4&quot; &quot;l2_5&quot; &quot;l3_1&quot; &quot;l3_2&quot; &quot;l3_3&quot; &quot;l3_4&quot; &quot;l3_5&quot; &quot;l4_1&quot; &quot;l4_2&quot; &quot;l4_3&quot; &quot;l4_4&quot; &quot;l4_5&quot; ...
+## m :  &#39;svystat&#39; Named num 0.0281
+## m_lm : List of 12
+##  $ coefficients : Named num [1:2] 10.83 1.93
+##  $ residuals    : Named num [1:3368] -14.686 5.665 1.806 -0.124 -0.124 ...
+##  $ effects      : Named num [1:3368] -1.16e+03 -3.48e+02 1.91 -4.74e-02 -4.74e-02 ...
+##  $ rank         : int 2
+##  $ fitted.values: Named num [1:3368] 14.7 24.3 28.2 30.1 30.1 ...
+##  $ assign       : int [1:2] 0 1
+##  $ qr           :List of 5
+##  $ df.residual  : int 3366
+##  $ xlevels      : Named list()
+##  $ call         : language lm(formula = literacy_score ~ grade, data = d)
+##  $ terms        :Classes &#39;terms&#39;, &#39;formula&#39;  language literacy_score ~ grade
+##  $ model        :&#39;data.frame&#39;:   3368 obs. of  2 variables:
+## m_svy : List of 33
+##  $ coefficients     : Named num [1:2] 10.4 1.87
+##  $ residuals        : Named num [1:6900] 5.37 -1.244 0.756 7.37 -2.244 ...
+##  $ fitted.values    : Named num [1:6900] 21.6 27.2 27.2 21.6 27.2 ...
+##  $ effects          : Named num [1:6900] -1601.596 -483.991 0.753 7.744 -2.426 ...
+##  $ R                : num [1:2, 1:2] -83.1 0 -394.1 -258.6
+##  $ rank             : int 2
+##  $ qr               :List of 5
+##  $ family           :List of 12
+##  $ linear.predictors: Named num [1:6900] 21.6 27.2 27.2 21.6 27.2 ...
+##  $ deviance         : num 559410
+##  $ aic              : num 52198
+##  $ null.deviance    : num 793657
+##  $ iter             : int 2
+##  $ weights          : Named num [1:6900] 1.12 1.12 1.12 1.12 1.12 ...
+##  $ prior.weights    : Named num [1:6900] 1.12 1.12 1.12 1.12 1.12 ...
+##  $ df.residual      : num 174
+##  $ df.null          : int 6899
+##  $ y                : Named num [1:6900] 27 26 28 29 25 28 25 0 29 18 ...
+##  $ converged        : logi TRUE
+##  $ boundary         : logi FALSE
+##  $ model            :&#39;data.frame&#39;:   6900 obs. of  3 variables:
+##  $ call             : language svyglm(formula = literacy_score ~ grade, design = des_country)
+##  $ formula          :Class &#39;formula&#39;  language literacy_score ~ grade
+##  $ terms            :Classes &#39;terms&#39;, &#39;formula&#39;  language literacy_score ~ grade
+##  $ data             :&#39;data.frame&#39;:   6900 obs. of  150 variables:
+##  $ offset           : NULL
+##  $ control          :List of 3
+##  $ method           : chr &quot;glm.fit&quot;
+##  $ contrasts        : NULL
+##  $ xlevels          : Named list()
+##  $ naive.cov        : num [1:2, 1:2] 4.82e-04 -7.09e-05 -7.09e-05 1.50e-05
+##  $ cov.unscaled     : num [1:2, 1:2] 0.21816 -0.0207 -0.0207 0.00351
+##  $ survey.design    :List of 9
+## m1 : List of 34
+##  $ coefficients     : Named num [1:2] -5.494 0.391
+##  $ residuals        : Named num [1:6429] -1.04 -1.06 1.47 -3.14 -1.2 ...
+##  $ fitted.values    : Named num [1:6429] 0.0411 0.0596 0.6814 0.6814 0.1701 ...
+##  $ effects          : Named num [1:6429] 24.624 31.784 0.692 -1.488 -0.455 ...
+##  $ R                : num [1:2, 1:2] -31.5 0 -380.3 81.3
+##  $ rank             : int 2
+##  $ qr               :List of 5
+##  $ family           :List of 12
+##  $ linear.predictors: Named num [1:6429] -3.15 -2.76 0.76 0.76 -1.59 ...
+##  $ deviance         : num 6079
+##  $ aic              : num NA
+##  $ null.deviance    : num 7438
+##  $ iter             : int 5
+##  $ weights          : Named num [1:6429] 0.0407 0.0579 0.224 0.224 0.1457 ...
+##  $ prior.weights    : Named num [1:6429] 1.03 1.03 1.03 1.03 1.03 ...
+##  $ df.residual      : num 186
+##  $ df.null          : int 6428
+##  $ y                : Named num [1:6429] 0 0 1 0 0 1 0 1 1 1 ...
+##  $ converged        : logi TRUE
+##  $ boundary         : logi FALSE
+##  $ model            :&#39;data.frame&#39;:   6429 obs. of  3 variables:
+##  $ na.action        : &#39;omit&#39; Named int [1:671] 6430 6431 6432 6433 6434 6435 6436 6437 6438 6439 ...
+##  $ call             : language svyglm(formula = mpl_both ~ age, design = des, family = quasibinomial, na.action = na.omit)
+##  $ formula          :Class &#39;formula&#39;  language mpl_both ~ age
+##  $ terms            :Classes &#39;terms&#39;, &#39;formula&#39;  language mpl_both ~ age
+##  $ data             :&#39;data.frame&#39;:   7100 obs. of  11 variables:
+##  $ offset           : NULL
+##  $ control          :List of 3
+##  $ method           : chr &quot;glm.fit&quot;
+##  $ contrasts        : NULL
+##  $ xlevels          : Named list()
+##  $ naive.cov        : num [1:2, 1:2] 0.022995 -0.001824 -0.001824 0.000151
+##  $ cov.unscaled     : num [1:2, 1:2] 0.032911 -0.00243 -0.00243 0.000207
+##  $ survey.design    :List of 9
+## m2 : List of 34
+##  $ coefficients     : Named num [1:2] -1.137 0.487
+##  $ residuals        : Named num [1:6429] -1.52 -1.32 2.92 -1.52 -1.32 ...
+##  $ fitted.values    : Named num [1:6429] 0.343 0.243 0.343 0.343 0.243 ...
+##  $ effects          : Named num [1:6429] 36.484 6.943 1.401 -0.739 -0.563 ...
+##  $ R                : num [1:2, 1:2] -35.2 0 -7.3 14.3
+##  $ rank             : int 2
+##  $ qr               :List of 5
+##  $ family           :List of 12
+##  $ linear.predictors: Named num [1:6429] -0.651 -1.137 -0.651 -0.651 -1.137 ...
+##  $ deviance         : num 7391
+##  $ aic              : num NA
+##  $ null.deviance    : num 7438
+##  $ iter             : int 4
+##  $ weights          : Named num [1:6429] 0.233 0.19 0.233 0.233 0.19 ...
+##  $ prior.weights    : Named num [1:6429] 1.03 1.03 1.03 1.03 1.03 ...
+##  $ df.residual      : num 186
+##  $ df.null          : int 6428
+##  $ y                : Named num [1:6429] 0 0 1 0 0 1 0 1 1 1 ...
+##  $ converged        : logi TRUE
+##  $ boundary         : logi FALSE
+##  $ model            :&#39;data.frame&#39;:   6429 obs. of  3 variables:
+##  $ na.action        : &#39;omit&#39; Named int [1:671] 6430 6431 6432 6433 6434 6435 6436 6437 6438 6439 ...
+##  $ call             : language svyglm(formula = mpl_both ~ books, design = des, family = quasibinomial, na.action = na.omit)
+##  $ formula          :Class &#39;formula&#39;  language mpl_both ~ books
+##  $ terms            :Classes &#39;terms&#39;, &#39;formula&#39;  language mpl_both ~ books
+##  $ data             :&#39;data.frame&#39;:   7100 obs. of  11 variables:
+##  $ offset           : NULL
+##  $ control          :List of 3
+##  $ method           : chr &quot;glm.fit&quot;
+##  $ contrasts        :List of 1
+##  $ xlevels          :List of 1
+##  $ naive.cov        : num [1:2, 1:2] 0.00102 -0.00102 -0.00102 0.00491
+##  $ cov.unscaled     : num [1:2, 1:2] 0.00402 -0.00282 -0.00282 0.00879
+##  $ survey.design    :List of 9
+## m3 : List of 34
+##  $ coefficients     : Named num [1:4] -5.5286 0.3891 -0.0488 0.3873
+##  $ residuals        : Named num [1:6429] -1.06 -1.06 1.34 -3.96 -1.19 ...
+##  $ fitted.values    : Named num [1:6429] 0.0544 0.0571 0.7473 0.7473 0.1628 ...
+##  $ effects          : Named num [1:6429] 24.507 31.575 -0.778 -4.908 -0.46 ...
+##  $ R                : num [1:4, 1:4] -31.5 0 0 0 -379.3 ...
+##  $ rank             : int 4
+##  $ qr               :List of 5
+##  $ family           :List of 12
+##  $ linear.predictors: Named num [1:6429] -2.86 -2.8 1.08 1.08 -1.64 ...
+##  $ deviance         : num 6054
+##  $ aic              : num NA
+##  $ null.deviance    : num 7438
+##  $ iter             : int 5
+##  $ weights          : Named num [1:6429] 0.0531 0.0555 0.1949 0.1949 0.1406 ...
+##  $ prior.weights    : Named num [1:6429] 1.03 1.03 1.03 1.03 1.03 ...
+##  $ df.residual      : num 184
+##  $ df.null          : int 6428
+##  $ y                : Named num [1:6429] 0 0 1 0 0 1 0 1 1 1 ...
+##  $ converged        : logi TRUE
+##  $ boundary         : logi FALSE
+##  $ model            :&#39;data.frame&#39;:   6429 obs. of  5 variables:
+##  $ na.action        : &#39;omit&#39; Named int [1:671] 6430 6431 6432 6433 6434 6435 6436 6437 6438 6439 ...
+##  $ call             : language svyglm(formula = mpl_both ~ age + sex + books, design = des, family = quasibinomial, na.action = na.omit)
+##  $ formula          :Class &#39;formula&#39;  language mpl_both ~ age + sex + books
+##  $ terms            :Classes &#39;terms&#39;, &#39;formula&#39;  language mpl_both ~ age + sex + books
+##  $ data             :&#39;data.frame&#39;:   7100 obs. of  11 variables:
+##  $ offset           : NULL
+##  $ control          :List of 3
+##  $ method           : chr &quot;glm.fit&quot;
+##  $ contrasts        :List of 2
+##  $ xlevels          :List of 2
+##  $ naive.cov        : num [1:4, 1:4] 0.02407 -0.00183 -0.00175 -0.00128 -0.00183 ...
+##  $ cov.unscaled     : num [1:4, 1:4] 0.031816 -0.00233 0.000123 -0.002231 -0.00233 ...
+##  $ survey.design    :List of 9
+## m4_inter : List of 34
+##  $ coefficients     : Named num [1:5] -5.8511 0.4157 0.6982 0.3912 -0.0621
+##  $ residuals        : Named num [1:6429] -1.07 -1.05 1.3 -4.29 -1.18 ...
+##  $ fitted.values    : Named num [1:6429] 0.0666 0.0501 0.7669 0.7669 0.1552 ...
+##  $ effects          : Named num [1:6429] 24.55 31.526 -0.766 -4.895 2.503 ...
+##  $ R                : num [1:5, 1:5] -31.4 0 0 0 0 ...
+##  $ rank             : int 5
+##  $ qr               :List of 5
+##  $ family           :List of 12
+##  $ linear.predictors: Named num [1:6429] -2.64 -2.94 1.19 1.19 -1.69 ...
+##  $ deviance         : num 6048
+##  $ aic              : num NA
+##  $ null.deviance    : num 7438
+##  $ iter             : int 5
+##  $ weights          : Named num [1:6429] 0.0642 0.0492 0.1845 0.1845 0.1353 ...
+##  $ prior.weights    : Named num [1:6429] 1.03 1.03 1.03 1.03 1.03 ...
+##  $ df.residual      : num 183
+##  $ df.null          : int 6428
+##  $ y                : Named num [1:6429] 0 0 1 0 0 1 0 1 1 1 ...
+##  $ converged        : logi TRUE
+##  $ boundary         : logi FALSE
+##  $ model            :&#39;data.frame&#39;:   6429 obs. of  5 variables:
+##  $ na.action        : &#39;omit&#39; Named int [1:671] 6430 6431 6432 6433 6434 6435 6436 6437 6438 6439 ...
+##  $ call             : language svyglm(formula = mpl_both ~ age + sex + books + sex * age, design = des, family = quasibinomial, na.action = na.omit)
+##  $ formula          :Class &#39;formula&#39;  language mpl_both ~ age + sex + books + sex * age
+##  $ terms            :Classes &#39;terms&#39;, &#39;formula&#39;  language mpl_both ~ age + sex + books + sex * age
+##  $ data             :&#39;data.frame&#39;:   7100 obs. of  11 variables:
+##  $ offset           : NULL
+##  $ control          :List of 3
+##  $ method           : chr &quot;glm.fit&quot;
+##  $ contrasts        :List of 2
+##  $ xlevels          :List of 2
+##  $ naive.cov        : num [1:5, 1:5] 0.04256 -0.00334 -0.04232 -0.0015 0.00335 ...
+##  $ cov.unscaled     : num [1:5, 1:5] 0.05865 -0.0045 -0.04612 -0.002 0.00392 ...
+##  $ survey.design    :List of 9
+## med :  num [1:10] 5.5 15.5 25.5 35.5 45.5 55.5 65.5 75.5 85.5 95.5
+## mpg : tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
 ## my_obj :  num 4
+## my_skim : function (data, ..., .data_name = NULL)  
+## new : tibble [1 × 1] (S3: tbl_df/tbl/data.frame)
+## new_learner : &#39;data.frame&#39;:  1 obs. of  4 variables:
+##  $ age          : num 15
+##  $ sex          : chr &quot;Male&quot;
+##  $ books        : chr &quot;No&quot;
+##  $ probabilities: &#39;svystat&#39; num 0.564
+## newdat : &#39;data.frame&#39;:   2 obs. of  2 variables:
+##  $ books        : chr  &quot;Yes&quot; &quot;No&quot;
+##  $ probabilities: &#39;svystat&#39; num  0.343 0.243
+## newx :  num [1:3] 1 3 2
+## numeracy_items :  chr [1:36] &quot;n1&quot; &quot;n2&quot; &quot;n3&quot; &quot;n4&quot; &quot;n5&quot; &quot;n6&quot; &quot;n7&quot; &quot;n8&quot; &quot;n9&quot; &quot;n10&quot; &quot;n11&quot; &quot;n12&quot; &quot;n13&quot; &quot;n14&quot; &quot;n15&quot; &quot;n16&quot; &quot;n17&quot; &quot;n18&quot; &quot;n19&quot; &quot;n20&quot; &quot;n21&quot; &quot;n22&quot; &quot;n23&quot; &quot;n24&quot; ...
+## one_country : spc_tbl_ [6,900 × 147] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+## p : List of 11
+##  $ data       : tibble [8,098 × 6] (S3: tbl_df/tbl/data.frame)
+##  $ layers     :List of 1
+##  $ scales     :Classes &#39;ScalesList&#39;, &#39;ggproto&#39;, &#39;gg&#39; &lt;ggproto object: Class ScalesList, gg&gt;
+##     add: function
+##     add_defaults: function
+##     add_missing: function
+##     backtransform_df: function
+##     clone: function
+##     find: function
+##     get_scales: function
+##     has_scale: function
+##     input: function
+##     map_df: function
+##     n: function
+##     non_position_scales: function
+##     scales: list
+##     train_df: function
+##     transform_df: function
+##     super:  &lt;ggproto object: Class ScalesList, gg&gt; 
+##  $ guides     :Classes &#39;Guides&#39;, &#39;ggproto&#39;, &#39;gg&#39; &lt;ggproto object: Class Guides, gg&gt;
+##     add: function
+##     assemble: function
+##     build: function
+##     draw: function
+##     get_custom: function
+##     get_guide: function
+##     get_params: function
+##     get_position: function
+##     guides: NULL
+##     merge: function
+##     missing: &lt;ggproto object: Class GuideNone, Guide, gg&gt;
+##         add_title: function
+##         arrange_layout: function
+##         assemble_drawing: function
+##         available_aes: any
+##         build_decor: function
+##         build_labels: function
+##         build_ticks: function
+##         build_title: function
+##         draw: function
+##         draw_early_exit: function
+##         elements: list
+##         extract_decor: function
+##         extract_key: function
+##         extract_params: function
+##         get_layer_key: function
+##         hashables: list
+##         measure_grobs: function
+##         merge: function
+##         override_elements: function
+##         params: list
+##         process_layers: function
+##         setup_elements: function
+##         setup_params: function
+##         train: function
+##         transform: function
+##         super:  &lt;ggproto object: Class GuideNone, Guide, gg&gt;
+##     package_box: function
+##     print: function
+##     process_layers: function
+##     setup: function
+##     subset_guides: function
+##     train: function
+##     update_params: function
+##     super:  &lt;ggproto object: Class Guides, gg&gt; 
+##  $ mapping    :List of 3
+##  $ theme      :List of 136
+##  $ coordinates:Classes &#39;CoordCartesian&#39;, &#39;Coord&#39;, &#39;ggproto&#39;, &#39;gg&#39; &lt;ggproto object: Class CoordCartesian, Coord, gg&gt;
+##     aspect: function
+##     backtransform_range: function
+##     clip: on
+##     default: TRUE
+##     distance: function
+##     expand: TRUE
+##     is_free: function
+##     is_linear: function
+##     labels: function
+##     limits: list
+##     modify_scales: function
+##     range: function
+##     render_axis_h: function
+##     render_axis_v: function
+##     render_bg: function
+##     render_fg: function
+##     setup_data: function
+##     setup_layout: function
+##     setup_panel_guides: function
+##     setup_panel_params: function
+##     setup_params: function
+##     train_panel_guides: function
+##     transform: function
+##     super:  &lt;ggproto object: Class CoordCartesian, Coord, gg&gt; 
+##  $ facet      :Classes &#39;FacetNull&#39;, &#39;Facet&#39;, &#39;ggproto&#39;, &#39;gg&#39; &lt;ggproto object: Class FacetNull, Facet, gg&gt;
+##     compute_layout: function
+##     draw_back: function
+##     draw_front: function
+##     draw_labels: function
+##     draw_panels: function
+##     finish_data: function
+##     init_scales: function
+##     map_data: function
+##     params: list
+##     setup_data: function
+##     setup_params: function
+##     shrink: TRUE
+##     train_scales: function
+##     vars: function
+##     super:  &lt;ggproto object: Class FacetNull, Facet, gg&gt; 
+##  $ plot_env   :&lt;environment: R_GlobalEnv&gt; 
+##  $ layout     :Classes &#39;Layout&#39;, &#39;ggproto&#39;, &#39;gg&#39; &lt;ggproto object: Class Layout, gg&gt;
+##     coord: NULL
+##     coord_params: list
+##     facet: NULL
+##     facet_params: list
+##     finish_data: function
+##     get_scales: function
+##     layout: NULL
+##     map_position: function
+##     panel_params: NULL
+##     panel_scales_x: NULL
+##     panel_scales_y: NULL
+##     render: function
+##     render_labels: function
+##     reset_scales: function
+##     resolve_label: function
+##     setup: function
+##     setup_panel_guides: function
+##     setup_panel_params: function
+##     train_position: function
+##     super:  &lt;ggproto object: Class Layout, gg&gt; 
+##  $ labels     :List of 5
+## pred :  &#39;svystat&#39; Named num 0.259
+## present_items :  chr [1:36] &quot;n1&quot; &quot;n2&quot; &quot;n3&quot; &quot;n4&quot; &quot;n5&quot; &quot;n6&quot; &quot;n7&quot; &quot;n8&quot; &quot;n9&quot; &quot;n10&quot; &quot;n11&quot; &quot;n12&quot; &quot;n13&quot; &quot;n14&quot; &quot;n15&quot; &quot;n16&quot; &quot;n17&quot; &quot;n18&quot; &quot;n19&quot; &quot;n20&quot; &quot;n21&quot; &quot;n22&quot; &quot;n23&quot; &quot;n24&quot; ...
+## prop_unweighted :  num 0.423
+## prop_weighted :  &#39;svystat&#39; Named num 0.427
+## q50 : List of 1
+##  $ MathIRTScore: num [1, 1:4] -0.0229 -0.0774 0.0427 0.0304
+## report_tbl : tibble [5 × 5] (S3: tbl_df/tbl/data.frame)
+## tab : &#39;data.frame&#39;:  5 obs. of  6 variables:
+##  $ term       : chr  &quot;(Intercept)&quot; &quot;age&quot; &quot;sexMale&quot; &quot;booksYes&quot; ...
+##  $ estimate   : num  -5.8511 0.4157 0.6982 0.3912 -0.0621
+##  $ std.error  : num  0.2422 0.0195 0.2775 0.1045 0.0234
+##  $ statistic  : num  -24.16 21.28 2.52 3.74 -2.65
+##  $ OR (95% CI): chr  &quot;0.00 (0.00, 0.00)&quot; &quot;1.52 (1.46, 1.57)&quot; &quot;2.01 (1.17, 3.46)&quot; &quot;1.48 (1.20, 1.81)&quot; ...
+##  $ p_value    : chr  &quot;&lt;0.001&quot; &quot;&lt;0.001&quot; &quot;0.013&quot; &quot;&lt;0.001&quot; ...
+## tab_enroll_res :  &#39;table&#39; int [1:2, 1:2] 45374 8856 38851 3371
+## tab_enroll_sex :  &#39;table&#39; int [1:2, 1:2] 42594 6028 41631 6196
+## tab_enroll_sex_w :  &#39;svytable&#39; num [1:2, 1:2] 1.33e+08 1.09e+07 1.43e+08 1.22e+07
+## table_data : &#39;data.frame&#39;:   10 obs. of  5 variables:
+##  $ Category   : chr  &quot;Averages&quot; &quot;&quot; &quot;&quot; &quot;Dispersion/variation&quot; ...
+##  $ Statistic  : chr  &quot;Mode&quot; &quot;Median&quot; &quot;Mean&quot; &quot;Variation ratio&quot; ...
+##  $ Categorical: chr  &quot;✓&quot; &quot;✗&quot; &quot;✗&quot; &quot;✓&quot; ...
+##  $ Ordinal    : chr  &quot;?&quot; &quot;✓&quot; &quot;✗&quot; &quot;?&quot; ...
+##  $ Continuous : chr  &quot;?&quot; &quot;?&quot; &quot;✓&quot; &quot;?&quot; ...
+## table13 : &#39;data.frame&#39;:  6 obs. of  4 variables:
+##  $ Graph type : chr  &quot;Bar charts&quot; &quot;Line graphs&quot; &quot;Area graph&quot; &quot;Histogram&quot; ...
+##  $ Categorical: chr  &quot;✓&quot; &quot;✗&quot; &quot;✗&quot; &quot;✗&quot; ...
+##  $ Ordinal    : chr  &quot;✓&quot; &quot;?&quot; &quot;?&quot; &quot;✗&quot; ...
+##  $ Continuous : chr  &quot;?&quot; &quot;✓&quot; &quot;✓&quot; &quot;✓&quot; ...
+## v :  num [1:10] 2 1 2 1 2 1 2 1 2 1
+## V :  &#39;svyvar&#39; num [1:2, 1:2] 9.69 18.14 18.14 115.04
 ## x :  num 3
+## X :  num [1:96452] 8 12 8 9 10 13 8 8 16 8 ...
+## x1 :  num NaN
+## x2 :  num Inf
+## x3 :  num NaN
 ## y :  num 12
+## Y :  num [1:96452] 0 0 0 0 0 0 0 1 1 0 ...
 ## z :  num 3</code></pre>
 <p>Assuming we no longer need object <code>x</code> in the workspace, we can remove it from memory using the <code>rm()</code> function:</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="getting-started-with-r.html#cb63-1" tabindex="-1"></a><span class="fu">rm</span>(x)  <span class="co"># delete a variable</span></span></code></pre></div>
 <p>We can list again all the objects in memory and confirm that <code>x</code> has been removed.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="getting-started-with-r.html#cb64-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;a&quot;      &quot;b&quot;      &quot;my_obj&quot; &quot;y&quot;      &quot;z&quot;</code></pre>
+<pre><code>##  [1] &quot;a&quot;                &quot;A&quot;                &quot;b&quot;                &quot;compute_60q&quot;      &quot;cor_unweighted&quot;   &quot;cor_weighted&quot;     &quot;country_name&quot;    
+##  [8] &quot;country_w&quot;        &quot;country_w_tbl&quot;    &quot;d&quot;                &quot;dat&quot;              &quot;dat_hh&quot;           &quot;dat_moz&quot;          &quot;dat_new&quot;         
+## [15] &quot;des&quot;              &quot;des_child_all&quot;    &quot;des_country&quot;      &quot;des_one&quot;          &quot;df&quot;               &quot;e&quot;                &quot;fit&quot;             
+## [22] &quot;fit_age&quot;          &quot;grade_compare&quot;    &quot;i&quot;                &quot;literacy_items&quot;   &quot;m&quot;                &quot;m_lm&quot;             &quot;m_svy&quot;           
+## [29] &quot;m1&quot;               &quot;m2&quot;               &quot;m3&quot;               &quot;m4_inter&quot;         &quot;med&quot;              &quot;mpg&quot;              &quot;my_obj&quot;          
+## [36] &quot;my_skim&quot;          &quot;new&quot;              &quot;new_learner&quot;      &quot;newdat&quot;           &quot;newx&quot;             &quot;numeracy_items&quot;   &quot;one_country&quot;     
+## [43] &quot;p&quot;                &quot;pred&quot;             &quot;present_items&quot;    &quot;prop_unweighted&quot;  &quot;prop_weighted&quot;    &quot;q50&quot;              &quot;report_tbl&quot;      
+## [50] &quot;tab&quot;              &quot;tab_enroll_res&quot;   &quot;tab_enroll_sex&quot;   &quot;tab_enroll_sex_w&quot; &quot;table_data&quot;       &quot;table13&quot;          &quot;v&quot;               
+## [57] &quot;V&quot;                &quot;X&quot;                &quot;x1&quot;               &quot;x2&quot;               &quot;x3&quot;               &quot;y&quot;                &quot;Y&quot;               
+## [64] &quot;z&quot;</code></pre>
 <p>We are now left with objects <code>a</code> and <code>z</code>.</p>
 <ul>
 <li>To remove everything in the workspace</li>
@@ -1114,18 +1639,24 @@ Let’s create a few more objects and show how to remove some of these from memo
 ## tzcode source: internal
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] cowplot_1.2.0 knitr_1.50   
+##  [1] sjPlot_2.9.0     skimr_2.2.1      scales_1.4.0     broom_1.0.9      survey_4.4-2     survival_3.8-6   Matrix_1.7-4     lubridate_1.9.4 
+##  [9] forcats_1.0.1    stringr_1.6.0    dplyr_1.1.4      purrr_1.2.0      readr_2.2.0      tidyr_1.3.1      tibble_3.3.1     ggplot2_3.5.2   
+## [17] tidyverse_2.0.0  kableExtra_1.4.0 cowplot_1.2.0    knitr_1.50      
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] vctrs_0.6.5        cli_3.6.5          rlang_1.1.7        xfun_0.52          generics_0.1.3     jsonlite_2.0.0    
-##  [7] glue_1.8.0         htmltools_0.5.8.1  sass_0.4.10        scales_1.4.0       rmarkdown_2.29     grid_4.5.3        
-## [13] tibble_3.3.1       evaluate_1.0.5     jquerylib_0.1.4    fastmap_1.2.0      yaml_2.3.12        lifecycle_1.0.5   
-## [19] bookdown_0.46      compiler_4.5.3     dplyr_1.1.4        RColorBrewer_1.1-3 pkgconfig_2.0.3    rstudioapi_0.17.1 
-## [25] farver_2.1.2       digest_0.6.37      R6_2.6.1           tidyselect_1.2.1   dichromat_2.0-0.1  pillar_1.11.1     
-## [31] magrittr_2.0.4     bslib_0.9.0        tools_4.5.3        gtable_0.3.6       ggplot2_3.5.2      cachem_1.1.0</code></pre>
+##  [1] gtable_0.3.6       xfun_0.52          bslib_0.9.0        insight_1.4.4      lattice_0.22-9     tzdb_0.5.0         vctrs_0.6.5       
+##  [8] tools_4.5.3        generics_0.1.3     datawizard_1.3.0   parallel_4.5.3     pkgconfig_2.0.3    RColorBrewer_1.1-3 ggeffects_2.3.2   
+## [15] lifecycle_1.0.5    compiler_4.5.3     farver_2.1.2       textshaping_1.0.0  repr_1.1.7         mitools_2.4        snakecase_0.11.1  
+## [22] htmltools_0.5.8.1  sass_0.4.10        yaml_2.3.12        pillar_1.11.1      crayon_1.5.3       jquerylib_0.1.4    cachem_1.1.0      
+## [29] nlme_3.1-168       sjlabelled_1.2.0   tidyselect_1.2.1   digest_0.6.37      stringi_1.8.7      bookdown_0.46      labeling_0.4.3    
+## [36] splines_4.5.3      fastmap_1.2.0      cli_3.6.5          magrittr_2.0.4     base64enc_0.1-3    utf8_1.2.6         dichromat_2.0-0.1 
+## [43] withr_3.0.2        backports_1.5.0    bit64_4.6.0-1      timechange_0.3.0   rmarkdown_2.29     bit_4.6.0          ragg_1.4.0        
+## [50] hms_1.1.4          evaluate_1.0.5     haven_2.5.5        viridisLite_0.4.2  mgcv_1.9-4         rlang_1.1.7        Rcpp_1.1.1        
+## [57] glue_1.8.0         DBI_1.2.3          xml2_1.3.8         svglite_2.2.1      rstudioapi_0.17.1  vroom_1.7.0        jsonlite_2.0.0    
+## [64] R6_2.6.1           systemfonts_1.2.3</code></pre>
 </div>
 <div id="acknowledgements" class="section level2 hasAnchor" number="2.10">
 <h2><span class="header-section-number">2.10</span> Acknowledgements<a href="getting-started-with-r.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h2>

@@ -17,6 +17,11 @@ fig:fig-logreg
 tab:unnamed-chunk-205
 fig:fig-visthree
 introduction
+what-you-will-learn
+part-i---getting-started-in-r-chapters-2-3
+part-ii---exploring-and-preparing-data-chapters-4-6
+part-iii---describing-and-modelling-learning-outcomes-chapters-7---12
+what-you-need
 getting-started-with-r
 rstudio-interface
 source-editor

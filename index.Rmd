@@ -1,17 +1,19 @@
---- 
-title: "Introduction to R"
+---
+title: "Introduction to Survey Data Analysis using R"
 author: "African Foundational Learning Data Hub at DataFirst"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-
 ```{r, setup1, include=FALSE}
 knitr::opts_chunk$set(
   warnings = FALSE,
-  fig.path = 'figs/', 
-  message = F
+  fig.path = 'figs/',
+  message = FALSE,
+  digits = 3,
+  skimr_digits = 3
 )
+options(digits = 7, pillar.sigfig = 3)
 
 library(knitr)
 library(cowplot) #Gives more control for figures
@@ -24,4 +26,32 @@ title=document.getElementById('header');
 title.innerHTML = '<img src="files/20260205-df-header.png" alt="">' + title.innerHTML
 ```
 
+This is an online course from the African Foundational Learning Data Hub at DataFirst. It is aimed at analysts and researchers who work with household survey data on children's foundational learning. You may be comfortable with Excel or Stata but new to R, or you may also be returning to quantitative work after time in the field. The course assumes no prior programming experience. It does assume familiarity with basic statistical ideas such as means, proportions, correlation, and the logic of regression.
 
+Throughout the course you will work with the ICAN-ICAR 2025 household survey. This is a nationally representative, household-based study of children aged 5-16, covering foundational numeracy and reading across multiple countries. The dataset is large (tens of thousands of children and households) and rich in policy-relevant variables, such as reading and mathematics ability scores, minimum proficiency indicators, enrolment and grade, household composition, and assessment context. By using one real survey end to end, you learn skills that transfer directly to population-level reporting and research, not only to describing the particular sample in front of you.
+
+The teaching approach is hands-on and cumulative. Each chapter builds on the last, with guided practice, independent exercises, and code you can adapt to your own questions. A central theme is survey-aware analysis: ICAN-ICAR uses a stratified, multi-stage cluster design with household weights. The course explains why unweighted tables can misrepresent the population, how weight and design variables enter the analysis, and how to obtain design-correct estimates, and standard errors in R. A second theme is reproducibility: organizing work in RStudio projects, writing scripts, chaining steps with readable pipelines, and saving outputs such as tables and figures.
+
+## What you will learn 
+
+By the end of the course you should be able to use R and RStudio for a complete workflow, from opening data and exploring it, through weighted descriptive analysis, to regression models suited to continuous and binary outcomes, with attention to sampling design throughout.
+
+The material is organized in three parts.
+
+### Part I - Getting started in R (Chapters 2-3)
+
+You learn the RStudio environment. This includes the script editor, console, environment and history, files, plots, packages, and help. You organize a project folder, install and load packages, and write your first scripts. You then study core R concepts, such as arithmetic and assignment, vectors and data frames, missing values, matrices, and basic control flow. The foundation supports everything that follows.
+
+### Part II - Exploring and preparing data (Chapters 4-6)
+
+You visualize data with ggplot2, using the grammar-of-graphics pattern (data, aesthetics, geoms) to build scatterplots and other charts of reading and mathematics scores and related variables. You wrangle data with dplyr: filter, arrange, select, mutate, summarise, and group by, combined with the pipe operator for clear, step-by-step workflows on ICAN-ICAR 2025. You then turn to survey design: probability sampling, multi-stage selection, survey weights, and constructing a design object with the survey package.
+
+### Part III - Describing and modelling learning outcomes (Chapters 7 - 12)
+
+You describe how variables are distributed, i.e., continuous, ordinal and categorical, and produce weighted summaries that reflect the target population. You compute and interpret measures of central tendency and dispersion (mean, median, mode, standard deviation, interquartile range), including weighted and design-correct versions. Bivariate analysis covers cross-tabulations, group comparisons, scatterplots, and chi-squared tests, with survey-weighted counterparts where inference matters. You then move to regression: simple and multiple linear models relating outcomes such as literacy or numeracy scores to predictors like grade, age, gender, and location; and logistic regression for binary outcomes such as meeting minimum proficiency in reading and mathematics. Models are fit with survey weights and clustering so that coefficients and uncertainty statements align with the study design.
+
+## What you need 
+
+Install R and RStudio. Chapters packages including tidyverse, survey, ggplot2, broom and knitr. Download the ICAN-ICAR 2025 file from [DataFirst](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/1132) and place it in your *data/* folder inside your course project, as described in the wrangling chapter.
+
+If your work concerns whether children meet foundational learning benchmarks, how skills vary by age, grade, or place of residence, how to report results that represent populations rather than convenience samples, this course is intended to give you a practical path through those questions in R, from your first "Hello Word!" to design-correct models of minimum proficiency.

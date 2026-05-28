@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Understanding distributions | Introduction to R</title>
-  <meta name="description" content="Chapter 7 Understanding distributions | Introduction to R" />
+  <title>Chapter 7 Understanding distributions | Introduction to Survey Data Analysis using R</title>
+  <meta name="description" content="Chapter 7 Understanding distributions | Introduction to Survey Data Analysis using R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Understanding distributions | Introduction to R" />
+  <meta property="og:title" content="Chapter 7 Understanding distributions | Introduction to Survey Data Analysis using R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Understanding distributions | Introduction to R" />
+  <meta name="twitter:title" content="Chapter 7 Understanding distributions | Introduction to Survey Data Analysis using R" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
 
 
-<meta name="date" content="2026-04-22" />
+<meta name="date" content="2026-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,10 +140,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Intro to R</a></li>
+<li><a href="./">Introduction to Survey Data Analysis using R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#part-i---getting-started-in-r-chapters-2-3"><i class="fa fa-check"></i><b>1.1.1</b> Part I - Getting started in R (Chapters 2-3)</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#part-ii---exploring-and-preparing-data-chapters-4-6"><i class="fa fa-check"></i><b>1.1.2</b> Part II - Exploring and preparing data (Chapters 4-6)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#part-iii---describing-and-modelling-learning-outcomes-chapters-7---12"><i class="fa fa-check"></i><b>1.1.3</b> Part III - Describing and modelling learning outcomes (Chapters 7 - 12)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-you-need"><i class="fa fa-check"></i><b>1.2</b> What you need</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#rstudio-interface"><i class="fa fa-check"></i><b>2.1</b> RStudio interface</a>
@@ -218,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#small-polish-labels-and-a-simple-theme"><i class="fa fa-check"></i><b>4.6</b> Small polish: labels and a simple theme</a></li>
 <li class="chapter" data-level="4.7" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#practice-test-your-knowledge-with-mpg"><i class="fa fa-check"></i><b>4.7</b> Practice: Test your knowledge with <code>mpg</code></a></li>
 <li class="chapter" data-level="4.8" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#saving-plots-to-files-with-ggsave"><i class="fa fa-check"></i><b>4.8</b> Saving plots to files with <code>ggsave()</code></a></li>
-<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> 10. Useful resources</a></li>
+<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> Useful resources</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html"><i class="fa fa-check"></i><b>5</b> Intro to data wrangling with tidyverse</a>
 <ul>
@@ -332,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Survey Data Analysis using R</a>
           </h1>
         </div>
 
@@ -532,8 +541,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">ch02</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">10.1400000000000005684342</td>
-<td align="right">3.1499999999999999111822</td>
+<td align="right">10.1370000000000004547474</td>
+<td align="right">3.1490000000000000213163</td>
 <td align="right">5.0000000000000000000000</td>
 <td align="right">8.0000000000000000000</td>
 <td align="right">10.000000000000000000</td>
@@ -544,7 +553,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="left">ch06a</td>
 <td align="right">171</td>
-<td align="right">1.0000000000000000000000</td>
+<td align="right">0.9979999999999999982236</td>
 <td align="right">4.0700000000000002842171</td>
 <td align="right">2.8700000000000001065814</td>
 <td align="right">0.0000000000000000000000</td>
@@ -557,8 +566,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="left">ch06b</td>
 <td align="right">171</td>
-<td align="right">1.0000000000000000000000</td>
-<td align="right">1.2900000000000000355271</td>
+<td align="right">0.9979999999999999982236</td>
+<td align="right">1.2869999999999999218403</td>
 <td align="right">0.5200000000000000177636</td>
 <td align="right">1.0000000000000000000000</td>
 <td align="right">1.0000000000000000000</td>
@@ -570,9 +579,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="left">pt02b</td>
 <td align="right">28414</td>
-<td align="right">0.6600000000000000310862</td>
-<td align="right">42.7999999999999971578291</td>
-<td align="right">9.4000000000000003552714</td>
+<td align="right">0.6630000000000000337508</td>
+<td align="right">42.8049999999999997157829</td>
+<td align="right">9.3989999999999991331379</td>
 <td align="right">18.0000000000000000000000</td>
 <td align="right">36.0000000000000000000</td>
 <td align="right">42.000000000000000000</td>
@@ -584,7 +593,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">ch03</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">1.4899999999999999911182</td>
+<td align="right">1.4939999999999999946709</td>
 <td align="right">0.5000000000000000000000</td>
 <td align="right">1.0000000000000000000000</td>
 <td align="right">1.0000000000000000000</td>
@@ -597,8 +606,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">hh07a</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">2.1800000000000001598721</td>
-<td align="right">0.4500000000000000111022</td>
+<td align="right">2.1779999999999999360512</td>
+<td align="right">0.4510000000000000119904</td>
 <td align="right">1.0000000000000000000000</td>
 <td align="right">2.0000000000000000000</td>
 <td align="right">2.000000000000000000</td>
@@ -609,9 +618,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="left">pt01b</td>
 <td align="right">12297</td>
-<td align="right">0.8499999999999999777955</td>
-<td align="right">36.1799999999999997157829</td>
-<td align="right">7.9000000000000003552714</td>
+<td align="right">0.8539999999999999813483</td>
+<td align="right">36.1829999999999998294697</td>
+<td align="right">7.8949999999999995736744</td>
 <td align="right">18.0000000000000000000000</td>
 <td align="right">30.0000000000000000000</td>
 <td align="right">35.000000000000000000</td>
@@ -623,8 +632,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">ch04a</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">1.0400000000000000355271</td>
-<td align="right">0.2200000000000000011102</td>
+<td align="right">1.0369999999999999218403</td>
+<td align="right">0.2250000000000000055511</td>
 <td align="right">1.0000000000000000000000</td>
 <td align="right">1.0000000000000000000</td>
 <td align="right">1.000000000000000000</td>
@@ -635,9 +644,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="left">MPLBoth</td>
 <td align="right">5000</td>
-<td align="right">0.9399999999999999467093</td>
-<td align="right">0.3099999999999999977796</td>
-<td align="right">0.4600000000000000199840</td>
+<td align="right">0.9409999999999999475975</td>
+<td align="right">0.3140000000000000013323</td>
+<td align="right">0.4640000000000000235367</td>
 <td align="right">0.0000000000000000000000</td>
 <td align="right">0.0000000000000000000</td>
 <td align="right">0.000000000000000000</td>
@@ -649,13 +658,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">HHWeightProvided</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">3277.9600000000000363797881</td>
-<td align="right">3883.9000000000000909494702</td>
-<td align="right">0.4199999999999999844569</td>
-<td align="right">665.6299999999999954525</td>
-<td align="right">2285.400000000000090949</td>
-<td align="right">4056.590000000000145519</td>
-<td align="right">57152.22000000000116415</td>
+<td align="right">3277.9619999999999890860636</td>
+<td align="right">3883.8969999999999345163815</td>
+<td align="right">0.4239999999999999880096</td>
+<td align="right">665.6280000000000427463</td>
+<td align="right">2285.396000000000185537</td>
+<td align="right">4056.588000000000192813</td>
+<td align="right">57152.22499999999854481</td>
 <td align="left">▇▁▁▁▁</td>
 </tr>
 </tbody>
@@ -816,7 +825,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <col width="6%" />
 <col width="16%" />
 <col width="17%" />
-<col width="18%" />
+<col width="17%" />
 <col width="15%" />
 <col width="15%" />
 </colgroup>
@@ -836,16 +845,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">ch02</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">10.000000000000000000000</td>
-<td align="right">3.2500000000000000000000</td>
+<td align="right">10.0050000000000007815970</td>
+<td align="right">3.2469999999999998863132</td>
 <td align="right">10.000000000000000000</td>
 <td align="right">6.000000000000000000</td>
 </tr>
 <tr class="even">
 <td align="left">ch06a</td>
 <td align="right">12227</td>
-<td align="right">0.8699999999999999955591</td>
-<td align="right">4.070000000000000284217</td>
+<td align="right">0.8729999999999999982236</td>
+<td align="right">4.0700000000000002842171</td>
 <td align="right">2.8700000000000001065814</td>
 <td align="right">4.000000000000000000</td>
 <td align="right">4.000000000000000000</td>
@@ -853,8 +862,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="left">ch06b</td>
 <td align="right">12227</td>
-<td align="right">0.8699999999999999955591</td>
-<td align="right">1.290000000000000035527</td>
+<td align="right">0.8729999999999999982236</td>
+<td align="right">1.2869999999999999218403</td>
 <td align="right">0.5200000000000000177636</td>
 <td align="right">1.000000000000000000</td>
 <td align="right">1.000000000000000000</td>
@@ -862,9 +871,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="left">pt02b</td>
 <td align="right">31684</td>
-<td align="right">0.6700000000000000399680</td>
-<td align="right">42.990000000000001989520</td>
-<td align="right">9.5399999999999991473487</td>
+<td align="right">0.6720000000000000417444</td>
+<td align="right">42.9939999999999997726263</td>
+<td align="right">9.5389999999999997015721</td>
 <td align="right">42.000000000000000000</td>
 <td align="right">13.000000000000000000</td>
 </tr>
@@ -872,7 +881,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">ch03</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">1.500000000000000000000</td>
+<td align="right">1.4959999999999999964473</td>
 <td align="right">0.5000000000000000000000</td>
 <td align="right">1.000000000000000000</td>
 <td align="right">1.000000000000000000</td>
@@ -881,17 +890,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">hh07a</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">2.180000000000000159872</td>
-<td align="right">0.4600000000000000199840</td>
+<td align="right">2.1800000000000001598721</td>
+<td align="right">0.4560000000000000164313</td>
 <td align="right">2.000000000000000000</td>
 <td align="right">0.000000000000000000</td>
 </tr>
 <tr class="odd">
 <td align="left">pt01b</td>
 <td align="right">14342</td>
-<td align="right">0.8499999999999999777955</td>
-<td align="right">36.049999999999997157829</td>
-<td align="right">7.9400000000000003907985</td>
+<td align="right">0.8509999999999999786837</td>
+<td align="right">36.0489999999999994884092</td>
+<td align="right">7.9379999999999997228883</td>
 <td align="right">35.000000000000000000</td>
 <td align="right">10.000000000000000000</td>
 </tr>
@@ -899,17 +908,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">ch04a</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">1.040000000000000035527</td>
-<td align="right">0.2300000000000000099920</td>
+<td align="right">1.0360000000000000319744</td>
+<td align="right">0.2280000000000000082157</td>
 <td align="right">1.000000000000000000</td>
 <td align="right">0.000000000000000000</td>
 </tr>
 <tr class="odd">
 <td align="left">MPLBoth</td>
 <td align="right">7314</td>
-<td align="right">0.9200000000000000399680</td>
-<td align="right">0.289999999999999980016</td>
-<td align="right">0.4500000000000000111022</td>
+<td align="right">0.9240000000000000435207</td>
+<td align="right">0.2849999999999999755751</td>
+<td align="right">0.4510000000000000119904</td>
 <td align="right">0.000000000000000000</td>
 <td align="right">1.000000000000000000</td>
 </tr>
@@ -917,8 +926,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">HHWeightProvided</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">3105.789999999999963620212</td>
-<td align="right">3794.8699999999998908606358</td>
+<td align="right">3105.7860000000000582076609</td>
+<td align="right">3794.8649999999997817212716</td>
 <td align="right">2112.119999999999890861</td>
 <td align="right">3342.590000000000145519</td>
 </tr>
@@ -1014,8 +1023,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">ch02</td>
 <td align="right">0</td>
 <td align="right">1.0000000000000000000000</td>
-<td align="right">10.00000000000000000000</td>
-<td align="right">3.250000000000000000000</td>
+<td align="right">10.00500000000000078160</td>
+<td align="right">3.246999999999999886313</td>
 <td align="right">5</td>
 <td align="right">7</td>
 <td align="right">10</td>
@@ -1026,9 +1035,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="left">pt02b</td>
 <td align="right">31684</td>
-<td align="right">0.6700000000000000399680</td>
-<td align="right">42.99000000000000198952</td>
-<td align="right">9.539999999999999147349</td>
+<td align="right">0.6720000000000000417444</td>
+<td align="right">42.99399999999999977263</td>
+<td align="right">9.538999999999999701572</td>
 <td align="right">18</td>
 <td align="right">36</td>
 <td align="right">42</td>
@@ -1039,9 +1048,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="left">pt01b</td>
 <td align="right">14342</td>
-<td align="right">0.8499999999999999777955</td>
-<td align="right">36.04999999999999715783</td>
-<td align="right">7.940000000000000390799</td>
+<td align="right">0.8509999999999999786837</td>
+<td align="right">36.04899999999999948841</td>
+<td align="right">7.937999999999999722888</td>
 <td align="right">18</td>
 <td align="right">30</td>
 <td align="right">35</td>
@@ -1618,14 +1627,10 @@ Kurtosis statistic
 <span id="cb368-5"><a href="understanding-distributions.html#cb368-5" tabindex="-1"></a>  svymean,</span>
 <span id="cb368-6"><a href="understanding-distributions.html#cb368-6" tabindex="-1"></a>  <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
 <span id="cb368-7"><a href="understanding-distributions.html#cb368-7" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>##                       EnrolmentStatus     I(is.na(ch06a))FALSE         I(is.na(ch06a))TRUE     se.I(is.na(ch06a))FALSE
-## Currently Enrolled Currently Enrolled 0.9992557009928674238708 0.0007442990071324390860541 9.968166266869106224673e-05
-## Never Enrolled         Never Enrolled 0.0000000000000000000000 1.0000000000000000000000000 0.000000000000000000000e+00
-## Out of School           Out of School 0.0000000000000000000000 1.0000000000000000000000000 0.000000000000000000000e+00
-##                         se.I(is.na(ch06a))TRUE
-## Currently Enrolled 9.968166266869084540629e-05
-## Never Enrolled     0.000000000000000000000e+00
-## Out of School      0.000000000000000000000e+00</code></pre>
+<pre><code>##                       EnrolmentStatus     I(is.na(ch06a))FALSE         I(is.na(ch06a))TRUE     se.I(is.na(ch06a))FALSE      se.I(is.na(ch06a))TRUE
+## Currently Enrolled Currently Enrolled 0.9992557009928674238708 0.0007442990071324390860541 9.968166266869106224673e-05 9.968166266869084540629e-05
+## Never Enrolled         Never Enrolled 0.0000000000000000000000 1.0000000000000000000000000 0.000000000000000000000e+00 0.000000000000000000000e+00
+## Out of School           Out of School 0.0000000000000000000000 1.0000000000000000000000000 0.000000000000000000000e+00 0.000000000000000000000e+00</code></pre>
 </div>
 <div id="practice-exercise" class="section level2 hasAnchor" number="7.6">
 <h2><span class="header-section-number">7.6</span> Practice Exercise<a href="understanding-distributions.html#practice-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>

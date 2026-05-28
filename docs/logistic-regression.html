@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 12 Logistic Regression | Introduction to R</title>
-  <meta name="description" content="Chapter 12 Logistic Regression | Introduction to R" />
+  <title>Chapter 12 Logistic Regression | Introduction to Survey Data Analysis using R</title>
+  <meta name="description" content="Chapter 12 Logistic Regression | Introduction to Survey Data Analysis using R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 12 Logistic Regression | Introduction to R" />
+  <meta property="og:title" content="Chapter 12 Logistic Regression | Introduction to Survey Data Analysis using R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 12 Logistic Regression | Introduction to R" />
+  <meta name="twitter:title" content="Chapter 12 Logistic Regression | Introduction to Survey Data Analysis using R" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
 
 
-<meta name="date" content="2026-04-22" />
+<meta name="date" content="2026-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,10 +140,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Intro to R</a></li>
+<li><a href="./">Introduction to Survey Data Analysis using R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#part-i---getting-started-in-r-chapters-2-3"><i class="fa fa-check"></i><b>1.1.1</b> Part I - Getting started in R (Chapters 2-3)</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#part-ii---exploring-and-preparing-data-chapters-4-6"><i class="fa fa-check"></i><b>1.1.2</b> Part II - Exploring and preparing data (Chapters 4-6)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#part-iii---describing-and-modelling-learning-outcomes-chapters-7---12"><i class="fa fa-check"></i><b>1.1.3</b> Part III - Describing and modelling learning outcomes (Chapters 7 - 12)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-you-need"><i class="fa fa-check"></i><b>1.2</b> What you need</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#rstudio-interface"><i class="fa fa-check"></i><b>2.1</b> RStudio interface</a>
@@ -218,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#small-polish-labels-and-a-simple-theme"><i class="fa fa-check"></i><b>4.6</b> Small polish: labels and a simple theme</a></li>
 <li class="chapter" data-level="4.7" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#practice-test-your-knowledge-with-mpg"><i class="fa fa-check"></i><b>4.7</b> Practice: Test your knowledge with <code>mpg</code></a></li>
 <li class="chapter" data-level="4.8" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#saving-plots-to-files-with-ggsave"><i class="fa fa-check"></i><b>4.8</b> Saving plots to files with <code>ggsave()</code></a></li>
-<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> 10. Useful resources</a></li>
+<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> Useful resources</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html"><i class="fa fa-check"></i><b>5</b> Intro to data wrangling with tidyverse</a>
 <ul>
@@ -332,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Survey Data Analysis using R</a>
           </h1>
         </div>
 
@@ -612,7 +621,7 @@ Figure 12.2: Predicted probability as a logit function X
 <tr class="even">
 <td align="left">mpl_both</td>
 <td align="right">671</td>
-<td align="right">0.9100000000000000310862</td>
+<td align="right">0.9050000000000000266454</td>
 <td align="left">FALSE</td>
 <td align="right">2</td>
 <td align="left">No: 4755, Yes: 1674</td>
@@ -620,7 +629,7 @@ Figure 12.2: Predicted probability as a logit function X
 </tbody>
 </table>
 <p><strong>Variable type: numeric</strong></p>
-<table style="width:100%;">
+<table>
 <colgroup>
 <col width="7%" />
 <col width="4%" />
@@ -631,7 +640,7 @@ Figure 12.2: Predicted probability as a logit function X
 <col width="11%" />
 <col width="11%" />
 <col width="11%" />
-<col width="10%" />
+<col width="11%" />
 <col width="2%" />
 </colgroup>
 <thead>
@@ -654,26 +663,26 @@ Figure 12.2: Predicted probability as a logit function X
 <td align="left">HHWeightProvided</td>
 <td align="right">0</td>
 <td align="right">1</td>
-<td align="right">538.39999999999997726263</td>
-<td align="right">179.219999999999998863132</td>
+<td align="right">538.39599999999995816324</td>
+<td align="right">179.217999999999989313437</td>
 <td align="right">188.1200000000000045475</td>
-<td align="right">447.9100000000000250111</td>
-<td align="right">531.0499999999999545253</td>
-<td align="right">603.3799999999999954525</td>
-<td align="right">1331.55999999999994543</td>
+<td align="right">447.9060000000000059117</td>
+<td align="right">531.0520000000000209184</td>
+<td align="right">603.3769999999999527063</td>
+<td align="right">1331.557999999999992724</td>
 <td align="left">▃▇▂▁▁</td>
 </tr>
 <tr class="even">
 <td align="left">age</td>
 <td align="right">0</td>
 <td align="right">1</td>
-<td align="right">10.56000000000000049738</td>
-<td align="right">3.109999999999999875655</td>
+<td align="right">10.55799999999999982947</td>
+<td align="right">3.112000000000000099476</td>
 <td align="right">5.0000000000000000000</td>
 <td align="right">8.0000000000000000000</td>
 <td align="right">11.0000000000000000000</td>
 <td align="right">13.0000000000000000000</td>
-<td align="right">16.00000000000000000</td>
+<td align="right">16.000000000000000000</td>
 <td align="left">▇▇▇▇▇</td>
 </tr>
 </tbody>

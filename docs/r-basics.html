@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 R Basics | Introduction to R</title>
-  <meta name="description" content="Chapter 3 R Basics | Introduction to R" />
+  <title>Chapter 3 R Basics | Introduction to Survey Data Analysis using R</title>
+  <meta name="description" content="Chapter 3 R Basics | Introduction to Survey Data Analysis using R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 R Basics | Introduction to R" />
+  <meta property="og:title" content="Chapter 3 R Basics | Introduction to Survey Data Analysis using R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 R Basics | Introduction to R" />
+  <meta name="twitter:title" content="Chapter 3 R Basics | Introduction to Survey Data Analysis using R" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
 
 
-<meta name="date" content="2026-04-22" />
+<meta name="date" content="2026-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,10 +140,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Intro to R</a></li>
+<li><a href="./">Introduction to Survey Data Analysis using R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#part-i---getting-started-in-r-chapters-2-3"><i class="fa fa-check"></i><b>1.1.1</b> Part I - Getting started in R (Chapters 2-3)</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#part-ii---exploring-and-preparing-data-chapters-4-6"><i class="fa fa-check"></i><b>1.1.2</b> Part II - Exploring and preparing data (Chapters 4-6)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#part-iii---describing-and-modelling-learning-outcomes-chapters-7---12"><i class="fa fa-check"></i><b>1.1.3</b> Part III - Describing and modelling learning outcomes (Chapters 7 - 12)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-you-need"><i class="fa fa-check"></i><b>1.2</b> What you need</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#rstudio-interface"><i class="fa fa-check"></i><b>2.1</b> RStudio interface</a>
@@ -218,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#small-polish-labels-and-a-simple-theme"><i class="fa fa-check"></i><b>4.6</b> Small polish: labels and a simple theme</a></li>
 <li class="chapter" data-level="4.7" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#practice-test-your-knowledge-with-mpg"><i class="fa fa-check"></i><b>4.7</b> Practice: Test your knowledge with <code>mpg</code></a></li>
 <li class="chapter" data-level="4.8" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#saving-plots-to-files-with-ggsave"><i class="fa fa-check"></i><b>4.8</b> Saving plots to files with <code>ggsave()</code></a></li>
-<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> 10. Useful resources</a></li>
+<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> Useful resources</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html"><i class="fa fa-check"></i><b>5</b> Intro to data wrangling with tidyverse</a>
 <ul>
@@ -332,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Survey Data Analysis using R</a>
           </h1>
         </div>
 
@@ -530,8 +539,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="r-basics.html#cb136-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>); x</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="r-basics.html#cb138-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">0.2</span>); x </span></code></pre></div>
-<pre><code>## [1] 1.000000000000000000000 1.199999999999999955591 1.399999999999999911182 1.600000000000000088818 1.800000000000000044409
-## [6] 2.000000000000000000000</code></pre>
+<pre><code>## [1] 1.000000000000000000000 1.199999999999999955591 1.399999999999999911182 1.600000000000000088818 1.800000000000000044409 2.000000000000000000000</code></pre>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="r-basics.html#cb140-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>); x</span></code></pre></div>
 <pre><code>## [1] 1 1 1 1</code></pre>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="r-basics.html#cb142-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">2</span>)); x</span></code></pre></div>
@@ -713,8 +721,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If there is an object defined with same variable name in the attached object, then due to a hierarchical nature of searching objects in the R workspace that <code>attach()</code> function may not bring up the variable contained in the data frame. Care should be exercised when the <code>attach()</code> function is employed.</p>
 <p>A list of currently available objects can be found by the <code>ls()</code> function:</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="r-basics.html#cb200-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;a&quot;         &quot;b&quot;         &quot;betahat&quot;   &quot;c&quot;         &quot;heights&quot;   &quot;ids&quot;       &quot;names&quot;     &quot;people_df&quot; &quot;r1&quot;        &quot;r2&quot;        &quot;r3&quot;       
-## [12] &quot;r4&quot;        &quot;residual&quot;  &quot;u&quot;         &quot;x&quot;         &quot;X&quot;         &quot;y&quot;         &quot;yhat&quot;      &quot;ypredict&quot;</code></pre>
+<pre><code>##  [1] &quot;a&quot;         &quot;b&quot;         &quot;betahat&quot;   &quot;c&quot;         &quot;heights&quot;   &quot;ids&quot;       &quot;names&quot;     &quot;people_df&quot; &quot;r1&quot;        &quot;r2&quot;        &quot;r3&quot;        &quot;r4&quot;       
+## [13] &quot;residual&quot;  &quot;u&quot;         &quot;x&quot;         &quot;X&quot;         &quot;y&quot;         &quot;yhat&quot;      &quot;ypredict&quot;</code></pre>
 <p>The objects can be removed by the <code>rm()</code> function, for example:</p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="r-basics.html#cb202-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
 <span id="cb202-2"><a href="r-basics.html#cb202-2" tabindex="-1"></a></span>
