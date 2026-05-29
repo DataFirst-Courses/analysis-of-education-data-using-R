@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Bivariate Analysis | Introduction to Survey Data Analysis using R</title>
-  <meta name="description" content="Chapter 9 Bivariate Analysis | Introduction to Survey Data Analysis using R" />
+  <title>Chapter 9 Bivariate Analysis | Analysis of Household Education Survey Data using R</title>
+  <meta name="description" content="Chapter 9 Bivariate Analysis | Analysis of Household Education Survey Data using R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Bivariate Analysis | Introduction to Survey Data Analysis using R" />
+  <meta property="og:title" content="Chapter 9 Bivariate Analysis | Analysis of Household Education Survey Data using R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Bivariate Analysis | Introduction to Survey Data Analysis using R" />
+  <meta name="twitter:title" content="Chapter 9 Bivariate Analysis | Analysis of Household Education Survey Data using R" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
 
 
-<meta name="date" content="2026-05-28" />
+<meta name="date" content="2026-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Introduction to Survey Data Analysis using R</a></li>
+<li><a href="./">Analysis of Household Education Survey Data using R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -341,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Survey Data Analysis using R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Household Education Survey Data using R</a>
           </h1>
         </div>
 
@@ -458,11 +458,16 @@ Figure 9.1: Scatterplot of numeracy score by child age (sample description).
 ## subset(des, !is.na(age) &amp; !is.na(numeracy_score))
 ## 
 ## Coefficients:
-##                           Estimate             Std. Error               t value Pr(&gt;|t|)    
-## (Intercept) 0.46567191092788245976 0.29740138176291391892  1.565800000000000081  0.11751    
-## age         1.93753827410511103579 0.02614609762284116415 74.104299999999994952  &lt; 2e-16 ***
+##                           Estimate             Std. Error               t value
+## (Intercept) 0.46567191092788245976 0.29740138176291391892  1.565800000000000081
+## age         1.93753827410511103579 0.02614609762284116415 74.104299999999994952
+##             Pr(&gt;|t|)    
+## (Intercept)  0.11751    
+## age          &lt; 2e-16 ***
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001000000000000000020817 &#39;**&#39; 0.01000000000000000020817 &#39;*&#39; 0.05000000000000000277556 &#39;.&#39; 0.1000000000000000055511 &#39; &#39; 1
+## Signif. codes:  
+##   0 &#39;***&#39; 0.001000000000000000020817 &#39;**&#39; 0.01000000000000000020817 &#39;*&#39;
+##   0.05000000000000000277556 &#39;.&#39; 0.1000000000000000055511 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for gaussian family taken to be 96.22752481859342310599)
 ## 
@@ -478,7 +483,8 @@ Figure 9.1: Scatterplot of numeracy score by child age (sample description).
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
 ## data:  tab_enroll_res
-## X-squared = 1493.1849726549376101, df = 1, p-value &lt; 2.2204460492503131e-16</code></pre>
+## X-squared = 1493.1849726549376101, df = 1, p-value &lt;
+## 2.2204460492503131e-16</code></pre>
 <p>For population inference under a complex survey design, use the design-based chi-squared test.</p>
 <div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="bivariate-analysis.html#cb400-1" tabindex="-1"></a><span class="fu">svychisq</span>(</span>
 <span id="cb400-2"><a href="bivariate-analysis.html#cb400-2" tabindex="-1"></a>  <span class="sc">~</span>enrolled <span class="sc">+</span> residence,</span>
@@ -488,7 +494,8 @@ Figure 9.1: Scatterplot of numeracy score by child age (sample description).
 ##  Pearson&#39;s X^2: Rao &amp; Scott adjustment
 ## 
 ## data:  svychisq(~enrolled + residence, design = subset(des, !is.na(enrolled) &amp;     !is.na(residence)))
-## F = 21.075780836404639729, ndf = 1, ddf = 2654, p-value = 4.620276393379396925e-06</code></pre>
+## F = 21.075780836404639729, ndf = 1, ddf = 2654, p-value =
+## 4.620276393379396925e-06</code></pre>
 </div>
 <div id="practice-exercises-2" class="section level2 hasAnchor" number="9.6">
 <h2><span class="header-section-number">9.6</span> Practice exercises<a href="bivariate-analysis.html#practice-exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -539,7 +546,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/edit/main/08-bivariate-analysis.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/edit/main/08-bivariate-analysis.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -547,7 +554,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/blob/main/08-bivariate-analysis.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/blob/main/08-bivariate-analysis.Rmd",
     "text": null
   },
   "download": null,

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 Multiple Linear Regression | Introduction to Survey Data Analysis using R</title>
-  <meta name="description" content="Chapter 11 Multiple Linear Regression | Introduction to Survey Data Analysis using R" />
+  <title>Chapter 11 Multiple Linear Regression | Analysis of Household Education Survey Data using R</title>
+  <meta name="description" content="Chapter 11 Multiple Linear Regression | Analysis of Household Education Survey Data using R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 Multiple Linear Regression | Introduction to Survey Data Analysis using R" />
+  <meta property="og:title" content="Chapter 11 Multiple Linear Regression | Analysis of Household Education Survey Data using R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 Multiple Linear Regression | Introduction to Survey Data Analysis using R" />
+  <meta name="twitter:title" content="Chapter 11 Multiple Linear Regression | Analysis of Household Education Survey Data using R" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
 
 
-<meta name="date" content="2026-05-28" />
+<meta name="date" content="2026-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Introduction to Survey Data Analysis using R</a></li>
+<li><a href="./">Analysis of Household Education Survey Data using R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -341,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Survey Data Analysis using R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Household Education Survey Data using R</a>
           </h1>
         </div>
 
@@ -399,14 +399,22 @@ Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_k X_k + \varepsilon.
 ##     !is.na(age) &amp; !is.na(grade) &amp; !is.na(gender) &amp; !is.na(location))
 ## 
 ## Coefficients:
-##                             Estimate             Std. Error                t value   Pr(&gt;|t|)    
-## (Intercept)   15.9460302642038111998  0.9681221804983300983 16.4710900000000002308 &lt; 2.22e-16 ***
-## grade          1.7402941638056099727  0.1587160764477630881 10.9648299999999991883 &lt; 2.22e-16 ***
-## age           -0.1206894540461678905  0.1537464776280053902 -0.7849899999999999656  0.4335456    
-## genderMale    -0.3662493600655079007  0.3282853648533415880 -1.1156399999999999650  0.2661402    
-## locationUrban  2.0460055138750821158  0.6189479846555516751  3.3056199999999997807  0.0011547 ** 
+##                             Estimate             Std. Error
+## (Intercept)   15.9460302642038111998  0.9681221804983300983
+## grade          1.7402941638056099727  0.1587160764477630881
+## age           -0.1206894540461678905  0.1537464776280053902
+## genderMale    -0.3662493600655079007  0.3282853648533415880
+## locationUrban  2.0460055138750821158  0.6189479846555516751
+##                              t value   Pr(&gt;|t|)    
+## (Intercept)   16.4710900000000002308 &lt; 2.22e-16 ***
+## grade         10.9648299999999991883 &lt; 2.22e-16 ***
+## age           -0.7849899999999999656  0.4335456    
+## genderMale    -1.1156399999999999650  0.2661402    
+## locationUrban  3.3056199999999997807  0.0011547 ** 
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001000000000000000020817 &#39;**&#39; 0.01000000000000000020817 &#39;*&#39; 0.05000000000000000277556 &#39;.&#39; 0.1000000000000000055511 &#39; &#39; 1
+## Signif. codes:  
+##   0 &#39;***&#39; 0.001000000000000000020817 &#39;**&#39; 0.01000000000000000020817 &#39;*&#39;
+##   0.05000000000000000277556 &#39;.&#39; 0.1000000000000000055511 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for gaussian family taken to be 80.05414803169205129052)
 ## 
@@ -552,7 +560,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/edit/main/10-multiple-linear-regression.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/edit/main/10-multiple-linear-regression.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -560,7 +568,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/blob/main/10-multiple-linear-regression.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/blob/main/10-multiple-linear-regression.Rmd",
     "text": null
   },
   "download": null,

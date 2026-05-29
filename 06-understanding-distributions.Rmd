@@ -51,7 +51,7 @@ library(skimr)
 
 dat |> 
   filter(EnrolmentStatus == "Currently Enrolled") |>
-  skim_round()
+  skim()
 
 ```
 
@@ -97,7 +97,7 @@ We use the 5-number summary (box plot can also suffice) and a histogram to descr
 # 5 number summary 
 dat |> 
   select(ch02, pt02b, pt01b) |>
-  skim_round()
+  skim()
 ```
 
 The typical age in years the children belong is $10$ years old, while it is $36$ and $43$ years old for the mother and father respectively. The child's age is spread fairly evenly across the age categories relative to both the mother and father's ages (see the standard deviation). If one had to order the children by age from the youngest ($5$) to the oldest ($16$), then the middle child would be $10$ years old.

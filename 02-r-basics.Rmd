@@ -544,13 +544,13 @@ The `edit()` function opens the data editor window and allows to edit the data f
 
 It is also possible to construct a data frame by opening up a blank data frame using the `edit()` function and then entering the necessary values and variable names:
 
-```{r}
+```{r, eval=FALSE}
 X = edit(data.frame())
 ```
 
 A data frame can be saved as a file that can be opened with other editor-type programs as:
 
-```{r}
+```{r, eval=FALSE}
 write.table(X, file= "X.txt", sep = " ")
 ```
 
@@ -560,12 +560,10 @@ The current working directory where the data frame file is to be stored can be f
 getwd()
 ```
 
-and the directory can be changed to the usual root directory with either of the following two commands:
+and the directory can be changed to another folder with either of the following two commands (run these yourself in the Console; do not use them in knitted reports):
 
-```{r}
-setwd("C:\\")
-
-setwd("C:/")
+```{r, eval=FALSE}
+setwd("C:/path/to/your/project")
 ```
 
 After loading the file, the variables contained in a data frame can be directly accessed by declaring the `attach()` function:
@@ -598,7 +596,7 @@ rm(x)
 
 The entire workspace will be cleared by:
 
-```{r}
+```{r, eval=FALSE}
 rm(list = ls())
 ```
 

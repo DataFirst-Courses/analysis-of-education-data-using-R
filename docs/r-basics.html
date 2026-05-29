@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 R Basics | Introduction to Survey Data Analysis using R</title>
-  <meta name="description" content="Chapter 3 R Basics | Introduction to Survey Data Analysis using R" />
+  <title>Chapter 3 R Basics | Analysis of Household Education Survey Data using R</title>
+  <meta name="description" content="Chapter 3 R Basics | Analysis of Household Education Survey Data using R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 R Basics | Introduction to Survey Data Analysis using R" />
+  <meta property="og:title" content="Chapter 3 R Basics | Analysis of Household Education Survey Data using R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 R Basics | Introduction to Survey Data Analysis using R" />
+  <meta name="twitter:title" content="Chapter 3 R Basics | Analysis of Household Education Survey Data using R" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
 
 
-<meta name="date" content="2026-05-28" />
+<meta name="date" content="2026-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Introduction to Survey Data Analysis using R</a></li>
+<li><a href="./">Analysis of Household Education Survey Data using R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -341,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Survey Data Analysis using R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Household Education Survey Data using R</a>
           </h1>
         </div>
 
@@ -539,7 +539,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="r-basics.html#cb136-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>); x</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="r-basics.html#cb138-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">0.2</span>); x </span></code></pre></div>
-<pre><code>## [1] 1.000000000000000000000 1.199999999999999955591 1.399999999999999911182 1.600000000000000088818 1.800000000000000044409 2.000000000000000000000</code></pre>
+<pre><code>## [1] 1.000000000000000000000 1.199999999999999955591 1.399999999999999911182
+## [4] 1.600000000000000088818 1.800000000000000044409 2.000000000000000000000</code></pre>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="r-basics.html#cb140-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>); x</span></code></pre></div>
 <pre><code>## [1] 1 1 1 1</code></pre>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="r-basics.html#cb142-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">2</span>)); x</span></code></pre></div>
@@ -711,18 +712,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The current working directory where the data frame file is to be stored can be found with this:</p>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="r-basics.html#cb196-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;C:/Users/cash/OneDrive - University of Cape Town/2026/DataFirst/Introduction-To-R&quot;</code></pre>
-<p>and the directory can be changed to the usual root directory with either of the following two commands:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="r-basics.html#cb198-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">&quot;</span>)</span>
-<span id="cb198-2"><a href="r-basics.html#cb198-2" tabindex="-1"></a></span>
-<span id="cb198-3"><a href="r-basics.html#cb198-3" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/&quot;</span>)</span></code></pre></div>
+<p>and the directory can be changed to another folder with either of the following two commands (run these yourself in the Console; do not use them in knitted reports):</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="r-basics.html#cb198-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/path/to/your/project&quot;</span>)</span></code></pre></div>
 <p>After loading the file, the variables contained in a data frame can be directly accessed by declaring the <code>attach()</code> function:</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="r-basics.html#cb199-1" tabindex="-1"></a><span class="fu">attach</span>(people_df)</span></code></pre></div>
 <p>A data frame can be removed from the current session with the <code>detach()</code> function, for example:</p>
 <p>If there is an object defined with same variable name in the attached object, then due to a hierarchical nature of searching objects in the R workspace that <code>attach()</code> function may not bring up the variable contained in the data frame. Care should be exercised when the <code>attach()</code> function is employed.</p>
 <p>A list of currently available objects can be found by the <code>ls()</code> function:</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="r-basics.html#cb200-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;a&quot;         &quot;b&quot;         &quot;betahat&quot;   &quot;c&quot;         &quot;heights&quot;   &quot;ids&quot;       &quot;names&quot;     &quot;people_df&quot; &quot;r1&quot;        &quot;r2&quot;        &quot;r3&quot;        &quot;r4&quot;       
-## [13] &quot;residual&quot;  &quot;u&quot;         &quot;x&quot;         &quot;X&quot;         &quot;y&quot;         &quot;yhat&quot;      &quot;ypredict&quot;</code></pre>
+<pre><code>##  [1] &quot;a&quot;         &quot;b&quot;         &quot;betahat&quot;   &quot;c&quot;         &quot;heights&quot;   &quot;ids&quot;      
+##  [7] &quot;my_obj&quot;    &quot;names&quot;     &quot;people_df&quot; &quot;r1&quot;        &quot;r2&quot;        &quot;r3&quot;       
+## [13] &quot;r4&quot;        &quot;residual&quot;  &quot;u&quot;         &quot;x&quot;         &quot;X&quot;         &quot;y&quot;        
+## [19] &quot;yhat&quot;      &quot;ypredict&quot;  &quot;z&quot;</code></pre>
 <p>The objects can be removed by the <code>rm()</code> function, for example:</p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="r-basics.html#cb202-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
 <span id="cb202-2"><a href="r-basics.html#cb202-2" tabindex="-1"></a></span>
@@ -992,7 +993,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/edit/main/02-r-basics.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/edit/main/02-r-basics.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -1000,7 +1001,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/blob/main/02-r-basics.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/blob/main/02-r-basics.Rmd",
     "text": null
   },
   "download": null,

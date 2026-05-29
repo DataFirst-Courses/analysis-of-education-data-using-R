@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 12 Logistic Regression | Introduction to Survey Data Analysis using R</title>
-  <meta name="description" content="Chapter 12 Logistic Regression | Introduction to Survey Data Analysis using R" />
+  <title>Chapter 12 Logistic Regression | Analysis of Household Education Survey Data using R</title>
+  <meta name="description" content="Chapter 12 Logistic Regression | Analysis of Household Education Survey Data using R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 12 Logistic Regression | Introduction to Survey Data Analysis using R" />
+  <meta property="og:title" content="Chapter 12 Logistic Regression | Analysis of Household Education Survey Data using R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 12 Logistic Regression | Introduction to Survey Data Analysis using R" />
+  <meta name="twitter:title" content="Chapter 12 Logistic Regression | Analysis of Household Education Survey Data using R" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
 
 
-<meta name="date" content="2026-05-28" />
+<meta name="date" content="2026-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Introduction to Survey Data Analysis using R</a></li>
+<li><a href="./">Analysis of Household Education Survey Data using R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -341,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Survey Data Analysis using R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Household Education Survey Data using R</a>
           </h1>
         </div>
 
@@ -576,12 +576,12 @@ Figure 12.2: Predicted probability as a logit function X
 <p><strong>Variable type: factor</strong></p>
 <table>
 <colgroup>
-<col width="16%" />
-<col width="11%" />
-<col width="28%" />
-<col width="9%" />
+<col width="18%" />
+<col width="13%" />
+<col width="18%" />
 <col width="10%" />
-<col width="24%" />
+<col width="11%" />
+<col width="27%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -597,7 +597,7 @@ Figure 12.2: Predicted probability as a logit function X
 <tr class="odd">
 <td align="left">Location</td>
 <td align="right">0</td>
-<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000</td>
 <td align="left">FALSE</td>
 <td align="right">2</td>
 <td align="left">Urb: 4308, Rur: 2792</td>
@@ -605,7 +605,7 @@ Figure 12.2: Predicted probability as a logit function X
 <tr class="even">
 <td align="left">sex</td>
 <td align="right">0</td>
-<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000</td>
 <td align="left">FALSE</td>
 <td align="right">2</td>
 <td align="left">Fem: 4119, Mal: 2981</td>
@@ -613,7 +613,7 @@ Figure 12.2: Predicted probability as a logit function X
 <tr class="odd">
 <td align="left">books</td>
 <td align="right">0</td>
-<td align="right">1.0000000000000000000000</td>
+<td align="right">1.000</td>
 <td align="left">FALSE</td>
 <td align="right">2</td>
 <td align="left">No: 5812, Yes: 1288</td>
@@ -621,7 +621,7 @@ Figure 12.2: Predicted probability as a logit function X
 <tr class="even">
 <td align="left">mpl_both</td>
 <td align="right">671</td>
-<td align="right">0.9050000000000000266454</td>
+<td align="right">0.905</td>
 <td align="left">FALSE</td>
 <td align="right">2</td>
 <td align="left">No: 4755, Yes: 1674</td>
@@ -631,17 +631,17 @@ Figure 12.2: Predicted probability as a logit function X
 <p><strong>Variable type: numeric</strong></p>
 <table>
 <colgroup>
+<col width="20%" />
+<col width="12%" />
+<col width="17%" />
 <col width="7%" />
+<col width="8%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
 <col width="4%" />
 <col width="6%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="2%" />
+<col width="7%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -663,26 +663,26 @@ Figure 12.2: Predicted probability as a logit function X
 <td align="left">HHWeightProvided</td>
 <td align="right">0</td>
 <td align="right">1</td>
-<td align="right">538.39599999999995816324</td>
-<td align="right">179.217999999999989313437</td>
-<td align="right">188.1200000000000045475</td>
-<td align="right">447.9060000000000059117</td>
-<td align="right">531.0520000000000209184</td>
-<td align="right">603.3769999999999527063</td>
-<td align="right">1331.557999999999992724</td>
+<td align="right">538.4</td>
+<td align="right">179.22</td>
+<td align="right">188</td>
+<td align="right">448</td>
+<td align="right">531</td>
+<td align="right">603</td>
+<td align="right">1332</td>
 <td align="left">▃▇▂▁▁</td>
 </tr>
 <tr class="even">
 <td align="left">age</td>
 <td align="right">0</td>
 <td align="right">1</td>
-<td align="right">10.55799999999999982947</td>
-<td align="right">3.112000000000000099476</td>
-<td align="right">5.0000000000000000000</td>
-<td align="right">8.0000000000000000000</td>
-<td align="right">11.0000000000000000000</td>
-<td align="right">13.0000000000000000000</td>
-<td align="right">16.000000000000000000</td>
+<td align="right">10.6</td>
+<td align="right">3.11</td>
+<td align="right">5</td>
+<td align="right">8</td>
+<td align="right">11</td>
+<td align="right">13</td>
+<td align="right">16</td>
 <td align="left">▇▇▇▇▇</td>
 </tr>
 </tbody>
@@ -742,8 +742,8 @@ Figure 12.2: Predicted probability as a logit function X
 <h4><span class="header-section-number">12.4.1.2</span> Interpreting the odds ratio<a href="logistic-regression.html#interpreting-the-odds-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Exponentiation of the <span class="math inline">\(\hat{\beta_1}\)</span> coefficient converts back to the odds ratio of a child meeting MPL for both <span class="math inline">\((Y = 1)\)</span>.</p>
 <div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="logistic-regression.html#cb435-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(m1)[<span class="st">&quot;age&quot;</span>])</span></code></pre></div>
-<pre><code>##                     age 
-## 1.478302150057900998803</code></pre>
+<pre><code>##  age 
+## 1.48</code></pre>
 <p>We can say that an additional year in the child’s age multiplies odds of meeting MPL by <span class="math inline">\(~1.48\)</span>. This means that the odds of meeting MPL for both maths and reading are about <span class="math inline">\(48\%\)</span> higher per additional year in the child’s age (because <span class="math inline">\(1.4785 - 1 \approx 0.4785\)</span>).</p>
 <p>Also, R performs a hypothesis test for each coefficient, that is <span class="math inline">\(H_0: \beta_j = 0\)</span> versus <span class="math inline">\(H_0: \beta_j \neq 0\)</span> for <span class="math inline">\(j = [0, 1]\)</span> via the Wald test, and prints the <em>p</em>-values in the last column. We can thus compare these <em>p-</em>values to the chosen significance level (usually <span class="math inline">\(\alpha = 0.05\)</span>) to conclude whether or not each of the coefficient is significantly different from zero. The lower the <em>p</em>-value, the more evidence that the coefficient is different from zero. This is similar to the linear regression.</p>
 <p>Here, the <em>p</em>-value <span class="math inline">\(&lt; 0.05\)</span>. This means that there is sufficient evidence that the age coefficient is statistically different from zero at the <span class="math inline">\(5\%\)</span> significance level.</p>
@@ -758,11 +758,11 @@ Figure 12.2: Predicted probability as a logit function X
 <span id="cb437-5"><a href="logistic-regression.html#cb437-5" tabindex="-1"></a>newdat<span class="sc">$</span>probabilities <span class="ot">=</span> <span class="fu">plogis</span>(pred)       <span class="co">#convert logit --&gt; probability</span></span>
 <span id="cb437-6"><a href="logistic-regression.html#cb437-6" tabindex="-1"></a></span>
 <span id="cb437-7"><a href="logistic-regression.html#cb437-7" tabindex="-1"></a>newdat</span></code></pre></div>
-<pre><code>##   age             probabilities
-## 1   7 0.05964853149597048459496
-## 2  10 0.17007420117450916530188
-## 3  13 0.39833228550892563202268
-## 4  16 0.68141103127072488732097</code></pre>
+<pre><code>##   age probabilities
+## 1   7        0.0596
+## 2  10        0.1701
+## 3  13        0.3983
+## 4  16        0.6814</code></pre>
 <p>As the child grows in years the likelihood of them meeting the MPL for both increases substantially. We can also visualize the results of our model below:</p>
 <div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="logistic-regression.html#cb439-1" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
 <span id="cb439-2"><a href="logistic-regression.html#cb439-2" tabindex="-1"></a></span>
@@ -809,13 +809,13 @@ Figure 12.2: Predicted probability as a logit function X
 <h4><span class="header-section-number">12.4.2.2</span> Interpreting the odds ratio<a href="logistic-regression.html#interpreting-the-odds-ratio-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Odds ratio for <code>books</code> variable are</p>
 <div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="logistic-regression.html#cb444-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(m2)[<span class="st">&quot;booksYes&quot;</span>])</span></code></pre></div>
-<pre><code>##                booksYes 
-## 1.626686296603973680419</code></pre>
+<pre><code>## booksYes 
+##     1.63</code></pre>
 <p>For children that bring home study materials from the school library, their odds of meeting MPL is multiplied by a factor of <span class="math inline">\(e^{0.492} = 1.635\)</span> relative to those who do not bring back home study materials from the school library. This means that the odds of meeting MPL for both reading and maths are <span class="math inline">\((1.635 -1)*100 = 63.5\%\)</span> higher for those children who bring home study materials from the school library than those who do not bring back home study materials.</p>
 <p>The interpretation of the intercept <span class="math inline">\(\hat{\beta_0} = -1.138\)</span> gives the probability of a child meeting MPL when <span class="math inline">\(X= 0\)</span>. In our case, this simply maps to those children who do not bring back study materials from the school library. Therefore, the probability of a a child who does not bring back home study material meeting MPL for both reading and math is:</p>
 <div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="logistic-regression.html#cb446-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(m2)[<span class="dv">1</span>]) <span class="sc">/</span> (<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="fu">coef</span>(m2)[<span class="dv">1</span>]))</span></code></pre></div>
-<pre><code>##              (Intercept) 
-## 0.2428529100106565918882</code></pre>
+<pre><code>## (Intercept) 
+##       0.243</code></pre>
 <p>The model’s intercept tells us that the probability of a child that does not bring back home study materials from the school library meeting MPL for both is only <span class="math inline">\(24,2\%\)</span>.</p>
 </div>
 <div id="predicted-probabilities-1" class="section level4 hasAnchor" number="12.4.2.3">
@@ -831,9 +831,9 @@ Figure 12.2: Predicted probability as a logit function X
 <span id="cb448-8"><a href="logistic-regression.html#cb448-8" tabindex="-1"></a>newdat<span class="sc">$</span>probabilities <span class="ot">=</span> <span class="fu">plogis</span>(pred)</span>
 <span id="cb448-9"><a href="logistic-regression.html#cb448-9" tabindex="-1"></a></span>
 <span id="cb448-10"><a href="logistic-regression.html#cb448-10" tabindex="-1"></a>newdat</span></code></pre></div>
-<pre><code>##   books            probabilities
-## 1   Yes 0.3428641218153232195220
-## 2    No 0.2428529100106566196438</code></pre>
+<pre><code>##   books probabilities
+## 1   Yes         0.343
+## 2    No         0.243</code></pre>
 <p>Based on this model, it is predicted that a child who brings back home study material from the school library has a <span class="math inline">\(34,4\%\)</span> chance of meeting MPL for both reading and math. This is higher relative to those children who do not bring back home study materials.</p>
 <p>We can also visualize these results using the <code>plot_model</code> function:</p>
 <div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="logistic-regression.html#cb450-1" tabindex="-1"></a><span class="co"># plot </span></span>
@@ -875,11 +875,11 @@ Figure 12.2: Predicted probability as a logit function X
 <p>Similar to simple logistic regression, it is easier to interpret these relationships through the odds ratios. But this time, we also print <span class="math inline">\(95\%\)</span> CI of the odds ratios in addition to the OR (rounded to 3 decimals) so that we can easily see which ones are significantly different from 1. If <span class="math inline">\(95\%\)</span> CI include the value of 1 in their bound, then there is no significant association between the MPL both and the predictor in question. This is another way of confirming the significance of a predictor.</p>
 <div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="logistic-regression.html#cb453-1" tabindex="-1"></a><span class="co"># OR and 95% CI</span></span>
 <span id="cb453-2"><a href="logistic-regression.html#cb453-2" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">exp</span>(<span class="fu">cbind</span>(<span class="at">OR =</span> <span class="fu">coef</span>(m3), <span class="fu">confint</span>(m3))), <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##                                     OR                     2.5 %                   97.5 %
-## (Intercept) 0.004000000000000000083267 0.00300000000000000006245 0.0060000000000000001249
-## age         1.475999999999999978683718 1.43500000000000005329071 1.5180000000000000159872
-## sexMale     0.951999999999999957367436 0.82799999999999995825561 1.0949999999999999733546
-## booksYes    1.473000000000000087041485 1.19900000000000006572520 1.8100000000000000532907</code></pre>
+<pre><code>##                OR 2.5 % 97.5 %
+## (Intercept) 0.004 0.003  0.006
+## age         1.476 1.435  1.518
+## sexMale     0.952 0.828  1.095
+## booksYes    1.473 1.199  1.810</code></pre>
 <p>From the OR and their <span class="math inline">\(95\%\)</span> CI computed above, we can conclude that:</p>
 <ul>
 <li><p><code>age</code>: an additional year in the child’s age multiplies odds of meeting MPL by <span class="math inline">\(~1.48\)</span>.This means that the odds of meeting MPL for both maths and reading are about <span class="math inline">\(48\%\)</span> higher per additional year in the child’s age, <em>ceteris paribus</em>.</p></li>
@@ -902,8 +902,8 @@ Figure 12.2: Predicted probability as a logit function X
 <span id="cb455-13"><a href="logistic-regression.html#cb455-13" tabindex="-1"></a>new_learner<span class="sc">$</span>probabilities <span class="ot">=</span> <span class="fu">plogis</span>(pred)</span>
 <span id="cb455-14"><a href="logistic-regression.html#cb455-14" tabindex="-1"></a></span>
 <span id="cb455-15"><a href="logistic-regression.html#cb455-15" tabindex="-1"></a>new_learner</span></code></pre></div>
-<pre><code>##   age  sex books            probabilities
-## 1  15 Male    No 0.5643817287567277629634</code></pre>
+<pre><code>##   age  sex books probabilities
+## 1  15 Male    No         0.564</code></pre>
 <p>If we <em>trust</em> our logistic regression model, the probability that this new child meets MPL for both reading and math is predicted to be <span class="math inline">\(56.5\%\)</span>.</p>
 <p>We can also visualize the effect of <code>age</code> and <code>books</code> on the predicted probability of meeting MPL in <span class="citation">@fig-vistwo</span>.</p>
 <div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="logistic-regression.html#cb457-1" tabindex="-1"></a><span class="fu">plot_model</span>(m3,</span>
@@ -1061,13 +1061,13 @@ p_value
 (Intercept)
 </td>
 <td style="text-align:right;">
--5.85099999999999997868372
+-5.851
 </td>
 <td style="text-align:right;">
-0.24199999999999999289457
+0.242
 </td>
 <td style="text-align:right;">
--24.160000000000000142109
+-24.16
 </td>
 <td style="text-align:right;">
 0.00 (0.00, 0.00)
@@ -1081,13 +1081,13 @@ p_value
 age
 </td>
 <td style="text-align:right;">
-0.41599999999999998090416
+0.416
 </td>
 <td style="text-align:right;">
-0.02000000000000000041633
+0.020
 </td>
 <td style="text-align:right;">
-21.280000000000001136868
+21.28
 </td>
 <td style="text-align:right;">
 1.52 (1.46, 1.57)
@@ -1101,13 +1101,13 @@ age
 sexMale
 </td>
 <td style="text-align:right;">
-0.69799999999999995381472
+0.698
 </td>
 <td style="text-align:right;">
-0.27700000000000002398082
+0.277
 </td>
 <td style="text-align:right;">
-2.520000000000000017764
+2.52
 </td>
 <td style="text-align:right;">
 2.01 (1.17, 3.46)
@@ -1121,13 +1121,13 @@ sexMale
 booksYes
 </td>
 <td style="text-align:right;">
-0.39100000000000001421085
+0.391
 </td>
 <td style="text-align:right;">
-0.10499999999999999611422
+0.105
 </td>
 <td style="text-align:right;">
-3.740000000000000213163
+3.74
 </td>
 <td style="text-align:right;">
 1.48 (1.20, 1.81)
@@ -1141,13 +1141,13 @@ booksYes
 age:sexMale
 </td>
 <td style="text-align:right;">
--0.06199999999999999955591
+-0.062
 </td>
 <td style="text-align:right;">
-0.02299999999999999961142
+0.023
 </td>
 <td style="text-align:right;">
--2.649999999999999911182
+-2.65
 </td>
 <td style="text-align:right;">
 0.94 (0.90, 0.98)
@@ -1198,7 +1198,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/edit/main/11-logisticreg.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/edit/main/11-logisticreg.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -1206,7 +1206,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/blob/main/11-logisticreg.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/blob/main/11-logisticreg.Rmd",
     "text": null
   },
   "download": null,

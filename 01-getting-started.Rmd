@@ -1015,7 +1015,7 @@ We are now left with objects `a` and `z`.
 
 -   To remove everything in the workspace
 
-```{r}
+```{r, eval=FALSE}
 rm(list = ls())
 ```
 

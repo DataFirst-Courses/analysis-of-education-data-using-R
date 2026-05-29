@@ -60,12 +60,6 @@ By the end of this lesson you should be able to:
 Download the file "ican-icar-2025-v1.dta" from [DataFirst](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/1132/study-description) and save it to the *data* directory in your main project folder (make a folder called *data* if you haven't already). Note that the metadata for this data is found on the site. 
 
 
-```{r}
-# load the data
-
-dat = read_csv("data/ican-icar-2025-v1.csv")
-```
-
 Load the **tidyverse** collection of packages, which loads the following packages: **ggplot2**, **tibble**, **tidyr**, **readr**, **purrr**, and **dplyr**.
 
 -   ggplot2: For data visualization (this will be revisited in detail later)
@@ -79,6 +73,12 @@ Load the **tidyverse** by running the command below:
 
 ```{r}
 library(tidyverse)
+library(skimr)
+```
+
+```{r}
+# load the data (after tidyverse, so read_csv is available)
+dat = read_csv("data/ican-icar-2025-v1.csv")
 ```
 
 
@@ -106,19 +106,10 @@ dat
 To understand your data at a high-level, you can use `skim()` from [skimr](https://docs.ropensci.org/skimr/) package :
 
 ```{r}
-# Here I create an altered version of skim() to round off the output. 
-skim_round <- function(data, digits = 3) {
-  s <- skimr::skim(data)
-  skimr::mutate(
-    s,
-    dplyr::across(dplyr::where(is.numeric), ~ round(.x, digits))
-  )
-}
-
-
-# was: skim(dat)
-skim_round(dat)
-
+dat |>
+  select(CountryName, Location, ch02, ch03,
+         ReadingIRTScore, MathIRTScore, MPLBoth, HHWeightProvided) |> 
+  skim()
 ```
 
 

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Understanding distributions | Introduction to Survey Data Analysis using R</title>
-  <meta name="description" content="Chapter 7 Understanding distributions | Introduction to Survey Data Analysis using R" />
+  <title>Chapter 7 Understanding distributions | Analysis of Household Education Survey Data using R</title>
+  <meta name="description" content="Chapter 7 Understanding distributions | Analysis of Household Education Survey Data using R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Understanding distributions | Introduction to Survey Data Analysis using R" />
+  <meta property="og:title" content="Chapter 7 Understanding distributions | Analysis of Household Education Survey Data using R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Understanding distributions | Introduction to Survey Data Analysis using R" />
+  <meta name="twitter:title" content="Chapter 7 Understanding distributions | Analysis of Household Education Survey Data using R" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
 
 
-<meta name="date" content="2026-05-28" />
+<meta name="date" content="2026-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Introduction to Survey Data Analysis using R</a></li>
+<li><a href="./">Analysis of Household Education Survey Data using R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -341,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Survey Data Analysis using R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Household Education Survey Data using R</a>
           </h1>
         </div>
 
@@ -1627,10 +1627,18 @@ Kurtosis statistic
 <span id="cb368-5"><a href="understanding-distributions.html#cb368-5" tabindex="-1"></a>  svymean,</span>
 <span id="cb368-6"><a href="understanding-distributions.html#cb368-6" tabindex="-1"></a>  <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
 <span id="cb368-7"><a href="understanding-distributions.html#cb368-7" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>##                       EnrolmentStatus     I(is.na(ch06a))FALSE         I(is.na(ch06a))TRUE     se.I(is.na(ch06a))FALSE      se.I(is.na(ch06a))TRUE
-## Currently Enrolled Currently Enrolled 0.9992557009928674238708 0.0007442990071324390860541 9.968166266869106224673e-05 9.968166266869084540629e-05
-## Never Enrolled         Never Enrolled 0.0000000000000000000000 1.0000000000000000000000000 0.000000000000000000000e+00 0.000000000000000000000e+00
-## Out of School           Out of School 0.0000000000000000000000 1.0000000000000000000000000 0.000000000000000000000e+00 0.000000000000000000000e+00</code></pre>
+<pre><code>##                       EnrolmentStatus     I(is.na(ch06a))FALSE
+## Currently Enrolled Currently Enrolled 0.9992557009928674238708
+## Never Enrolled         Never Enrolled 0.0000000000000000000000
+## Out of School           Out of School 0.0000000000000000000000
+##                            I(is.na(ch06a))TRUE     se.I(is.na(ch06a))FALSE
+## Currently Enrolled 0.0007442990071324390860541 9.968166266869106224673e-05
+## Never Enrolled     1.0000000000000000000000000 0.000000000000000000000e+00
+## Out of School      1.0000000000000000000000000 0.000000000000000000000e+00
+##                         se.I(is.na(ch06a))TRUE
+## Currently Enrolled 9.968166266869084540629e-05
+## Never Enrolled     0.000000000000000000000e+00
+## Out of School      0.000000000000000000000e+00</code></pre>
 </div>
 <div id="practice-exercise" class="section level2 hasAnchor" number="7.6">
 <h2><span class="header-section-number">7.6</span> Practice Exercise<a href="understanding-distributions.html#practice-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1682,7 +1690,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/edit/main/06-understanding-distributions.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/edit/main/06-understanding-distributions.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -1690,7 +1698,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/blob/main/06-understanding-distributions.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/blob/main/06-understanding-distributions.Rmd",
     "text": null
   },
   "download": null,

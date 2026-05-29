@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Intro to ggplot | Introduction to Survey Data Analysis using R</title>
-  <meta name="description" content="Chapter 4 Intro to ggplot | Introduction to Survey Data Analysis using R" />
+  <title>Chapter 4 Intro to ggplot | Analysis of Household Education Survey Data using R</title>
+  <meta name="description" content="Chapter 4 Intro to ggplot | Analysis of Household Education Survey Data using R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Intro to ggplot | Introduction to Survey Data Analysis using R" />
+  <meta property="og:title" content="Chapter 4 Intro to ggplot | Analysis of Household Education Survey Data using R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Intro to ggplot | Introduction to Survey Data Analysis using R" />
+  <meta name="twitter:title" content="Chapter 4 Intro to ggplot | Analysis of Household Education Survey Data using R" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
 
 
-<meta name="date" content="2026-05-28" />
+<meta name="date" content="2026-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Introduction to Survey Data Analysis using R</a></li>
+<li><a href="./">Analysis of Household Education Survey Data using R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -341,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Survey Data Analysis using R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Household Education Survey Data using R</a>
           </h1>
         </div>
 
@@ -442,7 +442,8 @@ and draw them with this <strong>geom</strong> (points, bars, lines, …).”</p>
 <div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="intro-to-ggplot.html#cb264-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
 <span id="cb264-2"><a href="intro-to-ggplot.html#cb264-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ReadingIRTScore, <span class="at">y =</span> MathIRTScore)) <span class="sc">+</span></span>
 <span id="cb264-3"><a href="intro-to-ggplot.html#cb264-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
+<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the
+## scale range (`geom_point()`).</code></pre>
 <p><img src="figs/unnamed-chunk-152-1.png" width="672" /></p>
 <p>Think of this as:</p>
 <blockquote>
@@ -470,7 +471,8 @@ For example, <code>aes(colour = ch03)</code> means “use the variable <code>ch0
 <span id="cb266-3"><a href="intro-to-ggplot.html#cb266-3" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore, </span>
 <span id="cb266-4"><a href="intro-to-ggplot.html#cb266-4" tabindex="-1"></a>                     <span class="at">shape =</span> ch03)) <span class="sc">+</span></span>
 <span id="cb266-5"><a href="intro-to-ggplot.html#cb266-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
+<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the
+## scale range (`geom_point()`).</code></pre>
 <p><img src="figs/unnamed-chunk-153-1.png" width="672" /></p>
 <ul>
 <li>Different gender groups (<code>ch03</code>) get different <strong>shapes</strong>.</li>
@@ -483,7 +485,8 @@ For example, <code>aes(colour = ch03)</code> means “use the variable <code>ch0
 <span id="cb268-3"><a href="intro-to-ggplot.html#cb268-3" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore, </span>
 <span id="cb268-4"><a href="intro-to-ggplot.html#cb268-4" tabindex="-1"></a>                     <span class="at">color =</span> ch03)) <span class="sc">+</span></span>
 <span id="cb268-5"><a href="intro-to-ggplot.html#cb268-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
+<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the
+## scale range (`geom_point()`).</code></pre>
 <p><img src="figs/unnamed-chunk-154-1.png" width="672" /></p>
 <ul>
 <li>Different groups get different <strong>colours</strong>.</li>
@@ -497,7 +500,8 @@ For example, <code>aes(colour = ch03)</code> means “use the variable <code>ch0
 <span id="cb270-3"><a href="intro-to-ggplot.html#cb270-3" tabindex="-1"></a>                     <span class="at">y =</span> MathIRTScore, </span>
 <span id="cb270-4"><a href="intro-to-ggplot.html#cb270-4" tabindex="-1"></a>                     <span class="at">size =</span> ch02)) <span class="sc">+</span></span>
 <span id="cb270-5"><a href="intro-to-ggplot.html#cb270-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
+<pre><code>## Warning: Removed 1019 rows containing missing values or values outside the
+## scale range (`geom_point()`).</code></pre>
 <p><img src="figs/unnamed-chunk-155-1.png" width="672" /></p>
 <ul>
 <li>Children with higher <code>ch02</code> get <strong>larger points</strong>.</li>
@@ -919,7 +923,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/edit/main/03-intro-to-ggplot.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/edit/main/03-intro-to-ggplot.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -927,7 +931,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/DataFirst-Courses/Introduction-To-R/blob/main/03-intro-to-ggplot.Rmd",
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/blob/main/03-intro-to-ggplot.Rmd",
     "text": null
   },
   "download": null,
