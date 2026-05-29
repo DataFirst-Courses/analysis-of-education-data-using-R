@@ -14,6 +14,10 @@ library(survey)
 # load the data 
 dat = read_csv("data/ican-icar-2025-v1.csv")
 
+# Set the output digits to 3
+options(digits = 3, pillar.sigfig = 3)
+
+
 ```
 
 A simple linear regression can be used as a "linear probability model", but it often produces predicted values *below 0* or *above 1* and does not handle the changing variability that comes with binary outcomes. Logistic regression avoids these issues by modeling the log-odds of the outcome, which naturally maps to predicted probabilities between 0 and 1.

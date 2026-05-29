@@ -106,7 +106,19 @@ dat
 To understand your data at a high-level, you can use `skim()` from [skimr](https://docs.ropensci.org/skimr/) package :
 
 ```{r}
-skim(dat)
+# Here I create an altered version of skim() to round off the output. 
+skim_round <- function(data, digits = 3) {
+  s <- skimr::skim(data)
+  skimr::mutate(
+    s,
+    dplyr::across(dplyr::where(is.numeric), ~ round(.x, digits))
+  )
+}
+
+
+# was: skim(dat)
+skim_round(dat)
+
 ```
 
 
