@@ -66,6 +66,11 @@ With the same `options()` function in effect, the mathematical constant $\pi$ ca
 pi 
 ```
 
+```{r include=FALSE}
+options(digits = 2)
+```
+
+
 ```{r}
 4 * atan(1)
 ```

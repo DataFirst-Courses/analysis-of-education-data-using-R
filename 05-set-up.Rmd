@@ -1,0 +1,127 @@
+# (PART) Analysis {-}
+# Getting Started
+
+```{r}
+#| label: setup-styler
+#| echo: false
+#| message: false
+
+library(styler)
+knitr::opts_chunk$set(tidy = 'styler')
+library(magrittr)
+library(tidyselect)
+```
+
+## Introduction
+
+In this chapter, we want to provide a broad overview of the packages, data, and survey design objects we use in this course. Understanding how a survey was conducted helps us make sense of the results and interpret findings. Thus, we also provide background on the dataset used in examples and exercises. Next, we walk through how to create the survey design objects necessary to begin an analysis. Finally, we provide an overview of the {srvyr} package and the steps needed for analysis.
+
+## Setup
+
+This section gives details on the required packages, data, and the steps for preparing survey design objects. For a worthwhile learning experience, we recommend taking the time to walk through the code provided here and making sure everything is properly set up.
+
+### Packages
+
+Many functions in the examples and exercises are from three packages: {tidyverse}, {survey}, and {srvyr}.
+
+```{r}
+#| label: setup-install-core1
+#| eval: FALSE
+install.packages(c("tidyverse", "survey", "srvyr"))
+```
+
+After installing these packages, load them using the `library()` function:
+
+```{r}
+library(tidyverse)
+library(survey)
+library(srvyr)
+```
+
+The packages {broom}, {gt}, and {gtsummary} play a role in displaying output and creating formatted tables ([Iannone et al. 2025](https://tidy-survey-r.github.io/tidy-survey-book/c04-getting-started.html#ref-R-gt); [Robinson, Hayes, and Couch 2023](https://tidy-survey-r.github.io/tidy-survey-book/c04-getting-started.html#ref-R-broom); [Sjoberg et al. 2021](https://tidy-survey-r.github.io/tidy-survey-book/c04-getting-started.html#ref-gtsummarysjo)). Install them with the provided code.
+
+```{r}
+
+install.packages(c("gt", "gtsummary"))
+
+# Install these packages 
+library(broom)
+library(gt)
+library(gtsummary)
+```
+
+There are a few other packages we use in this course. We want introduce these packages later on.
+
+### ICAN-ICAR 2025 Data
+
+The People's Action for Learning (PAL) Network's household survey, the International Common Assessment of Numeracy (ICAN) and International Common Assessment of Reading (ICAR) is a citizen-led oral one-on-one assessement conducted in households across 12 countries (6 from Africa, 3 from Asia, and the rest from America). It assesses more than $89 000$ children across $59 000$ households on their foundational literacy and numeracy skills. The data is rich in policy-relevant variables, such as reading and mathermatics ability scores, minimum proficiency indicators, enrolment and grade, household composition, and assessment context.
+
+Before beginning an analysis, it is useful to view the data to understand the available variables. The `dplyr::glimpse()` function produces a list of all variables, their types (e.g., function, double), and a few example values.
+
+```{r}
+# Read the data
+icanicar_2025 = read_csv("data/ican-icar-2025-v1.csv")
+
+# Get a glimpse 
+icanicar_2025 |> 
+  glimpse()
+
+
+         
+```
+
+There are 96 542 rows and 147 variables in the ICAN-ICAR 2025 data. The output also indicates that most of the variables are doubles (numeric format) and a few characters.
+
+### Survey Design Object
+
+The design object is the backbone for survey analysis. It is where we specify the sampling design, weights, and other necessary information to ensure we account for errors in the data. Before creating the design object, we should carefully review the survey documentation to understand how to create the design object for accurate analysis. We use [DataFirst's metadata record](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/1132) on the ICAN-ICAR 2025 survey for this purpose.
+
+In this section, we provide details how to code the design object for the ICAN-ICAR 2025 survey. \@fig-pal-sampling-process illustrates the construction of survey design. While we recommend conducting exploratory data analysis on the original data before diving into complex survey analysis, the actual survey analysis and inference should be performed with the survey design objects instead of the original survey data. For example, the ICAN-ICAR 2025 data is called `icanicar_2025`. If we create a survey design object called `icanicar_des`, our survey analyses should begin with `icanicar_des` and not `icanicar_2025`. Using the survey design object ensures that our calculations appropriately account for the details of the survey design.
+
+The `icanicar_des` uses a stratified cluster sampling design. Therefore, we need to specify variables for `strata` and `ids` (cluster) and fill in the `nest` argument. In the first stage of the survey, Enumeration Areas (EAs) were selected as the primary sampling unit (PSUs) from the national sampling frames, attained from the country's government statistics agencies, using the probability proportional to size. The sample is stratified by the first-level administrative division (provinces, districts, etc.). In the second stage, 20 households were selected in each sampled EA. The planned sample size is 222 EAs per country and approximately 4440 households per country. More information is provided in the [metadata record](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/1132) for the dataset.
+
+```{r}
+#| label: fig-pal-sampling-process
+#| echo: false
+#| fig-cap: "Illustration of the ICAN-ICAR multi-stage sampling process."
+#| out-width: "100%"
+
+knitr::include_graphics("figs/samplingdesignchart2.png")
+```
+
+Survey weight approximates how many population units a sampled unit represents. In its simplest form, the design weight equals the inverse of the selection probability. If a household had a 1 in 500 chance of selection, its basic weight would be 500. In other words, that household represents 500 households in the population of interest. The ICAN-ICAR survey data includes a household weight variable, `HH_Weight_Provided`, which can be used for population estimate.
+
+To compensate for households that were selected but did not respond (or were missed), the weights are adjusted so that responding households “stand in” for similar households that did not respond. This may also involve post-stratification, that is, adjusting weights so that certain known totals (e.g. population by region, or by urban/rural) align with the population. These adjustments reduce bias from non-response and any sampling frame imperfections.
+
+Ignoring survey weights or clustering can make your analysis misrepresent both the population estimate and its uncertainty. If selection probabilities vary, unweighted summaries describe the sample rather than the population, whereas weighting targets the population by rebalancing each observation's contribution. Clustering also induces correlation within PSUs, thus treating the data as a random sample typically understates standard errors and produces confidence intervals that are too narrow. Survey-aware methods incorporates the design to estimate uncertainty correctly.
+
+```{r}
+#| eval: false
+
+icanicar_des = icanicar_2025 |>
+  mutate(
+    psu     = interaction(CountryName, VillageID, drop = TRUE),
+    stratum = interaction(CountryName, TierOneUnit, drop = TRUE)
+  ) |>
+  as_survey_design(
+    ids     = c(psu, HHID),      # stage 1 = village, stage 2 = household
+    strata  = stratum,
+    weights = HHWeightProvided,
+    nest    = TRUE
+  )
+```
+
+**`HHWeightProvided`** is the final household weight variable provided in the data. It incorporates all necessary adjustments (selection probabilities, non-response, post-stratification). On other hand, **`nest = TRUE`** is essential when cluster IDs are only unique within strata. It tells R that `VillageID` values can repeat across different strata/countries, and prevents R from treating EAs with the same ID in different countries as the same cluster.
+
+The new object displays that we have created "Stratified 2 - level Cluster Sampling design (with replacement)". It also shows the sampling variables and the list of remaining variables in the dataset. This design object is used throughout this course to conduct survey analysis.
+
+## Survey Analysis Process
+
+There is a general process for analyzing to create estimates with {srvyr} package:
+
+1.  Create a `tbl_svy` object (a survey object) using `as_survey_design`.
+2.  Subset data (if needed) using `filter()` to create subpopulations.
+3.  Specify domains of analysis using `group_by()`.
+4.  Within `summarise()`, specify variables to calculate, including means, totals, proportions, quantiles, and more.
+
+In the next chapter we take first steps in making sense of our survey results.
