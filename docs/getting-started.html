@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Getting Started | Analysis of Household Education Survey Data using R</title>
+  <meta name="description" content="Chapter 6 Getting Started | Analysis of Household Education Survey Data using R" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Getting Started | Analysis of Household Education Survey Data using R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Getting Started | Analysis of Household Education Survey Data using R" />
+  
+  
+  
+
+<meta name="author" content="African Foundational Learning Data Hub at DataFirst" />
+
+
+<meta name="date" content="2026-06-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro-to-data-wrangling-with-tidyverse.html"/>
+<link rel="next" href="understanding-distributions.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Analysis of Household Education Survey Data using R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#part-i---getting-started-in-r-chapters-2-3"><i class="fa fa-check"></i><b>1.1.1</b> Part I - Getting started in R (Chapters 2-3)</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#part-ii---exploring-and-preparing-data-chapters-4-6"><i class="fa fa-check"></i><b>1.1.2</b> Part II - Exploring and preparing data (Chapters 4-6)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#part-iii---describing-and-modelling-learning-outcomes-chapters-7---12"><i class="fa fa-check"></i><b>1.1.3</b> Part III - Describing and modelling learning outcomes (Chapters 7 - 12)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-you-need"><i class="fa fa-check"></i><b>1.2</b> What you need</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#rstudio-interface"><i class="fa fa-check"></i><b>2.1</b> RStudio interface</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#source-editor"><i class="fa fa-check"></i><b>2.1.1</b> Source/ Editor</a></li>
+<li class="chapter" data-level="2.1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#example-running-a-line-of-code-in-the-editor"><i class="fa fa-check"></i><b>2.1.2</b> Example: Running a line of code in the Editor</a></li>
+<li class="chapter" data-level="2.1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#console"><i class="fa fa-check"></i><b>2.1.3</b> Console</a></li>
+<li class="chapter" data-level="2.1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#environment-tab"><i class="fa fa-check"></i><b>2.1.4</b> Environment Tab</a></li>
+<li class="chapter" data-level="2.1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#history-tab"><i class="fa fa-check"></i><b>2.1.5</b> History Tab</a></li>
+<li class="chapter" data-level="2.1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#files-tab"><i class="fa fa-check"></i><b>2.1.6</b> Files Tab</a></li>
+<li class="chapter" data-level="2.1.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#plots-tab"><i class="fa fa-check"></i><b>2.1.7</b> Plots Tab</a></li>
+<li class="chapter" data-level="2.1.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#packages-tab"><i class="fa fa-check"></i><b>2.1.8</b> Packages Tab</a></li>
+<li class="chapter" data-level="2.1.9" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#help-tab"><i class="fa fa-check"></i><b>2.1.9</b> Help Tab</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#organize-your-r-session"><i class="fa fa-check"></i><b>2.2</b> Organize your R session</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#working-directory-where-r-looks-for-your-files"><i class="fa fa-check"></i><b>2.2.1</b> Working Directory: Where R Looks for Your Files</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-and-loading-packages-libraries"><i class="fa fa-check"></i><b>2.2.2</b> Installing and Loading Packages (Libraries)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#comments-in-r"><i class="fa fa-check"></i><b>2.2.3</b> Comments in R</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#common-mistakes-and-quick-fixes"><i class="fa fa-check"></i><b>2.2.4</b> Common mistakes and quick fixes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#getting-help"><i class="fa fa-check"></i><b>2.3</b> Getting help</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#operators-in-r"><i class="fa fa-check"></i><b>2.4</b> Operators in R</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#basic-arithmetic-operators"><i class="fa fa-check"></i><b>2.4.1</b> Basic arithmetic operators</a></li>
+<li class="chapter" data-level="2.4.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#assignment-operator"><i class="fa fa-check"></i><b>2.4.2</b> Assignment operator</a></li>
+<li class="chapter" data-level="2.4.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#sequence-operator"><i class="fa fa-check"></i><b>2.4.3</b> Sequence operator</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.5</b> Objects in R</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#managing-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Managing the workspace</a></li>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#some-language-features"><i class="fa fa-check"></i><b>2.7</b> Some language features</a></li>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#test-your-knowledge"><i class="fa fa-check"></i><b>2.8</b> Test your knowledge</a></li>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#session-information"><i class="fa fa-check"></i><b>2.9</b> Session information</a></li>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#acknowledgements"><i class="fa fa-check"></i><b>2.10</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#scalar-arithmetic"><i class="fa fa-check"></i><b>3.1</b> Scalar Arithmetic</a></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#vector-arithmetic"><i class="fa fa-check"></i><b>3.2</b> Vector Arithmetic</a></li>
+<li class="chapter" data-level="3.3" data-path="r-basics.html"><a href="r-basics.html#matrices-and-matrix-functions"><i class="fa fa-check"></i><b>3.3</b> Matrices and Matrix Functions</a></li>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#data-frame"><i class="fa fa-check"></i><b>3.4</b> Data Frame</a></li>
+<li class="chapter" data-level="3.5" data-path="r-basics.html"><a href="r-basics.html#missing-values"><i class="fa fa-check"></i><b>3.5</b> Missing Values</a></li>
+<li class="chapter" data-level="3.6" data-path="r-basics.html"><a href="r-basics.html#control-flow"><i class="fa fa-check"></i><b>3.6</b> Control Flow</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="r-basics.html"><a href="r-basics.html#logical-operators"><i class="fa fa-check"></i><b>3.6.1</b> Logical Operators</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-basics.html"><a href="r-basics.html#if-statement"><i class="fa fa-check"></i><b>3.6.2</b> <code>if</code> statement</a></li>
+<li class="chapter" data-level="3.6.3" data-path="r-basics.html"><a href="r-basics.html#for-loop"><i class="fa fa-check"></i><b>3.6.3</b> <code>for</code> loop</a></li>
+<li class="chapter" data-level="3.6.4" data-path="r-basics.html"><a href="r-basics.html#for-loop-with-an-if-statement"><i class="fa fa-check"></i><b>3.6.4</b> <code>for</code> loop with an <code>if</code> statement</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>4</b> Intro to ggplot</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#what-is-ggplot2"><i class="fa fa-check"></i><b>4.1</b> What is ggplot2?</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#optional-grammar-of-graphics-background"><i class="fa fa-check"></i><b>4.1.1</b> Optional: Grammar of Graphics (background)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-main-pieces-of-ggplot2"><i class="fa fa-check"></i><b>4.2</b> The main pieces of ggplot2</a></li>
+<li class="chapter" data-level="4.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#building-your-first-plot-data-aes-geom"><i class="fa fa-check"></i><b>4.3</b> Building your first plot: data → aes → geom</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-1-choose-the-data"><i class="fa fa-check"></i><b>4.3.1</b> Step 1: Choose the data</a></li>
+<li class="chapter" data-level="4.3.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-2-map-variables-with-aes"><i class="fa fa-check"></i><b>4.3.2</b> Step 2: Map variables with <code>aes()</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#step-3-add-a-geometry-with-geom_point"><i class="fa fa-check"></i><b>4.3.3</b> Step 3: Add a geometry with <code>geom_point()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#aesthetics-colour-shape-size"><i class="fa fa-check"></i><b>4.4</b> Aesthetics: colour, shape, size</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-shape-to-a-variable"><i class="fa fa-check"></i><b>4.4.1</b> Mapping shape to a variable</a></li>
+<li class="chapter" data-level="4.4.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-colour-to-a-variable"><i class="fa fa-check"></i><b>4.4.2</b> Mapping colour to a variable</a></li>
+<li class="chapter" data-level="4.4.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#mapping-size-to-a-variable-e.g.-age"><i class="fa fa-check"></i><b>4.4.3</b> Mapping size to a variable (e.g., age)</a></li>
+<li class="chapter" data-level="4.4.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#using-a-categorical-variable"><i class="fa fa-check"></i><b>4.4.4</b> Using a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#aesthetic-mapping-vs-fixed-settings-some-nuance"><i class="fa fa-check"></i><b>4.5</b> Aesthetic mapping vs fixed settings (some nuance)</a></li>
+<li class="chapter" data-level="4.6" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#small-polish-labels-and-a-simple-theme"><i class="fa fa-check"></i><b>4.6</b> Small polish: labels and a simple theme</a></li>
+<li class="chapter" data-level="4.7" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#practice-test-your-knowledge-with-mpg"><i class="fa fa-check"></i><b>4.7</b> Practice: Test your knowledge with <code>mpg</code></a></li>
+<li class="chapter" data-level="4.8" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#saving-plots-to-files-with-ggsave"><i class="fa fa-check"></i><b>4.8</b> Saving plots to files with <code>ggsave()</code></a></li>
+<li class="chapter" data-level="4.9" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#useful-resources"><i class="fa fa-check"></i><b>4.9</b> Useful resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html"><i class="fa fa-check"></i><b>5</b> Intro to data wrangling with tidyverse</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#what-makes-the-tidyverse-special"><i class="fa fa-check"></i><b>5.1</b> What makes the tidyverse special?</a></li>
+<li class="chapter" data-level="5.2" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#why-learn-dplyr-first"><i class="fa fa-check"></i><b>5.2</b> Why learn dplyr first?</a></li>
+<li class="chapter" data-level="5.3" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i><b>5.3</b> Data wrangling with dplyr</a></li>
+<li class="chapter" data-level="5.4" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#import-data"><i class="fa fa-check"></i><b>5.4</b> Import Data</a></li>
+<li class="chapter" data-level="5.5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#working-with-tibbles"><i class="fa fa-check"></i><b>5.5</b> Working with Tibbles</a></li>
+<li class="chapter" data-level="5.6" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#the-five-key-dplyr-verbs"><i class="fa fa-check"></i><b>5.6</b> The Five Key dplyr Verbs</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#filtering-rows-with-filter"><i class="fa fa-check"></i><b>5.6.1</b> Filtering rows with <code>filter()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#introducing-the-pipe"><i class="fa fa-check"></i><b>5.6.2</b> Introducing the pipe</a></li>
+<li class="chapter" data-level="5.6.3" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#arranging-rows-with-arrange"><i class="fa fa-check"></i><b>5.6.3</b> Arranging rows with <code>arrange()</code></a></li>
+<li class="chapter" data-level="5.6.4" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#selecting-columns-with-select"><i class="fa fa-check"></i><b>5.6.4</b> Selecting columns with <code>select()</code></a></li>
+<li class="chapter" data-level="5.6.5" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#adding-new-variables-with-mutate"><i class="fa fa-check"></i><b>5.6.5</b> Adding new variables with <code>mutate()</code></a></li>
+<li class="chapter" data-level="5.6.6" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#aggregating-over-rows-with-summarise"><i class="fa fa-check"></i><b>5.6.6</b> Aggregating over rows with <code>summarise()</code></a></li>
+<li class="chapter" data-level="5.6.7" data-path="intro-to-data-wrangling-with-tidyverse.html"><a href="intro-to-data-wrangling-with-tidyverse.html#sources-and-references"><i class="fa fa-check"></i><b>5.6.7</b> Sources and references</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Analysis</b></span></li>
+<li class="chapter" data-level="6" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>6</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="getting-started.html"><a href="getting-started.html#introduction-1"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="getting-started.html"><a href="getting-started.html#setup"><i class="fa fa-check"></i><b>6.2</b> Setup</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="getting-started.html"><a href="getting-started.html#packages"><i class="fa fa-check"></i><b>6.2.1</b> Packages</a></li>
+<li class="chapter" data-level="6.2.2" data-path="getting-started.html"><a href="getting-started.html#ican-icar-2025-data"><i class="fa fa-check"></i><b>6.2.2</b> ICAN-ICAR 2025 Data</a></li>
+<li class="chapter" data-level="6.2.3" data-path="getting-started.html"><a href="getting-started.html#survey-design-object"><i class="fa fa-check"></i><b>6.2.3</b> Survey Design Object</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="getting-started.html"><a href="getting-started.html#survey-analysis-process"><i class="fa fa-check"></i><b>6.3</b> Survey Analysis Process</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="understanding-distributions.html"><a href="understanding-distributions.html"><i class="fa fa-check"></i><b>7</b> Understanding distributions</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#getting-oriented-to-the-data"><i class="fa fa-check"></i><b>7.1</b> Getting oriented to the data</a></li>
+<li class="chapter" data-level="7.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#levels-of-measurement"><i class="fa fa-check"></i><b>7.2</b> Levels of measurement</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#continuous-level"><i class="fa fa-check"></i><b>7.2.1</b> Continuous level</a></li>
+<li class="chapter" data-level="7.2.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#ordinal-level"><i class="fa fa-check"></i><b>7.2.2</b> Ordinal level</a></li>
+<li class="chapter" data-level="7.2.3" data-path="understanding-distributions.html"><a href="understanding-distributions.html#categorical-level"><i class="fa fa-check"></i><b>7.2.3</b> Categorical level</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-summaries-using-the-survey-design"><i class="fa fa-check"></i><b>7.3</b> Weighted summaries using the survey design</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-proportions-and-means"><i class="fa fa-check"></i><b>7.3.1</b> Weighted proportions and means</a></li>
+<li class="chapter" data-level="7.3.2" data-path="understanding-distributions.html"><a href="understanding-distributions.html#weighted-frequency-tables"><i class="fa fa-check"></i><b>7.3.2</b> Weighted frequency tables</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="understanding-distributions.html"><a href="understanding-distributions.html#household-level-variables-in-a-child-level-file"><i class="fa fa-check"></i><b>7.4</b> Household-level variables in a child-level file</a></li>
+<li class="chapter" data-level="7.5" data-path="understanding-distributions.html"><a href="understanding-distributions.html#missing-data-and-skip-patterns"><i class="fa fa-check"></i><b>7.5</b> Missing data and skip patterns</a></li>
+<li class="chapter" data-level="7.6" data-path="understanding-distributions.html"><a href="understanding-distributions.html#practice-exercise"><i class="fa fa-check"></i><b>7.6</b> Practice Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html"><i class="fa fa-check"></i><b>8</b> Central Tendency and Dispersion</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#central-tendency"><i class="fa fa-check"></i><b>8.1</b> Central tendency</a></li>
+<li class="chapter" data-level="8.2" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#dispersion"><i class="fa fa-check"></i><b>8.2</b> Dispersion</a></li>
+<li class="chapter" data-level="8.3" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#weighted-design-correct-summaries"><i class="fa fa-check"></i><b>8.3</b> Weighted, design-correct summaries</a></li>
+<li class="chapter" data-level="8.4" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#outliers-and-the-unit-of-analysis"><i class="fa fa-check"></i><b>8.4</b> Outliers and the unit of analysis</a></li>
+<li class="chapter" data-level="8.5" data-path="central-tendency-and-dispersion.html"><a href="central-tendency-and-dispersion.html#practice-exercises"><i class="fa fa-check"></i><b>8.5</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html"><i class="fa fa-check"></i><b>9</b> Bivariate Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#choosing-the-right-bivariate-tool"><i class="fa fa-check"></i><b>9.1</b> Choosing the right bivariate tool</a></li>
+<li class="chapter" data-level="9.2" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#categorical-categorical-cross-tabulations"><i class="fa fa-check"></i><b>9.2</b> Categorical × categorical: cross-tabulations</a></li>
+<li class="chapter" data-level="9.3" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#continuous-categorical-comparing-group-means"><i class="fa fa-check"></i><b>9.3</b> Continuous × categorical: comparing group means</a></li>
+<li class="chapter" data-level="9.4" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#continuous-continuous-scatterplots-and-trends"><i class="fa fa-check"></i><b>9.4</b> Continuous × continuous: scatterplots and trends</a></li>
+<li class="chapter" data-level="9.5" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#testing-association-with-chi-squared-tests"><i class="fa fa-check"></i><b>9.5</b> Testing association with chi-squared tests</a></li>
+<li class="chapter" data-level="9.6" data-path="bivariate-analysis.html"><a href="bivariate-analysis.html#practice-exercises-1"><i class="fa fa-check"></i><b>9.6</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#preparing-variables-for-analysis"><i class="fa fa-check"></i><b>10.1</b> Preparing variables for analysis</a></li>
+<li class="chapter" data-level="10.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#correlation-and-simple-regression"><i class="fa fa-check"></i><b>10.2</b> Correlation and simple regression</a></li>
+<li class="chapter" data-level="10.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#survey-weighted-regression-for-population-inference"><i class="fa fa-check"></i><b>10.3</b> Survey-weighted regression for population inference</a></li>
+<li class="chapter" data-level="10.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#practice-exercises-2"><i class="fa fa-check"></i><b>10.4</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#the-multiple-regression-model-and-its-interpretation"><i class="fa fa-check"></i><b>11.1</b> The multiple regression model and its interpretation</a></li>
+<li class="chapter" data-level="11.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#data-and-analysis-sample"><i class="fa fa-check"></i><b>11.2</b> Data and analysis sample</a></li>
+<li class="chapter" data-level="11.3" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#building-a-multiple-regression-model"><i class="fa fa-check"></i><b>11.3</b> Building a multiple regression model</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#comparing-coefficients-across-models"><i class="fa fa-check"></i><b>11.3.1</b> Comparing coefficients across models</a></li>
+<li class="chapter" data-level="11.3.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#interpreting-categorical-predictors"><i class="fa fa-check"></i><b>11.3.2</b> Interpreting categorical predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#extensions-interactions-and-non-linear-effects"><i class="fa fa-check"></i><b>11.4</b> Extensions: interactions and non-linear effects</a></li>
+<li class="chapter" data-level="11.5" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#reporting-results"><i class="fa fa-check"></i><b>11.5</b> Reporting results</a></li>
+<li class="chapter" data-level="11.6" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#practice-exercises-3"><i class="fa fa-check"></i><b>11.6</b> Practice exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>12</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="logistic-regression.html"><a href="logistic-regression.html#what-logistic-regression-models"><i class="fa fa-check"></i><b>12.1</b> What logistic regression models</a></li>
+<li class="chapter" data-level="12.2" data-path="logistic-regression.html"><a href="logistic-regression.html#simple-versus-multiple-logistic-regression"><i class="fa fa-check"></i><b>12.2</b> Simple versus multiple logistic regression</a></li>
+<li class="chapter" data-level="12.3" data-path="logistic-regression.html"><a href="logistic-regression.html#data"><i class="fa fa-check"></i><b>12.3</b> Data</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="logistic-regression.html"><a href="logistic-regression.html#import-subset-and-keep-only-needed-variables"><i class="fa fa-check"></i><b>12.3.1</b> Import, subset, and keep only needed variables</a></li>
+<li class="chapter" data-level="12.3.2" data-path="logistic-regression.html"><a href="logistic-regression.html#recode-variables-labels-reference-levels"><i class="fa fa-check"></i><b>12.3.2</b> Recode variables (labels + reference levels)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="logistic-regression.html"><a href="logistic-regression.html#why-we-need-survey-design-information"><i class="fa fa-check"></i><b>12.3.3</b> Why we need survey design information</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="logistic-regression.html"><a href="logistic-regression.html#simple-logistic-regression"><i class="fa fa-check"></i><b>12.4</b> Simple Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="logistic-regression.html"><a href="logistic-regression.html#continuous-predictor-childs-age"><i class="fa fa-check"></i><b>12.4.1</b> Continuous predictor: child’s age</a></li>
+<li class="chapter" data-level="12.4.2" data-path="logistic-regression.html"><a href="logistic-regression.html#categorical-predictor-example-books"><i class="fa fa-check"></i><b>12.4.2</b> Categorical predictor example: Books</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="logistic-regression.html"><a href="logistic-regression.html#multiple-binary-logistic-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple binary logistic regression</a></li>
+<li class="chapter" data-level="12.6" data-path="logistic-regression.html"><a href="logistic-regression.html#interaction"><i class="fa fa-check"></i><b>12.6</b> Interaction</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="logistic-regression.html"><a href="logistic-regression.html#interpretation-of-age-sex-and-the-agesex-interaction"><i class="fa fa-check"></i><b>12.6.1</b> Interpretation of age, sex, and the age*sex interaction</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="logistic-regression.html"><a href="logistic-regression.html#reporting-results-1"><i class="fa fa-check"></i><b>12.7</b> Reporting Results</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Household Education Survey Data using R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="getting-started" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Getting Started<a href="getting-started.html#getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-1" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Introduction<a href="getting-started.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this chapter, we want to provide a broad overview of the packages, data, and survey design objects we use in this course. Understanding how a survey was conducted helps us make sense of the results and interpret findings. Thus, we also provide background on the dataset used in examples and exercises. Next, we walk through how to create the survey design objects necessary to begin an analysis. Finally, we provide an overview of the {srvyr} package and the steps needed for analysis.</p>
+</div>
+<div id="setup" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Setup<a href="getting-started.html#setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This section gives details on the required packages, data, and the steps for preparing survey design objects. For a worthwhile learning experience, we recommend taking the time to walk through the code provided here and making sure everything is properly set up.</p>
+<div id="packages" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Packages<a href="getting-started.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Many functions in the examples and exercises are from three packages: {tidyverse}, {survey}, and {srvyr}.</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="getting-started.html#cb333-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;survey&quot;</span>, <span class="st">&quot;srvyr&quot;</span>))</span></code></pre></div>
+<p>After installing these packages, load them using the <code>library()</code> function:</p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="getting-started.html#cb334-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb334-2"><a href="getting-started.html#cb334-2" tabindex="-1"></a><span class="fu">library</span>(survey)</span>
+<span id="cb334-3"><a href="getting-started.html#cb334-3" tabindex="-1"></a><span class="fu">library</span>(srvyr)</span></code></pre></div>
+<p>The packages {broom}, {gt}, and {gtsummary} play a role in displaying output and creating formatted tables (<a href="https://tidy-survey-r.github.io/tidy-survey-book/c04-getting-started.html#ref-R-gt">Iannone et al. 2025</a>; <a href="https://tidy-survey-r.github.io/tidy-survey-book/c04-getting-started.html#ref-R-broom">Robinson, Hayes, and Couch 2023</a>; <a href="https://tidy-survey-r.github.io/tidy-survey-book/c04-getting-started.html#ref-gtsummarysjo">Sjoberg et al. 2021</a>). Install them with the provided code.</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="getting-started.html#cb335-1" tabindex="-1"></a><span class="co"># Install these packages</span></span>
+<span id="cb335-2"><a href="getting-started.html#cb335-2" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb335-3"><a href="getting-started.html#cb335-3" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb335-4"><a href="getting-started.html#cb335-4" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span></code></pre></div>
+<p>There are a few other packages we use in this course. We want introduce these packages later on.</p>
+</div>
+<div id="ican-icar-2025-data" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> ICAN-ICAR 2025 Data<a href="getting-started.html#ican-icar-2025-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The People’s Action for Learning (PAL) Network’s household survey, the International Common Assessment of Numeracy (ICAN) and International Common Assessment of Reading (ICAR) is a citizen-led oral one-on-one assessement conducted in households across 12 countries (6 from Africa, 3 from Asia, and the rest from America). It assesses more than <span class="math inline">\(89 000\)</span> children across <span class="math inline">\(59 000\)</span> households on their foundational literacy and numeracy skills. The data is rich in policy-relevant variables, such as reading and mathermatics ability scores, minimum proficiency indicators, enrolment and grade, household composition, and assessment context.</p>
+<p>Before beginning an analysis, it is useful to view the data to understand the available variables. The <code>dplyr::glimpse()</code> function produces a list of all variables, their types (e.g., function, double), and a few example values.</p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="getting-started.html#cb336-1" tabindex="-1"></a><span class="co"># Read the data</span></span>
+<span id="cb336-2"><a href="getting-started.html#cb336-2" tabindex="-1"></a>icanicar_2025 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/ican-icar-2025-v1.csv&quot;</span>)</span>
+<span id="cb336-3"><a href="getting-started.html#cb336-3" tabindex="-1"></a></span>
+<span id="cb336-4"><a href="getting-started.html#cb336-4" tabindex="-1"></a><span class="co"># Get a glimpse</span></span>
+<span id="cb336-5"><a href="getting-started.html#cb336-5" tabindex="-1"></a>icanicar_2025 <span class="sc">|&gt;</span></span>
+<span id="cb336-6"><a href="getting-started.html#cb336-6" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div>
+<pre><code>## Rows: 96,452
+## Columns: 147
+## $ ...1                 &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 4…
+## $ CountryName          &lt;chr&gt; &quot;Mozambique&quot;, &quot;Mozambique&quot;, &quot;Mozambique&quot;, &quot;Mozambique&quot;, &quot;Mozambique&quot;, &quot;Mozambique&quot;, &quot;Mozambique&quot;, &quot;Mozambique&quot;, &quot;Mozambique&quot;, &quot;Mozambique&quot;, &quot;Mozambique&quot;…
+## $ TierOneUnit          &lt;chr&gt; &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, …
+## $ VillageID            &lt;chr&gt; &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, &quot;c101&quot;, …
+## $ Location             &lt;chr&gt; &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;,…
+## $ HHID                 &lt;chr&gt; &quot;uuid:f5808f62-6a22-4247-ae68-9eb891657449&quot;, &quot;uuid:b98e2157-5941-457c-8249-cea77f3c4b47&quot;, &quot;uuid:26117653-2d45-474f-a7ea-6fa591e1bfe7&quot;, &quot;uuid:d46bcfd9-f3…
+## $ SubmissionDate       &lt;date&gt; 2025-09-23, 2025-09-23, 2025-09-23, 2025-09-23, 2025-09-23, 2025-09-23, 2025-09-23, 2025-09-23, 2025-09-23, 2025-09-24, 2025-09-24, 2025-09-24, 2025-09…
+## $ duration             &lt;dbl&gt; 979, 986, 2167, 2078, 1251, 2199, 2889, 1588, 2203, 4647, 1916, 2110, 1029, 5938, 1240, 755, 1029, 2511, 2868, 1135, 2167, 2167, 2078, 2889, 2203, 4647,…
+## $ hh06a                &lt;dbl&gt; 4, 7, 6, 6, 5, 5, 5, 4, 4, 5, 7, 9, 5, 13, 5, 6, 6, 7, 8, 8, 6, 6, 6, 5, 4, 5, 9, 13, 13, 13, 13, 13, 7, 7, 8, 8, 8, 8, 9, 5, 8, 7, 7, 4, 7, 4, 9, 5, 9,…
+## $ hh06b1               &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ hh06b2               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ hh06c                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ hh06d                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ hh07a                &lt;dbl&gt; 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 3, 2, 2, 2, 3, 2,…
+## $ hh07b                &lt;dbl&gt; 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 3, 2, 2, 2, 3, 2,…
+## $ hh07c                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ hh07d                &lt;dbl&gt; 1, 1, 1, 4, 4, 4, 1, 1, 4, 4, 3, 4, 7, 3, 1, 4, 1, 6, 1, 1, 1, 1, 4, 1, 4, 4, 4, 3, 3, 3, 3, 3, 6, 6, 1, 1, 1, 1, 4, 3, 4, 4, 1, 1, 1, 4, 4, 4, 4, 4, 4,…
+## $ hh07e                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ hh07f                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ hh07g                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0,…
+## $ hh07h                &lt;dbl&gt; 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0,…
+## $ hh07i                &lt;dbl&gt; 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0,…
+## $ hh07j                &lt;dbl&gt; 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0,…
+## $ hh07k                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,…
+## $ hh07l                &lt;dbl&gt; 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0,…
+## $ hh07m                &lt;dbl&gt; 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ hh07n                &lt;dbl&gt; 0, 0, 1, 0, NA, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0…
+## $ hh07o                &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0,…
+## $ hh07p                &lt;dbl&gt; 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ hh07p_3              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ hh07q                &lt;dbl&gt; 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ ChildID              &lt;chr&gt; &quot;uuid:f5808f62-6a22-4247-ae68-9eb891657449_child1&quot;, &quot;uuid:b98e2157-5941-457c-8249-cea77f3c4b47_child1&quot;, &quot;uuid:26117653-2d45-474f-a7ea-6fa591e1bfe7_child…
+## $ ch02                 &lt;dbl&gt; 8, 12, 8, 9, 10, 13, 8, 8, 16, 8, 7, 9, 10, 7, 11, 15, 13, 13, 15, 14, 8, 12, 14, 13, 9, 14, 12, 6, 10, 13, 16, 14, 9, 7, 16, 8, 11, 8, 12, 10, 12, 9, 8…
+## $ ch03                 &lt;dbl&gt; 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 1, 2, 2, 2, 1, 1, 2, 2, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 1, 1, 2, 2, 1, 1, 2, 1, 1, 2,…
+## $ ch04a                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ ch04b                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ ch04c                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ ch04d                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ ch04e                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ ch04f                &lt;dbl&gt; 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 3, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ ch05                 &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ ch06a                &lt;dbl&gt; 4, 6, 3, 5, 2, 7, 3, 3, 10, 1, 2, 2, 4, 2, NA, 8, 6, 8, 10, 8, 3, 8, 5, 7, 4, 8, 5, 2, 4, 8, 11, 10, 4, 3, 11, 3, 6, 4, 7, 5, 7, 5, 3, 1, 9, 1, 8, 7, 8,…
+## $ ch06b                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, NA, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ ch06c                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, NA, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ ch06d                &lt;dbl&gt; 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, NA, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0…
+## $ ch06e                &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1…
+## $ ch07a                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ ch07b                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ ch07c                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ ch07d                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ ch08                 &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0,…
+## $ ch09                 &lt;dbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ ch10a                &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, NA, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1…
+## $ ch10b                &lt;dbl&gt; 2, 3, 4, NA, NA, NA, NA, 1, 1, 1, 7, NA, 7, 7, NA, 2, 4, 1, 3, NA, 4, 5, NA, NA, 3, 7, NA, 2, 7, 7, 7, 3, 1, 5, 2, 2, 3, NA, NA, 2, NA, NA, NA, 1, 2, 2,…
+## $ ch10c                &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 0, 0, 0, 2, 2, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ pt00                 &lt;dbl&gt; 1, 1, 3, 3, 3, 0, 3, 3, 3, 2, 0, 0, 1, 0, 3, 1, 0, 2, 0, 1, 1, 0, 0, 0, 3, 2, 0, 1, 1, 1, 0, 1, 2, 2, 1, 1, 1, 1, 0, 3, 3, 3, 3, 3, 3, 3, 2, 1, 2, 1, 1,…
+## $ pt01b                &lt;dbl&gt; 28, 40, 47, 26, 36, NA, 52, 26, 36, NA, NA, NA, 26, NA, 26, 34, NA, NA, NA, 32, 26, 36, 36, 52, 36, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 32, …
+## $ pt01c                &lt;dbl&gt; 1, 1, 1, 0, 0, NA, 1, 1, 0, NA, NA, NA, 1, NA, 0, 1, NA, NA, NA, 1, 1, 1, 0, 1, 0, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 1, 1, 1, 1, 0,…
+## $ pt01d                &lt;dbl&gt; 1, 1, 1, NA, NA, NA, 1, 1, NA, NA, NA, NA, 1, NA, NA, 1, NA, NA, NA, 2, 2, 1, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, 3, 2, 1,…
+## $ pt01e                &lt;dbl&gt; 0, 0, 0, 0, 0, NA, 0, 1, 0, NA, NA, NA, 1, NA, 0, 1, NA, NA, NA, 1, 1, 1, 0, 0, 0, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 1, 1, 0, 1, 1,…
+## $ pt01f                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 4, NA, NA, NA, NA, 3, NA, NA, 3, NA, NA, NA, 4, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, 3…
+## $ pt02b                &lt;dbl&gt; NA, NA, 63, 30, 50, NA, 59, 31, 43, 40, NA, NA, NA, NA, 42, NA, NA, 30, NA, NA, 38, 43, 41, 59, 43, 40, NA, NA, NA, NA, NA, NA, 30, 30, NA, NA, NA, NA, …
+## $ pt02c                &lt;dbl&gt; NA, NA, 1, 1, 1, NA, 1, 1, 1, 1, NA, NA, NA, NA, 1, NA, NA, 1, NA, NA, 1, 1, 1, 1, 1, 1, NA, NA, NA, NA, NA, NA, 1, 1, NA, NA, NA, NA, NA, 1, 1, 1, 1, 1…
+## $ pt02d                &lt;dbl&gt; NA, NA, 2, 2, 1, NA, 2, 2, 2, 2, NA, NA, NA, NA, 2, NA, NA, 2, NA, NA, 2, 1, 0, 2, 2, 2, NA, NA, NA, NA, NA, NA, 2, 2, NA, NA, NA, NA, NA, 3, 2, 2, 2, 2…
+## $ pt02e                &lt;dbl&gt; NA, NA, 1, 1, 1, NA, 1, 1, 1, 1, NA, NA, NA, NA, 1, NA, NA, 1, NA, NA, 1, 1, 1, 1, 1, 1, NA, NA, NA, NA, NA, NA, 1, 1, NA, NA, NA, NA, NA, 1, 0, 0, 1, 1…
+## $ pt02f                &lt;dbl&gt; NA, NA, 4, 4, 3, NA, 4, 4, 4, 1, NA, NA, NA, NA, 3, NA, NA, 4, NA, NA, 4, 4, 2, 4, 4, 1, NA, NA, NA, NA, NA, NA, 4, 4, NA, NA, NA, NA, NA, 3, NA, NA, 4,…
+## $ assessment           &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ sample               &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 2, 2,…
+## $ l1_1                 &lt;dbl&gt; 1, 2, 0, 2, 1, 1, 1, 2, 2, 2, 2, 1, 0, 0, 2, 1, 2, 2, 2, 0, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 1, 1, 2, 2, 2, 2, 1, 2, 2, 2, 0, 2, 2, 2, 1, 2,…
+## $ l1_2                 &lt;dbl&gt; 1, 2, 0, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 0, 2, 1, 1, 2, 2, 1, 2, 1, 2, 2, 2, 1, 1, 2, 1, 2, 2, 2, 1, 2, 2, 1, 0, 2, 1, 2, 2, 1, 2, 2, 2, 0, 2, 1, 2, 1, 2,…
+## $ l1_3                 &lt;dbl&gt; 1, 1, 0, 2, 1, 1, 2, 2, 2, 0, 2, 2, 1, 0, 2, 1, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 0, 2, 1, 2, 1, 2,…
+## $ l1_4                 &lt;dbl&gt; 1, 2, 0, 2, 1, 1, 2, 2, 1, 1, 2, 1, 0, 0, 2, 1, 1, 2, 2, 1, 1, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 2, 2, 2, 0, 2, 1, 2, 1, 2,…
+## $ l2_1                 &lt;dbl&gt; 0, 2, 0, 2, 1, 2, 0, 2, 2, 1, 1, 0, 2, 0, 2, 2, 2, 2, 2, 1, 0, 2, 2, 2, 0, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 2, 2, 2,…
+## $ l2_2                 &lt;dbl&gt; 0, 1, 0, 2, 1, 2, 2, 2, 2, 1, 1, 0, 1, 0, 2, 1, 1, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 1, 2, 2, 2, 0, 2, 2, 2, 1, 2,…
+## $ l2_3                 &lt;dbl&gt; 0, 2, 0, 2, 1, 2, 2, 2, 2, 1, 1, 1, 1, 0, 2, 1, 1, 2, 2, 1, 0, 2, 2, 2, 0, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 0, 0,…
+## $ l2_4                 &lt;dbl&gt; 0, 2, 0, 2, 1, 1, 1, 2, 2, 1, 1, 1, 1, 0, 2, 1, 1, 2, 2, 1, 0, 2, 2, 2, 0, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 0, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 0, 1,…
+## $ l2_5                 &lt;dbl&gt; 0, 2, 0, 2, 1, 1, 1, 2, 2, 0, 1, 1, 1, 0, 2, 1, 1, 2, 2, 1, 0, 2, 2, 2, 0, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 0, 2, 2, 2, 1, 0, 0, 2, 0, 2, 2, 2, 1, 1,…
+## $ l3_1                 &lt;dbl&gt; NA, 2, NA, 2, NA, 0, NA, 2, 1, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 2, NA,…
+## $ l3_2                 &lt;dbl&gt; NA, 2, NA, 2, NA, 0, NA, 2, 1, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 2, NA,…
+## $ l3_3                 &lt;dbl&gt; NA, 2, NA, 2, NA, 0, NA, 2, 2, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 2, NA,…
+## $ l3_4                 &lt;dbl&gt; NA, 2, NA, 2, NA, 0, NA, 2, 2, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 0, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 2, NA,…
+## $ l3_5                 &lt;dbl&gt; NA, 2, NA, 2, NA, 0, NA, 2, 1, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 2, NA,…
+## $ l4_1                 &lt;dbl&gt; NA, 2, NA, 2, NA, 2, NA, 2, 2, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 2, NA,…
+## $ l4_2                 &lt;dbl&gt; NA, 2, NA, 2, NA, 1, NA, 2, 2, NA, NA, NA, NA, NA, 2, NA, NA, 2, 1, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 1, NA,…
+## $ l4_3                 &lt;dbl&gt; NA, 2, NA, 2, NA, 2, NA, 2, 2, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 2, NA,…
+## $ l4_4                 &lt;dbl&gt; NA, 2, NA, 2, NA, 2, NA, 2, 2, NA, NA, NA, NA, NA, 2, NA, NA, 2, 1, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 2, NA,…
+## $ l4_5                 &lt;dbl&gt; NA, 2, NA, 2, NA, 1, NA, 2, 2, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 2, NA,…
+## $ l4_6                 &lt;dbl&gt; NA, 2, NA, 2, NA, 2, NA, 2, 1, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 2, 2, 2, NA,…
+## $ l5_1                 &lt;dbl&gt; NA, 2, NA, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, 1, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 0, 2, 2, N…
+## $ l5_2                 &lt;dbl&gt; NA, 2, NA, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, 1, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, 2, 2, NA, NA, NA, 0, 2, 2, N…
+## $ l5_3                 &lt;dbl&gt; NA, 2, NA, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, 2, 2, NA, NA, NA, 0, 0, 2, N…
+## $ l5_4                 &lt;dbl&gt; NA, 2, NA, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, 0, 2, 2, N…
+## $ l5_5                 &lt;dbl&gt; NA, 2, NA, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, 0, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, 1, 2, NA, NA, NA, 0, 2, 2, N…
+## $ l6_1                 &lt;dbl&gt; NA, 2, NA, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, NA, 2, 2, …
+## $ l6_2                 &lt;dbl&gt; NA, 2, NA, 1, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, 1, 2, NA, NA, NA, NA, 2, 2, …
+## $ l6_3                 &lt;dbl&gt; NA, 2, NA, 1, NA, NA, NA, 1, NA, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, 2, 2, NA, NA, NA, NA, 2, 2, …
+## $ l6_4                 &lt;dbl&gt; NA, 2, NA, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, 2, 2, NA, NA, NA, NA, 2, 2, …
+## $ l6_5                 &lt;dbl&gt; NA, 2, NA, 2, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, 2, NA, NA, 2, 2, NA, NA, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, 2, 2, NA, NA, NA, NA, 2, 2, …
+## $ n1                   &lt;dbl&gt; 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2,…
+## $ n2                   &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 0, 2, 2, 2, 2, 2, 1, 2, 0, 2, 2, 2, 2, 2,…
+## $ n3                   &lt;dbl&gt; 1, 2, 2, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 0, 1, 0, 1, 1, 1, 1, 2,…
+## $ n4                   &lt;dbl&gt; 2, 2, 1, 2, 1, 2, 1, 2, 2, 1, 1, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 1, 1, 2, 2, 2, 1, 1, 2, 1, 1, 2, 2, 2, 1, 1, 1, 2, 2, 2, 2, 0, 1, 0, 1, 1, 1, 1, 2,…
+## $ n5                   &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 0, 1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 1, 2, 2, 1, 0, 0, 1, 1, 2, 1, 2, 0, 1, 0, 0, 2, 0, 2, 2,…
+## $ n6                   &lt;dbl&gt; 2, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 0, 1, 2, 2, 1, 2, 2, 1, 1, 1, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 1, 2, 1, 2, 2, 2, 1, 2, 0, 1, 0, 1, 2, 1, 1, 1,…
+## $ n7                   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 0, 2, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 2, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 0, 1, 0, 1, 1, 1, 1, 1,…
+## $ n8                   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 0, 2, 0, 1, 1, 1, 1, 1,…
+## $ n9                   &lt;dbl&gt; 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 2, 0, 1, 2, 2, 0, 1, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 1, 2, 1, 1, 2, 2, 1, 2, 1, 2, 0, 2, 0, 2, 1, 1,…
+## $ n10                  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2, 1, 2, 2, 0, 1, 2, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 2, 0, 1, 1, 2, 1, 2, 0, 2, 0, 0, 0, 1, 1, 1,…
+## $ n11                  &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…
+## $ n12                  &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1, 1, 2, 1, 2, 1, 2,…
+## $ n13                  &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0, 2,…
+## $ n14                  &lt;dbl&gt; 2, 2, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 0, 1, 0, 1, 0, 1, 1, 1,…
+## $ n15                  &lt;dbl&gt; 2, 2, 1, 2, 1, 2, 1, 2, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 2, 2, 2, 0, 2, 0, 2, 0, 2, 0, 1,…
+## $ n16                  &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…
+## $ n17                  &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…
+## $ n18                  &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2,…
+## $ n19                  &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…
+## $ n20                  &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2,…
+## $ n21                  &lt;dbl&gt; 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 1, 1, 1, 1, 1, 2,…
+## $ n22                  &lt;dbl&gt; 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 1, 0, 1, 2,…
+## $ n23                  &lt;dbl&gt; 2, 2, 2, 2, 0, 2, 2, 2, 2, 0, 1, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 0, 0, 0, 0, 1, 2,…
+## $ n24                  &lt;dbl&gt; 2, 2, 2, 2, 0, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 0, 1, 0, 1, 1, 2,…
+## $ n25                  &lt;dbl&gt; 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 0, 2, 1, 2, 1, 2,…
+## $ n26                  &lt;dbl&gt; 1, 2, 1, 2, 0, 1, 2, 2, 2, 2, 1, 1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 2, 1, 2, 2, 2, 0, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 0, 2, 0, 2, 1, 2, 1, 2,…
+## $ n27                  &lt;dbl&gt; 1, 1, 1, 2, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 2, 2, 1, 2, 2, 2, 0, 2, 1, 2, 1, 2, 1, 1, 2, 2, 2, 2, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2, 0, 1, 0, 1, 1, 1, 1, 1,…
+## $ n28                  &lt;dbl&gt; 1, 1, 1, 1, 0, 1, 2, 2, 2, 2, 1, 1, 0, 1, 2, 2, 1, 2, 0, 2, 0, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 0, 1, 0, 1, 1, 1, 1, 1,…
+## $ n29                  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 1, 2, 1, 2, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 0, 1, 0, 0, 1, 0, 1, 1,…
+## $ n30                  &lt;dbl&gt; 1, 1, 1, 1, 0, 1, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 0, 1, 1, 1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 0, 1, 0, 0, 1, 0, 1, 1,…
+## $ n31                  &lt;dbl&gt; NA, NA, NA, 1, NA, NA, 1, 1, 2, NA, NA, NA, NA, NA, 2, 1, NA, 2, 1, 1, NA, NA, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 1, NA, NA, 1, NA, NA, 2, NA…
+## $ n32                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 1, 1, 1, 0, NA, NA, NA, NA, 2, 1, NA, 1, NA, 1, NA, NA, NA, 1, NA, 2, NA, NA, NA, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, 2, …
+## $ n33                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 2, NA, 0, 1, NA, 1, NA, 2, 1, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+## $ n34                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 2, NA, 1, NA, NA, NA, NA, 1, NA, NA, 1, NA, NA, NA, NA, NA, NA, NA, 0, NA, NA, NA, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA…
+## $ n35                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 1, 2, 2, 1, NA, NA, NA, NA, 2, 1, NA, 1, NA, 1, NA, NA, NA, 1, NA, 1, NA, NA, NA, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, 2, …
+## $ n36                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 2, NA, 1, NA, NA, NA, NA, 2, NA, NA, 0, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, NA, NA, NA, NA, 0, NA, NA, NA, NA, NA, NA, NA…
+## $ IcarAssessTime       &lt;dbl&gt; NA, 5.5, 1.7, 4.2, NA, 9.7, 4.9, 7.3, 5.1, 6.0, 4.0, 4.0, 6.0, 2.0, 1.7, 1.2, 4.2, 4.4, 6.3, 6.1, 1.5, NA, 4.2, 2.6, 3.0, 4.0, 4.0, 4.0, NA, 2.0, 3.0, 2…
+## $ IcanAssessTime       &lt;dbl&gt; 4.9, 3.3, 4.3, 4.1, 7.4, 7.2, 11.3, 7.9, 10.1, 18.0, 19.0, NA, 4.0, 6.0, NA, 4.0, 2.5, 6.6, 8.6, 7.2, 3.4, 2.0, 5.0, 12.2, 5.0, 31.0, 6.0, 7.0, 11.0, 9.…
+## $ AssessmentLanguage   &lt;chr&gt; &quot;Portuguese&quot;, &quot;Portuguese&quot;, &quot;Portuguese&quot;, &quot;Portuguese&quot;, &quot;Portuguese&quot;, &quot;Portuguese&quot;, &quot;Portuguese&quot;, &quot;Portuguese&quot;, &quot;Portuguese&quot;, &quot;Portuguese&quot;, &quot;Portuguese&quot;…
+## $ AssHomeLang          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ EnrolmentStatus      &lt;chr&gt; &quot;Currently Enrolled&quot;, &quot;Currently Enrolled&quot;, &quot;Currently Enrolled&quot;, &quot;Currently Enrolled&quot;, &quot;Currently Enrolled&quot;, &quot;Currently Enrolled&quot;, &quot;Currently Enrolled&quot;…
+## $ HHWeightProvided     &lt;dbl&gt; 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 874, 87…
+## $ MPLMath              &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ MPLReading           &lt;dbl&gt; 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0,…
+## $ MPLBoth              &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ MathIRTScore         &lt;dbl&gt; -0.4698, -0.3561, -0.6499, -0.2827, -0.9941, -0.5061, -0.3150, 0.2937, -0.1369, -0.4599, -0.6125, -0.7433, -0.5397, -1.1006, 0.8170, -0.5766, -0.4831, -…
+## $ StandardErrorMath    &lt;dbl&gt; 0.13, 0.14, 0.12, 0.15, 0.15, 0.13, 0.14, 0.17, 0.15, 0.13, 0.12, 0.12, 0.13, 0.17, 0.26, 0.12, 0.13, 0.16, 0.14, 0.13, 0.13, 0.16, 0.13, 0.15, 0.13, 0.…
+## $ ReadingIRTScore      &lt;dbl&gt; -2.84, 0.88, -2.84, 0.42, -2.84, -0.48, -1.41, 0.62, -0.24, -2.09, -1.64, -2.09, -1.71, -2.84, 0.38, -1.71, -1.41, 1.55, 0.56, -1.41, -2.09, -1.10, 0.25…
+## $ StandardErrorReading &lt;dbl&gt; 0.961, 0.313, 0.961, 0.119, 0.961, 0.122, 0.472, 0.183, 0.097, 0.726, 0.564, 0.726, 0.590, 0.961, 0.109, 0.590, 0.472, 0.703, 0.159, 0.472, 0.726, 0.340…</code></pre>
+<p>There are 96 542 rows and 147 variables in the ICAN-ICAR 2025 data. The output also indicates that most of the variables are doubles (numeric format) and a few characters.</p>
+</div>
+<div id="survey-design-object" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Survey Design Object<a href="getting-started.html#survey-design-object" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The design object is the backbone for survey analysis. It is where we specify the sampling design, weights, and other necessary information to ensure we account for errors in the data. Before creating the design object, we should carefully review the survey documentation to understand how to create the design object for accurate analysis. We use <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/1132">DataFirst’s metadata record</a> on the ICAN-ICAR 2025 survey for this purpose.</p>
+<p>In this section, we provide details how to code the design object for the ICAN-ICAR 2025 survey. @fig-pal-sampling-process illustrates the construction of survey design. While we recommend conducting exploratory data analysis on the original data before diving into complex survey analysis, the actual survey analysis and inference should be performed with the survey design objects instead of the original survey data. For example, the ICAN-ICAR 2025 data is called <code>icanicar_2025</code>. If we create a survey design object called <code>icanicar_des</code>, our survey analyses should begin with <code>icanicar_des</code> and not <code>icanicar_2025</code>. Using the survey design object ensures that our calculations appropriately account for the details of the survey design.</p>
+<p>The <code>icanicar_des</code> uses a stratified cluster sampling design. Therefore, we need to specify variables for <code>strata</code> and <code>ids</code> (cluster) and fill in the <code>nest</code> argument. In the first stage of the survey, Enumeration Areas (EAs) were selected as the primary sampling unit (PSUs) from the national sampling frames, attained from the country’s government statistics agencies, using the probability proportional to size. The sample is stratified by the first-level administrative division (provinces, districts, etc.). In the second stage, 20 households were selected in each sampled EA. The planned sample size is 222 EAs per country and approximately 4440 households per country. More information is provided in the <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/1132">metadata record</a> for the dataset.</p>
+<div class="figure"><span style="display:block;" id="fig:fig-pal-sampling-process"></span>
+<img src="figs/samplingdesignchart2.png" alt="Illustration of the ICAN-ICAR multi-stage sampling process." width="100%" />
+<p class="caption">
+Figure 6.1: Illustration of the ICAN-ICAR multi-stage sampling process.
+</p>
+</div>
+<p>Survey weight approximates how many population units a sampled unit represents. In its simplest form, the design weight equals the inverse of the selection probability. If a household had a 1 in 500 chance of selection, its basic weight would be 500. In other words, that household represents 500 households in the population of interest. The ICAN-ICAR survey data includes a household weight variable, <code>HH_Weight_Provided</code>, which can be used for population estimate.</p>
+<p>To compensate for households that were selected but did not respond (or were missed), the weights are adjusted so that responding households “stand in” for similar households that did not respond. This may also involve post-stratification, that is, adjusting weights so that certain known totals (e.g. population by region, or by urban/rural) align with the population. These adjustments reduce bias from non-response and any sampling frame imperfections.</p>
+<p>Ignoring survey weights or clustering can make your analysis misrepresent both the population estimate and its uncertainty. If selection probabilities vary, unweighted summaries describe the sample rather than the population, whereas weighting targets the population by rebalancing each observation’s contribution. Clustering also induces correlation within PSUs, thus treating the data as a random sample typically understates standard errors and produces confidence intervals that are too narrow. Survey-aware methods incorporates the design to estimate uncertainty correctly.</p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="getting-started.html#cb338-1" tabindex="-1"></a>icanicar_des <span class="ot">&lt;-</span> icanicar_2025 <span class="sc">|&gt;</span></span>
+<span id="cb338-2"><a href="getting-started.html#cb338-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb338-3"><a href="getting-started.html#cb338-3" tabindex="-1"></a>    <span class="at">psu     =</span> <span class="fu">interaction</span>(CountryName, VillageID, <span class="at">drop =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb338-4"><a href="getting-started.html#cb338-4" tabindex="-1"></a>    <span class="at">stratum =</span> <span class="fu">interaction</span>(CountryName, TierOneUnit, <span class="at">drop =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb338-5"><a href="getting-started.html#cb338-5" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb338-6"><a href="getting-started.html#cb338-6" tabindex="-1"></a>  <span class="fu">as_survey_design</span>(</span>
+<span id="cb338-7"><a href="getting-started.html#cb338-7" tabindex="-1"></a>    <span class="at">ids     =</span> <span class="fu">c</span>(psu, HHID), <span class="co"># stage 1 = village, stage 2 = household</span></span>
+<span id="cb338-8"><a href="getting-started.html#cb338-8" tabindex="-1"></a>    <span class="at">strata  =</span> stratum,</span>
+<span id="cb338-9"><a href="getting-started.html#cb338-9" tabindex="-1"></a>    <span class="at">weights =</span> HHWeightProvided,</span>
+<span id="cb338-10"><a href="getting-started.html#cb338-10" tabindex="-1"></a>    <span class="at">nest    =</span> <span class="cn">TRUE</span></span>
+<span id="cb338-11"><a href="getting-started.html#cb338-11" tabindex="-1"></a>  )</span></code></pre></div>
+<p><strong><code>HHWeightProvided</code></strong> is the final household weight variable provided in the data. It incorporates all necessary adjustments (selection probabilities, non-response, post-stratification). On other hand, <strong><code>nest = TRUE</code></strong> is essential when cluster IDs are only unique within strata. It tells R that <code>VillageID</code> values can repeat across different strata/countries, and prevents R from treating EAs with the same ID in different countries as the same cluster.</p>
+<p>The new object displays that we have created “Stratified 2 - level Cluster Sampling design (with replacement)”. It also shows the sampling variables and the list of remaining variables in the dataset. This design object is used throughout this course to conduct survey analysis.</p>
+</div>
+</div>
+<div id="survey-analysis-process" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Survey Analysis Process<a href="getting-started.html#survey-analysis-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There is a general process for analyzing to create estimates with {srvyr} package:</p>
+<ol style="list-style-type: decimal">
+<li>Create a <code>tbl_svy</code> object (a survey object) using <code>as_survey_design</code>.</li>
+<li>Subset data (if needed) using <code>filter()</code> to create subpopulations.</li>
+<li>Specify domains of analysis using <code>group_by()</code>.</li>
+<li>Within <code>summarise()</code>, specify variables to calculate, including means, totals, proportions, quantiles, and more.</li>
+</ol>
+<p>In the next chapter we take first steps in making sense of our survey results.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro-to-data-wrangling-with-tidyverse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="understanding-distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/edit/main/05-set-up.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/DataFirst-Courses/Introduction-To-Survey-Data-Analysis-using-R/blob/main/05-set-up.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
